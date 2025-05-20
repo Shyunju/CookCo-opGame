@@ -41,7 +41,7 @@ namespace CookCo_opGame
                 _itemInHand = _tempCollider.gameObject;
                 _itemRigidBody = _itemInHand.GetComponent<Rigidbody>();
                 _itemRigidBody.useGravity = false;
-                _itemRigidBody.constraints = RigidbodyConstraints.FreezePosition;
+                _itemRigidBody.constraints = RigidbodyConstraints.FreezeAll;
                 _tempCollider = null;
                 _handCollider.enabled = false;
                 _isHandFree = false;
