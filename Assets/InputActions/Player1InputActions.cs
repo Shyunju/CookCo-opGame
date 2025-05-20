@@ -99,6 +99,33 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pick"",
+                    ""type"": ""Button"",
+                    ""id"": ""32220f16-05ee-4812-8868-c81c53cb6d9d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc346c05-d919-424c-98d0-aeeef496a89f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throw"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef55f1cf-3bc0-41d9-83f5-6719d8009d32"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -156,6 +183,39 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ebe81dd-7a82-4624-aa02-61d65effb5ed"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PC"",
+                    ""action"": ""Pick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72a1e0de-b440-41f1-95b7-ad07435d630c"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PC"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4e008c3-7711-4847-a380-ab747bbe2358"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";PC"",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -171,6 +231,33 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pick"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d35f3d2-3a23-41ff-9684-0f0e2b9d1396"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e8b36d6-4f43-4750-b10b-9c5b091c7919"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Throw"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ba8cc7a-0ca3-47f4-becb-b15a2f855540"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -228,6 +315,39 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41d9888c-a61a-4328-8702-aff9b71dbafe"",
+                    ""path"": ""<Keyboard>/numpad1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f37f652-15ae-478c-ba34-df828e4f3bc9"",
+                    ""path"": ""<Keyboard>/numpad3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0d6cf1e7-827d-450d-8132-e61de3706828"",
+                    ""path"": ""<Keyboard>/numpad2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -254,9 +374,15 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
         // Player1Actions
         m_Player1Actions = asset.FindActionMap("Player1Actions", throwIfNotFound: true);
         m_Player1Actions_Move = m_Player1Actions.FindAction("Move", throwIfNotFound: true);
+        m_Player1Actions_Pick = m_Player1Actions.FindAction("Pick", throwIfNotFound: true);
+        m_Player1Actions_Dash = m_Player1Actions.FindAction("Dash", throwIfNotFound: true);
+        m_Player1Actions_Throw = m_Player1Actions.FindAction("Throw", throwIfNotFound: true);
         // Player2Actions
         m_Player2Actions = asset.FindActionMap("Player2Actions", throwIfNotFound: true);
         m_Player2Actions_Move = m_Player2Actions.FindAction("Move", throwIfNotFound: true);
+        m_Player2Actions_Pick = m_Player2Actions.FindAction("Pick", throwIfNotFound: true);
+        m_Player2Actions_Dash = m_Player2Actions.FindAction("Dash", throwIfNotFound: true);
+        m_Player2Actions_Throw = m_Player2Actions.FindAction("Throw", throwIfNotFound: true);
     }
 
     ~@Player1InputActions()
@@ -339,6 +465,9 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player1Actions;
     private List<IPlayer1ActionsActions> m_Player1ActionsActionsCallbackInterfaces = new List<IPlayer1ActionsActions>();
     private readonly InputAction m_Player1Actions_Move;
+    private readonly InputAction m_Player1Actions_Pick;
+    private readonly InputAction m_Player1Actions_Dash;
+    private readonly InputAction m_Player1Actions_Throw;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player1Actions".
     /// </summary>
@@ -354,6 +483,18 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player1Actions/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player1Actions_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "Player1Actions/Pick".
+        /// </summary>
+        public InputAction @Pick => m_Wrapper.m_Player1Actions_Pick;
+        /// <summary>
+        /// Provides access to the underlying input action "Player1Actions/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_Player1Actions_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "Player1Actions/Throw".
+        /// </summary>
+        public InputAction @Throw => m_Wrapper.m_Player1Actions_Throw;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -383,6 +524,15 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Pick.started += instance.OnPick;
+            @Pick.performed += instance.OnPick;
+            @Pick.canceled += instance.OnPick;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+            @Throw.started += instance.OnThrow;
+            @Throw.performed += instance.OnThrow;
+            @Throw.canceled += instance.OnThrow;
         }
 
         /// <summary>
@@ -397,6 +547,15 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Pick.started -= instance.OnPick;
+            @Pick.performed -= instance.OnPick;
+            @Pick.canceled -= instance.OnPick;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+            @Throw.started -= instance.OnThrow;
+            @Throw.performed -= instance.OnThrow;
+            @Throw.canceled -= instance.OnThrow;
         }
 
         /// <summary>
@@ -435,6 +594,9 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player2Actions;
     private List<IPlayer2ActionsActions> m_Player2ActionsActionsCallbackInterfaces = new List<IPlayer2ActionsActions>();
     private readonly InputAction m_Player2Actions_Move;
+    private readonly InputAction m_Player2Actions_Pick;
+    private readonly InputAction m_Player2Actions_Dash;
+    private readonly InputAction m_Player2Actions_Throw;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player2Actions".
     /// </summary>
@@ -450,6 +612,18 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player2Actions/Move".
         /// </summary>
         public InputAction @Move => m_Wrapper.m_Player2Actions_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "Player2Actions/Pick".
+        /// </summary>
+        public InputAction @Pick => m_Wrapper.m_Player2Actions_Pick;
+        /// <summary>
+        /// Provides access to the underlying input action "Player2Actions/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_Player2Actions_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "Player2Actions/Throw".
+        /// </summary>
+        public InputAction @Throw => m_Wrapper.m_Player2Actions_Throw;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -479,6 +653,15 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Pick.started += instance.OnPick;
+            @Pick.performed += instance.OnPick;
+            @Pick.canceled += instance.OnPick;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+            @Throw.started += instance.OnThrow;
+            @Throw.performed += instance.OnThrow;
+            @Throw.canceled += instance.OnThrow;
         }
 
         /// <summary>
@@ -493,6 +676,15 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Pick.started -= instance.OnPick;
+            @Pick.performed -= instance.OnPick;
+            @Pick.canceled -= instance.OnPick;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+            @Throw.started -= instance.OnThrow;
+            @Throw.performed -= instance.OnThrow;
+            @Throw.canceled -= instance.OnThrow;
         }
 
         /// <summary>
@@ -553,6 +745,27 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Throw" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnThrow(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player2Actions" which allows adding and removing callbacks.
@@ -568,5 +781,26 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Throw" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnThrow(InputAction.CallbackContext context);
     }
 }
