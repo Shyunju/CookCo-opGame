@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Events;
 
 namespace CookCo_opGame
 {
@@ -26,6 +25,7 @@ namespace CookCo_opGame
             _player1MoveAction.canceled += OnPlayerMove;
 
             _player1PickAction.performed += OnPlayerPick;
+            _player1ThrowAction.performed += OnPlayerThrow;
 
             _player1MoveAction.Enable();
         }

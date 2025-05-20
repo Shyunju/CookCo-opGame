@@ -21,10 +21,11 @@ namespace CookCo_opGame
             _player2DashAction = _player2Map.FindAction("Dash");
             _player2ThrowAction = _player2Map.FindAction("Throw");
 
-
             _player2MoveAction.performed += OnPlayerMove;
             _player2MoveAction.canceled += OnPlayerMove;
+
             _player2PickAction.performed += OnPlayerPick;
+            _player2ThrowAction.performed += OnPlayerThrow;
 
             _player2MoveAction.Enable();
         }

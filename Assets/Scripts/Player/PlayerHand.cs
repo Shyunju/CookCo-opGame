@@ -9,8 +9,10 @@ namespace CookCo_opGame
         private Collider _tempCollider;
         private bool _isHandFree = true;
         private bool _canPickUp = false;
-        private Rigidbody _itemRigidBody;
         public bool CanPickUp { get { return _canPickUp; } }
+        private Rigidbody _itemRigidBody;
+        private float _throwForce = 13f;
+    
         [SerializeField] private GameObject _itemInHand;
         void Start()
         {
@@ -27,6 +29,9 @@ namespace CookCo_opGame
             _canPickUp = false;
             _tempCollider = null;
         }
+
+
+        //집기
         public void PickUpItem()
         {
             if (_isHandFree && _canPickUp)
@@ -36,6 +41,7 @@ namespace CookCo_opGame
                 _itemInHand = _tempCollider.gameObject;
                 _itemRigidBody = _itemInHand.GetComponent<Rigidbody>();
                 _itemRigidBody.useGravity = false;
+                _itemRigidBody.constraints = RigidbodyConstraints.FreezePosition;
                 _tempCollider = null;
                 _handCollider.enabled = false;
                 _isHandFree = false;
@@ -43,15 +49,32 @@ namespace CookCo_opGame
             }
             return;
         }
+
+
+        //놓기
         public void PutDownItem()
         {
             if (_itemInHand != null)
             {
                 _itemRigidBody.useGravity = true;
+                _itemRigidBody.constraints = RigidbodyConstraints.None;
                 _itemInHand.transform.SetParent(null);
                 _itemInHand = null;
                 _isHandFree = true;
                 _handCollider.enabled = true;
+            }
+            return;
+        }
+
+
+        //던지기
+        public void ThrowItem()
+        {
+            if (_itemInHand != null)
+            {
+                _itemRigidBody.constraints = RigidbodyConstraints.None;
+                _itemRigidBody.AddForce(transform.forward * _throwForce, ForceMode.VelocityChange);
+                PutDownItem();
             }
             return;
         }
