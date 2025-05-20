@@ -26,6 +26,7 @@ namespace CookCo_opGame
 
             _player2PickAction.performed += OnPlayerPick;
             _player2ThrowAction.performed += OnPlayerThrow;
+            _player2DashAction.performed += OnPlayerDash;
 
             _player2MoveAction.Enable();
         }

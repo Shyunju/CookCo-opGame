@@ -48,6 +48,10 @@ namespace CookCo_opGame
         {
             _playerHand.ThrowItem();
         }
-        
+
+        public void OnPlayerDash(InputAction.CallbackContext context)
+        {
+            StartCoroutine(_playerMove.DashMoveCo());
+        }
     }
 }

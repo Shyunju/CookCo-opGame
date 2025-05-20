@@ -11,7 +11,7 @@ namespace CookCo_opGame
         private bool _canPickUp = false;
         public bool CanPickUp { get { return _canPickUp; } }
         private Rigidbody _itemRigidBody;
-        private float _throwForce = 13f;
+        private float _throwForce = 15f;
     
         [SerializeField] private GameObject _itemInHand;
         void Start()

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace CookCo_opGame
@@ -5,13 +6,16 @@ namespace CookCo_opGame
     public class PlayerMove : MonoBehaviour
     {
         private Vector3 _moveDirection;
-        public Vector3 MoveDirection {get { return _moveDirection; }set { _moveDirection = value; } }
-        private float _moveSpeed = 6f;
+        public Vector3 MoveDirection { get { return _moveDirection; } set { _moveDirection = value; } }
+        private float _moveSpeed;
+        private float _defaultSpeed = 6f;
+        private float _dashSpeed = 18f;
         private Rigidbody _playerRigidBody;
         private float _rotationSpeed = 8f;
         void Start()
         {
             _playerRigidBody = GetComponent<Rigidbody>();
+            _moveSpeed = _defaultSpeed;
         }
         public void MoveCharacter()
         {
@@ -27,6 +31,13 @@ namespace CookCo_opGame
                 Vector3 movement = _moveDirection.normalized * _moveSpeed * Time.fixedDeltaTime;
                 _playerRigidBody.MovePosition(_playerRigidBody.position + movement);
             }
+        }
+
+        public IEnumerator DashMoveCo()
+        {
+            _moveSpeed = _dashSpeed;
+            yield return new WaitForSeconds(0.2f);
+            _moveSpeed = _defaultSpeed;
         }
     }
 }
