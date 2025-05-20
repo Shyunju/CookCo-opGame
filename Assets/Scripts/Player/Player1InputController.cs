@@ -16,7 +16,8 @@ namespace CookCo_opGame
 
             _player1MoveAction = _player1Map.FindAction("Move");
 
-            //_player1MoveAction.performed += OnPlayer1Move;
+            _player1MoveAction.performed += OnPlayerMove;
+            _player1MoveAction.canceled += OnPlayerMove;
 
             _player1MoveAction.Enable();
         }

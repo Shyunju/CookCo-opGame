@@ -548,59 +548,14 @@ GameObject:
   - component: {fileID: 1044199081}
   - component: {fileID: 1044199080}
   - component: {fileID: 1044199078}
-  - component: {fileID: 1044199077}
+  - component: {fileID: 1044199085}
   m_Layer: 0
-  m_Name: Player1 (1)
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1044199077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1044199076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 553947a14779e40098bab60fbd8f098e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerInputActions: {fileID: -944628639613478452, guid: ed1dc504a88a64206a21bc8bf35a9d50, type: 3}
-  _player1Map:
-    m_Name: 
-    m_Id: 
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
-  _player2Map:
-    m_Name: 
-    m_Id: 
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
-  _player1MoveAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: c0739ece-5ed3-4d54-aa99-f95bd18d558d
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  _player2MoveAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 705ae5c8-b042-4e2a-ab47-e0dba303f157
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  moveDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 4
 --- !u!114 &1044199078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,6 +686,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1044199085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044199076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbfffce0ddd8c4c80982a1c7bb34ba65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInputActions: {fileID: -944628639613478452, guid: ed1dc504a88a64206a21bc8bf35a9d50, type: 3}
 --- !u!1 &2063270604
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,42 +860,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2063270604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 553947a14779e40098bab60fbd8f098e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fa6414836bdc407fa8667a275675f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInputActions: {fileID: -944628639613478452, guid: ed1dc504a88a64206a21bc8bf35a9d50, type: 3}
-  _player1Map:
-    m_Name: 
-    m_Id: 
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
-  _player2Map:
-    m_Name: 
-    m_Id: 
-    m_Asset: {fileID: 0}
-    m_Actions: []
-    m_Bindings: []
-  _player1MoveAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 50b19102-d85c-4a3e-8fbd-17d4f529891c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  _player2MoveAction:
-    m_Name: 
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 479f9c66-acb2-4657-b813-61ec1d715c90
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  moveDirection: {x: 0, y: 0, z: 0}
-  moveSpeed: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
