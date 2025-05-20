@@ -78,3 +78,8 @@ crashlytics-build.properties
 *.tmp
 *.txt
 /Assets/TextMesh Pro/
+
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
