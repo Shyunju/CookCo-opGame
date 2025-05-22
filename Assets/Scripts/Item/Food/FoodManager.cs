@@ -12,8 +12,9 @@ namespace CookCo_opGame
             Grilled,
             Mixed
         }
-        ItemState _currentState = ItemState.None;
+        [SerializeField] ItemState _currentState = ItemState.None;
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
+
         
     }
 }

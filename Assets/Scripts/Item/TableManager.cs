@@ -9,6 +9,14 @@ namespace CookCo_opGame
         Collider _topOfTableCollider;
         public Collider TopOfTableCollider { get { return _topOfTableCollider; } set{ _topOfTableCollider = value; }}
 
+        public enum TablePurpose
+        {
+            None,
+            Box,
+            Cut,
+            Fire
+        }
+
         void OnTriggerStay(Collider other)
         {
             if ((other.tag == "Food" || other.tag == "Tool") && !_isFull)
