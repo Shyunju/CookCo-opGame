@@ -2,30 +2,62 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class ItemManager : MonoBehaviour
+    public abstract class ItemManager : MonoBehaviour
     {
-        //포지션, 로테이션 얼리기
-        //콜라이더 트리거로 변환
-        //그래비티 오프
-        //부모 위치 바꾸기
-        //부모기준 위치 제로
-        //
         Rigidbody _itemRigidbody;
-        ItemState _currentState;
-        public ItemState CurrentState {get { return _currentState;} set { _currentState = value; } }
+        Collider _itemCollider;
+        
+        bool _isGrabed;
+        public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
+        bool _onTable = false;
+        public bool OnTable { get { return _onTable; } set { _onTable = value;}}
+        TableManager _currentTable;
 
-        public enum ItemState
-        {
-            None,
-            Grab,
-            Sliced,
-            Boiled,
-            Grilled,
-            Mixed
-        }
+        
         void Start()
         {
             _itemRigidbody = GetComponent<Rigidbody>();
+        }
+        public void PickedUp(GameObject parent)
+        {
+            if (parent.tag == "Hand")
+            {
+                IsGrabed = true;
+                if (_currentTable != null)
+                {
+                    _currentTable.TopOfTableCollider.enabled = false;
+                    _currentTable.TopOfTableCollider.enabled = true;
+                    _currentTable.IsFull = false;
+                }
+            }
+            if (parent.tag == "Table")
+            {
+                _currentTable = parent.GetComponent<TableManager>();
+            }
+            this.transform.SetParent(parent.transform, true);
+            this.transform.rotation = Quaternion.identity;
+            this.transform.localPosition = Vector3.zero;
+            // Vector3 originalScale = transform.lossyScale;
+            // Vector3 parentScale = transform.parent != null ? transform.parent.lossyScale : Vector3.one;
+            // transform.localScale = new Vector3(
+            //     originalScale.x / parentScale.x,
+            //     originalScale.y / parentScale.y,
+            //     originalScale.z / parentScale.z
+            // );      
+
+            _itemRigidbody.useGravity = false;
+            _itemRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            if (OnTable)
+            {
+                _itemRigidbody.constraints &= ~RigidbodyConstraints.FreezeRotationY;
+            }
+        }
+        public void PutDown()
+        {
+            IsGrabed = false;
+            this.transform.SetParent(null);
+            _itemRigidbody.useGravity = true;
+            _itemRigidbody.constraints = RigidbodyConstraints.None;
         }
     }
 }

@@ -5,47 +5,52 @@ namespace CookCo_opGame
 {
     public class PlayerHand : MonoBehaviour
     {
-        private Collider _handCollider;
-        private Collider _tempCollider;
+        private Collider _pickUpCollider;
+        [SerializeField] private GameObject _hand;
         private bool _isHandFree = true;
         private bool _canPickUp = false;
         public bool CanPickUp { get { return _canPickUp; } }
-        private Rigidbody _itemRigidBody;
+        private Rigidbody _itemRigidbody;
         private float _throwForce = 15f;
     
         [SerializeField] private GameObject _itemInHand;
+        [SerializeField] private ItemManager _itemManager;
         void Start()
         {
-            _handCollider = GetComponent<Collider>();
+            _pickUpCollider = GetComponent<Collider>();
         }
         void OnTriggerEnter(Collider other)
         {
-            _canPickUp = true;
-            _tempCollider = other;
+            if (other.tag == "Food" || other.tag == "Tool")
+            {
+                _canPickUp = true;
+                _itemManager = other.gameObject.GetComponent<ItemManager>();
+            }
 
         }
         void OnTriggerExit(Collider other)
         {
             _canPickUp = false;
-            _tempCollider = null;
+            //_itemManager = null;
         }
 
 
         //집기
         public void PickUpItem()
         {
-            if (_isHandFree && _canPickUp)
+            if (_isHandFree && _canPickUp && _itemManager != null)
             {
-                _tempCollider.transform.SetParent(this.transform);
-                _tempCollider.transform.localPosition = Vector3.zero;
-                _itemInHand = _tempCollider.gameObject;
-                _itemRigidBody = _itemInHand.GetComponent<Rigidbody>();
-                _itemRigidBody.useGravity = false;
-                _itemRigidBody.constraints = RigidbodyConstraints.FreezeAll;
-                _tempCollider = null;
-                _handCollider.enabled = false;
-                _isHandFree = false;
-                _canPickUp = false;
+                if (!_itemManager.IsGrabed)
+                {
+                    _itemInHand = _itemManager.gameObject;
+                    _itemRigidbody = _itemInHand.GetComponent<Rigidbody>();
+                    _itemManager.OnTable = false;
+                    _itemManager.IsGrabed = true;
+                    //_itemManager.PickedUp(this.gameObject);
+                    _itemManager.PickedUp(_hand);
+                    _isHandFree = false;
+                    _canPickUp = false;                    
+                }
             }
             return;
         }
@@ -56,12 +61,13 @@ namespace CookCo_opGame
         {
             if (_itemInHand != null)
             {
-                _itemRigidBody.useGravity = true;
-                _itemRigidBody.constraints = RigidbodyConstraints.None;
-                _itemInHand.transform.SetParent(null);
+                _itemManager.PutDown();
+                _itemManager = null;
                 _itemInHand = null;
                 _isHandFree = true;
-                _handCollider.enabled = true;
+                _canPickUp = true;
+                _pickUpCollider.enabled = false;
+                _pickUpCollider.enabled = true;
             }
             return;
         }
@@ -72,8 +78,8 @@ namespace CookCo_opGame
         {
             if (_itemInHand != null)
             {
-                _itemRigidBody.constraints = RigidbodyConstraints.None;
-                _itemRigidBody.AddForce(transform.forward * _throwForce, ForceMode.VelocityChange);
+                _itemRigidbody.AddForce(transform.forward * _throwForce, ForceMode.VelocityChange);
+                _itemRigidbody.constraints = RigidbodyConstraints.None;
                 PutDownItem();
             }
             return;
