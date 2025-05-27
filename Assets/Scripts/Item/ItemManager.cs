@@ -49,7 +49,7 @@ namespace CookCo_opGame
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeAll;
             if (OnTable)
             {
-                _itemRigidbody.constraints &= ~RigidbodyConstraints.FreezeRotationY;
+                _itemRigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
             }
         }
         public void PutDown()
@@ -58,6 +58,7 @@ namespace CookCo_opGame
             this.transform.SetParent(null);
             _itemRigidbody.useGravity = true;
             _itemRigidbody.constraints = RigidbodyConstraints.None;
+            _itemRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 }
