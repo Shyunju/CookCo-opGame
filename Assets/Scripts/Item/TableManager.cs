@@ -17,27 +17,27 @@ namespace CookCo_opGame
             Fire
         }
 
-        void OnTriggerStay(Collider other)
-        {
-            if ((other.tag == "Food" || other.tag == "Tool") && !_isFull)
-            {
-                ItemManager itemManager = other.gameObject.GetComponent<ItemManager>();
-                if (itemManager != null)
-                {
-                    if (!itemManager.IsGrabed)
-                    {
-                        itemManager.OnTable = true;
-                        itemManager.PickedUp(this.gameObject);
-                        _isFull = true;
-                    }
-                }
-            }
+        // void OnTriggerStay(Collider other)
+        // {
+        //     if ((other.tag == "Food" || other.tag == "Tool") && !_isFull)
+        //     {
+        //         ItemManager itemManager = other.gameObject.GetComponent<ItemManager>();
+        //         if (itemManager != null)
+        //         {
+        //             if (!itemManager.IsGrabed)
+        //             {
+        //                 itemManager.OnTable = true;
+        //                 itemManager.PickedUp(this.gameObject);
+        //                 _isFull = true;
+        //             }
+        //         }
+        //     }
 
-        }
-        void OnTriggerExit(Collider other)
-        {
-            _isFull = false;
-        }
+        // }
+        // void OnTriggerExit(Collider other)
+        // {
+        //     _isFull = false;
+        // }
         
     }
 }

@@ -32,6 +32,7 @@ namespace CookCo_opGame
             }
             if (parent.tag == "Table")
             {
+                IsGrabed = false;
                 _currentTable = parent.GetComponent<TableManager>();
             }
             this.transform.SetParent(parent.transform, true);
