@@ -7,11 +7,9 @@ namespace CookCo_opGame
         [SerializeField] float rayDistance;
         PlayerHand _playerHand;
         RaycastHit _hit;
-        int layerMask;
         void Start()
         {
             _playerHand = GetComponentInChildren<PlayerHand>();
-            layerMask = ~(1 << LayerMask.NameToLayer("Item"));
         }
         void Update()
         {
@@ -20,20 +18,17 @@ namespace CookCo_opGame
         }
         private void ShootRay()
         {
-            if (Physics.Raycast(transform.position, transform.forward, out _hit, rayDistance, layerMask))
+            if (Physics.Raycast(transform.position, transform.forward, out _hit, rayDistance, LayerMask.GetMask("Table")))
             {
-                if (_hit.collider.gameObject.tag == "Table")
-                {
-                    _playerHand.FrontTable = _hit.collider.gameObject;
-                    _playerHand.TableManager = _hit.collider.gameObject.GetComponent<TableManager>();
-                }
+                _playerHand.FrontTable = _hit.collider.gameObject;
+                _playerHand.CurTableManager = _hit.collider.gameObject.GetComponent<TableManager>();
             }
             else
             {
                 _playerHand.FrontTable = null;
                 if (_playerHand.FrontTable != null)
                 {
-                    _playerHand.TableManager = null;
+                    _playerHand.CurTableManager = null;
                 }
             }
         }

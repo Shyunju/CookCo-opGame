@@ -7,14 +7,14 @@ namespace CookCo_opGame
         Rigidbody _itemRigidbody;
         Collider _itemCollider;
         
-        bool _isGrabed;
+        [SerializeField] bool _isGrabed;
         public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
-        bool _onTable = false;
+        [SerializeField] bool _onTable = false;
         public bool OnTable { get { return _onTable; } set { _onTable = value;}}
-        TableManager _currentTable;
+        [SerializeField] TableManager _currentTable;
 
         
-        void Start()
+        void Awake()
         {
             _itemRigidbody = GetComponent<Rigidbody>();
         }
@@ -25,26 +25,23 @@ namespace CookCo_opGame
                 IsGrabed = true;
                 if (_currentTable != null)
                 {
-                    _currentTable.TopOfTableCollider.enabled = false;
-                    _currentTable.TopOfTableCollider.enabled = true;
+                    _currentTable.CurrentItem = null;
                     _currentTable.IsFull = false;
+                    _currentTable = null;
+                    OnTable = false;
                 }
             }
             if (parent.tag == "Table")
             {
                 IsGrabed = false;
                 _currentTable = parent.GetComponent<TableManager>();
+                _currentTable.IsFull = true;
+                _currentTable.CurrentItem = this.gameObject;
+                OnTable = true;
             }
             this.transform.SetParent(parent.transform, true);
             this.transform.rotation = Quaternion.identity;
             this.transform.localPosition = Vector3.zero;
-            // Vector3 originalScale = transform.lossyScale;
-            // Vector3 parentScale = transform.parent != null ? transform.parent.lossyScale : Vector3.one;
-            // transform.localScale = new Vector3(
-            //     originalScale.x / parentScale.x,
-            //     originalScale.y / parentScale.y,
-            //     originalScale.z / parentScale.z
-            // );      
 
             _itemRigidbody.useGravity = false;
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeAll;
@@ -56,6 +53,7 @@ namespace CookCo_opGame
         public void PutDown()
         {
             IsGrabed = false;
+            OnTable = false;
             this.transform.SetParent(null);
             _itemRigidbody.useGravity = true;
             _itemRigidbody.constraints = RigidbodyConstraints.None;

@@ -46,7 +46,14 @@ namespace CookCo_opGame
 
         public void OnPlayerThrow(InputAction.CallbackContext context)
         {
-            _playerHand.ThrowItem();
+            if (_playerHand.IsHandFree)
+            {
+                _playerHand.CookAnimation();
+            }
+            else
+            {
+                _playerHand.ThrowItem();                
+            }
         }
 
         public void OnPlayerDash(InputAction.CallbackContext context)

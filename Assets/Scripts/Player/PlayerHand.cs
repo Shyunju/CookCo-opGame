@@ -8,6 +8,7 @@ namespace CookCo_opGame
         private Collider _pickUpCollider;
         [SerializeField] private GameObject _hand;
         private bool _isHandFree = true;
+        public bool IsHandFree {get { return _isHandFree; } set{ _isHandFree = value; } }
         [SerializeField] private bool _canPickUp = false;
         public bool CanPickUp { get { return _canPickUp; } }
         private Rigidbody _itemRigidbody;
@@ -15,17 +16,17 @@ namespace CookCo_opGame
 
         [SerializeField] private GameObject _itemInHand;
         [SerializeField] private ItemManager _itemManager;
-        
+
         [SerializeField] GameObject _frontTable;
         public GameObject FrontTable { get { return _frontTable; } set { _frontTable = value; } }
-        [SerializeField] TableManager _tableManager;
-        public TableManager TableManager { get { return _tableManager; } set { _tableManager = value;}}
+        [SerializeField] TableManager _curTableManager;
+        public TableManager CurTableManager { get { return _curTableManager; } set { _curTableManager = value; } }
 
-        
+
         void Start()
         {
             _pickUpCollider = GetComponent<Collider>();
-            
+
         }
         void OnTriggerEnter(Collider other)
         {
@@ -68,22 +69,22 @@ namespace CookCo_opGame
         {
             if (_itemInHand != null)
             {
+                _itemManager.PutDown();
                 if (_frontTable != null)
                 {
-                    if (!_tableManager.IsFull)
+                    if (!_curTableManager.IsFull)
                     {
                         //Debug.Log("adsf");
                         _itemManager.PickedUp(_frontTable);
-                        _tableManager.IsFull = true;
+                        _curTableManager.IsFull = true;
                     }
-                        
+
                 }
                 else
                 {
-                    _itemManager.PutDown();
                 }
                 _frontTable = null;
-                _tableManager = null;
+                _curTableManager = null;
                 _itemManager = null;
                 _itemInHand = null;
                 _isHandFree = true;
@@ -105,6 +106,25 @@ namespace CookCo_opGame
                 PutDownItem();
             }
             return;
+        }
+
+        public void CookAnimation()
+        {
+            if (FrontTable != null)  //손이 비었고 앞에 테이블이 있음
+            {
+                CurTableManager.PerformPurpose();
+                switch (CurTableManager.purpose)
+                {
+                    case TableManager.TablePurpose.None:
+                        break;
+                    case TableManager.TablePurpose.Box:
+                        break;
+                    case TableManager.TablePurpose.Cut:
+                        break;
+                    case TableManager.TablePurpose.Fire:
+                        break;
+                }
+            }
         }
 
         
