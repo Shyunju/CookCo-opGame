@@ -112,17 +112,19 @@ namespace CookCo_opGame
         {
             if (FrontTable != null)  //손이 비었고 앞에 테이블이 있음
             {
-                CurTableManager.PerformPurpose();
-                switch (CurTableManager.purpose)
+                if (CurTableManager.PerformPurpose())
                 {
-                    case TableManager.TablePurpose.None:
-                        break;
-                    case TableManager.TablePurpose.Box:
-                        break;
-                    case TableManager.TablePurpose.Cut:
-                        break;
-                    case TableManager.TablePurpose.Fire:
-                        break;
+                    switch (CurTableManager.purpose)
+                        {
+                            case TableManager.TablePurpose.None:
+                                break;
+                            case TableManager.TablePurpose.Box:
+                                break;
+                            case TableManager.TablePurpose.Cut:
+                                break;
+                            case TableManager.TablePurpose.Fire:
+                                break;
+                        }                    
                 }
             }
         }

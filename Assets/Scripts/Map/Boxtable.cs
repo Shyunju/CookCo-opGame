@@ -9,14 +9,15 @@ namespace CookCo_opGame
         {
             _purpose = TablePurpose.Box;
         }
-        public override void PerformPurpose()
+        public override bool PerformPurpose()
         {
             if (!IsFull)
             {
-                CurrentItem = Instantiate(_itemInBox, transform.position, Quaternion.identity)as GameObject;
+                CurrentItem = Instantiate(_itemInBox, transform.position, Quaternion.identity) as GameObject;
                 CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
-                //IsFull = true;                
+                return true;
             }
+            return false;
         }
         public void PlayAnimation()
         {

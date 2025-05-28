@@ -19,7 +19,7 @@ namespace CookCo_opGame
             Cut,
             Fire
         }
-        public abstract void PerformPurpose();
+        public abstract bool PerformPurpose();
         
     }
 }
