@@ -10,7 +10,8 @@ namespace CookCo_opGame
             Sliced,
             Boiled,
             Grilled,
-            Mixed
+            Mixed,
+            Complete
         }
         [SerializeField] ItemState _currentState = ItemState.None;
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }

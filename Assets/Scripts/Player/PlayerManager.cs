@@ -26,9 +26,9 @@ namespace CookCo_opGame
             else
             {
                 _playerHand.FrontTable = null;
+                _playerHand.CurTableManager = null;
                 if (_playerHand.FrontTable != null)
                 {
-                    _playerHand.CurTableManager = null;
                 }
             }
         }

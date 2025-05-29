@@ -40,7 +40,10 @@ namespace CookCo_opGame
         void OnTriggerExit(Collider other)
         {
             _canPickUp = false;
-            //_itemManager = null;
+            if (_itemInHand == null)
+            {
+                _itemManager = null;                
+            }
         }
 
 
@@ -51,6 +54,7 @@ namespace CookCo_opGame
             {
                 if (!_itemManager.IsGrabed)
                 {
+                    _pickUpCollider.enabled = false;
                     _itemInHand = _itemManager.gameObject;
                     _itemRigidbody = _itemInHand.GetComponent<Rigidbody>();
                     _itemManager.OnTable = false;
@@ -69,30 +73,31 @@ namespace CookCo_opGame
         {
             if (_itemInHand != null)
             {
-                _itemManager.PutDown();
-                if (_frontTable != null)
+                if (FrontTable != null)
                 {
-                    if (!_curTableManager.IsFull)
+                    if (CurTableManager != null && CurTableManager.IsFull)
                     {
-                        //Debug.Log("adsf");
-                        _itemManager.PickedUp(_frontTable);
-                        _curTableManager.IsFull = true;
+                        return;
                     }
-
+                    _itemManager.PutDown();
+                    _itemManager.PickedUp(FrontTable);
                 }
                 else
                 {
+                    _itemManager.PutDown();
                 }
-                _frontTable = null;
+                
                 _curTableManager = null;
                 _itemManager = null;
                 _itemInHand = null;
                 _isHandFree = true;
                 _canPickUp = true;
-                _pickUpCollider.enabled = false;
+                
+                
                 _pickUpCollider.enabled = true;
             }
             return;
+
         }
 
 

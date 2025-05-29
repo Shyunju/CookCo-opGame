@@ -13,6 +13,7 @@ namespace CookCo_opGame
         {
             if (CurrentItem != null)
             {
+                StartCoroutine(CutFoodCo());
                 return true;
             }
             return false;
@@ -20,6 +21,7 @@ namespace CookCo_opGame
         IEnumerator CutFoodCo()
         {
             yield return new WaitForSeconds(.2f);
+            Debug.Log("cut");
         }
     }
 }

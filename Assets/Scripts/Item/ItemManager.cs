@@ -8,7 +8,7 @@ namespace CookCo_opGame
         Rigidbody _itemRigidbody;
         [SerializeField] GameObject _stateUI;
         [SerializeField] Image _stateBar;
-        float _stateBarScale;
+        float _targetStateBarScale;
         
         [SerializeField] bool _isGrabed;
         public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
@@ -16,6 +16,10 @@ namespace CookCo_opGame
         public bool OnTable { get { return _onTable; } set { _onTable = value;}}
         [SerializeField] TableManager _currentTable;
         bool _isCooking = false;
+        [SerializeField] float _duration;
+        public float Duration { get { return _duration;} set { _duration = value; } }
+        private float _elapsed = 0f;
+
 
         
         void Awake()
@@ -24,15 +28,17 @@ namespace CookCo_opGame
         }
         void Start()
         {
-            _stateBarScale = _stateBar.rectTransform.rect.width;
+            _targetStateBarScale = _stateBar.rectTransform.rect.width;
         }
         void FixedUpdate()
         {
-            if (_isCooking)
+            if (_isCooking && _elapsed < _duration)
             {
                 _stateUI.SetActive(true);
-                _stateBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _stateBarScale * Time.deltaTime);
-
+                _elapsed += Time.deltaTime;
+                float gab = Mathf.Clamp01(_elapsed / _duration);
+                float currentWidth = Mathf.Lerp(0, _targetStateBarScale, gab);
+                _stateBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentWidth);
             }
         }
         public void PickedUp(GameObject parent)
