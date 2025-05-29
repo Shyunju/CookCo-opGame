@@ -20,6 +20,7 @@ namespace CookCo_opGame
             Fire
         }
         public abstract bool PerformPurpose();
+        public abstract void ChaingeState(GameObject item);
         
     }
 }

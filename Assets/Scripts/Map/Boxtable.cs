@@ -23,5 +23,11 @@ namespace CookCo_opGame
         {
 
         }
+
+        public override void ChaingeState(GameObject item)
+        {
+            ItemManager itemManager = item.GetComponent<ItemManager>();
+            itemManager.CurrentState = ItemState.None;
+        }
     }
 }

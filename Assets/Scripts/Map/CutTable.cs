@@ -13,15 +13,29 @@ namespace CookCo_opGame
         {
             if (CurrentItem != null)
             {
-                StartCoroutine(CutFoodCo());
-                return true;
+                ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
+                if (itemManager != null && itemManager.CurrentState == ItemState.None)
+                {
+                    StartCoroutine(CutFoodCo());
+                    return true;                    
+                }
             }
             return false;
         }
         IEnumerator CutFoodCo()
         {
             yield return new WaitForSeconds(.2f);
-            Debug.Log("cut");
+            ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
+            itemManager.Duration = 3f;
+            itemManager.IsCooking = true;
+        }
+        public override void ChaingeState(GameObject item)
+        {
+            FoodManager foodManager = item.GetComponent<FoodManager>();
+            if (foodManager != null)
+            {
+                foodManager.CurrentState = ItemState.Sliced;                
+            }
         }
     }
 }

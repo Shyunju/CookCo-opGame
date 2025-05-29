@@ -9,19 +9,22 @@ namespace CookCo_opGame
         [SerializeField] GameObject _stateUI;
         [SerializeField] Image _stateBar;
         float _targetStateBarScale;
-        
+
         [SerializeField] bool _isGrabed;
         public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
         [SerializeField] bool _onTable = false;
-        public bool OnTable { get { return _onTable; } set { _onTable = value;}}
+        public bool OnTable { get { return _onTable; } set { _onTable = value; } }
         [SerializeField] TableManager _currentTable;
-        bool _isCooking = false;
-        [SerializeField] float _duration;
-        public float Duration { get { return _duration;} set { _duration = value; } }
+        [SerializeField] bool _isCooking = false;
+        public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
+        private float _duration;
+        public float Duration { get { return _duration; } set { _duration = value; } }
         private float _elapsed = 0f;
+        [SerializeField] ItemState _currentState = ItemState.None;
+        public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
 
 
-        
+
         void Awake()
         {
             _itemRigidbody = GetComponent<Rigidbody>();
@@ -32,13 +35,24 @@ namespace CookCo_opGame
         }
         void FixedUpdate()
         {
-            if (_isCooking && _elapsed < _duration)
+            if (_isCooking)
             {
-                _stateUI.SetActive(true);
-                _elapsed += Time.deltaTime;
-                float gab = Mathf.Clamp01(_elapsed / _duration);
-                float currentWidth = Mathf.Lerp(0, _targetStateBarScale, gab);
-                _stateBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentWidth);
+                if (_elapsed >= _duration)
+                {
+                    _currentTable.ChaingeState(gameObject);
+                    _stateUI.SetActive(false);
+                    _elapsed = 0f;
+                    _isCooking = false;
+                }
+                else
+                {
+                    _stateUI.SetActive(true);
+                    _elapsed += Time.deltaTime;
+                    float gab = Mathf.Clamp01(_elapsed / _duration);
+                    float currentWidth = Mathf.Lerp(0, _targetStateBarScale, gab);
+                    _stateBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentWidth);
+                }
+                
             }
         }
         public void PickedUp(GameObject parent)
@@ -62,6 +76,7 @@ namespace CookCo_opGame
                 _currentTable.CurrentItem = this.gameObject;
                 OnTable = true;
             }
+            IsCooking = false;
             this.transform.SetParent(parent.transform, true);
             this.transform.rotation = Quaternion.identity;
             this.transform.localPosition = Vector3.zero;
@@ -82,5 +97,8 @@ namespace CookCo_opGame
             _itemRigidbody.constraints = RigidbodyConstraints.None;
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
+
+        //public abstract void ChaingeState(string state);
+        
     }
 }
