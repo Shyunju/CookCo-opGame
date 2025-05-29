@@ -3,6 +3,15 @@ using UnityEngine.UI;
 
 namespace CookCo_opGame
 {
+    public enum ItemState
+    {
+        None,
+        Sliced,
+        Boiled,
+        Grilled,
+        Mixed,
+        Complete
+    }    
     public abstract class ItemManager : MonoBehaviour
     {
         Rigidbody _itemRigidbody;
@@ -52,7 +61,7 @@ namespace CookCo_opGame
                     float currentWidth = Mathf.Lerp(0, _targetStateBarScale, gab);
                     _stateBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentWidth);
                 }
-                
+
             }
         }
         public void PickedUp(GameObject parent)
@@ -98,7 +107,6 @@ namespace CookCo_opGame
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         }
 
-        //public abstract void ChaingeState(string state);
-        
+
     }
 }

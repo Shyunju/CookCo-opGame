@@ -17,6 +17,7 @@ namespace CookCo_opGame
             None,
             Box,
             Cut,
+            Mix,
             Fire
         }
         public abstract bool PerformPurpose();

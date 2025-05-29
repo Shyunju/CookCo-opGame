@@ -5,6 +5,7 @@ namespace CookCo_opGame
 {
     public class CutTable : TableManager
     {
+        private float _cuttingDuration = 3f;
         void Start()
         {
             _purpose = TablePurpose.Cut;
@@ -26,7 +27,7 @@ namespace CookCo_opGame
         {
             yield return new WaitForSeconds(.2f);
             ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
-            itemManager.Duration = 3f;
+            itemManager.Duration = _cuttingDuration;
             itemManager.IsCooking = true;
         }
         public override void ChaingeState(GameObject item)
