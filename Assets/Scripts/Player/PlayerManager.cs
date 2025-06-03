@@ -1,9 +1,15 @@
+using System.Runtime.InteropServices;
+using UnityEditor;
 using UnityEngine;
 
 namespace CookCo_opGame
 {
     public class PlayerManager : MonoBehaviour
     {
+        [field :Header("Animaiton")]
+        [field :SerializeField] public PlayerAnimationData PlayerAnimationData { get; private set; }
+
+        public Animator Animator { get; private set; }
         [SerializeField] float rayDistance;
         PlayerHand _playerHand;
         RaycastHit _hit;
@@ -13,6 +19,7 @@ namespace CookCo_opGame
         void Start()
         {
             _playerHand = GetComponentInChildren<PlayerHand>();
+            Animator = GetComponentInChildren<Animator>();
 
         }
         void Update()
