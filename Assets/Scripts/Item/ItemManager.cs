@@ -75,6 +75,7 @@ namespace CookCo_opGame
                     _currentTable.IsFull = false;
                     _currentTable = null;
                     OnTable = false;
+                    _itemRigidbody.useGravity = false;
                 }
             }
             if (parent.tag == "Table")
@@ -90,7 +91,6 @@ namespace CookCo_opGame
             this.transform.rotation = Quaternion.identity;
             this.transform.localPosition = Vector3.zero;
 
-            _itemRigidbody.useGravity = false;
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeAll;
             if (OnTable)
             {

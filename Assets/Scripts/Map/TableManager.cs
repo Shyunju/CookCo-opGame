@@ -12,6 +12,10 @@ namespace CookCo_opGame
         [SerializeField] private GameObject _currnetItem;
         public GameObject CurrentItem { get { return _currnetItem; } set { _currnetItem = value; } }
 
+        private MeshRenderer _renderer;
+        private MaterialPropertyBlock _propBlock;
+        private Color _originalColor;
+
         public enum TablePurpose
         {
             None,
@@ -20,8 +24,33 @@ namespace CookCo_opGame
             Mix,
             Fire
         }
+        void Awake()
+        {
+            _propBlock = new MaterialPropertyBlock();
+
+            _renderer = GetComponentInParent<MeshRenderer>();
+
+            // 원래 색상 저장
+            _renderer.GetPropertyBlock(_propBlock);
+            // _Color가 없을 수도 있으므로, material의 color 사용
+            _originalColor = _renderer.material.color;
+        }
         public abstract bool PerformPurpose();
         public abstract void ChaingeState(GameObject item);
+        
+        public void SetHighlight()
+        {
+            _renderer.GetPropertyBlock(_propBlock);
+            _propBlock.SetColor("_BaseColor", Color.red);
+            _renderer.SetPropertyBlock(_propBlock);
+        }
+
+        public void ResetColor()
+        {
+            _renderer.GetPropertyBlock(_propBlock);
+            _propBlock.SetColor("_BaseColor", _originalColor);
+            _renderer.SetPropertyBlock(_propBlock);
+        }
         
     }
 }
