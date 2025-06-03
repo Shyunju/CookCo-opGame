@@ -28,7 +28,9 @@ namespace CookCo_opGame
                 {
                     if (_playerHand.FrontTable != _hit.collider.gameObject)
                     {
-                        _playerHand.CurTableManager.ResetColor();
+                        //_playerHand.CurTableManager.ResetColor();
+                        TableManager tb = _playerHand.FrontTable.GetComponent<TableManager>();
+                        tb.ResetColor();
                         SetTable(_hit.collider.gameObject);
                     }
                 }

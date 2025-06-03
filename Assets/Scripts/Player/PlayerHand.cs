@@ -117,7 +117,7 @@ namespace CookCo_opGame
         {
             if (FrontTable != null)  //손이 비었고 앞에 테이블이 있음
             {
-                if (CurTableManager.PerformPurpose())
+                if (CurTableManager != null && CurTableManager.PerformPurpose())
                 {
                     switch (CurTableManager.purpose)
                         {

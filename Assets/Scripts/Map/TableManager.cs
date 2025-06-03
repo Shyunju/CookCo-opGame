@@ -47,6 +47,11 @@ namespace CookCo_opGame
 
         public void ResetColor()
         {
+            if (CurrentItem != null)
+            {
+                ItemManager im = CurrentItem.GetComponent<ItemManager>();
+                im.IsCooking = false;
+            }
             _renderer.GetPropertyBlock(_propBlock);
             _propBlock.SetColor("_BaseColor", _originalColor);
             _renderer.SetPropertyBlock(_propBlock);
