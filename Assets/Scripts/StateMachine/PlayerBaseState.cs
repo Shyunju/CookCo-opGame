@@ -35,9 +35,7 @@ namespace CookCo_opGame
         }
         protected void StartAnimation(int animatorHash)
         {
-            Debug.Log(animatorHash);
             _stateMachine.PlayerManager.Animator.SetBool(animatorHash, true);
-            // Debug.Log("animatorHash");
         }
         protected void StopAnimation(int animatorHash)
         {

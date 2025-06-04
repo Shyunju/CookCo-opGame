@@ -13,6 +13,7 @@ namespace CookCo_opGame
         private float _dashSpeed = 18f;
         private Rigidbody _playerRigidBody;
         private float _rotationSpeed = 8f;
+        public bool _isWalking = false;
         void Start()
         {
             _playerRigidBody = GetComponent<Rigidbody>();
@@ -23,7 +24,11 @@ namespace CookCo_opGame
         {
             if (_moveDirection != Vector3.zero)
             {
-                _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.WalkState);
+                if (!_isWalking)
+                {
+                    _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.WalkState);
+                    _isWalking = true;
+                }
                 Quaternion targetRotation = Quaternion.LookRotation(_moveDirection);
                 transform.rotation = Quaternion.Slerp(
                     transform.rotation,
@@ -35,16 +40,21 @@ namespace CookCo_opGame
                 _playerRigidBody.MovePosition(_playerRigidBody.position + movement);
             }
             else
-            {                
+            {
                 _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
+                _isWalking = false;
             }
         }
 
-        public IEnumerator DashMoveCo()
+        public IEnumerator DashMoveCo()  //TODO Run애니메이션 안나오고있음
         {
+            _isWalking = true;
             _moveSpeed = _dashSpeed;
+            _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.RunState);
             yield return new WaitForSeconds(0.2f);
             _moveSpeed = _defaultSpeed;
+            _isWalking = false;
+            //_playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
         }
     }
 }
