@@ -17,7 +17,7 @@ namespace CookCo_opGame
         PlayerHand _playerHand;
         RaycastHit _hit;
 
-        private PlayerStateMachine _stateMachine;
+        public PlayerStateMachine StateMachine { get; set; }
         public PlayerController PlayerController { get; private set; }
 
 
@@ -27,13 +27,14 @@ namespace CookCo_opGame
             PlayerAnimationData.Initialize();
             Animator = GetComponentInChildren<Animator>();
 
-            _stateMachine = new PlayerStateMachine(this);
+            StateMachine = new PlayerStateMachine(this);
         }
         void Start()
         {
             _playerHand = GetComponentInChildren<PlayerHand>();
             Animator = GetComponentInChildren<Animator>();
             PlayerController = GetComponent<PlayerController>();
+            StateMachine.ChaingeState(StateMachine.IdleState);
 
         }
         void Update()
@@ -41,12 +42,12 @@ namespace CookCo_opGame
             Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
             ShootRay();
 
-            _stateMachine.HandleInput();
-            _stateMachine.Update();
+            StateMachine.HandleInput();
+            StateMachine.Update();
         }
         void FixedUpdate()
         {
-            _stateMachine.PhysicsUpdate();
+            StateMachine.PhysicsUpdate();
         }
         private void ShootRay()
         {

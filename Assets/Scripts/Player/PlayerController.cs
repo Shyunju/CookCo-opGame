@@ -24,11 +24,11 @@ namespace CookCo_opGame
         {
             if (context.canceled)
             {
-                //Input = Vector3.zero;
+                Input = Vector3.zero;
                 _playerMove.MoveDirection = Vector3.zero; // 키를 뗐을 때 멈춤
                 return;
             }
-            //Input = context.ReadValue<Vector2>();
+            Input = context.ReadValue<Vector2>();
             Vector2 input = context.ReadValue<Vector2>();
             if (input != null)
             {

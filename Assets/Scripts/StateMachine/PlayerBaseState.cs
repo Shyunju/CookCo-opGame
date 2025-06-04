@@ -12,30 +12,32 @@ namespace CookCo_opGame
             this._stateMachine = stateMachine;
             _defaultData = stateMachine.PlayerManager.PlayerOS.DefaultData;
         }
-        public void Enter()
+        public virtual void Enter()
         {
 
         }
 
-        public void Exit()
+        public virtual void Exit()
         {
         }
 
-        public void HandleInput()
+        public virtual void HandleInput()
         {
             ReadMovementInput();
         }
 
-        public void PhysicsUpdate()
+        public virtual void PhysicsUpdate()
         {
         }
 
-        public void Update()
+        public virtual void Update()
         {
         }
-        protected void StartAimation(int animatorHash)
+        protected void StartAnimation(int animatorHash)
         {
+            Debug.Log(animatorHash);
             _stateMachine.PlayerManager.Animator.SetBool(animatorHash, true);
+            // Debug.Log("animatorHash");
         }
         protected void StopAnimation(int animatorHash)
         {

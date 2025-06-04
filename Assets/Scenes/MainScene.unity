@@ -1859,6 +1859,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd121d552d6ae435ea27c02d56099d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PlayerOS>k__BackingField: {fileID: 11400000, guid: 5a946538e79c9459aae43f2f7665f3c6, type: 2}
+  <PlayerAnimationData>k__BackingField:
+    defaultParameterName: '@Default'
+    idleParameterName: Idle
+    walkParameterName: Walk
+    runParameterName: Run
+    cookParameterName: '@Cook'
+    cutParameterName: Cut
+    boilParameterName: Boil
+    grillParameterName: Grill
+    mixParameterName: Mix
   rayDistance: 2
 --- !u!136 &2063270617
 CapsuleCollider:
