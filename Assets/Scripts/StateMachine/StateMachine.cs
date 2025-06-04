@@ -13,6 +13,25 @@ namespace CookCo_opGame
     }
     public abstract class StateMachine
     {
+        protected IState currentState;
 
+        public void ChaingeState(IState state)
+        {
+            currentState?.Exit();
+            currentState = state;
+            currentState?.Enter();
+        }
+        public void HandleInput()
+        {
+            currentState?.HandleInput();
+        }
+        public void Update()
+        {
+            currentState?.Update();
+        }
+        public void PhysicsUpdate()
+        {
+            currentState?.PhysicsUpdate();
+        }
     }
 }

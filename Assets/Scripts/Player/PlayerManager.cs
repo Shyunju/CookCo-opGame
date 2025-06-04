@@ -1,31 +1,52 @@
 using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace CookCo_opGame
 {
     public class PlayerManager : MonoBehaviour
     {
+        [field :SerializeField] public PlayerOS PlayerOS { get; private set; }
         [field :Header("Animaiton")]
         [field :SerializeField] public PlayerAnimationData PlayerAnimationData { get; private set; }
+
 
         public Animator Animator { get; private set; }
         [SerializeField] float rayDistance;
         PlayerHand _playerHand;
         RaycastHit _hit;
 
+        private PlayerStateMachine _stateMachine;
+        public PlayerController PlayerController { get; private set; }
 
 
+
+        private void Awake()
+        {
+            PlayerAnimationData.Initialize();
+            Animator = GetComponentInChildren<Animator>();
+
+            _stateMachine = new PlayerStateMachine(this);
+        }
         void Start()
         {
             _playerHand = GetComponentInChildren<PlayerHand>();
             Animator = GetComponentInChildren<Animator>();
+            PlayerController = GetComponent<PlayerController>();
 
         }
         void Update()
         {
             Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
             ShootRay();
+
+            _stateMachine.HandleInput();
+            _stateMachine.Update();
+        }
+        void FixedUpdate()
+        {
+            _stateMachine.PhysicsUpdate();
         }
         private void ShootRay()
         {
