@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using TMPro;
 
 namespace CookCo_opGame
 {
@@ -7,12 +9,17 @@ namespace CookCo_opGame
     {
         private PlayerMove _playerMove;
         private PlayerHand _playerHand;
+        private PlayerManager _playerManager;
         public abstract void OnEnable();
-        public Vector2 Input { get; private set; }
+        public Vector2 Input { get; private set; } //*****************
+        private bool _isRunning = false;
+        public bool IsCooking{ get; set; }
 
         void Start()
         {
+            IsCooking = false;
             _playerMove = GetComponent<PlayerMove>();
+            _playerManager = GetComponent<PlayerManager>();
             _playerHand = GetComponentInChildren<PlayerHand>();
         }
         void Update()
@@ -24,6 +31,8 @@ namespace CookCo_opGame
         {
             if (context.canceled)
             {
+                _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
+                if(!IsCooking)
                 Input = Vector3.zero;//********
                 _playerMove.MoveDirection = Vector3.zero; // 키를 뗐을 때 멈춤
                 return;
@@ -32,6 +41,10 @@ namespace CookCo_opGame
             Vector2 input = context.ReadValue<Vector2>();
             if (input != null)
             {
+                if (!_isRunning)
+                {
+                    _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.WalkState);
+                }
                 _playerMove.MoveDirection = new Vector3(input.x, 0f, input.y);
             }
         }
@@ -55,13 +68,24 @@ namespace CookCo_opGame
             }
             else
             {
-                _playerHand.ThrowItem();                
+                _playerHand.ThrowItem();
             }
         }
 
         public void OnPlayerDash(InputAction.CallbackContext context)
         {
-            StartCoroutine(_playerMove.DashMoveCo());
+            
+            StartCoroutine(DashMoveCo());
+        }
+        public IEnumerator DashMoveCo()
+        {
+            _isRunning = true;
+            _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.RunState);
+            _playerMove.MoveSpeed = _playerMove.DashSpeed;
+
+            yield return new WaitForSeconds(0.4f);
+            _playerMove.MoveSpeed = _playerMove.DefaultSpeed;
+            _isRunning = false;
         }
     }
 }

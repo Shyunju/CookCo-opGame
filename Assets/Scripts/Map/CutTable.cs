@@ -6,6 +6,7 @@ namespace CookCo_opGame
     public class CutTable : TableManager
     {
         private float _cuttingDuration = 3f;
+        public PlayerManager PlayerManager { get; set; }
         void Start()
         {
             _purpose = TablePurpose.Cut;
@@ -35,8 +36,11 @@ namespace CookCo_opGame
             FoodManager foodManager = item.GetComponent<FoodManager>();
             if (foodManager != null)
             {
-                foodManager.CurrentState = ItemState.Sliced;                
+                foodManager.CurrentState = ItemState.Sliced;
             }
+            PlayerManager.StateMachine.ChaingeState(PlayerManager.StateMachine.IdleState);
+            PlayerManager = null;
+
         }
     }
 }

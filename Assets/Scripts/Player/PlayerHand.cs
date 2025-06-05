@@ -123,6 +123,10 @@ namespace CookCo_opGame
                 {
                     if (CurTableManager.purpose == TableManager.TablePurpose.Cut)
                     {
+                        CutTable cutTable = CurTableManager.gameObject.GetComponent<CutTable>();
+                        if (cutTable != null)
+                            cutTable.PlayerManager = _playerManager;
+                        _playerManager.PlayerController.IsCooking = true;
                         _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.CutState);
                         
                     }

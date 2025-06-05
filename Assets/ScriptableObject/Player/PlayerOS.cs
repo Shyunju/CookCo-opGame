@@ -14,6 +14,7 @@ namespace CookCo_opGame
         [Header("RunData")]
         [field: SerializeField][field: Range(0f, 2f)] public float RunSpeedModifier { get; private set; } = 1f;
     }
+    [Serializable]
     public class PlayerCookData
     {
         [field: SerializeField][field: Range(0f, 2f)] public float CutSpeedModifier { get; private set; } = 1f;

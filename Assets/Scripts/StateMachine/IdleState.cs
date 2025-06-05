@@ -11,6 +11,7 @@ namespace CookCo_opGame
 
         public override void Enter()
         {
+            base.Enter();
             StartAnimation(_stateMachine.PlayerManager.PlayerAnimationData.IdleParameterHash);
         }
 

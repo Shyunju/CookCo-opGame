@@ -9,13 +9,13 @@ namespace CookCo_opGame
         }
         public override void Enter()
         {
+            base.Enter();
             StartAnimation(_stateMachine.PlayerManager.PlayerAnimationData.CutParameterHash);
-            Debug.Log("cutting");
         }
 
         public override void Exit()
         {
-            //base.Exit();
+            base.Exit();
             StopAnimation(_stateMachine.PlayerManager.PlayerAnimationData.CutParameterHash);
         }
 

@@ -9,11 +9,13 @@ namespace CookCo_opGame
         private Vector3 _moveDirection;
         public Vector3 MoveDirection { get { return _moveDirection; } set { _moveDirection = value; } }
         private float _moveSpeed;
+        public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value;}}
         private float _defaultSpeed = 6f;
+        public float DefaultSpeed { get { return _defaultSpeed; }}
         private float _dashSpeed = 16f;
+        public float DashSpeed { get { return _dashSpeed; }}
         private Rigidbody _playerRigidBody;
         private float _rotationSpeed = 15f;
-        public bool _isRunnig = false;
         void Start()
         {
             _playerRigidBody = GetComponent<Rigidbody>();
@@ -24,14 +26,6 @@ namespace CookCo_opGame
         {
             if (_moveDirection != Vector3.zero)
             {
-                if (!_isRunnig)
-                {
-                    _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.WalkState);
-                }
-                else
-                {
-                    _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.RunState);
-                }
                 Quaternion targetRotation = Quaternion.LookRotation(_moveDirection);
                 transform.rotation = Quaternion.Slerp(
                     transform.rotation,
@@ -42,21 +36,8 @@ namespace CookCo_opGame
                 Vector3 movement = _moveDirection.normalized * _moveSpeed * Time.fixedDeltaTime;
                 _playerRigidBody.MovePosition(_playerRigidBody.position + movement);
             }
-            else
-            {
-                _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
-                _isRunnig = false;
-            }
         }
 
-        public IEnumerator DashMoveCo()  
-        {
-            _isRunnig = true;
-            _moveSpeed = _dashSpeed;
-            
-            yield return new WaitForSeconds(0.4f);
-            _moveSpeed = _defaultSpeed;
-            _isRunnig = false;
-        }
+        
     }
 }
