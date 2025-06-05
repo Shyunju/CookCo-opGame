@@ -9,7 +9,7 @@ namespace CookCo_opGame
         private Collider _pickUpCollider;
         [SerializeField] private GameObject _hand;
         private bool _isHandFree = true;
-        public bool IsHandFree {get { return _isHandFree; } set{ _isHandFree = value; } }
+        public bool IsHandFree { get { return _isHandFree; } set { _isHandFree = value; } }
         [SerializeField] private bool _canPickUp = false;
         public bool CanPickUp { get { return _canPickUp; } }
         private Rigidbody _itemRigidbody;
@@ -17,6 +17,7 @@ namespace CookCo_opGame
 
         [SerializeField] private GameObject _itemInHand;
         [SerializeField] private ItemManager _itemManager;
+        public ItemManager ItemManager { get { return _itemManager; } set { _itemManager = value; } }
 
         [SerializeField] GameObject _frontTable;
         public GameObject FrontTable { get { return _frontTable; } set { _frontTable = value; } }
@@ -32,9 +33,18 @@ namespace CookCo_opGame
         }
         void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Food" || other.tag == "Tool")
+            // if (other.tag == "Food" || other.tag == "Tool")
+            // {
+            //     _canPickUp = true;
+            //     _itemManager = other.gameObject.GetComponent<ItemManager>();
+            // }
+            _canPickUp = true;
+            if (_curTableManager != null && _curTableManager.CurrentItem != null)
             {
-                _canPickUp = true;
+                _itemManager = _curTableManager.CurrentItem.GetComponent<ItemManager>();
+            }
+            else if (other.tag == "Food" || other.tag == "Tool")
+            {
                 _itemManager = other.gameObject.GetComponent<ItemManager>();
             }
 
@@ -44,7 +54,7 @@ namespace CookCo_opGame
             _canPickUp = false;
             if (_itemInHand == null)
             {
-                _itemManager = null;                
+                _itemManager = null;
             }
         }
 
@@ -88,14 +98,14 @@ namespace CookCo_opGame
                 {
                     _itemManager.PutDown();
                 }
-                
-                _curTableManager = null;
+
+                //_curTableManager = null;
                 _itemManager = null;
                 _itemInHand = null;
                 _isHandFree = true;
                 _canPickUp = true;
-                
-                
+
+
                 _pickUpCollider.enabled = true;
             }
             return;
@@ -121,6 +131,8 @@ namespace CookCo_opGame
             {
                 if (CurTableManager != null && CurTableManager.PerformPurpose())
                 {
+                    _pickUpCollider.enabled = false;
+                    _pickUpCollider.enabled = true;
                     if (CurTableManager.purpose == TableManager.TablePurpose.Cut)
                     {
                         CutTable cutTable = CurTableManager.gameObject.GetComponent<CutTable>();
@@ -128,10 +140,17 @@ namespace CookCo_opGame
                             cutTable.PlayerManager = _playerManager;
                         _playerManager.PlayerController.IsCooking = true;
                         _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.CutState);
-                        
+
                     }
-                                      
+
                 }
+            }
+        }
+        public void CheckItemOnFrontTable()
+        {
+            if (!CanPickUp && _isHandFree && CurTableManager.CurrentItem != null)
+            {
+                _itemManager = CurTableManager.CurrentItem.GetComponent<ItemManager>();
             }
         }
 
