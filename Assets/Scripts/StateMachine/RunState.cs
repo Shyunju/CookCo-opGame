@@ -12,6 +12,7 @@ namespace CookCo_opGame
         public override void Enter()
         {
             StartAnimation(_stateMachine.PlayerManager.PlayerAnimationData.RunParameterHash);
+            Debug.Log("adsf");
         }
 
         public override void Exit()

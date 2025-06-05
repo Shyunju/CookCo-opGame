@@ -8,6 +8,7 @@ namespace CookCo_opGame
         public IdleState IdleState { get; }
         public WalkState WalkState { get; }
         public RunState RunState { get; }
+        public CutState CutState { get; }
 
         public Vector2 MovementInput { get; set; }
         public float MovementSpeed { get; private set; }
@@ -21,6 +22,7 @@ namespace CookCo_opGame
             IdleState = new IdleState(this);
             WalkState = new WalkState(this);
             RunState = new RunState(this);
+            CutState = new CutState(this);
 
             MovementSpeed = player.PlayerOS.DefaultData.BaseSpeed;
             RotateDamping = player.PlayerOS.DefaultData.BaseRotationDamping;

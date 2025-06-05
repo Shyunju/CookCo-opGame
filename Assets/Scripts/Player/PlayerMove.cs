@@ -10,10 +10,10 @@ namespace CookCo_opGame
         public Vector3 MoveDirection { get { return _moveDirection; } set { _moveDirection = value; } }
         private float _moveSpeed;
         private float _defaultSpeed = 6f;
-        private float _dashSpeed = 18f;
+        private float _dashSpeed = 16f;
         private Rigidbody _playerRigidBody;
-        private float _rotationSpeed = 8f;
-        public bool _isWalking = false;
+        private float _rotationSpeed = 15f;
+        public bool _isRunnig = false;
         void Start()
         {
             _playerRigidBody = GetComponent<Rigidbody>();
@@ -24,10 +24,13 @@ namespace CookCo_opGame
         {
             if (_moveDirection != Vector3.zero)
             {
-                if (!_isWalking)
+                if (!_isRunnig)
                 {
                     _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.WalkState);
-                    _isWalking = true;
+                }
+                else
+                {
+                    _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.RunState);
                 }
                 Quaternion targetRotation = Quaternion.LookRotation(_moveDirection);
                 transform.rotation = Quaternion.Slerp(
@@ -42,19 +45,18 @@ namespace CookCo_opGame
             else
             {
                 _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
-                _isWalking = false;
+                _isRunnig = false;
             }
         }
 
-        public IEnumerator DashMoveCo()  //TODO Run애니메이션 안나오고있음
+        public IEnumerator DashMoveCo()  
         {
-            _isWalking = true;
+            _isRunnig = true;
             _moveSpeed = _dashSpeed;
-            _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.RunState);
-            yield return new WaitForSeconds(0.2f);
+            
+            yield return new WaitForSeconds(0.4f);
             _moveSpeed = _defaultSpeed;
-            _isWalking = false;
-            //_playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
+            _isRunnig = false;
         }
     }
 }

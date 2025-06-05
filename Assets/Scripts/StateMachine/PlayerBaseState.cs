@@ -6,11 +6,13 @@ namespace CookCo_opGame
     {
         protected PlayerStateMachine _stateMachine;
         protected readonly PlayerDefaultData _defaultData;
+        protected readonly PlayerCookData _cookData;
 
         public PlayerBaseState(PlayerStateMachine stateMachine)
         {
             this._stateMachine = stateMachine;
             _defaultData = stateMachine.PlayerManager.PlayerOS.DefaultData;
+            _cookData = stateMachine.PlayerManager.PlayerOS.CookData;
         }
         public virtual void Enter()
         {

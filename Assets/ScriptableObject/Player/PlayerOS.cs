@@ -17,15 +17,12 @@ namespace CookCo_opGame
     public class PlayerCookData
     {
         [field: SerializeField][field: Range(0f, 2f)] public float CutSpeedModifier { get; private set; } = 1f;
-        [field: SerializeField][field: Range(0f, 2f)] public float BoilSpeedModifier { get; private set; } = 1f;
-        [field: SerializeField][field: Range(0f, 2f)] public float GrillSpeedModifier { get; private set; } = 1f;
-        [field: SerializeField][field: Range(0f, 2f)] public float MixSpeedModifier { get; private set; } = 1f;
     }
 
     [CreateAssetMenu(fileName = "Player", menuName = "Characters/Player")]
     public class PlayerOS : ScriptableObject
     {
         [field: SerializeField] public PlayerDefaultData DefaultData { get; private set; }
-        [field: SerializeField] public PlayerDefaultData CookData { get; private set; }
+        [field: SerializeField] public PlayerCookData CookData { get; private set; }
     }
 }

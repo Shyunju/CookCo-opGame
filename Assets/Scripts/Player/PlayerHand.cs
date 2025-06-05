@@ -5,6 +5,7 @@ namespace CookCo_opGame
 {
     public class PlayerHand : MonoBehaviour
     {
+        private PlayerManager _playerManager;
         private Collider _pickUpCollider;
         [SerializeField] private GameObject _hand;
         private bool _isHandFree = true;
@@ -26,6 +27,7 @@ namespace CookCo_opGame
         void Start()
         {
             _pickUpCollider = GetComponent<Collider>();
+            _playerManager = GetComponentInParent<PlayerManager>();
 
         }
         void OnTriggerEnter(Collider other)
@@ -119,17 +121,12 @@ namespace CookCo_opGame
             {
                 if (CurTableManager != null && CurTableManager.PerformPurpose())
                 {
-                    switch (CurTableManager.purpose)
-                        {
-                            case TableManager.TablePurpose.None:
-                                break;
-                            case TableManager.TablePurpose.Box:
-                                break;
-                            case TableManager.TablePurpose.Cut:
-                                break;
-                            case TableManager.TablePurpose.Fire:
-                                break;
-                        }                    
+                    if (CurTableManager.purpose == TableManager.TablePurpose.Cut)
+                    {
+                        _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.CutState);
+                        
+                    }
+                                      
                 }
             }
         }
