@@ -50,7 +50,7 @@ namespace CookCo_opGame
         }
         public void OnPlayerPick(InputAction.CallbackContext context)
         {
-            if (_playerHand.CanPickUp)
+            if (_playerHand.IsHandFree)
             {
                 _playerHand.PickUpItem();
             }

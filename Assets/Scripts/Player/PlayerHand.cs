@@ -5,23 +5,25 @@ namespace CookCo_opGame
 {
     public class PlayerHand : MonoBehaviour
     {
-        private PlayerManager _playerManager;
-        private Collider _pickUpCollider;
         [SerializeField] private GameObject _hand;
-        private bool _isHandFree = true;
-        public bool IsHandFree { get { return _isHandFree; } set { _isHandFree = value; } }
         [SerializeField] private bool _canPickUp = false;
-        public bool CanPickUp { get { return _canPickUp; } }
-        private Rigidbody _itemRigidbody;
-        private float _throwForce = 15f;
-
         [SerializeField] private GameObject _itemInHand;
         [SerializeField] private ItemManager _itemManager;
+        [SerializeField] GameObject _frontTable;
+        [SerializeField] TableManager _curTableManager;
+
+        private PlayerManager _playerManager;
+        private Collider _pickUpCollider;
+        private Rigidbody _itemRigidbody;
+        private bool _isHandFree = true;
+        private float _throwForce = 15f;
+
+        public bool CanPickUp { get { return _canPickUp; } }
+        public bool IsHandFree { get { return _isHandFree; } set { _isHandFree = value; } }
+
         public ItemManager ItemManager { get { return _itemManager; } set { _itemManager = value; } }
 
-        [SerializeField] GameObject _frontTable;
         public GameObject FrontTable { get { return _frontTable; } set { _frontTable = value; } }
-        [SerializeField] TableManager _curTableManager;
         public TableManager CurTableManager { get { return _curTableManager; } set { _curTableManager = value; } }
 
 
@@ -33,17 +35,7 @@ namespace CookCo_opGame
         }
         void OnTriggerEnter(Collider other)
         {
-            // if (other.tag == "Food" || other.tag == "Tool")
-            // {
-            //     _canPickUp = true;
-            //     _itemManager = other.gameObject.GetComponent<ItemManager>();
-            // }
-            _canPickUp = true;
-            if (_curTableManager != null && _curTableManager.CurrentItem != null)
-            {
-                _itemManager = _curTableManager.CurrentItem.GetComponent<ItemManager>();
-            }
-            else if (other.tag == "Food" || other.tag == "Tool")
+            if ((other.tag == "Food" || other.tag == "Tool") && IsHandFree)
             {
                 _itemManager = other.gameObject.GetComponent<ItemManager>();
             }
@@ -51,7 +43,6 @@ namespace CookCo_opGame
         }
         void OnTriggerExit(Collider other)
         {
-            _canPickUp = false;
             if (_itemInHand == null)
             {
                 _itemManager = null;
@@ -62,7 +53,7 @@ namespace CookCo_opGame
         //집기
         public void PickUpItem()
         {
-            if (_isHandFree && _canPickUp && _itemManager != null)
+            if (_isHandFree && _itemManager != null)
             {
                 if (!_itemManager.IsGrabed)
                 {
@@ -73,7 +64,6 @@ namespace CookCo_opGame
                     _itemManager.IsGrabed = true;
                     _itemManager.PickedUp(_hand);
                     _isHandFree = false;
-                    _canPickUp = false;
                 }
             }
             return;
@@ -99,11 +89,10 @@ namespace CookCo_opGame
                     _itemManager.PutDown();
                 }
 
-                //_curTableManager = null;
-                _itemManager = null;
+                //_itemManager = null;
                 _itemInHand = null;
                 _isHandFree = true;
-                _canPickUp = true;
+                // _canPickUp = true;
 
 
                 _pickUpCollider.enabled = true;
@@ -146,13 +135,13 @@ namespace CookCo_opGame
                 }
             }
         }
-        public void CheckItemOnFrontTable()
-        {
-            if (!CanPickUp && _isHandFree && CurTableManager.CurrentItem != null)
-            {
-                _itemManager = CurTableManager.CurrentItem.GetComponent<ItemManager>();
-            }
-        }
+        // public void CheckItemOnFrontTable()
+        // {
+        //     if (!CanPickUp && _isHandFree && CurTableManager.CurrentItem != null)
+        //     {
+        //         _itemManager = CurTableManager.CurrentItem.GetComponent<ItemManager>();
+        //     }
+        // }
 
         
     }

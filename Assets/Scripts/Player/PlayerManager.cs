@@ -55,15 +55,15 @@ namespace CookCo_opGame
         {
             if (Physics.Raycast(transform.position, transform.forward, out _hit, rayDistance, LayerMask.GetMask("Table")))  //TODO 레이에 부딪히는 테이블의 아이템 정보 추출하기
             {
-                if (_playerHand.FrontTable != null)
+                if (_playerHand.FrontTable != null) //앞에 테이블이있다
                 {
                     //_playerHand.CheckItemOnFrontTable();
                     if (_playerHand.FrontTable != _hit.collider.gameObject)
                     {
                         TableManager tb = _playerHand.FrontTable.GetComponent<TableManager>();
                         tb.ResetColor();
-                        SetTable(_hit.collider.gameObject);
                     }
+                        SetTable(_hit.collider.gameObject);
                 }
                 else
                 {
@@ -84,8 +84,13 @@ namespace CookCo_opGame
         }
         private void SetTable(GameObject hit)
         {
+            TableManager tm = hit.GetComponent<TableManager>();
             _playerHand.FrontTable = hit;
-            _playerHand.CurTableManager = hit.GetComponent<TableManager>();
+            _playerHand.CurTableManager = tm;
+            if (_playerHand.IsHandFree && tm.CurrentItem != null)
+            {
+                _playerHand.ItemManager = tm.CurrentItem.GetComponent<ItemManager>();
+            }
             _playerHand.CurTableManager.SetHighlight();
 
         }

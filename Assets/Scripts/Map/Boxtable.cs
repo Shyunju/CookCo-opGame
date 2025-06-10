@@ -15,6 +15,7 @@ namespace CookCo_opGame
             {
                 CurrentItem = Instantiate(_itemInBox, transform.position, Quaternion.identity) as GameObject;
                 CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
+                
                 return true;
             }
             return false;
