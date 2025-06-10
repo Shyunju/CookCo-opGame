@@ -21,6 +21,7 @@ namespace CookCo_opGame
         [SerializeField] bool _isGrabed;
         [SerializeField] bool _onTable = false;
         [SerializeField] bool _isCooking = false;
+        private Collider _itemCollider;
         private Rigidbody _itemRigidbody;
         float _targetStateBarScale;
         private float _duration;
@@ -36,6 +37,7 @@ namespace CookCo_opGame
 
         void Awake()
         {
+            _itemCollider = GetComponent<Collider>();
             _itemRigidbody = GetComponent<Rigidbody>();
         }
         void Start()
@@ -76,6 +78,7 @@ namespace CookCo_opGame
                     _currentTable = null;
                     OnTable = false;
                     _itemRigidbody.useGravity = false;
+                    _itemCollider.isTrigger = true;
                 }
             }
             if (parent.tag == "Table")
@@ -105,6 +108,7 @@ namespace CookCo_opGame
             _itemRigidbody.useGravity = true;
             _itemRigidbody.constraints = RigidbodyConstraints.None;
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            _itemCollider.isTrigger = false;
         }
 
 
