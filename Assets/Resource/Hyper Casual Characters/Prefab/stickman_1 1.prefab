@@ -67,21 +67,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &2044482910195171727
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5139666920524405419}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: f3ff895ef82a5154da206a1c4e33c042, type: 3}
   m_Controller: {fileID: 9100000, guid: 167a824b67c0e7540b1ca8a87fb757fd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_WarningMessage: 
+  m_AnimatePhysics: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'arm_stretch.l'\n\tTransform 'spine_02.x'\n\tTransform
+    'spine_01.x'\n\tTransform 'toes_01.r'\n\tTransform 'thigh_stretch.r'\n\tTransform
+    'c_index2.r'\n\tTransform 'c_middle2.r'\n\tTransform 'root.x'\n\tTransform 'c_pinky2.l'\n\tTransform
+    'c_middle3.r'\n\tand more ...\n\tFrom animation clip 'root_idle_bot_remap'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0

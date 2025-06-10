@@ -5,7 +5,9 @@ namespace CookCo_opGame
 {
     public class CutTable : TableManager
     {
+        [SerializeField] GameObject _knife;
         private float _cuttingDuration = 3f;
+
         public PlayerManager PlayerManager { get; set; }
         void Start()
         {
@@ -27,6 +29,7 @@ namespace CookCo_opGame
         IEnumerator CutFoodCo()
         {
             yield return new WaitForSeconds(.2f);
+            _knife.SetActive(false);
             ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
             itemManager.Duration = _cuttingDuration;
             itemManager.IsCooking = true;
@@ -38,6 +41,7 @@ namespace CookCo_opGame
             {
                 foodManager.CurrentState = ItemState.Sliced;
                 foodManager.ChangeMesh(0);
+                _knife.SetActive(true); 
             }
             PlayerManager.StateMachine.ChaingeState(PlayerManager.StateMachine.IdleState);
             PlayerManager = null;

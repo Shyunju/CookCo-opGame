@@ -57,7 +57,6 @@ namespace CookCo_opGame
                 }
                 else
                 {
-                    Debug.Log(_targetStateBarScale);
                     _stateUI.SetActive(true);
                     _elapsed += Time.deltaTime;
                     float gab = Mathf.Clamp01(_elapsed / _duration);
