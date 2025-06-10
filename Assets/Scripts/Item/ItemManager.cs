@@ -39,10 +39,10 @@ namespace CookCo_opGame
         {
             _itemCollider = GetComponent<Collider>();
             _itemRigidbody = GetComponent<Rigidbody>();
+            _targetStateBarScale = _stateBar.rectTransform.rect.width;
         }
         void Start()
         {
-            _targetStateBarScale = _stateBar.rectTransform.rect.width;
         }
         void FixedUpdate()
         {
@@ -57,10 +57,12 @@ namespace CookCo_opGame
                 }
                 else
                 {
+                    Debug.Log(_targetStateBarScale);
                     _stateUI.SetActive(true);
                     _elapsed += Time.deltaTime;
                     float gab = Mathf.Clamp01(_elapsed / _duration);
                     float currentWidth = Mathf.Lerp(0, _targetStateBarScale, gab);
+                    
                     _stateBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentWidth);
                 }
 

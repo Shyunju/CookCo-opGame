@@ -37,6 +37,7 @@ namespace CookCo_opGame
             if (foodManager != null)
             {
                 foodManager.CurrentState = ItemState.Sliced;
+                foodManager.ChangeMesh(0);
             }
             PlayerManager.StateMachine.ChaingeState(PlayerManager.StateMachine.IdleState);
             PlayerManager = null;

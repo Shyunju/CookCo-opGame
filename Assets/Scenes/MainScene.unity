@@ -1590,7 +1590,7 @@ MonoBehaviour:
   _purpose: 1
   _isFull: 0
   _currnetItem: {fileID: 0}
-  _itemInBox: {fileID: 2794778392510320889, guid: 55263c0c513464083a3c3627f5d48553, type: 3}
+  _itemInBox: {fileID: 2041958614690527700, guid: f8a02d21545a8453e93e4d43b11af5f3, type: 3}
 --- !u!65 &1832796192
 BoxCollider:
   m_ObjectHideFlags: 0
