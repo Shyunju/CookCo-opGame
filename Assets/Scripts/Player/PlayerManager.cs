@@ -7,9 +7,9 @@ namespace CookCo_opGame
 {
     public class PlayerManager : MonoBehaviour
     {
-        [field :SerializeField] public PlayerOS PlayerOS { get; private set; }
-        [field :Header("Animaiton")]
-        [field :SerializeField] public PlayerAnimationData PlayerAnimationData { get; private set; }
+        [field: SerializeField] public PlayerOS PlayerOS { get; private set; }
+        [field: Header("Animaiton")]
+        [field: SerializeField] public PlayerAnimationData PlayerAnimationData { get; private set; }
 
 
         public Animator Animator { get; private set; }
@@ -19,6 +19,8 @@ namespace CookCo_opGame
 
         public PlayerStateMachine StateMachine { get; set; }
         public PlayerController PlayerController { get; private set; }
+        [SerializeField] private GameObject _playerKnife;
+        public GameObject PlayerKnife { get{ return _playerKnife; } set { _playerKnife = value;}}
 
 
 
@@ -85,8 +87,9 @@ namespace CookCo_opGame
             _playerHand.FrontTable = hit;
             _playerHand.CurTableManager = hit.GetComponent<TableManager>();
             _playerHand.CurTableManager.SetHighlight();
-            
+
         }
+
         
     }
 }

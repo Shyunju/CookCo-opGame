@@ -10,12 +10,14 @@ namespace CookCo_opGame
         public override void Enter()
         {
             base.Enter();
+            _stateMachine.PlayerManager.PlayerKnife.SetActive(true);
             StartAnimation(_stateMachine.PlayerManager.PlayerAnimationData.CutParameterHash);
         }
 
         public override void Exit()
         {
             base.Exit();
+            _stateMachine.PlayerManager.PlayerKnife.SetActive(false);
             StopAnimation(_stateMachine.PlayerManager.PlayerAnimationData.CutParameterHash);
         }
 

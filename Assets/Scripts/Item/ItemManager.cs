@@ -14,22 +14,22 @@ namespace CookCo_opGame
     }    
     public abstract class ItemManager : MonoBehaviour
     {
-        Rigidbody _itemRigidbody;
         [SerializeField] GameObject _stateUI;
         [SerializeField] Image _stateBar;
-        float _targetStateBarScale;
-
-        [SerializeField] bool _isGrabed;
-        public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
-        [SerializeField] bool _onTable = false;
-        public bool OnTable { get { return _onTable; } set { _onTable = value; } }
-        [SerializeField] TableManager _currentTable;
-        [SerializeField] bool _isCooking = false;
-        public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
-        private float _duration;
-        public float Duration { get { return _duration; } set { _duration = value; } }
-        private float _elapsed = 0f;
         [SerializeField] ItemState _currentState = ItemState.None;
+        [SerializeField] TableManager _currentTable;
+        [SerializeField] bool _isGrabed;
+        [SerializeField] bool _onTable = false;
+        [SerializeField] bool _isCooking = false;
+        private Rigidbody _itemRigidbody;
+        float _targetStateBarScale;
+        private float _duration;
+        private float _elapsed = 0f;
+
+        public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
+        public bool OnTable { get { return _onTable; } set { _onTable = value; } }
+        public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
+        public float Duration { get { return _duration; } set { _duration = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
 
 
