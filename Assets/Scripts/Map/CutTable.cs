@@ -17,8 +17,8 @@ namespace CookCo_opGame
         {
             if (CurrentItem != null)
             {
-                ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
-                if (itemManager != null && itemManager.CurrentState == ItemState.None)
+                FoodManager foodManager = CurrentItem.GetComponent<FoodManager>();
+                if (foodManager != null && foodManager.CurrentState == ItemState.None)
                 {
                     StartCoroutine(CutFoodCo());
                     return true;                    

@@ -92,7 +92,7 @@ namespace CookCo_opGame
             }
             IsCooking = false;
             this.transform.SetParent(parent.transform, true);
-            this.transform.rotation = Quaternion.identity;
+            this.transform.localRotation = Quaternion.identity;
             this.transform.localPosition = Vector3.zero;
 
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeAll;
