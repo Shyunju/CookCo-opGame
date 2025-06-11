@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public abstract class ToolManager : ItemManager
+    public abstract class ToolManager : ItemManager        //TODO 애니메이션이 없는 조리 시 유아이 진행 방식 설정 툴이 시작해줄거냐, 테이블이 시작해줄거냐
     {
         //뭐가 들어있는지 재료 유아이
         [SerializeField] GameObject _ingredientsUI;
