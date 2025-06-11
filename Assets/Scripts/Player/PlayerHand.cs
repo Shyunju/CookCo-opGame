@@ -79,10 +79,25 @@ namespace CookCo_opGame
                 {
                     if (CurTableManager != null && CurTableManager.IsFull)
                     {
-                        return;
+                        ToolManager toolManager = CurTableManager.CurrentItem.GetComponent<ToolManager>();
+                        FoodManager foodManager = _itemInHand.GetComponent<FoodManager>();
+                        if (toolManager != null)
+                        {
+                            if (toolManager.CheckToolState(_itemInHand))
+                            {
+                                toolManager.AddIngredient(_itemInHand);
+                            }
+                            else
+                                return;
+                        }
+                        else
+                            return;
                     }
-                    _itemManager.PutDown();
-                    _itemManager.PickedUp(FrontTable);
+                    else
+                    {
+                        _itemManager.PutDown();
+                        _itemManager.PickedUp(FrontTable);
+                    }
                 }
                 else
                 {
