@@ -11,7 +11,7 @@ namespace CookCo_opGame
         Grilled,
         Mixed,
         Complete
-    }    
+    }
     public abstract class ItemManager : MonoBehaviour
     {
         [SerializeField] GameObject _stateUI;
@@ -31,6 +31,7 @@ namespace CookCo_opGame
         public bool OnTable { get { return _onTable; } set { _onTable = value; } }
         public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
         public float Duration { get { return _duration; } set { _duration = value; } }
+        public TableManager CurrentTable { get { return _currentTable;} set { _currentTable = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
 
 
@@ -61,7 +62,7 @@ namespace CookCo_opGame
                     _elapsed += Time.deltaTime;
                     float gab = Mathf.Clamp01(_elapsed / _duration);
                     float currentWidth = Mathf.Lerp(0, _targetStateBarScale, gab);
-                    
+
                     _stateBar.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, currentWidth);
                 }
 
@@ -82,13 +83,20 @@ namespace CookCo_opGame
                     _itemCollider.isTrigger = true;
                 }
             }
-            if (parent.tag == "Table")
+            if (parent.tag == "Table")  //여기서 검사가 필요할듯
             {
                 IsGrabed = false;
                 _currentTable = parent.GetComponent<TableManager>();
                 _currentTable.IsFull = true;
                 _currentTable.CurrentItem = this.gameObject;
                 OnTable = true;
+
+                ToolManager tm = this.gameObject.GetComponent<ToolManager>();
+                if (tm != null)
+                {
+                    //요리가 가능한지 확인하는 함수 호출 // 그 함수에서 가능하다면 이즈쿠킹으로 바꾸고 듀레이션 주기
+                    tm.StartCooking();
+                }
             }
             IsCooking = false;
             this.transform.SetParent(parent.transform, true);
@@ -111,6 +119,7 @@ namespace CookCo_opGame
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
             _itemCollider.isTrigger = false;
         }
+
 
 
     }

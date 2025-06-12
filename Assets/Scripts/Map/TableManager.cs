@@ -47,7 +47,7 @@ namespace CookCo_opGame
 
         public void ResetColor()
         {
-            if (CurrentItem != null)
+            if (CurrentItem != null && _purpose == TablePurpose.Cut)
             {
                 ItemManager im = CurrentItem.GetComponent<ItemManager>();
                 im.IsCooking = false;

@@ -122,8 +122,8 @@ namespace CookCo_opGame
         {
             if (_itemInHand != null)
             {
-                _itemRigidbody.AddForce(transform.forward * _throwForce, ForceMode.VelocityChange);
                 _itemRigidbody.constraints = RigidbodyConstraints.None;
+                _itemRigidbody.AddForce(-transform.forward * _throwForce, ForceMode.VelocityChange);
                 PutDownItem();
             }
             return;
@@ -150,14 +150,6 @@ namespace CookCo_opGame
                 }
             }
         }
-        // public void CheckItemOnFrontTable()
-        // {
-        //     if (!CanPickUp && _isHandFree && CurTableManager.CurrentItem != null)
-        //     {
-        //         _itemManager = CurTableManager.CurrentItem.GetComponent<ItemManager>();
-        //     }
-        // }
-
         
     }
 }

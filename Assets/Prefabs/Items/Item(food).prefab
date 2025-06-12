@@ -159,6 +159,7 @@ MonoBehaviour:
   _isCooking: 0
   _foodMeshArr:
   - {fileID: 4480483505702308938, guid: 1e2d7f00bb9081a48afdd9f9d2349e5f, type: 3}
+  _icon: {fileID: 0}
 --- !u!1001 &5415943860577739602
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace CookCo_opGame
 {
@@ -7,16 +8,21 @@ namespace CookCo_opGame
         [SerializeField] GameObject _UIObject;
         Transform _itemTransform;
         RectTransform _stateBar;
-        RectTransform _itemIcon;
-        [SerializeField] float _offsetY;
+        
+        [SerializeField] float _cookingUIOffsetY;
+        
         void Start()
         {
             _itemTransform = gameObject.transform.parent;
             _stateBar = _UIObject.GetComponent<RectTransform>();
         }
-        void Update() {
+        void Update()
+        {
             Vector3 screenPos = Camera.main.WorldToScreenPoint(_itemTransform.position);
-            _stateBar.position = new Vector3(screenPos.x, screenPos.y +_offsetY, screenPos.z);
+            _stateBar.position = new Vector3(screenPos.x, screenPos.y + _cookingUIOffsetY, screenPos.z);
+            
         }
+
+        
     }
 }

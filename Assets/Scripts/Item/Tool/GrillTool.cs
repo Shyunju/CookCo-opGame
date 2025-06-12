@@ -5,16 +5,10 @@ namespace CookCo_opGame
     public class GrillTool : ToolManager
     {
 
+        private float _grillDuration = 7f;
         void Start()
         {
             _ingredientsMaxCount = 1;
-        }
-        public override void CookIngredients()
-        {
-            //foreach (FoodManager food in _ingredients)
-            {
-                //food.CurrentState = ItemState.Grilled;
-            }
         }
         public override bool CheckToolState(GameObject itemInHand)
         {
@@ -24,6 +18,15 @@ namespace CookCo_opGame
                 return true;
             }
             return false;
+        }
+
+        public override void StartCooking()
+        {
+            if (Ingredients.Count > 0 && CurrentTable.purpose == TableManager.TablePurpose.Fire)
+            {
+                Duration = _grillDuration;
+                IsCooking = true;
+            }
         }
     }
 }
