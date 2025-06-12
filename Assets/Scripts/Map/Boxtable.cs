@@ -20,10 +20,6 @@ namespace CookCo_opGame
             }
             return false;
         }
-        public void PlayAnimation()
-        {
-
-        }
 
         public override void ChaingeState(GameObject item)
         {

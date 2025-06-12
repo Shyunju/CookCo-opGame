@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIObject: {fileID: 3616621527464330154}
-  _offsetY: -80
+  _cookingUIOffsetY: -10
 --- !u!1 &3616621527464330154
 GameObject:
   m_ObjectHideFlags: 0

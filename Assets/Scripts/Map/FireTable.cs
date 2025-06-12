@@ -5,7 +5,6 @@ namespace CookCo_opGame
 {
     public class FireTable : TableManager
     {
-        private float _fireDuration = 5f;
         void Start()
         {
             _purpose = TablePurpose.Fire;
