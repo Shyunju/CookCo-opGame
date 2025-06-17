@@ -137,7 +137,7 @@ namespace CookCo_opGame
                 {
                     _pickUpCollider.enabled = false;
                     _pickUpCollider.enabled = true;
-                    if (CurTableManager.purpose == TableManager.TablePurpose.Cut)
+                    if (CurTableManager.purpose == TableManager.TablePurpose.Cut) //자르기
                     {
                         CutTable cutTable = CurTableManager.gameObject.GetComponent<CutTable>();
                         if (cutTable != null)
@@ -145,6 +145,15 @@ namespace CookCo_opGame
                         _playerManager.PlayerController.IsCooking = true;
                         _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.CutState);
 
+                    }
+                    if (CurTableManager.purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
+                    {
+                        TrashTable trashTable = CurTableManager.gameObject.GetComponent<TrashTable>();
+                        if (trashTable != null && _itemInHand != null)
+                        {
+                            if (trashTable.PerformPurpose())
+                                trashTable.ChaingeState(_itemInHand);
+                        }
                     }
 
                 }

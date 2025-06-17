@@ -22,7 +22,8 @@ namespace CookCo_opGame
             Box,
             Cut,
             Mix,
-            Fire
+            Fire,
+            Trash
         }
         void Awake()
         {

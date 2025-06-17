@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -13,7 +15,7 @@ namespace CookCo_opGame
         Transform _itemTransform;
         [SerializeField] float _ingredientsUIOffesetY = 55f;
         [SerializeField] Image[] _ingredients = new Image[4];
-        
+
 
         void Start()
         {
@@ -38,6 +40,15 @@ namespace CookCo_opGame
             // Debug.Log(iconImage.sprite);
             _ingredients[index].sprite = iconImage.sprite;
             _ingredients[index].color = Color.white;
+        }
+        public void ResetIngredientIcon()  
+        {
+            for (int i = 0; i < _ingredients.Length; i++)
+            {
+                Color color = _ingredients[i].color;
+                color.a = 0f; // 알파값을 0으로 설정 (완전 투명)
+                _ingredients[i].color = color;
+            }
         }
     }
 }
