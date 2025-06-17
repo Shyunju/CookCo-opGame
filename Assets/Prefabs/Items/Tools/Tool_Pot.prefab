@@ -386,7 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIObject: {fileID: 9213927373446758976}
-  _cookingUIOffsetY: -10
+  _cookingUIOffsetY: -60
 --- !u!1 &7413185474022597871
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +780,10 @@ PrefabInstance:
     - target: {fileID: 7217147104066627941, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: m_Name
       value: IgredientsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9122707413740223581, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: _ingredientsUIOffesetY
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

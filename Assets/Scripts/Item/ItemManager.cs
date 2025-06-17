@@ -10,7 +10,8 @@ namespace CookCo_opGame
         Boiled,
         Grilled,
         Mixed,
-        Complete
+        Complete,
+        Burn
     }
     public abstract class ItemManager : MonoBehaviour
     {
@@ -42,12 +43,9 @@ namespace CookCo_opGame
             _itemRigidbody = GetComponent<Rigidbody>();
             _targetStateBarScale = _stateBar.rectTransform.rect.width;
         }
-        void Start()
-        {
-        }
         void FixedUpdate()
         {
-            if (_isCooking)
+            if (IsCooking)
             {
                 if (_elapsed >= _duration)
                 {
@@ -83,6 +81,7 @@ namespace CookCo_opGame
                     _itemCollider.isTrigger = true;
                 }
             }
+            IsCooking = false;
             if (parent.tag == "Table")  //여기서 검사가 필요할듯
             {
                 IsGrabed = false;
@@ -98,7 +97,6 @@ namespace CookCo_opGame
                     tm.StartCooking();
                 }
             }
-            IsCooking = false;
             this.transform.SetParent(parent.transform, true);
             this.transform.localRotation = Quaternion.identity;
             this.transform.localPosition = Vector3.zero;
