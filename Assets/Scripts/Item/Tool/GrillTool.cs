@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Linq;
 namespace CookCo_opGame
 {
     public class GrillTool : ToolManager
@@ -13,9 +13,15 @@ namespace CookCo_opGame
         public override bool CheckToolState(GameObject itemInHand)
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();
+            ToolManager tm = itemInHand.GetComponent<ToolManager>();
             if (fm != null && Ingredients.Count < _ingredientsMaxCount && fm.CurrentState == ItemState.Sliced)
             {
                 return true;
+            } else if(tm != null && tm.ThisToolPurpose == ToolPurpose.Dish){
+                PlateTool pt = tm.GetComponent<PlateTool>();
+                pt.InputFromTool(this.GetComponent<ToolManager>());
+                EmptyTool();
+                return false;
             }
             return false;
         }

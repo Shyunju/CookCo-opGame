@@ -33,7 +33,7 @@ namespace CookCo_opGame
         }
         public void AddIngredientIcon(GameObject icon, int index)
         {
-            GameObject iconTemp = Instantiate(icon, this.transform);
+            GameObject iconTemp = Instantiate(icon, this.transform)as GameObject;
             SpriteRenderer iconImage = iconTemp.GetComponent<SpriteRenderer>();
 
             _ingredients[index].sprite = iconImage.sprite;

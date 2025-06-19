@@ -59,6 +59,11 @@ namespace CookCo_opGame
         }
         public void EmptyTool()
         {
+            Transform[] children = _ingredientsTemp.GetComponentsInChildren<Transform>(true);
+            for (int i = 1; i < children.Length; i++) // i=0은 부모 자신
+            {
+                Destroy(children[i].gameObject);
+            }
             Ingredients.Clear();
             IngredientUIController.ResetIngredientIcon();
             CurrentState = ItemState.None;

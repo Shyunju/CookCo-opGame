@@ -80,7 +80,6 @@ namespace CookCo_opGame
                     if (CurTableManager != null && CurTableManager.IsFull)
                     {
                         ToolManager toolManager = CurTableManager.CurrentItem.GetComponent<ToolManager>();
-                        //FoodManager foodManager = _itemInHand.GetComponent<FoodManager>();
                         if (toolManager != null)
                         {
                             if (toolManager.CheckToolState(_itemInHand))
