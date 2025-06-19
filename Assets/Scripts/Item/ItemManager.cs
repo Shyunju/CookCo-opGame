@@ -28,6 +28,7 @@ namespace CookCo_opGame
         private float _duration;
         private float _elapsed = 0f;
 
+        public GameObject StateUI {get { return _stateUI; } set { _stateUI = value; } }
         public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
         public bool OnTable { get { return _onTable; } set { _onTable = value; } }
         public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
@@ -66,6 +67,13 @@ namespace CookCo_opGame
 
             }
         }
+        public void ResetState()
+        {
+            _stateUI.SetActive(false);
+            IsCooking = false;
+            _elapsed = 0f;
+            //color change
+        }
         public void PickedUp(GameObject parent)
         {
             if (parent.tag == "Hand")
@@ -82,7 +90,7 @@ namespace CookCo_opGame
                 }
             }
             IsCooking = false;
-            if (parent.tag == "Table")  //여기서 검사가 필요할듯
+            if (parent.tag == "Table")
             {
                 IsGrabed = false;
                 _currentTable = parent.GetComponent<TableManager>();
@@ -95,6 +103,15 @@ namespace CookCo_opGame
                 {
                     //요리가 가능한지 확인하는 함수 호출 // 그 함수에서 가능하다면 이즈쿠킹으로 바꾸고 듀레이션 주기
                     tm.StartCooking();
+                }
+                if (_currentTable.purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
+                {
+                    TrashTable trashTable = _currentTable.gameObject.GetComponent<TrashTable>();
+                    if (trashTable != null && _currentTable.CurrentItem != null)
+                    {
+                        if (trashTable.PerformPurpose())
+                            trashTable.ChaingeState(_currentTable.CurrentItem);
+                    }
                 }
             }
             this.transform.SetParent(parent.transform, true);

@@ -32,8 +32,8 @@ namespace CookCo_opGame
                 else
                 {
                     Duration = _boilDuration;
-                    IsCooking = true;
                 }
+                IsCooking = true;
             }
         }
     }

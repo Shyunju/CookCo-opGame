@@ -10,7 +10,8 @@ namespace CookCo_opGame
         //재료에 대한 정보(오브젝트)
         [SerializeField] protected List<GameObject> _ingredients;
         [SerializeField] protected int _ingredientsMaxCount;
-        private IngredientUIController _ingredientUIController;
+        private IngredientUIController _ingredientsUIController;
+        public IngredientUIController IngredientUIController {get { return _ingredientsUIController;} set { _ingredientsUIController = value; }}
         public List<GameObject> Ingredients { get { return _ingredients; } }
         public int IngredientsMaxCount { get { return _ingredientsMaxCount; } }
         public enum ToolPurpose
@@ -27,22 +28,21 @@ namespace CookCo_opGame
         void Start()
         {
             _ingredients = new List<GameObject>();
-            _ingredientUIController = GetComponentInChildren<IngredientUIController>();
+            _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
         }
         void Update()
         {
         }
         public void AddIngredient(GameObject food)
         {
-            if (_ingredientUIController == null)
-                _ingredientUIController = GetComponentInChildren<IngredientUIController>();
+            if (_ingredientsUIController == null)
+                _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
             _ingredients.Add(food);
             food.transform.SetParent(_ingredientsTemp.transform, true);
             FoodManager fm = food.GetComponent<FoodManager>();
             if (fm != null)
             {
-                //Debug.Log(_ingredientUIController);
-                _ingredientUIController.AddIngredientIcon(fm.Icon, _ingredients.Count - 1);
+                _ingredientsUIController.AddIngredientIcon(fm.Icon, _ingredients.Count - 1);
             }
             StartCooking();
         }

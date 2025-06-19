@@ -13,7 +13,7 @@ namespace CookCo_opGame
         RectTransform _gridLayOut;
         [SerializeField] GameObject _UIObject;
         Transform _itemTransform;
-        [SerializeField] float _ingredientsUIOffesetY = 55f;
+        [SerializeField] float _ingredientsUIOffesetY;
         [SerializeField] Image[] _ingredients = new Image[4];
 
 
@@ -36,8 +36,6 @@ namespace CookCo_opGame
             GameObject iconTemp = Instantiate(icon, this.transform);
             SpriteRenderer iconImage = iconTemp.GetComponent<SpriteRenderer>();
 
-            // Debug.Log(_ingredients[index].sprite);
-            // Debug.Log(iconImage.sprite);
             _ingredients[index].sprite = iconImage.sprite;
             _ingredients[index].color = Color.white;
         }

@@ -80,7 +80,7 @@ namespace CookCo_opGame
                     if (CurTableManager != null && CurTableManager.IsFull)
                     {
                         ToolManager toolManager = CurTableManager.CurrentItem.GetComponent<ToolManager>();
-                        FoodManager foodManager = _itemInHand.GetComponent<FoodManager>();
+                        //FoodManager foodManager = _itemInHand.GetComponent<FoodManager>();
                         if (toolManager != null)
                         {
                             if (toolManager.CheckToolState(_itemInHand))
@@ -146,15 +146,7 @@ namespace CookCo_opGame
                         _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.CutState);
 
                     }
-                    if (CurTableManager.purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
-                    {
-                        TrashTable trashTable = CurTableManager.gameObject.GetComponent<TrashTable>();
-                        if (trashTable != null && _itemInHand != null)
-                        {
-                            if (trashTable.PerformPurpose())
-                                trashTable.ChaingeState(_itemInHand);
-                        }
-                    }
+                    
 
                 }
             }
