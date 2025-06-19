@@ -12,11 +12,9 @@ namespace CookCo_opGame
             {
                 if (tm.Ingredients.Count > 0)
                 {
-                    tm.Ingredients.Clear();
-                    tm.IngredientUIController.ResetIngredientIcon();
+                    tm.EmptyTool();
                 }
-                im.ResetState();
-                im.CurrentState = ItemState.None;
+                im.ResetCookingState();
             }
             else
             {

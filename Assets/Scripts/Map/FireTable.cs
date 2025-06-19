@@ -52,6 +52,7 @@ namespace CookCo_opGame
                 {
                     _toolManager.CurrentState = ItemState.Grilled;
                 }
+                _toolManager.ChangeFoodIcon();
             }
         }
 

@@ -10,6 +10,7 @@ namespace CookCo_opGame
         Boiled,
         Grilled,
         Mixed,
+        Plate,
         Complete,
         Burn
     }
@@ -67,7 +68,7 @@ namespace CookCo_opGame
 
             }
         }
-        public void ResetState()
+        public void ResetCookingState()
         {
             _stateUI.SetActive(false);
             IsCooking = false;
