@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 namespace CookCo_opGame
@@ -8,19 +9,24 @@ namespace CookCo_opGame
         {
             ItemManager im = item.GetComponent<ItemManager>();
             ToolManager tm = item.GetComponent<ToolManager>();
+            PlateTool pt = item.GetComponent<PlateTool>();
+            if (pt != null)
+            {
+                pt.ObjectOnPlate.mesh = null;
+            }
             if (tm != null)
-            {
-                if (tm.Ingredients.Count > 0)
                 {
-                    tm.EmptyTool();
+                    if (tm.Ingredients.Count > 0)
+                    {
+                        tm.EmptyTool();
+                    }
+                    im.ResetCookingState();
                 }
-                im.ResetCookingState();
-            }
-            else
-            {
-                Destroy(item);
-                IsFull = false;
-            }
+                else
+                {
+                    Destroy(item);
+                    IsFull = false;
+                }
             
         }
 

@@ -7,7 +7,7 @@ namespace CookCo_opGame
     public class PlateTool : ToolManager
     {
         [SerializeField] MeshFilter _objectOnPlate;
-        public FoodManager FoodMesh { get; set; }
+        public MeshFilter ObjectOnPlate { get { return _objectOnPlate;} set { _objectOnPlate = value;}}
 
         public override bool CheckToolState(GameObject itemInHand)
         {
@@ -40,14 +40,18 @@ namespace CookCo_opGame
         }
         public void InputFromTool(ToolManager tm)
         {
-            Debug.Log(Ingredients.Count);   //자꾸 0이 되어버리는 상황
-            FoodManager fm = Ingredients[0].GetComponent<FoodManager>();
             Ingredients = tm.Ingredients.ToList();
+            FoodManager fm = Ingredients[0].GetComponent<FoodManager>();
             _objectOnPlate.mesh = fm.MeshFilter.mesh;
-            for(int i = 0; i < tm.Ingredients.Count; i++)
+            Transform[] children = tm.IngredientsTemp.GetComponentsInChildren<Transform>(true);
+            for (int i = 1; i < children.Length; i++) // i=0은 부모 자신
+            {
+                children[i].SetParent(IngredientsTemp.transform, true);
+            }
+            for (int i = 0; i < tm.Ingredients.Count; i++)
             {
                 FoodManager foodIcon = tm.Ingredients[i].GetComponent<FoodManager>();
-                IngredientUIController.AddIngredientIcon(foodIcon.Icon, i);                
+                IngredientUIController.AddIngredientIcon(foodIcon.Icon, i);
             }
             tm.EmptyTool();
         }

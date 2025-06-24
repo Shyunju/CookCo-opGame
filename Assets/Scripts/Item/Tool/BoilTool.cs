@@ -5,7 +5,7 @@ namespace CookCo_opGame
 {
     public class BoilTool : ToolManager
     {
-        private float _boilDuration = 13f;
+        private float _boilDuration = 5f;
         private int _maxIngredientInPot = 4;
         private float _plusDuration = 7f;
         void Start()

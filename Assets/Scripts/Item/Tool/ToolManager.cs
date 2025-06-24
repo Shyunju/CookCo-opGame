@@ -11,6 +11,7 @@ namespace CookCo_opGame
         [SerializeField] protected List<GameObject> _ingredients;
         [SerializeField] protected int _ingredientsMaxCount;
         private IngredientUIController _ingredientsUIController;
+        public GameObject IngredientsTemp { get { return _ingredientsTemp;} set { _ingredientsTemp = value;}}
         public IngredientUIController IngredientUIController { get { return _ingredientsUIController; } set { _ingredientsUIController = value; } }
         public List<GameObject> Ingredients { get { return _ingredients; } set { _ingredients = value;}}
         public int IngredientsMaxCount { get { return _ingredientsMaxCount; } }
