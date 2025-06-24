@@ -11,6 +11,7 @@ namespace CookCo_opGame
         Grilled,
         Mixed,
         Plate,
+        Used,
         Complete,
         Burn
     }
