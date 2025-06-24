@@ -57,6 +57,7 @@ namespace CookCo_opGame
             {
                 if (!_itemManager.IsGrabed)
                 {
+                    _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
                     _pickUpCollider.enabled = false;
                     _itemInHand = _itemManager.gameObject;
                     _itemRigidbody = _itemInHand.GetComponent<Rigidbody>();
