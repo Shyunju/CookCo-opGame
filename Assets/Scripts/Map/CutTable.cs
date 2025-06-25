@@ -34,7 +34,7 @@ namespace CookCo_opGame
             itemManager.Duration = _cuttingDuration;
             itemManager.IsCooking = true;
         }
-        public override void ChaingeState(GameObject item)
+        public override void ChangeState(GameObject item)
         {
             FoodManager foodManager = item.GetComponent<FoodManager>();
             if (foodManager != null)
@@ -43,7 +43,7 @@ namespace CookCo_opGame
                 foodManager.ChangeMesh(0);
                 _knife.SetActive(true); 
             }
-            PlayerManager.StateMachine.ChaingeState(PlayerManager.StateMachine.IdleState);
+            PlayerManager.StateMachine.ChangeState(PlayerManager.StateMachine.IdleState);
             PlayerManager = null;
 
         }

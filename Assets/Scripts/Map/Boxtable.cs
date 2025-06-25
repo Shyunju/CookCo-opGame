@@ -22,7 +22,7 @@ namespace CookCo_opGame
             return false;
         }
 
-        public override void ChaingeState(GameObject item)
+        public override void ChangeState(GameObject item)
         {
             ItemManager itemManager = item.GetComponent<ItemManager>();
             itemManager.CurrentState = ItemState.None;

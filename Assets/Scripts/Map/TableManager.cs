@@ -38,7 +38,7 @@ namespace CookCo_opGame
             _originalColor = _renderer.material.color;
         }
         public abstract bool PerformPurpose();
-        public abstract void ChaingeState(GameObject item);
+        public abstract void ChangeState(GameObject item);
         
         public void SetHighlight()
         {
@@ -51,7 +51,6 @@ namespace CookCo_opGame
         {
             if (CurrentItem != null && (_purpose == TablePurpose.Cut || _purpose == TablePurpose.Wash))
             {
-                Debug.Log("adswfr");
                 ItemManager im = CurrentItem.GetComponent<ItemManager>();
                 im.IsCooking = false;
             }

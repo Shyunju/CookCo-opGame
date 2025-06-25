@@ -38,7 +38,7 @@ namespace CookCo_opGame
         }
 
         //끓이기 와 굽기 분기 고민 필요
-        public override void ChaingeState(GameObject item)    //의문??? 재료 아이템을 바꿔? 재료는 도구가 바구고 도구상태를 바꿔?       
+        public override void ChangeState(GameObject item)    //의문??? 재료 아이템을 바꿔? 재료는 도구가 바구고 도구상태를 바꿔?       
         {
             _toolManager = item.GetComponent<ToolManager>();
             if (_toolManager != null && _toolManager.Ingredients.Count > 0)

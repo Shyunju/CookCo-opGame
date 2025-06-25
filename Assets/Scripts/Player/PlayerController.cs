@@ -31,7 +31,7 @@ namespace CookCo_opGame
         {
             if (context.canceled)
             {
-                _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.IdleState);
+                _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.IdleState);
                 if(!IsCooking)
                 Input = Vector3.zero;//********
                 _playerMove.MoveDirection = Vector3.zero; // 키를 뗐을 때 멈춤
@@ -43,7 +43,7 @@ namespace CookCo_opGame
             {
                 if (!_isRunning)
                 {
-                    _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.WalkState);
+                    _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.WalkState);
                 }
                 _playerMove.MoveDirection = new Vector3(input.x, 0f, input.y);
             }
@@ -80,7 +80,7 @@ namespace CookCo_opGame
         public IEnumerator DashMoveCo()
         {
             _isRunning = true;
-            _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.RunState);
+            _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.RunState);
             _playerMove.MoveSpeed = _playerMove.DashSpeed;
 
             yield return new WaitForSeconds(0.4f);

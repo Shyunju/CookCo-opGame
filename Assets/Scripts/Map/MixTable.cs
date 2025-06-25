@@ -9,7 +9,7 @@ namespace CookCo_opGame
         {
             _purpose = TablePurpose.Mix;
         }
-        public override void ChaingeState(GameObject item)
+        public override void ChangeState(GameObject item)
         {
             FoodManager foodManager = item.GetComponent<FoodManager>();
             if (foodManager != null)

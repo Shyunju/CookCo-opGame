@@ -15,7 +15,7 @@ namespace CookCo_opGame
     {
         protected IState currentState;
 
-        public void ChaingeState(IState state)
+        public void ChangeState(IState state)
         {
             currentState?.Exit();
             currentState = state;

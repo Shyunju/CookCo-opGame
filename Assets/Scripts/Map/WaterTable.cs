@@ -5,12 +5,13 @@ namespace CookCo_opGame
 {
     public class WaterTable : TableManager
     {
-        [SerializeField] Transform _spawnTable;
+        [SerializeField] Transform _spawnTablePosition;
         [SerializeField] GameObject _waterInSink;
         [SerializeField] GameObject _plate;
         [SerializeField] GameObject _tempItem;
         [SerializeField] bool _hasPlate = false;
 
+        private TableManager _spawnTable;
         private float _washingDuration = 4f;
         public PlayerManager PlayerManager { get; set; }
         public bool HasPlate {get { return _hasPlate; } set { _hasPlate = value;}}
@@ -18,14 +19,25 @@ namespace CookCo_opGame
         void Start()
         {
             _purpose = TablePurpose.Wash;
+            _spawnTable = _spawnTablePosition.gameObject.GetComponent<TableManager>();
         }
-        public override void ChaingeState(GameObject item)
+        public override void ChangeState(GameObject item)
         {
-            SpawnPlate();
-            WaterInSink.SetActive(false);
-            HasPlate = false;
-            PlayerManager.StateMachine.ChaingeState(PlayerManager.StateMachine.IdleState);
-            PlayerManager = null;
+            ItemManager im = CurrentItem.GetComponent<ItemManager>();
+            if (!_spawnTable.IsFull)
+            {
+                SpawnPlate();
+                WaterInSink.SetActive(false);
+                HasPlate = false;
+                PlayerManager = null;
+                im.StopNextStep = false;
+            }
+            else
+            {
+                im.StopNextStep = true;
+            }
+            PlayerManager.StateMachine.ChangeState(PlayerManager.StateMachine.IdleState);
+
         }
 
         public override bool PerformPurpose()
@@ -33,19 +45,11 @@ namespace CookCo_opGame
             CurrentItem = _tempItem;
             StartCoroutine(WashPlateCo());
             return true;
-            // if (CurrentItem != null)
-            // {
-            //     ToolManager tm = CurrentItem.GetComponent<ToolManager>();
-            //     if (tm != null && tm.CurrentState == ItemState.Used)
-            //     {
-            //     }
-            // }
-            // return false;
         }
         public void SpawnPlate()
         {
-            CurrentItem = Instantiate(_plate, _spawnTable.position, Quaternion.identity) as GameObject;
-            CurrentItem.GetComponent<ItemManager>().PickedUp(_spawnTable.gameObject);
+            CurrentItem = Instantiate(_plate, _spawnTablePosition.position, Quaternion.identity) as GameObject;
+            CurrentItem.GetComponent<ItemManager>().PickedUp(_spawnTablePosition.gameObject);
         }
         
         IEnumerator WashPlateCo()

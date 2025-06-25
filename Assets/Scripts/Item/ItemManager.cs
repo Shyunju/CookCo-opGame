@@ -37,6 +37,7 @@ namespace CookCo_opGame
         public float Duration { get { return _duration; } set { _duration = value; } }
         public TableManager CurrentTable { get { return _currentTable;} set { _currentTable = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
+        public bool StopNextStep { get; set;}
 
 
 
@@ -52,10 +53,10 @@ namespace CookCo_opGame
             {
                 if (_elapsed >= _duration)
                 {
-                    _currentTable.ChaingeState(gameObject);
-                    _stateUI.SetActive(false);
-                    _elapsed = 0f;
-                    _isCooking = false;
+                    // Debug.Log("d");
+                    _currentTable.ChangeState(gameObject);
+                    if(!StopNextStep)
+                        ResetCookingState();
                 }
                 else
                 {
@@ -112,7 +113,7 @@ namespace CookCo_opGame
                     if (trashTable != null && _currentTable.CurrentItem != null)
                     {
                         if (trashTable.PerformPurpose())
-                            trashTable.ChaingeState(_currentTable.CurrentItem);
+                            trashTable.ChangeState(_currentTable.CurrentItem);
                     }
                 }
                 if (_currentTable.Purpose == TableManager.TablePurpose.Wash && CurrentState == ItemState.Used)

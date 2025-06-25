@@ -36,7 +36,7 @@ namespace CookCo_opGame
             _playerHand = GetComponentInChildren<PlayerHand>();
             Animator = GetComponentInChildren<Animator>();
             PlayerController = GetComponent<PlayerController>();
-            StateMachine.ChaingeState(StateMachine.IdleState);
+            StateMachine.ChangeState(StateMachine.IdleState);
 
         }
         void Update()

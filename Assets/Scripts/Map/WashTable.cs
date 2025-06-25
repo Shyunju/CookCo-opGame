@@ -12,7 +12,7 @@ namespace CookCo_opGame
         [SerializeField] GameObject _water;
         GameObject[] _usedPlates;
         GameObject[] _cleanPlates;
-        public override void ChaingeState(GameObject item)
+        public override void ChangeState(GameObject item)
         {
             throw new System.NotImplementedException();
         }
