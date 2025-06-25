@@ -104,11 +104,8 @@ namespace CookCo_opGame
                     _itemManager.PutDown();
                 }
 
-                //_itemManager = null;
                 _itemInHand = null;
                 _isHandFree = true;
-                // _canPickUp = true;
-
 
                 _pickUpCollider.enabled = true;
             }
@@ -137,11 +134,21 @@ namespace CookCo_opGame
                 {
                     _pickUpCollider.enabled = false;
                     _pickUpCollider.enabled = true;
-                    if (CurTableManager.purpose == TableManager.TablePurpose.Cut) //자르기
+                    if (CurTableManager.Purpose == TableManager.TablePurpose.Cut) //자르기
                     {
                         CutTable cutTable = CurTableManager.gameObject.GetComponent<CutTable>();
                         if (cutTable != null)
                             cutTable.PlayerManager = _playerManager;
+                        _playerManager.PlayerController.IsCooking = true;
+                        _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.CutState);
+
+                    }
+                    if (CurTableManager.Purpose == TableManager.TablePurpose.Wash) //설거지
+                    {
+                        Debug.Log("wash");
+                        WaterTable waterTable = CurTableManager.gameObject.GetComponent<WaterTable>();
+                        if (waterTable != null)
+                            waterTable.PlayerManager = _playerManager;
                         _playerManager.PlayerController.IsCooking = true;
                         _playerManager.StateMachine.ChaingeState(_playerManager.StateMachine.CutState);
 

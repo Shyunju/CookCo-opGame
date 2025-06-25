@@ -6,7 +6,7 @@ namespace CookCo_opGame
     public abstract class TableManager : MonoBehaviour
     {
         [SerializeField] protected TablePurpose _purpose = TablePurpose.None;
-        public TablePurpose purpose { get { return _purpose; } }
+        public TablePurpose Purpose { get { return _purpose; } }
         [SerializeField] private bool _isFull = false;
         public bool IsFull { get { return _isFull; } set { _isFull = value; } }
         [SerializeField] private GameObject _currnetItem;
@@ -23,7 +23,8 @@ namespace CookCo_opGame
             Cut,
             Mix,
             Fire,
-            Trash
+            Trash,
+            Wash
         }
         void Awake()
         {
@@ -48,8 +49,9 @@ namespace CookCo_opGame
 
         public void ResetColor()
         {
-            if (CurrentItem != null && _purpose == TablePurpose.Cut)
+            if (CurrentItem != null && (_purpose == TablePurpose.Cut || _purpose == TablePurpose.Wash))
             {
+                Debug.Log("adswfr");
                 ItemManager im = CurrentItem.GetComponent<ItemManager>();
                 im.IsCooking = false;
             }

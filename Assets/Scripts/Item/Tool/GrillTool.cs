@@ -28,7 +28,7 @@ namespace CookCo_opGame
 
         public override void StartCooking()
         {
-            if (Ingredients.Count > 0 && CurrentTable.purpose == TableManager.TablePurpose.Fire)
+            if (Ingredients.Count > 0 && CurrentTable.Purpose == TableManager.TablePurpose.Fire)
             {
                 Duration = _grillDuration;
                 IsCooking = true;

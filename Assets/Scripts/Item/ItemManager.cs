@@ -106,13 +106,23 @@ namespace CookCo_opGame
                     //요리가 가능한지 확인하는 함수 호출 // 그 함수에서 가능하다면 이즈쿠킹으로 바꾸고 듀레이션 주기
                     tm.StartCooking();
                 }
-                if (_currentTable.purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
+                if (_currentTable.Purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
                 {
                     TrashTable trashTable = _currentTable.gameObject.GetComponent<TrashTable>();
                     if (trashTable != null && _currentTable.CurrentItem != null)
                     {
                         if (trashTable.PerformPurpose())
                             trashTable.ChaingeState(_currentTable.CurrentItem);
+                    }
+                }
+                if (_currentTable.Purpose == TableManager.TablePurpose.Wash && CurrentState == ItemState.Used)
+                {
+                    WaterTable waterTable = _currentTable.gameObject.GetComponentInParent<WaterTable>();
+                    if (waterTable != null)
+                    {
+                        waterTable.HasPlate = true;
+                        waterTable.WaterInSink.SetActive(true);
+                        Destroy(gameObject);
                     }
                 }
             }

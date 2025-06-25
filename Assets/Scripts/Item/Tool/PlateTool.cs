@@ -29,7 +29,7 @@ namespace CookCo_opGame
 
         public override void StartCooking()
         {
-            if (Ingredients.Count > 0 && CurrentTable.purpose == TableManager.TablePurpose.None) //제출 테이블로 수정 필요
+            if (Ingredients.Count > 0 && CurrentTable.Purpose == TableManager.TablePurpose.None) //제출 테이블로 수정 필요
             {
                 //제출시 이루어져야할 것들
             }
