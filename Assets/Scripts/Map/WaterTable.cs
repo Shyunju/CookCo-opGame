@@ -24,11 +24,13 @@ namespace CookCo_opGame
         public override void ChangeState(GameObject item)
         {
             ItemManager im = CurrentItem.GetComponent<ItemManager>();
+            PlayerManager.StateMachine.ChangeState(PlayerManager.StateMachine.IdleState);
             if (!_spawnTable.IsFull)
             {
                 SpawnPlate();
                 WaterInSink.SetActive(false);
                 HasPlate = false;
+                IsFull = false;
                 PlayerManager = null;
                 im.StopNextStep = false;
             }
@@ -36,15 +38,18 @@ namespace CookCo_opGame
             {
                 im.StopNextStep = true;
             }
-            PlayerManager.StateMachine.ChangeState(PlayerManager.StateMachine.IdleState);
 
         }
 
         public override bool PerformPurpose()
         {
-            CurrentItem = _tempItem;
-            StartCoroutine(WashPlateCo());
-            return true;
+            if (HasPlate)
+            {
+                CurrentItem = _tempItem;
+                StartCoroutine(WashPlateCo());
+                return true;
+            }
+            return false;
         }
         public void SpawnPlate()
         {

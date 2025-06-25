@@ -53,7 +53,6 @@ namespace CookCo_opGame
             {
                 if (_elapsed >= _duration)
                 {
-                    // Debug.Log("d");
                     _currentTable.ChangeState(gameObject);
                     if(!StopNextStep)
                         ResetCookingState();

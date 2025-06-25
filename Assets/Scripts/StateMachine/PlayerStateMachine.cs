@@ -9,6 +9,8 @@ namespace CookCo_opGame
         public WalkState WalkState { get; }
         public RunState RunState { get; }
         public CutState CutState { get; }
+        public WashState WashState { get; }
+        
 
         public Vector2 MovementInput { get; set; }
         public float MovementSpeed { get; private set; }
@@ -23,6 +25,7 @@ namespace CookCo_opGame
             WalkState = new WalkState(this);
             RunState = new RunState(this);
             CutState = new CutState(this);
+            WashState = new WashState(this);
 
             MovementSpeed = player.PlayerOS.DefaultData.BaseSpeed;
             RotateDamping = player.PlayerOS.DefaultData.BaseRotationDamping;

@@ -57,7 +57,7 @@ namespace CookCo_opGame
             {
                 if (!_itemManager.IsGrabed)
                 {
-                    _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.IdleState);
+                    //_playerManager.StateMachine.ChangeState(_playerManager.StateMachine.IdleState);
                     _pickUpCollider.enabled = false;
                     _itemInHand = _itemManager.gameObject;
                     _itemRigidbody = _itemInHand.GetComponent<Rigidbody>();
@@ -145,12 +145,11 @@ namespace CookCo_opGame
                     }
                     if (CurTableManager.Purpose == TableManager.TablePurpose.Wash) //설거지
                     {
-                        Debug.Log("wash");
                         WaterTable waterTable = CurTableManager.gameObject.GetComponent<WaterTable>();
                         if (waterTable != null)
                             waterTable.PlayerManager = _playerManager;
                         _playerManager.PlayerController.IsCooking = true;
-                        _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.CutState);
+                        _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.WashState);
 
                     }
                     
