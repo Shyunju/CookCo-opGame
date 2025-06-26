@@ -125,6 +125,13 @@ namespace CookCo_opGame
                         Destroy(gameObject);
                     }
                 }
+                if (_currentTable.Purpose == TableManager.TablePurpose.Submit && CurrentState == ItemState.Plate)
+                {
+                    SubmitTable st = _currentTable.GetComponentInParent<SubmitTable>();
+                    ToolManager cook = this.gameObject.GetComponent<ToolManager>();
+                    st.CheckRecipe(cook);
+                    return;
+                }
             }
             this.transform.SetParent(parent.transform, true);
             this.transform.localRotation = Quaternion.identity;
