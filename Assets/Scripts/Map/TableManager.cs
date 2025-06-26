@@ -24,7 +24,9 @@ namespace CookCo_opGame
             Mix,
             Fire,
             Trash,
-            Wash
+            Wash,
+            Submit,
+            Spawn
         }
         void Awake()
         {
