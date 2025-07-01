@@ -1,0 +1,29 @@
+{
+  "Items": [
+    {
+      "ItemID": 1,
+      "ItemName": "Carrot",
+      "IconPath": "Sprites/FoodIcon/Carrot"
+    },
+    {
+      "ItemID": 2,
+      "ItemName": "CarrotSoup",
+      "IconPath": "Sprites/FoodIcon/Carrot"
+    },
+    {
+      "ItemID": 3,
+      "ItemName": "Tomato",
+      "IconPath": "Sprites/FoodIcon/Tomato"
+    },
+    {
+      "ItemID": 4,
+      "ItemName": "Beaf",
+      "IconPath": "Sprites/FoodIcon/Beaf"
+    },
+    {
+      "ItemID": 5,
+      "ItemName": "Patty",
+      "IconPath": "Sprites/FoodIcon/Patty"
+    }
+  ]
+}

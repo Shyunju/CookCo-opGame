@@ -5,14 +5,12 @@ namespace CookCo_opGame
     [System.Serializable]
     public class ItemData
     {
-        public int _itemID;
-        public string _itemName;
-        public string _iconPath;
+        public int ItemID;
+        public string ItemName;
+        public string IconPath;
 
         [System.NonSerialized] 
-        public Sprite itemSprite;
-        public int ItemID { get { return _itemID; } set { _itemID = value; } }
-        public string ItemName { get { return _itemName; } set { _itemName = value; } }
+        public Sprite IconSprite;
     }
 
     [System.Serializable]

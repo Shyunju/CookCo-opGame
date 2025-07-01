@@ -31,7 +31,7 @@ namespace CookCo_opGame
                 foreach (var item in _itemList.Items)
                 {
                     //Resources/                    
-                    item.itemSprite = Resources.Load<Sprite>(item._iconPath); //경로로 이미지 찾아 로드
+                    item.IconSprite = Resources.Load<Sprite>(item.IconPath); //경로로 이미지 찾아 로드
                 }
             }
             else
@@ -43,7 +43,7 @@ namespace CookCo_opGame
         public ItemData GetItemByID(int id)
         {
             
-            ItemData it = _itemList.Items.Find((item) => item._itemID == id);
+            ItemData it = _itemList.Items.Find((item) => item.ItemID == id);
             return it;
         }
 
