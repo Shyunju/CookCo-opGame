@@ -57,7 +57,6 @@ namespace CookCo_opGame
             {
                 if (!_itemManager.IsGrabed)
                 {
-                    //_playerManager.StateMachine.ChangeState(_playerManager.StateMachine.IdleState);
                     _pickUpCollider.enabled = false;
                     _itemInHand = _itemManager.gameObject;
                     _itemRigidbody = _itemInHand.GetComponent<Rigidbody>();
@@ -80,6 +79,18 @@ namespace CookCo_opGame
                 {
                     if (CurTableManager != null && CurTableManager.IsFull)
                     {
+                        SubmitTable submitTable = CurTableManager.gameObject.GetComponent<SubmitTable>();
+                        if (submitTable != null)
+                        {
+                            if (_itemManager.CurrentState != ItemState.Plate)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                submitTable.CheckRecipe(_itemManager.gameObject.GetComponent<ToolManager>());
+                            }
+                        }
                         ToolManager toolManager = CurTableManager.CurrentItem.GetComponent<ToolManager>();
                         if (toolManager != null)
                         {

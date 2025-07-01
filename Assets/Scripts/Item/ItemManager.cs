@@ -24,20 +24,22 @@ namespace CookCo_opGame
         [SerializeField] bool _isGrabed;
         [SerializeField] bool _onTable = false;
         [SerializeField] bool _isCooking = false;
+        [SerializeField] int _stateValue;
         private Collider _itemCollider;
         private Rigidbody _itemRigidbody;
         float _targetStateBarScale;
         private float _duration;
         private float _elapsed = 0f;
 
-        public GameObject StateUI {get { return _stateUI; } set { _stateUI = value; } }
+        public GameObject StateUI { get { return _stateUI; } set { _stateUI = value; } }
         public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
         public bool OnTable { get { return _onTable; } set { _onTable = value; } }
         public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
         public float Duration { get { return _duration; } set { _duration = value; } }
         public TableManager CurrentTable { get { return _currentTable;} set { _currentTable = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
-        public bool StopNextStep { get; set;}
+        public int StateValue { get { return _stateValue;} set { _stateValue = value; } }
+        public bool StopNextStep { get; set; }
 
 
 
@@ -124,13 +126,6 @@ namespace CookCo_opGame
                         waterTable.WaterInSink.SetActive(true);
                         Destroy(gameObject);
                     }
-                }
-                if (_currentTable.Purpose == TableManager.TablePurpose.Submit && CurrentState == ItemState.Plate)
-                {
-                    SubmitTable st = _currentTable.GetComponentInParent<SubmitTable>();
-                    ToolManager cook = this.gameObject.GetComponent<ToolManager>();
-                    st.CheckRecipe(cook);
-                    return;
                 }
             }
             this.transform.SetParent(parent.transform, true);

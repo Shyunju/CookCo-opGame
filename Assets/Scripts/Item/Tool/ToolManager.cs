@@ -8,12 +8,12 @@ namespace CookCo_opGame
 
         [SerializeField] GameObject _ingredientsTemp;
         //재료에 대한 정보(오브젝트)
-        [SerializeField] protected List<GameObject> _ingredients;
+        [SerializeField] protected List<int> _ingredients;
         [SerializeField] protected int _ingredientsMaxCount;
         private IngredientUIController _ingredientsUIController;
         public GameObject IngredientsTemp { get { return _ingredientsTemp;} set { _ingredientsTemp = value;}}
         public IngredientUIController IngredientUIController { get { return _ingredientsUIController; } set { _ingredientsUIController = value; } }
-        public List<GameObject> Ingredients { get { return _ingredients; } set { _ingredients = value;}}
+        public List<int> Ingredients { get { return _ingredients; } set { _ingredients = value;}}
         public int IngredientsMaxCount { get { return _ingredientsMaxCount; } }
         public enum ToolPurpose
         {
@@ -29,7 +29,7 @@ namespace CookCo_opGame
 
         void Start()
         {
-            _ingredients = new List<GameObject>();
+            _ingredients = new List<int>();
             _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
         }
         void Update()
@@ -39,9 +39,10 @@ namespace CookCo_opGame
         {
             if (_ingredientsUIController == null)
                 _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
-            _ingredients.Add(food);
-            food.transform.SetParent(_ingredientsTemp.transform, true);
+            
             FoodManager fm = food.GetComponent<FoodManager>();
+            _ingredients.Add(fm.StateValue);
+            food.transform.SetParent(_ingredientsTemp.transform, true);
             if (fm != null)
             {
                 _ingredientsUIController.AddIngredientIcon(fm.Icon, _ingredients.Count - 1);
@@ -52,10 +53,10 @@ namespace CookCo_opGame
         public abstract void StartCooking();  //음식이 도구에 담겼을때 실행할 함수
         public virtual void ChangeFoodIcon()
         {
-            foreach (var food in Ingredients)
+            foreach (int food in Ingredients) //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             {
-                FoodManager fm = food.GetComponent<FoodManager>();
-                fm.ChangeMesh(fm.Index + 1);
+                // FoodManager fm = food.GetComponent<FoodManager>();
+                // fm.ChangeMesh(fm.Index + 1);
             }
         }
         public void EmptyTool()

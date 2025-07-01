@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CookCo_opGame
@@ -6,7 +8,7 @@ namespace CookCo_opGame
     public class SubmitTable : TableManager
     {
         [SerializeField] GameObject _usedPlate;
-        [SerializeField] GameObject _respawnTable;
+        [SerializeField] TableManager _respawnTable;
         public override void ChangeState(GameObject item)
         {
             throw new System.NotImplementedException();
@@ -22,16 +24,25 @@ namespace CookCo_opGame
         public void CheckRecipe(ToolManager toolManager)
         {
             //레시피(재료 리스트) 받아오기
-            List<GameObject> ingredients = toolManager.Ingredients;
+            List<int> ingredients = toolManager.Ingredients.ToList();
             if (ingredients.Count > 0)
             {
                 //submit
             }
         }
 
-        public void RespawnUsedPlate()
+        IEnumerator RespawnUsedPlateCo()
         {
-            //Instantiate(_usedPlate, _respawnTable.transform) as GameObject;
+            yield return new WaitForSeconds(5f);
+            if (!_respawnTable.IsFull)
+            {
+                CurrentItem = Instantiate(_usedPlate, _respawnTable.transform) as GameObject;
+                CurrentItem.GetComponent<ItemManager>().PickedUp(_respawnTable.gameObject);
+            }
+            else
+            {
+                StartCoroutine(RespawnUsedPlateCo());
+            }
         }
     }
 }
