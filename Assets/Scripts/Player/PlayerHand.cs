@@ -82,15 +82,18 @@ namespace CookCo_opGame
                         SubmitTable submitTable = CurTableManager.gameObject.GetComponent<SubmitTable>();
                         if (submitTable != null)
                         {
-                            if (_itemManager.CurrentState != ItemState.Plate)
+                            if (_itemManager.CurrentState == ItemState.Plate)
                             {
-                                return;
+                                ToolManager plateToolManager = _itemManager.gameObject.GetComponent<ToolManager>();
+                                if (plateToolManager.Ingredients.Count > 0)
+                                {
+                                    _itemManager.PutDown();
+                                    _itemManager.PickedUp(FrontTable);
+                                    submitTable.ChangeState(_itemManager.gameObject);
+                                }
                             }
-                            else
-                            {
-                                submitTable.ChangeState(_itemManager.gameObject);
-                                return;
-                            }
+                            return;
+                            
                         }
                         ToolManager toolManager = CurTableManager.CurrentItem.GetComponent<ToolManager>();
                         if (toolManager != null)

@@ -9,32 +9,31 @@ namespace CookCo_opGame
     {
         [SerializeField] GameObject _usedPlate;
         [SerializeField] TableManager _respawnTable;
+        [SerializeField] int _successScore = 100;
+        [SerializeField] int _failScore = -20;
         List<int> _recipe = new List<int>();
         public override void ChangeState(GameObject item)
         {
             ToolManager toolManager = item.GetComponent<ToolManager>();
             List<FoodManager> ingredients = toolManager.Ingredients.ToList();
-            if (ingredients.Count > 0)
+            _recipe.Clear();
+            //submit
+            foreach (var i in ingredients)
             {
-                _recipe.Clear();
-                //submit
-                foreach (var i in ingredients)
-                {
-                    _recipe.Add(i.ItemID);
-                }
-                _recipe.Sort();
-                for (int i = 0; i < GameManager.Instance.Orders.Count; i++)
-                {
-                    if (_recipe.SequenceEqual(GameManager.Instance.Orders[i]))
-                    {
-                        GameManager.Instance.Orders.RemoveAt(i);
-                        Debug.Log(GameManager.Instance.Orders.Count);
-                        //점수추가
-                        break;
-                    }
-                }
-                Destroy(item);
+                _recipe.Add(i.ItemID);
             }
+            _recipe.Sort();
+            for (int i = 0; i < GameManager.Instance.Orders.Count; i++)
+            {
+                if (_recipe.SequenceEqual(GameManager.Instance.Orders[i]))
+                {
+                    GameManager.Instance.Orders.RemoveAt(i);
+                    GameManager.Instance.ChangeScore(_successScore);
+                    break;
+                }
+                GameManager.Instance.ChangeScore(_failScore);
+            }
+            Destroy(item);
         }
 
         public override bool PerformPurpose()
