@@ -88,7 +88,8 @@ namespace CookCo_opGame
                             }
                             else
                             {
-                                submitTable.CheckRecipe(_itemManager.gameObject.GetComponent<ToolManager>());
+                                submitTable.ChangeState(_itemManager.gameObject);
+                                return;
                             }
                         }
                         ToolManager toolManager = CurTableManager.CurrentItem.GetComponent<ToolManager>();
