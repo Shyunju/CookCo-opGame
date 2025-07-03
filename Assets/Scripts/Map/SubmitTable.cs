@@ -9,6 +9,7 @@ namespace CookCo_opGame
     {
         [SerializeField] GameObject _usedPlate;
         [SerializeField] TableManager _respawnTable;
+        List<int> _recipe = new List<int>();
         public override void ChangeState(GameObject item)
         {
             throw new System.NotImplementedException();
@@ -24,10 +25,16 @@ namespace CookCo_opGame
         public void CheckRecipe(ToolManager toolManager)
         {
             //레시피(재료 리스트) 받아오기
-            List<int> ingredients = toolManager.Ingredients.ToList();
+            List<FoodManager> ingredients = toolManager.Ingredients.ToList();
+            _recipe.Clear();
             if (ingredients.Count > 0)
             {
                 //submit
+                foreach (var i in ingredients)
+                {
+                    _recipe.Add(i.ItemID);
+                }
+                _recipe.Sort();
             }
         }
 

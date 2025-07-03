@@ -31,12 +31,12 @@ namespace CookCo_opGame
             Vector3 screenPos = Camera.main.WorldToScreenPoint(_itemTransform.position);
             _gridLayOut.position = new Vector3(screenPos.x, screenPos.y + _ingredientsUIOffesetY, screenPos.z);
         }
-        public void AddIngredientIcon(GameObject icon, int index)
+        public void AddIngredientIcon(Sprite icon, int index)
         {
-            GameObject iconTemp = Instantiate(icon, this.transform)as GameObject;
-            SpriteRenderer iconImage = iconTemp.GetComponent<SpriteRenderer>();
+            //GameObject iconTemp = Instantiate(icon, this.transform)as GameObject;
+            //SpriteRenderer iconImage = iconTemp.GetComponent<SpriteRenderer>();
 
-            _ingredients[index].sprite = iconImage.sprite;
+            _ingredients[index].sprite = icon;
             _ingredients[index].color = Color.white;
         }
         public void ResetIngredientIcon()  

@@ -24,7 +24,7 @@ namespace CookCo_opGame
         [SerializeField] bool _isGrabed;
         [SerializeField] bool _onTable = false;
         [SerializeField] bool _isCooking = false;
-        [SerializeField] int _stateValue;
+        [SerializeField] int _itemID;
         private Collider _itemCollider;
         private Rigidbody _itemRigidbody;
         float _targetStateBarScale;
@@ -38,7 +38,7 @@ namespace CookCo_opGame
         public float Duration { get { return _duration; } set { _duration = value; } }
         public TableManager CurrentTable { get { return _currentTable;} set { _currentTable = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
-        public int StateValue { get { return _stateValue;} set { _stateValue = value; } }
+        public int ItemID { get { return _itemID;} set { _itemID = value; } }
         public bool StopNextStep { get; set; }
 
 

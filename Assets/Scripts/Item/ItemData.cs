@@ -9,7 +9,7 @@ namespace CookCo_opGame
         public string ItemName;
         public string IconPath;
 
-        [System.NonSerialized] 
+        [System.NonSerialized]
         public Sprite IconSprite;
     }
 

@@ -41,8 +41,8 @@ namespace CookCo_opGame
         public void InputFromTool(ToolManager tm)
         {
             Ingredients = tm.Ingredients.ToList();
-            //FoodManager fm = Ingredients[0].GetComponent<FoodManager>();
-            //_objectOnPlate.mesh = fm.MeshFilter.mesh;  메쉬 바꾸기
+            FoodManager fm = Ingredients[0];
+            _objectOnPlate.mesh = fm.MeshFilter.mesh;  //메쉬 바꾸기
             Transform[] children = tm.IngredientsTemp.GetComponentsInChildren<Transform>(true);
             for (int i = 1; i < children.Length; i++) // i=0은 부모 자신
             {
@@ -50,8 +50,8 @@ namespace CookCo_opGame
             }
             for (int i = 0; i < tm.Ingredients.Count; i++)
             {
-                //FoodManager foodIcon = tm.Ingredients[i].GetComponent<FoodManager>();
-                //IngredientUIController.AddIngredientIcon(foodIcon.Icon, i);
+                FoodManager foodIcon = tm.Ingredients[i];
+                IngredientUIController.AddIngredientIcon(foodIcon.Icon, i);
             }
             tm.EmptyTool();
         }
