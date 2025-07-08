@@ -1,0 +1,9 @@
+{
+  "Recipes": [
+    {
+      "RecipeID": 1,
+      "RecipeName": "Carrot",
+      "UIPath": "Sprites/FoodIcon/Carrot"
+    }
+  ]
+}
