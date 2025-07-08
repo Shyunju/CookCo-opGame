@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEditor.ShaderGraph;
 using UnityEngine;
 
@@ -39,7 +40,10 @@ namespace CookCo_opGame
             // _Color가 없을 수도 있으므로, material의 color 사용
             _originalColor = _renderer.material.color;
         }
-        public abstract bool PerformPurpose();
+        public virtual bool PerformPurpose()
+        {
+            return true;
+        }
         public abstract void ChangeState(GameObject item);
         
         public void SetHighlight()

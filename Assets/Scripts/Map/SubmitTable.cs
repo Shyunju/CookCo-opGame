@@ -8,10 +8,11 @@ namespace CookCo_opGame
     public class SubmitTable : TableManager
     {
         [SerializeField] GameObject _usedPlate;
-        [SerializeField] TableManager _respawnTable;
+        [SerializeField] Boxtable _respawnTable;
         [SerializeField] int _successScore = 100;
         [SerializeField] int _failScore = -20;
         List<int> _recipe = new List<int>();
+        private float _respawnCoolTime = 3f;
         public override void ChangeState(GameObject item)
         {
             ToolManager toolManager = item.GetComponent<ToolManager>();
@@ -29,6 +30,8 @@ namespace CookCo_opGame
                 {
                     GameManager.Instance.Orders.RemoveAt(i);
                     GameManager.Instance.ChangeScore(_successScore);
+                    StartCoroutine(RespawnUsedPlateCo());
+                    Debug.Log("okey");
                     break;
                 }
                 GameManager.Instance.ChangeScore(_failScore);
@@ -36,21 +39,13 @@ namespace CookCo_opGame
             Destroy(item);
         }
 
-        public override bool PerformPurpose()
-        {
-            //제출 시스템(레시피 비교할 어딘가에 요리를 넣음)
-            //요리 아이템 사라지게함
-            //올바른 요리인지는 ChangeState에서확인하게 하기
-            return true;
-        }
-
         IEnumerator RespawnUsedPlateCo()
         {
-            yield return new WaitForSeconds(5f);
+            Debug.Log("start respawn");
+            yield return new WaitForSeconds(_respawnCoolTime);
             if (!_respawnTable.IsFull)
             {
-                CurrentItem = Instantiate(_usedPlate, _respawnTable.transform) as GameObject;
-                CurrentItem.GetComponent<ItemManager>().PickedUp(_respawnTable.gameObject);
+                _respawnTable.SpawnPlate();
             }
             else
             {
