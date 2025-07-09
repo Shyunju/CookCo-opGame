@@ -13,6 +13,7 @@ namespace CookCo_opGame
         [SerializeField] int _failScore = -20;
         List<int> _recipe = new List<int>();
         private float _respawnCoolTime = 3f;
+        private bool _hasRecipe = false;
         public override void ChangeState(GameObject item)
         {
             ToolManager toolManager = item.GetComponent<ToolManager>();
@@ -30,18 +31,19 @@ namespace CookCo_opGame
                 {
                     GameManager.Instance.Orders.RemoveAt(i);
                     GameManager.Instance.ChangeScore(_successScore);
-                    StartCoroutine(RespawnUsedPlateCo());
-                    Debug.Log("okey");
+                    _hasRecipe = true;
                     break;
                 }
-                GameManager.Instance.ChangeScore(_failScore);
             }
+            if (!_hasRecipe)
+                GameManager.Instance.ChangeScore(_failScore);
+
+            StartCoroutine(RespawnUsedPlateCo());
             Destroy(item);
         }
 
         IEnumerator RespawnUsedPlateCo()
         {
-            Debug.Log("start respawn");
             yield return new WaitForSeconds(_respawnCoolTime);
             if (!_respawnTable.IsFull)
             {

@@ -90,6 +90,11 @@ namespace CookCo_opGame
                                     _itemManager.PutDown();
                                     _itemManager.PickedUp(FrontTable);
                                     submitTable.ChangeState(_itemManager.gameObject);
+
+                                    _itemInHand = null;
+                                    _isHandFree = true;
+
+                                    _pickUpCollider.enabled = true;
                                 }
                             }
                             return;

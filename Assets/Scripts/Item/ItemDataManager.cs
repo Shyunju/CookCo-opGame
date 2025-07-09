@@ -12,8 +12,6 @@ namespace CookCo_opGame
 
         public ItemDataManager()
         {
-            //Assets/
-            //_jsonPath = Path.Combine(Application.dataPath, "Resources/Items.json");
             jsonAsset = Resources.Load<TextAsset>("Items");
 
             LoadItems();

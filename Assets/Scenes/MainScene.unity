@@ -866,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDontDestroy: 0
+  _scoreAndTimerUIController: {fileID: 1455725394}
 --- !u!4 &607403259
 Transform:
   m_ObjectHideFlags: 0
@@ -1828,6 +1829,10 @@ PrefabInstance:
     - target: {fileID: 3963071474630489775, guid: 021cf92d3a6324f858e3170fb1690158, type: 3}
       propertyPath: m_Name
       value: Tool_Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281867471810466841, guid: 021cf92d3a6324f858e3170fb1690158, type: 3}
+      propertyPath: _itemID
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6391639270588833073, guid: 021cf92d3a6324f858e3170fb1690158, type: 3}
       propertyPath: m_Layer
