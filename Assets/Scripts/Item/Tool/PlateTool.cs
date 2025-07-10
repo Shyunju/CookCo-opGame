@@ -14,17 +14,20 @@ namespace CookCo_opGame
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();
             ToolManager tm = itemInHand.GetComponent<ToolManager>();
-            if (fm != null)
+            if (Ingredients.Count < _ingredientsMaxCount)
             {
-                //_objectOnPlate.mesh = fm.MeshFilter.mesh;                   //@@@@@@@@@@@@@@@
-                SettingMeshOnPlate();
-                return true;
-            }
-            else if (tm != null && tm.Ingredients.Count > 0)
-            {
-                InputFromTool(tm);
-
-                return false;
+                if (fm != null)
+                {
+                    if(Ingredients.Count == 0)_objectOnPlate.mesh = fm.MeshFilter.mesh;
+                    SettingMeshOnPlate();
+                    return true;
+                }
+                else if (tm != null && tm.Ingredients.Count > 0)
+                {
+                    InputFromTool(tm);
+                    return false;
+                }
+                
             }
             return false;
         }
@@ -65,12 +68,6 @@ namespace CookCo_opGame
 
         public void SettingMeshOnPlate()
         {
-
-            if (Ingredients == null || Ingredients.Count == 0)
-            {
-                Debug.Log("리스트에 값이 없습니다.");
-            }
-
             // 리스트 길이가 1일 때
             if (Ingredients.Count == 1)
             {
