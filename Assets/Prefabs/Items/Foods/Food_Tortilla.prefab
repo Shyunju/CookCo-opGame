@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7412493341755799451
+--- !u!1 &1322972259164409828
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7921459571638905978}
-  - component: {fileID: 3159259722211306164}
-  - component: {fileID: 1117041659407220366}
-  - component: {fileID: 1768743524859514994}
-  - component: {fileID: 5888147609624023163}
+  - component: {fileID: 191586776561928179}
+  - component: {fileID: 8300025885810308095}
+  - component: {fileID: 1230415049891815286}
+  - component: {fileID: 636213786733271359}
+  - component: {fileID: 8941532738456287101}
   m_Layer: 0
-  m_Name: Food_Bread
+  m_Name: Food_Tortilla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7921459571638905978
+--- !u!4 &191586776561928179
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412493341755799451}
+  m_GameObject: {fileID: 1322972259164409828}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9.496726, y: 0.5, z: 4.7431736}
@@ -35,21 +35,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3159259722211306164
+--- !u!33 &8300025885810308095
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412493341755799451}
-  m_Mesh: {fileID: -6624660821805991574, guid: fafa07026b54c1a4889664f4e4f505d9, type: 3}
---- !u!23 &1117041659407220366
+  m_GameObject: {fileID: 1322972259164409828}
+  m_Mesh: {fileID: 1822770742895863961, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
+--- !u!23 &1230415049891815286
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412493341755799451}
+  m_GameObject: {fileID: 1322972259164409828}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -88,13 +88,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &1768743524859514994
+--- !u!54 &636213786733271359
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412493341755799451}
+  m_GameObject: {fileID: 1322972259164409828}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -115,13 +115,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5888147609624023163
+--- !u!114 &8941532738456287101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412493341755799451}
+  m_GameObject: {fileID: 1322972259164409828}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aadc7fd6e897a466eaf5efa179469b71, type: 3}
@@ -134,11 +134,11 @@ MonoBehaviour:
   _isGrabed: 0
   _onTable: 0
   _isCooking: 0
-  _itemID: 7
+  _itemID: 8
   _foodMeshArr:
-  - {fileID: -6624660821805991574, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
-  - {fileID: -6624660821805991574, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
-  - {fileID: -6624660821805991574, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
+  - {fileID: 1822770742895863961, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
+  - {fileID: 1822770742895863961, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
+  - {fileID: 1822770742895863961, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   - {fileID: 3446993379371083523, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   - {fileID: -6698853105785773161, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   - {fileID: 8944836183056611700, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}

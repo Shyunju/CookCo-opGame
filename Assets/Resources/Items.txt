@@ -2,12 +2,12 @@
   "Items": [
     {
       "ItemID": 1,
-      "ItemName": "Carrot",
+      "ItemName": "Pea",
       "IconPath": "Sprites/FoodIcon/Carrot"
     },
     {
       "ItemID": 2,
-      "ItemName": "CarrotSoup",
+      "ItemName": "Carrot",
       "IconPath": "Sprites/FoodIcon/Carrot"
     },
     {
@@ -17,12 +17,32 @@
     },
     {
       "ItemID": 4,
-      "ItemName": "Beaf",
+      "ItemName": "Lettuce",
       "IconPath": "Sprites/FoodIcon/Beaf"
     },
     {
       "ItemID": 5,
-      "ItemName": "Patty",
+      "ItemName": "Egg",
+      "IconPath": "Sprites/FoodIcon/Patty"
+    },
+    {
+      "ItemID": 6,
+      "ItemName": "Beaf",
+      "IconPath": "Sprites/FoodIcon/Patty"
+    },
+    {
+      "ItemID": 7,
+      "ItemName": "Bread",
+      "IconPath": "Sprites/FoodIcon/Patty"
+    },
+    {
+      "ItemID": 8,
+      "ItemName": "Tortilla",
+      "IconPath": "Sprites/FoodIcon/Patty"
+    },
+    {
+      "ItemID": 9,
+      "ItemName": "Rice",
       "IconPath": "Sprites/FoodIcon/Patty"
     }
   ]

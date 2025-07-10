@@ -2,9 +2,63 @@
   "Recipes": [
     {
       "RecipeID": 1,
-      "RecipeName": "Carrot",
+      "RecipeName": "PeaSoup",
       "UIPath": "Sprites/FoodIcon/Carrot",
-      "RecipeList": [101]
+      "RecipeList": [1001, 1001, 1001]
+    },
+    {
+      "RecipeID": 2,
+      "RecipeName": "CarrotSoup",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [1102, 1102, 1102]
+    },
+    {
+      "RecipeID": 3,
+      "RecipeName": "TomatoSoup",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [1103, 1103, 1103]
+    },
+    {
+      "RecipeID": 4,
+      "RecipeName": "Salad",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [102, 103, 104]
+    },
+    {
+      "RecipeID": 5,
+      "RecipeName": "FriedEgg",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [10005]
+    },
+    {
+      "RecipeID": 6,
+      "RecipeName": "RiceBall",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [1009, 1009]
+    },
+    {
+      "RecipeID": 7,
+      "RecipeName": "MeatBall",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [1106, 1106]
+    },
+    {
+      "RecipeID": 8,
+      "RecipeName": "Taco",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [8, 103, 104]
+    },
+    {
+      "RecipeID": 9,
+      "RecipeName": "MeatBurger",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [7, 10106]
+    },
+    {
+      "RecipeID": 9,
+      "RecipeName": "Burger",
+      "UIPath": "Sprites/FoodIcon/Carrot",
+      "RecipeList": [7, 103, 104, 10106]
     }
   ]
 }

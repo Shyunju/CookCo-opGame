@@ -38,7 +38,7 @@ namespace CookCo_opGame
         }
 
         //끓이기 와 굽기 분기 고민 필요
-        public override void ChangeState(GameObject item)   
+        public override void ChangeState(GameObject item)
         {
             _toolManager = item.GetComponent<ToolManager>();
             if (_toolManager != null && _toolManager.Ingredients.Count > 0)
@@ -46,17 +46,16 @@ namespace CookCo_opGame
                 if (_toolManager.ThisToolPurpose == ToolManager.ToolPurpose.Boil)
                 {
                     _toolManager.CurrentState = ItemState.Boiled;
+                    ChangeFoodItemState(_toolManager, 1000,1);
 
                 }
                 else if (_toolManager.ThisToolPurpose == ToolManager.ToolPurpose.Grill)
                 {
                     _toolManager.CurrentState = ItemState.Grilled;
+                    ChangeFoodItemState(_toolManager, 10000,2);
                 }
-                foreach (FoodManager food in _toolManager.Ingredients)
-                {
-                    food.ItemID += _toolManager.ItemID;
-                }
-                _toolManager.ChangeFoodIcon();
+                
+                //_toolManager.ChangeFoodIcon();
             }
         }
 
@@ -79,8 +78,17 @@ namespace CookCo_opGame
             yield return new WaitForSeconds(_burnOutTime);
             if (_toolManager != null)
             {
-                
-                _toolManager.CurrentState = ItemState.Burn;                
+
+                _toolManager.CurrentState = ItemState.Burn;
+            }
+        }
+
+        public void ChangeFoodItemState(ToolManager tm, int mount, int meshIndex)
+        {
+            foreach (FoodManager food in tm.Ingredients)
+            {
+                food.ItemID += mount;
+                food.ChangeMesh(meshIndex);
             }
         }
     }

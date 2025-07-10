@@ -135,7 +135,7 @@ MonoBehaviour:
   _isGrabed: 0
   _onTable: 0
   _isCooking: 0
-  _itemID: 0
+  _itemID: 4
   _foodMeshArr:
   - {fileID: -8775840353042319581, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   - {fileID: -8775840353042319581, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}

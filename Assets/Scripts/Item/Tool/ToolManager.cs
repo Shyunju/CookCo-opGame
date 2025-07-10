@@ -51,13 +51,13 @@ namespace CookCo_opGame
         }
         public abstract bool CheckToolState(GameObject itemInHand);  //재료추가 가능 상태인지 확인
         public abstract void StartCooking();  //음식이 도구에 담겼을때 실행할 함수
-        public virtual void ChangeFoodIcon()
-        {
-            foreach (var food in Ingredients) 
-            {
-                food.ChangeMesh(food.CurrentIndex + 1);
-            }
-        }
+        // public virtual void ChangeFoodIcon()
+        // {
+        //     foreach (var food in Ingredients) 
+        //     {
+        //         food.ChangeMesh(food.CurrentIndex + 1);
+        //     }
+        // }
         public void EmptyTool()
         {
             Transform[] children = _ingredientsTemp.GetComponentsInChildren<Transform>(true);
