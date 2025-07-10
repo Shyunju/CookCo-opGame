@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -26,6 +27,9 @@ namespace CookCo_opGame
                     {
                         _toolManager.CurrentState = ItemState.Burn;
                         _overTime = 0f;
+                        //change fire icon
+                        _toolManager.IngredientUIController.ResetIngredientIcon();
+                        _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite,0); //불 아이템 추가해서 수정 필요
                         //change color
                     }
                     if (_overTime > _warningTime)
@@ -54,8 +58,6 @@ namespace CookCo_opGame
                     _toolManager.CurrentState = ItemState.Grilled;
                     ChangeFoodItemState(_toolManager, 10000,2);
                 }
-                
-                //_toolManager.ChangeFoodIcon();
             }
         }
 

@@ -18,7 +18,7 @@
     {
       "ItemID": 4,
       "ItemName": "Lettuce",
-      "IconPath": "Sprites/FoodIcon/Beaf"
+      "IconPath": "Sprites/FoodIcon/Lettuce"
     },
     {
       "ItemID": 5,
@@ -28,22 +28,27 @@
     {
       "ItemID": 6,
       "ItemName": "Beaf",
-      "IconPath": "Sprites/FoodIcon/Patty"
+      "IconPath": "Sprites/FoodIcon/Beaf"
     },
     {
       "ItemID": 7,
       "ItemName": "Bread",
-      "IconPath": "Sprites/FoodIcon/Patty"
+      "IconPath": "Sprites/FoodIcon/Bread"
     },
     {
       "ItemID": 8,
       "ItemName": "Tortilla",
-      "IconPath": "Sprites/FoodIcon/Patty"
+      "IconPath": "Sprites/FoodIcon/Tortilla"
     },
     {
       "ItemID": 9,
       "ItemName": "Rice",
-      "IconPath": "Sprites/FoodIcon/Patty"
+      "IconPath": "Sprites/FoodIcon/Rice"
+    },
+    {
+      "ItemID": 0,
+      "ItemName": "Burn",
+      "IconPath": "Sprites/FoodIcon/Burn"
     }
   ]
 }
