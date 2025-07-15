@@ -10,6 +10,7 @@ namespace CookCo_opGame
         [SerializeField] MeshFilter _objectOnPlate;
         public MeshFilter ObjectOnPlate { get { return _objectOnPlate; } set { _objectOnPlate = value; } }
 
+
         public override bool CheckToolState(GameObject itemInHand)
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();
@@ -18,7 +19,7 @@ namespace CookCo_opGame
             {
                 if (fm != null)
                 {
-                    if(Ingredients.Count == 0)_objectOnPlate.mesh = fm.MeshFilter.mesh;
+                    if (Ingredients.Count == 0) _objectOnPlate.mesh = fm.MeshFilter.mesh;
                     SettingMeshOnPlate();
                     return true;
                 }
@@ -27,7 +28,7 @@ namespace CookCo_opGame
                     InputFromTool(tm);
                     return false;
                 }
-                
+
             }
             return false;
         }
@@ -83,7 +84,7 @@ namespace CookCo_opGame
 
 
             // 값들이 모두 같다면 첫번째 요소의 값을 할당
-            if (allSame)
+            if (Ingredients.Count > 1 && allSame)
             {
                 _objectOnPlate.mesh = Ingredients.First().MeshFilter.mesh;
                 return;

@@ -31,15 +31,17 @@ namespace CookCo_opGame
         {
             _ingredients = new List<FoodManager>();
             _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
+            SetIngredintsLength();
         }
-        void Update()
+        public void SetIngredintsLength()
         {
+            IngredientUIController.IngredientsUIMaxCount = IngredientsMaxCount;
         }
         public void AddIngredient(GameObject food)
         {
             if (_ingredientsUIController == null)
                 _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
-            
+
             FoodManager fm = food.GetComponent<FoodManager>();
             _ingredients.Add(fm);
             food.transform.SetParent(_ingredientsTemp.transform, true);
@@ -51,13 +53,6 @@ namespace CookCo_opGame
         }
         public abstract bool CheckToolState(GameObject itemInHand);  //재료추가 가능 상태인지 확인
         public abstract void StartCooking();  //음식이 도구에 담겼을때 실행할 함수
-        // public virtual void ChangeFoodIcon()
-        // {
-        //     foreach (var food in Ingredients) 
-        //     {
-        //         food.ChangeMesh(food.CurrentIndex + 1);
-        //     }
-        // }
         public void EmptyTool()
         {
             Transform[] children = _ingredientsTemp.GetComponentsInChildren<Transform>(true);

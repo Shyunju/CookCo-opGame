@@ -49,6 +49,11 @@
       "ItemID": 0,
       "ItemName": "Burn",
       "IconPath": "Sprites/FoodIcon/Burn"
+    },
+    {
+      "ItemID": -1,
+      "ItemName": "Empty",
+      "IconPath": "Sprites/FoodIcon/Empty"
     }
   ]
 }

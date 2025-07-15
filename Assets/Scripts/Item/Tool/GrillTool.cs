@@ -6,10 +6,6 @@ namespace CookCo_opGame
     {
         [SerializeField] GameObject _grillingFood;
         private float _grillDuration = 7f;
-        void Start()
-        {
-            _ingredientsMaxCount = 1;
-        }
         public override bool CheckToolState(GameObject itemInHand)
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();

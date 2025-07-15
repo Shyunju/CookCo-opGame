@@ -225,7 +225,7 @@ MonoBehaviour:
   _itemID: 0
   _ingredientsTemp: {fileID: 4746468694664078284}
   _ingredients: []
-  _ingredientsMaxCount: 0
+  _ingredientsMaxCount: 1
   _thisToolPurpose: 0
   _grillingFood: {fileID: 7628946685385399729}
 --- !u!1 &4746468694664078284
@@ -756,6 +756,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4628622298048943323, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
     - target: {fileID: 5677831714149781597, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -788,8 +792,23 @@ PrefabInstance:
       propertyPath: _ingredientsUIOffesetY
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 9122707413740223581, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: '_ingredients.Array.data[1]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9122707413740223581, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: '_ingredients.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9122707413740223581, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: '_ingredients.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5671601982091793915, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+    - {fileID: 1725753989955253242, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+    - {fileID: 6222811193608395854, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}

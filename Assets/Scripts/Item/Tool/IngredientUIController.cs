@@ -15,6 +15,8 @@ namespace CookCo_opGame
         Transform _itemTransform;
         [SerializeField] float _ingredientsUIOffesetY;
         [SerializeField] Image[] _ingredients = new Image[4];
+        public int IngredientsUIMaxCount { get; set; }
+        Sprite spr;
 
 
         void Start()
@@ -33,19 +35,15 @@ namespace CookCo_opGame
         }
         public void AddIngredientIcon(Sprite icon, int index)
         {
-            //GameObject iconTemp = Instantiate(icon, this.transform)as GameObject;
-            //SpriteRenderer iconImage = iconTemp.GetComponent<SpriteRenderer>();
 
             _ingredients[index].sprite = icon;
             _ingredients[index].color = Color.white;
         }
         public void ResetIngredientIcon()  
         {
-            for (int i = 0; i < _ingredients.Length; i++)
+            for (int i = 0; i < IngredientsUIMaxCount; i++)
             {
-                Color color = _ingredients[i].color;
-                color.a = 0f; // 알파값을 0으로 설정 (완전 투명)
-                _ingredients[i].color = color;
+                _ingredients[i].sprite = GameManager.Instance.ItemDataList.Find((item) => item.ItemID == -1).IconSprite;
             }
         }
     }

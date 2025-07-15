@@ -20,7 +20,7 @@ namespace CookCo_opGame
         {
             _meshFilter = GetComponent<MeshFilter>();
             _icon = GameManager.Instance.ItemDataList.Find((item) => item.ItemID == ItemID).IconSprite;
-            string path = GameManager.Instance.ItemDataList.Find((item) => item.ItemID == ItemID).IconPath;
+            //string path = GameManager.Instance.ItemDataList.Find((item) => item.ItemID == ItemID).IconPath;
         }
 
         public void ChangeMesh(int index)

@@ -6,12 +6,7 @@ namespace CookCo_opGame
     public class BoilTool : ToolManager
     {
         private float _boilDuration = 5f;
-        private int _maxIngredientInPot = 4;
         private float _plusDuration = 7f;
-        void Start()
-        {
-            _ingredientsMaxCount = _maxIngredientInPot;
-        }
         public override bool CheckToolState(GameObject itemInHand)
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();
@@ -24,7 +19,6 @@ namespace CookCo_opGame
             {
                 PlateTool pt = tm.GetComponent<PlateTool>();
                 pt.InputFromTool(this.GetComponent<ToolManager>());
-                //EmptyTool();
                 return false;
             }
             return false;

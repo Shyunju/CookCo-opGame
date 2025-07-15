@@ -105,9 +105,10 @@ MonoBehaviour:
   _isGrabed: 0
   _onTable: 0
   _isCooking: 0
+  _itemID: 0
   _ingredientsTemp: {fileID: 8854757650121562146}
   _ingredients: []
-  _ingredientsMaxCount: 0
+  _ingredientsMaxCount: 3
   _thisToolPurpose: 1
 --- !u!1 &4303829444674253353
 GameObject:
@@ -642,6 +643,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306007460285763557, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
+    - target: {fileID: 2306007460285763557, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
@@ -750,9 +755,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4566871697997216917, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
+    - target: {fileID: 4566871697997216917, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4628622298048943323, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
     - target: {fileID: 5677831714149781597, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -785,8 +798,13 @@ PrefabInstance:
       propertyPath: _ingredientsUIOffesetY
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 9122707413740223581, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: '_ingredients.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5671601982091793915, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}

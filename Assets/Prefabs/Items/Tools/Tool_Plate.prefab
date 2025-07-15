@@ -105,6 +105,7 @@ MonoBehaviour:
   _isGrabed: 0
   _onTable: 0
   _isCooking: 0
+  _itemID: 0
   _ingredientsTemp: {fileID: 5401583072148484049}
   _ingredients: []
   _ingredientsMaxCount: 4
@@ -283,6 +284,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1667326713749608252, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
+    - target: {fileID: 2306007460285763557, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
     - target: {fileID: 3933646419668223257, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -387,6 +396,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4566871697997216917, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
+    - target: {fileID: 4628622298048943323, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5edf8218e8a564e5ba67e01e85420e37, type: 3}
     - target: {fileID: 5677831714149781597, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
