@@ -10,10 +10,12 @@ namespace CookCo_opGame
         ItemDataManager _itemDataManager;
         RecipeDataManager _recipeDataManager;
         [SerializeField] ScoreAndTimerUIController _scoreAndTimerUIController;
+        [SerializeField] GameObject[] RecipeUI;  //레시피 아이디와 인덱스 맞출것
         List<List<int>> _orders = new List<List<int>>();
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get;  private set; }
         public List<List<int>> Orders { get { return _orders; } }
+        public List<GameObject> OrdersUI { get; set; }
         public int Score { get; private set; }
         void Awake()
         {
@@ -28,6 +30,9 @@ namespace CookCo_opGame
             //제출시 비교는 해당 아이디를 가진 레시피의 리스트와 현재재료들 값을 리스트한것을 비교
             List<int> test = new List<int>();
             test.Add(101);
+
+            //레시피 아이디의 레시피를 이미지로 하는 유아이 오브젝트 생성
+            //유아이 리스트에 추가
             _orders.Add(test);
         }
         public void ChangeScore(int mount)
