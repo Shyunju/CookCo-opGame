@@ -11,9 +11,9 @@ namespace CookCo_opGame
         [SerializeField] protected List<FoodManager> _ingredients;
         [SerializeField] protected int _ingredientsMaxCount;
         private IngredientUIController _ingredientsUIController;
-        public GameObject IngredientsTemp { get { return _ingredientsTemp;} set { _ingredientsTemp = value;}}
+        public GameObject IngredientsTemp { get { return _ingredientsTemp; } set { _ingredientsTemp = value; } }
         public IngredientUIController IngredientUIController { get { return _ingredientsUIController; } set { _ingredientsUIController = value; } }
-        public List<FoodManager> Ingredients { get { return _ingredients; } set { _ingredients = value;}}
+        public List<FoodManager> Ingredients { get { return _ingredients; } set { _ingredients = value; } }
         public int IngredientsMaxCount { get { return _ingredientsMaxCount; } }
         public enum ToolPurpose
         {
@@ -24,8 +24,6 @@ namespace CookCo_opGame
         }
         [SerializeField] ToolPurpose _thisToolPurpose;
         public ToolPurpose ThisToolPurpose { get { return _thisToolPurpose; } }
-
-
 
         void Start()
         {
@@ -64,6 +62,8 @@ namespace CookCo_opGame
             IngredientUIController.ResetIngredientIcon();
             CurrentState = ItemState.None;
         }
+        
+        
 
     }
 }

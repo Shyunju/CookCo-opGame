@@ -7,7 +7,7 @@ namespace CookCo_opGame
 {
     public class FireTable : TableManager
     {
-        [SerializeField] float _burnOutTime = 5f;
+        [SerializeField] float _burnOutTime = 2f;
         float _overTime = 0f;
         float _warningTime = 1.5f;
         ToolManager _toolManager;
@@ -29,8 +29,9 @@ namespace CookCo_opGame
                         _overTime = 0f;
                         //change fire icon
                         _toolManager.IngredientUIController.ResetIngredientIcon();
-                        _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite,0); //불 아이템 추가해서 수정 필요
+                        _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); //불 아이템 추가해서 수정 필요
                         //change color
+                        _toolManager.BurnState();
                     }
                     if (_overTime > _warningTime)
                     {

@@ -19,6 +19,7 @@ namespace CookCo_opGame
                     if (tm.Ingredients.Count > 0)
                     {
                         tm.EmptyTool();
+                        tm.ResetColor();                        
                     }
                     im.ResetCookingState();
                 }
