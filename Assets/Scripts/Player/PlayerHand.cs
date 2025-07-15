@@ -64,6 +64,7 @@ namespace CookCo_opGame
                     _itemManager.IsGrabed = true;
                     _itemManager.PickedUp(_hand);
                     _isHandFree = false;
+                    _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.IdleState);
                 }
             }
             return;
