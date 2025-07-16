@@ -30,9 +30,9 @@ namespace CookCo_opGame
             {
                 if (_recipe.SequenceEqual(GameManager.Instance.Orders[i]))
                 {
+                    Debug.Log(GameManager.Instance.OrdersUI.Count);
                     GameManager.Instance.Orders.RemoveAt(i);
-                    //GameManager.Instance.OrdersUI.Remove(GameManager.Instance.OrdersUI.Find(x => x.Item1 == i));
-                    Debug.Log(GameManager.Instance.OrdersUI.Find(x => x.Item1 == i));
+                    GameManager.Instance.CompleteMenu(i);
                     GameManager.Instance.ChangeScore(_successScore);
                     _hasRecipe = true;
                     break;
