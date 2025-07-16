@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,10 +41,11 @@ namespace CookCo_opGame
         public bool OnTable { get { return _onTable; } set { _onTable = value; } }
         public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
         public float Duration { get { return _duration; } set { _duration = value; } }
+        public float Elapsed { get { return _elapsed;} set { _elapsed = value; } }
         public TableManager CurrentTable { get { return _currentTable; } set { _currentTable = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
         public int ItemID { get { return _itemID; } set { _itemID = value; } }
-        public bool StopNextStep { get; set; }
+        public bool StopNextStep { get; set; } //설거지 새그릇 리스폰 가능여부 true == 다음단계를 멈춰야함
 
 
 
@@ -88,8 +90,10 @@ namespace CookCo_opGame
         {
             _stateUI.SetActive(false);
             IsCooking = false;
-            _elapsed = 0f;
-            //color change
+        }
+        public void ChangeElapsed(float mount)
+        {
+            _elapsed = Math.Clamp(_elapsed - mount, 0, Duration);
         }
         public void PickedUp(GameObject parent)
         {

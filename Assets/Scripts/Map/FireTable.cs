@@ -7,9 +7,9 @@ namespace CookCo_opGame
 {
     public class FireTable : TableManager
     {
-        [SerializeField] float _burnOutTime = 2f;
-        float _overTime = 0f;
-        float _warningTime = 1.5f;
+        [SerializeField] float _burnOutTime = 10f; //요리가 타는 데드라인
+        public float OverTime { get; set; } // 요리가 완성되고 지난 시간
+        float _warningTime = 5f; // 아직 타기전
         ToolManager _toolManager;
         void Start()
         {
@@ -23,21 +23,21 @@ namespace CookCo_opGame
                 if (im != null && (im.CurrentState == ItemState.Boiled || im.CurrentState == ItemState.Grilled))
                 {
                     _toolManager = CurrentItem.GetComponent<ToolManager>();
-                    if (_overTime > _burnOutTime)
+                    if (OverTime > _burnOutTime)
                     {
                         _toolManager.CurrentState = ItemState.Burn;
-                        _overTime = 0f;
+                        OverTime = 0f;
                         //change fire icon
                         _toolManager.IngredientUIController.ResetIngredientIcon();
                         _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); //불 아이템 추가해서 수정 필요
                         //change color
                         _toolManager.BurnState();
                     }
-                    if (_overTime > _warningTime)
+                    if (OverTime > _warningTime)
                     {
                         //warning UI show
                     }
-                    _overTime += Time.deltaTime;
+                    OverTime += Time.deltaTime;
                 }
             }
         }

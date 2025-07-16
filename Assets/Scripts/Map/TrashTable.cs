@@ -15,19 +15,20 @@ namespace CookCo_opGame
                 pt.ObjectOnPlate.mesh = null;
             }
             if (tm != null)
+            {
+                if (tm.Ingredients.Count > 0)
                 {
-                    if (tm.Ingredients.Count > 0)
-                    {
-                        tm.EmptyTool();
-                        tm.ResetColor();                        
-                    }
-                    im.ResetCookingState();
+                    tm.EmptyTool();
+                    tm.ResetColor();
                 }
-                else
-                {
-                    Destroy(item);
-                    IsFull = false;
-                }
+                im.ResetCookingState();
+                im.Elapsed = 0f;    
+            }
+            else
+            {
+                Destroy(item);
+                IsFull = false;
+            }
             
         }
 
