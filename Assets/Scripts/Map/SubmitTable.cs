@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Collections;
 using UnityEngine;
 
 namespace CookCo_opGame
@@ -30,7 +31,8 @@ namespace CookCo_opGame
                 if (_recipe.SequenceEqual(GameManager.Instance.Orders[i]))
                 {
                     GameManager.Instance.Orders.RemoveAt(i);
-                    GameManager.Instance.OrdersUI.RemoveAt(i);
+                    //GameManager.Instance.OrdersUI.Remove(GameManager.Instance.OrdersUI.Find(x => x.Item1 == i));
+                    Debug.Log(GameManager.Instance.OrdersUI.Find(x => x.Item1 == i));
                     GameManager.Instance.ChangeScore(_successScore);
                     _hasRecipe = true;
                     break;

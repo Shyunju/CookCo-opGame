@@ -22,22 +22,22 @@ namespace CookCo_opGame
                 ItemManager im = CurrentItem.GetComponent<ItemManager>();
                 if (im != null && (im.CurrentState == ItemState.Boiled || im.CurrentState == ItemState.Grilled))
                 {
-                    _toolManager = CurrentItem.GetComponent<ToolManager>();
-                    if (_overTime > _burnOutTime)
-                    {
-                        _toolManager.CurrentState = ItemState.Burn;
-                        _overTime = 0f;
-                        //change fire icon
-                        _toolManager.IngredientUIController.ResetIngredientIcon();
-                        _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); //불 아이템 추가해서 수정 필요
-                        //change color
-                        _toolManager.BurnState();
-                    }
-                    if (_overTime > _warningTime)
-                    {
-                        //warning UI show
-                    }
-                    _overTime += Time.deltaTime;
+                    // _toolManager = CurrentItem.GetComponent<ToolManager>();
+                    // if (_overTime > _burnOutTime)
+                    // {
+                    //     _toolManager.CurrentState = ItemState.Burn;
+                    //     _overTime = 0f;
+                    //     //change fire icon
+                    //     _toolManager.IngredientUIController.ResetIngredientIcon();
+                    //     _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); //불 아이템 추가해서 수정 필요
+                    //     //change color
+                    //     _toolManager.BurnState();
+                    // }
+                    // if (_overTime > _warningTime)
+                    // {
+                    //     //warning UI show
+                    // }
+                    // _overTime += Time.deltaTime;
                 }
             }
         }
@@ -92,6 +92,7 @@ namespace CookCo_opGame
             {
                 food.ItemID += mount;
                 food.ChangeMesh(meshIndex);
+                Debug.Log(food.ItemID);
             }
         }
     }

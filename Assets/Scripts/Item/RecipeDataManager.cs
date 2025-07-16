@@ -24,11 +24,6 @@ namespace CookCo_opGame
             {
                 string json = jsonAsset.text;
                 _recipeList = JsonUtility.FromJson<RecipeDataList>(json);
-                foreach (var recipe in _recipeList.Recipes)
-                {
-                    //Resources/                    
-                    recipe.UISprite = Resources.Load<Sprite>(recipe.UIPath); //경로로 이미지 찾아 로드
-                }
             }
             else
             {

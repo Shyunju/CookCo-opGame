@@ -28,7 +28,7 @@ namespace CookCo_opGame
                 _itemList = JsonUtility.FromJson<ItemDataList>(json);
                 foreach (var item in _itemList.Items)
                 {
-                    //Resources/                    
+                    //Resources/                  
                     item.IconSprite = Resources.Load<Sprite>(item.IconPath); //경로로 이미지 찾아 로드
                 }
             }

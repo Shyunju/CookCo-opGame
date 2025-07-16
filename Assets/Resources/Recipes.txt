@@ -10,7 +10,7 @@
       "RecipeID": 2,
       "RecipeName": "CarrotSoup",
       "UIPath": "Sprites/FoodIcon/Carrot",
-      "RecipeList": [1102, 1102, 1102]
+      "RecipeList": [1102]
     },
     {
       "RecipeID": 3,
@@ -55,7 +55,7 @@
       "RecipeList": [7, 10106]
     },
     {
-      "RecipeID": 9,
+      "RecipeID": 10,
       "RecipeName": "Burger",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [7, 103, 104, 10106]

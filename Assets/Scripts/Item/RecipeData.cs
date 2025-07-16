@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 namespace CookCo_opGame
 {
+    [System.Serializable]
     public class RecipeData
     {
         public int RecipeID;
