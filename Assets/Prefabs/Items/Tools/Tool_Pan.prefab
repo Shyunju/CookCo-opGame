@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: IgredientsCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8883967500591436715, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9122707413740223581, guid: bf1e8c163a22f4ae697a1be7760b1882, type: 3}
       propertyPath: _ingredientsUIOffesetY
       value: 80

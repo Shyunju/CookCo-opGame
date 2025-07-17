@@ -16,11 +16,14 @@ namespace CookCo_opGame
             }
             if (tm != null)
             {
+                GrillTool gt = tm.GetComponent<GrillTool>();
+                if(gt != null)
+                    gt.GrillFood.SetActive(false);
                 if (tm.Ingredients.Count > 0)
-                {
-                    tm.EmptyTool();
-                    tm.ResetColor();
-                }
+                    {
+                        tm.EmptyTool();
+                        tm.ResetColor();
+                    }
                 im.ResetCookingState();
                 im.Elapsed = 0f;    
             }

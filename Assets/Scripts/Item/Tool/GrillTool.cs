@@ -5,6 +5,7 @@ namespace CookCo_opGame
     public class GrillTool : ToolManager
     {
         [SerializeField] GameObject _grillingFood;
+        public GameObject GrillFood { get { return _grillingFood; }  set { _grillingFood = value;}}
         private float _grillDuration = 7f;
         public override bool CheckToolState(GameObject itemInHand)
         {
@@ -17,7 +18,7 @@ namespace CookCo_opGame
                 PlateTool pt = tm.GetComponent<PlateTool>();
                 pt.InputFromTool(this.GetComponent<ToolManager>());
                 _grillingFood.SetActive(false);
-                EmptyTool();
+                //EmptyTool();
                 return false;
             }
             return false;
@@ -25,8 +26,11 @@ namespace CookCo_opGame
 
         public override void StartCooking()
         {
-            if (Ingredients.Count > 0 && CurrentTable.Purpose == TableManager.TablePurpose.Fire)
+            if (Ingredients.Count > 0 && CurrentTable.Purpose == TableManager.TablePurpose.Fire && CurrentState != ItemState.Burn)
             {
+                CurrentState = ItemState.None;
+                FireTable ft = CurrentTable.GetComponent<FireTable>();
+                ft.OverTime = 0f;
                 _grillingFood.SetActive(true);
                 Duration = _grillDuration;
                 IsCooking = true;

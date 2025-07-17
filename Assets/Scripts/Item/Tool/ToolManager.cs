@@ -62,6 +62,7 @@ namespace CookCo_opGame
             Ingredients.Clear();
             IngredientUIController.ResetIngredientIcon();
             CurrentState = ItemState.None;
+            Elapsed = 0f;
         }
         
         

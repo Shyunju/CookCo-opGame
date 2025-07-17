@@ -46,13 +46,14 @@ namespace CookCo_opGame
         }
         public void InputFromTool(ToolManager tm)
         {
-            //Ingredients = tm.Ingredients.ToList();
+            GrillTool gt = tm.GetComponent<GrillTool>();
+            if (gt != null)
+                gt.GrillFood.SetActive(false);
             foreach (var item in tm.Ingredients)
-            {
-                Ingredients.Add(item);
-            }
+                {
+                    Ingredients.Add(item);
+                }
             FoodManager fm = Ingredients[0];
-            //_objectOnPlate.mesh = fm.MeshFilter.mesh;  //메쉬 바꾸기 @@@@@@@@@
             SettingMeshOnPlate();
             _objectOnPlate.mesh = Ingredients.First().MeshFilter.mesh;
             Transform[] children = tm.IngredientsTemp.GetComponentsInChildren<Transform>(true);
@@ -131,7 +132,6 @@ namespace CookCo_opGame
         {
             foreach (var item in Ingredients)
             {
-                Debug.Log("asdf");
                 item.ChangeMesh(index);
             }
             _objectOnPlate.mesh = Ingredients.First().MeshFilter.mesh;

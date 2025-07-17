@@ -25,7 +25,6 @@ namespace CookCo_opGame
 
         public void ChangeMesh(int index)
         {
-            Debug.Log( _foodMeshArr[index]);
             _meshFilter.mesh = _foodMeshArr[index];
             CurrentIndex = index;
         }
