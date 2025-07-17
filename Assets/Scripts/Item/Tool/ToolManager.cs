@@ -41,7 +41,8 @@ namespace CookCo_opGame
                 _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
 
             FoodManager fm = food.GetComponent<FoodManager>();
-            _ingredients.Add(fm);
+            Ingredients.Add(fm);
+            Debug.Log(Ingredients.Count);
             food.transform.SetParent(_ingredientsTemp.transform, true);
             if (fm != null)
             {

@@ -19,8 +19,13 @@ namespace CookCo_opGame
             {
                 if (fm != null)
                 {
-                    if (Ingredients.Count == 0) _objectOnPlate.mesh = fm.MeshFilter.mesh;
-                    SettingMeshOnPlate();
+                    // if (Ingredients.Count == 0)
+                    // {
+                    //     _objectOnPlate.mesh = fm.MeshFilter.mesh;
+
+                    // }
+                    //Ingredients.Add(fm);
+                    
                     return true;
                 }
                 else if (tm != null && tm.Ingredients.Count > 0)
@@ -35,14 +40,9 @@ namespace CookCo_opGame
 
         public override void StartCooking()
         {
-            if (Ingredients.Count > 0 && CurrentTable.Purpose == TableManager.TablePurpose.None) //제출 테이블로 수정 필요
-            {
-                //제출시 이루어져야할 것들
-            }
-            else
-            {
-                return;
-            }
+            Debug.Log(Ingredients.Count);
+            if(Ingredients.Count > 0)
+                SettingMeshOnPlate();
         }
         public void InputFromTool(ToolManager tm)
         {
@@ -54,6 +54,7 @@ namespace CookCo_opGame
             FoodManager fm = Ingredients[0];
             //_objectOnPlate.mesh = fm.MeshFilter.mesh;  //메쉬 바꾸기 @@@@@@@@@
             SettingMeshOnPlate();
+            _objectOnPlate.mesh = Ingredients.First().MeshFilter.mesh;
             Transform[] children = tm.IngredientsTemp.GetComponentsInChildren<Transform>(true);
             for (int i = 1; i < children.Length; i++) // i=0은 부모 자신
             {
@@ -70,9 +71,11 @@ namespace CookCo_opGame
         public void SettingMeshOnPlate()
         {
             // 리스트 길이가 1일 때
+            
             if (Ingredients.Count == 1)
             {
                 _objectOnPlate.mesh = Ingredients.First().MeshFilter.mesh;
+                return;
             }
 
             // 리스트 길이가 2 이상일 때
@@ -93,6 +96,11 @@ namespace CookCo_opGame
             // 값들이 다르고 합이 1000보다 작으면 salad
             if (sum < 1000)
             {
+                if (contains8)
+                {
+                    ChangeMeshInIngredients(6);
+                    return;
+                }
                 ChangeMeshInIngredients(3);
                 return;
             }
@@ -105,11 +113,11 @@ namespace CookCo_opGame
             }
 
             // 합이 1000 이상이고, 값 중 8이 포함되어 있으면 taco
-            if (sum >= 1000 && contains8)
-            {
-                ChangeMeshInIngredients(6);
-                return;
-            }
+            // if (sum >= 1000 && contains8)
+            // {
+                
+            //     return;
+            // }
 
             // // 합이 10006 이상이면 burger
             // if (sum >= 10006)
@@ -123,8 +131,10 @@ namespace CookCo_opGame
         {
             foreach (var item in Ingredients)
             {
+                Debug.Log("asdf");
                 item.ChangeMesh(index);
             }
+            _objectOnPlate.mesh = Ingredients.First().MeshFilter.mesh;
         }
 
     }

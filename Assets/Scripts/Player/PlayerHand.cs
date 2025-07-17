@@ -81,7 +81,7 @@ namespace CookCo_opGame
                     if (CurTableManager != null && CurTableManager.IsFull)
                     {
                         SubmitTable submitTable = CurTableManager.gameObject.GetComponent<SubmitTable>();
-                        if (submitTable != null)
+                        if (submitTable != null) //제출테이블
                         {
                             if (_itemManager.CurrentState == ItemState.Plate)
                             {
