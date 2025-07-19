@@ -11,4 +11,4 @@
 7/4  ~ 8 UI, food prefabs, recipe json <br>  
 7/ 9 ~ 10 food mesh change system <br>
 7/11 ~ 15 burn system <br>
-7/16 ~ 17 fix bug <br>
+7/16 ~ 17 fix bug <br>. ////
