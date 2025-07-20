@@ -8,7 +8,7 @@
 6/19 ~ 26 설거지 테이블, 버리기 테이블<br>
 6/27 ~ 7/1 제출 테이블<br>
 7/2 ~ 3 아이템 json파일 화 후 연동 <br>
-7/4  ~ 8 UI, food prefabs, recipe json <br>  
-7/ 9 ~ 10 food mesh change system <br>
-7/11 ~ 15 burn system <br>
+7/4  ~ 8 재료 UI표시, 재료 food prefabs 제작, recipe json파일 화 후 연동 <br>  
+7/ 9 ~ 10 재료 조힙별 food mesh change system <br>
+7/11 ~ 15 도구 burn system 제작<br>
 7/16 ~ 17 fix bug <br>. ////
