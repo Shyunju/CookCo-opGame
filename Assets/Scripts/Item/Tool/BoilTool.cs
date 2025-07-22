@@ -11,11 +11,11 @@ namespace CookCo_opGame
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();
             ToolManager tm = itemInHand.GetComponent<ToolManager>();
-            if (fm != null && Ingredients.Count < _ingredientsMaxCount && fm.CurrentState == ItemState.Sliced && CurrentState != ItemState.Burn)
+            if (fm != null && Ingredients.Count < _ingredientsMaxCount && (fm.CurrentState == ItemState.Sliced || fm.ItemID == 1) && CurrentState != ItemState.Burn)
             {
                 return true;
             }
-            else if (tm != null && tm.ThisToolPurpose == ToolPurpose.Dish)
+            else if (tm != null && tm.ThisToolPurpose == ToolPurpose.Dish && !IsCooking)
             {
                 PlateTool pt = tm.GetComponent<PlateTool>();
                 pt.InputFromTool(this.GetComponent<ToolManager>());

@@ -42,7 +42,6 @@ namespace CookCo_opGame
 
             FoodManager fm = food.GetComponent<FoodManager>();
             Ingredients.Add(fm);
-            Debug.Log(Ingredients.Count);
             food.transform.SetParent(_ingredientsTemp.transform, true);
             if (fm != null)
             {

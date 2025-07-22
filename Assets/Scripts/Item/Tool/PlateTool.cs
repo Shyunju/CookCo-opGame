@@ -40,7 +40,6 @@ namespace CookCo_opGame
 
         public override void StartCooking()
         {
-            Debug.Log(Ingredients.Count);
             if(Ingredients.Count > 0)
                 SettingMeshOnPlate();
         }

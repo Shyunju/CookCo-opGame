@@ -46,7 +46,9 @@ namespace CookCo_opGame
                 //레벨별 범위 안에 레시피 아이디 번호를 랜덤으로 가져와 오더에 추가
                 //제출시 비교는 해당 아이디를 가진 레시피의 리스트와 현재재료들 값을 리스트한것을 비교
                 int orderNumber = Random.Range(1, 9);
+                //int orderNumber = 1;
                 List<int> test = RecipeDataList.Find(x => x.RecipeID == orderNumber).RecipeList;
+                Debug.Log(RecipeDataList.Find(x => x.RecipeID == orderNumber).RecipeName);
 
 
                 //레시피 아이디의 레시피를 이미지로 하는 유아이 오브젝트 생성
@@ -57,11 +59,8 @@ namespace CookCo_opGame
                 a.transform.SetAsFirstSibling();
                 OrdersUI.Add(a);
             }
-            else
-            {
-                yield return new WaitForSeconds(20f);
-                StartCoroutine(OrderNewMenuCo());
-            }
+            yield return new WaitForSeconds(20f);
+            StartCoroutine(OrderNewMenuCo());
         }
 
         public void CompleteMenu(int index)

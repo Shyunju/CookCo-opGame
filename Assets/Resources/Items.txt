@@ -3,7 +3,7 @@
     {
       "ItemID": 1,
       "ItemName": "Pea",
-      "IconPath": "Sprites/FoodIcon/Carrot"
+      "IconPath": "Sprites/FoodIcon/Pea"
     },
     {
       "ItemID": 2,
