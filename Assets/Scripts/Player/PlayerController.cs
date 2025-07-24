@@ -80,12 +80,11 @@ namespace CookCo_opGame
         public IEnumerator DashMoveCo()
         {
             _isRunning = true;
-            _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.RunState);
             _playerMove.MoveSpeed = _playerMove.DashSpeed;
 
             yield return new WaitForSeconds(0.4f);
-            _playerMove.MoveSpeed = _playerMove.DefaultSpeed;
             _isRunning = false;
+            _playerMove.MoveSpeed = _playerMove.DefaultSpeed;
         }
     }
 }

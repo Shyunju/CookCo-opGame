@@ -26,6 +26,14 @@ namespace CookCo_opGame
         {
             if (_moveDirection != Vector3.zero)
             {
+                if (MoveSpeed == DashSpeed)
+                {
+                    _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.RunState);
+                }
+                else
+                {
+                    _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.WalkState);
+                }
                 Quaternion targetRotation = Quaternion.LookRotation(_moveDirection);
                 transform.rotation = Quaternion.Slerp(
                     transform.rotation,
