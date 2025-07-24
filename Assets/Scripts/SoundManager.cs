@@ -2,18 +2,34 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class SoundManager : MonoBehaviour
+    public class SoundManager : Singleton<SoundManager>
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        [SerializeField]
+        AudioClip _successSound;
+        [SerializeField]
+        AudioClip _failSound;
+        [SerializeField]
+        AudioClip _knifeSound;
+
+        AudioSource _audioSource;
+
         void Start()
         {
-        
+            _audioSource = GetComponent<AudioSource>();
+        }
+        public void PlaySuccessSound()
+        {
+            _audioSource.PlayOneShot(_successSound);
+        }
+        public void PlayFailSound()
+        {
+            _audioSource.PlayOneShot(_failSound);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void PlayKnifeSound()
         {
-        
+            
         }
+
     }
 }

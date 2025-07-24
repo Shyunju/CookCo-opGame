@@ -34,6 +34,7 @@ namespace CookCo_opGame
                     GameManager.Instance.Orders.RemoveAt(i);
                     GameManager.Instance.CompleteMenu(i);
                     GameManager.Instance.ChangeScore(_successScore);
+                    SoundManager.Instance.PlaySuccessSound();
                     _hasRecipe = true;
                     break;
                 }
@@ -41,6 +42,7 @@ namespace CookCo_opGame
             if (!_hasRecipe)
             {
                 GameManager.Instance.ChangeScore(_failScore);
+                SoundManager.Instance.PlayFailSound();
             }
 
             StartCoroutine(RespawnUsedPlateCo());
