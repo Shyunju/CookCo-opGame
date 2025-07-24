@@ -17,6 +17,17 @@ namespace CookCo_opGame
         //List<(int, GameObject)> _ordersUI;
         List<List<int>> _orders = new List<List<int>>(); //주문 레시피가 담겨있는 리스트
         private float _addOrderTime = 25f;
+        private int _orderLimit = 1;
+        private Dictionary<int, int> _levelDic = new Dictionary<int, int>()
+        {
+            {600, 2},
+            {1000, 3},
+            {1600, 5},
+            {2000, 7},
+            {3000, 8},
+            {3600, 9},
+            {4400, 10}
+        };
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<List<int>> Orders { get { return _orders; } }
@@ -39,6 +50,10 @@ namespace CookCo_opGame
         {
             Score += mount;
             _scoreAndTimerUIController.UpdateScoreText();
+            if (_levelDic.ContainsKey(Score))
+            {
+                _orderLimit = _levelDic[Score];
+            }
         }
         IEnumerator OrderNewMenuCo()
         {
@@ -46,7 +61,7 @@ namespace CookCo_opGame
             {
                 //레벨별 범위 안에 레시피 아이디 번호를 랜덤으로 가져와 오더에 추가
                 //제출시 비교는 해당 아이디를 가진 레시피의 리스트와 현재재료들 값을 리스트한것을 비교
-                int orderNumber = Random.Range(1, 9);
+                int orderNumber = Random.Range(1, _orderLimit);
                 //int orderNumber = 1;
                 List<int> test = RecipeDataList.Find(x => x.RecipeID == orderNumber).RecipeList;
 
