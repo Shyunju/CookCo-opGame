@@ -33,6 +33,7 @@ namespace CookCo_opGame
                 IsFull = false;
                 PlayerManager = null;
                 im.StopNextStep = false;
+                im.Elapsed = 0f;
             }
             else
             {

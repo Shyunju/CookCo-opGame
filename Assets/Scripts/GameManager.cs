@@ -48,7 +48,6 @@ namespace CookCo_opGame
                 int orderNumber = Random.Range(1, 9);
                 //int orderNumber = 1;
                 List<int> test = RecipeDataList.Find(x => x.RecipeID == orderNumber).RecipeList;
-                Debug.Log(RecipeDataList.Find(x => x.RecipeID == orderNumber).RecipeName);
 
 
                 //레시피 아이디의 레시피를 이미지로 하는 유아이 오브젝트 생성

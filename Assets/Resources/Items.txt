@@ -23,7 +23,7 @@
     {
       "ItemID": 5,
       "ItemName": "Egg",
-      "IconPath": "Sprites/FoodIcon/Patty"
+      "IconPath": "Sprites/FoodIcon/Egg"
     },
     {
       "ItemID": 6,
