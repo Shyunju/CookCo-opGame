@@ -26,7 +26,7 @@
     },
     {
       "RecipeID": 5,
-      "RecipeName": "FriedEgg",
+      "RecipeName": "SunnySideUp",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [10005]
     },

@@ -727,16 +727,17 @@ MonoBehaviour:
   _isDontDestroy: 0
   _scoreAndTimerUIController: {fileID: 1455725394}
   RecipeUI:
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 7946955159404897647, guid: ae67d26064b7b4ea19de370e294fa0b3, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
-  - {fileID: 3903658918566855579, guid: 35000e306c21a46ef80e7ce2054ebd3e, type: 3}
+  - {fileID: 0}
+  - {fileID: 3212312707888050683, guid: 48308f2b81e7a4971a47a32f7c7f14f6, type: 3}
+  - {fileID: 3174483355830155750, guid: 4ab82a2600fbf484484f74170bd10817, type: 3}
+  - {fileID: 6202970492398606627, guid: 0805b5a6e2f2448f0b8fb098faa2d849, type: 3}
+  - {fileID: 9201946779305992733, guid: d95faf8dfb33c40caac6fd1d5c702072, type: 3}
+  - {fileID: 2124497143153064125, guid: dec4b6044af0042fcb77cc7a97c69cd9, type: 3}
+  - {fileID: 2481188451795351876, guid: 31ba5be172383414da7937e069c9188c, type: 3}
+  - {fileID: 4208767978103822051, guid: ac7f6ea19f88440978be705020988fec, type: 3}
+  - {fileID: 366349210488919832, guid: 864c274ab131645a6880b02bddda42be, type: 3}
+  - {fileID: 5384954877831785694, guid: fd20ea272faab485fa8fc92acff6d5c9, type: 3}
+  - {fileID: 4926257022795076328, guid: 70581c5c396e54cc69ec26b7adc87904, type: 3}
   _orderUICanvas: {fileID: 1007612119}
 --- !u!4 &607403259
 Transform:
@@ -1225,7 +1226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 234}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1007612121
@@ -1249,12 +1250,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
+    m_Left: 30
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 30
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
