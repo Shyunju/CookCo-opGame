@@ -561,6 +561,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2413695583771869261, guid: 1ea95cff42bcf4478af9f6fbcdb0c5da, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5697327418233766676, guid: 1ea95cff42bcf4478af9f6fbcdb0c5da, type: 3}
       propertyPath: m_Name
       value: Grilled_Beef
