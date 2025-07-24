@@ -16,6 +16,7 @@ namespace CookCo_opGame
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
         //List<(int, GameObject)> _ordersUI;
         List<List<int>> _orders = new List<List<int>>(); //주문 레시피가 담겨있는 리스트
+        private float _addOrderTime = 25f;
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<List<int>> Orders { get { return _orders; } }
@@ -58,7 +59,7 @@ namespace CookCo_opGame
                 a.transform.SetAsFirstSibling();
                 OrdersUI.Add(a);
             }
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(_addOrderTime);
             StartCoroutine(OrderNewMenuCo());
         }
 
