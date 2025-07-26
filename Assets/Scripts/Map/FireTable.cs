@@ -25,6 +25,7 @@ namespace CookCo_opGame
                     _toolManager = CurrentItem.GetComponent<ToolManager>();
                     if (OverTime > _burnOutTime)
                     {
+                        _toolManager.WarningUI.SetActive(false);
                         _toolManager.CurrentState = ItemState.Burn;
                         OverTime = 0f;
                         //change fire icon
@@ -36,6 +37,7 @@ namespace CookCo_opGame
                     if (OverTime > _warningTime)
                     {
                         //warning UI show
+                        _toolManager.WarningUI.SetActive(true);
                     }
                     OverTime += Time.deltaTime;
                 }

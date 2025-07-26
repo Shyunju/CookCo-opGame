@@ -319,7 +319,7 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""41d9888c-a61a-4328-8702-aff9b71dbafe"",
-                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -330,7 +330,7 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4f37f652-15ae-478c-ba34-df828e4f3bc9"",
-                    ""path"": ""<Keyboard>/rightAlt"",
+                    ""path"": ""<Keyboard>/numpad3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -341,7 +341,7 @@ public partial class @Player1InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0d6cf1e7-827d-450d-8132-e61de3706828"",
-                    ""path"": ""<Keyboard>/rightShift"",
+                    ""path"": ""<Keyboard>/numpad2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

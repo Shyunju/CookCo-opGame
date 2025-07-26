@@ -10,7 +10,9 @@ namespace CookCo_opGame
         //재료에 대한 정보(오브젝트)
         [SerializeField] protected List<FoodManager> _ingredients;
         [SerializeField] protected int _ingredientsMaxCount;
+        [SerializeField] GameObject _warningUI;
         private IngredientUIController _ingredientsUIController;
+        public GameObject WarningUI { get { return _warningUI; } set { _warningUI = value; } }
         public GameObject IngredientsTemp { get { return _ingredientsTemp; } set { _ingredientsTemp = value; } }
         public IngredientUIController IngredientUIController { get { return _ingredientsUIController; } set { _ingredientsUIController = value; } }
         public List<FoodManager> Ingredients { get { return _ingredients; } set { _ingredients = value; } }
