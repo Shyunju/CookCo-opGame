@@ -11,13 +11,14 @@ namespace CookCo_opGame
     {
         ItemDataManager _itemDataManager;
         RecipeDataManager _recipeDataManager;
-        [SerializeField] ScoreAndTimerUIController _scoreAndTimerUIController;
+        [SerializeField] ScoreUIController _scoreUIController;
         [SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
-        //List<(int, GameObject)> _ordersUI;
         List<List<int>> _orders = new List<List<int>>(); //주문 레시피가 담겨있는 리스트
         private float _addOrderTime = 25f;
         private int _orderLimit = 1;
+        private int _startLife = 3;
+        public int LifeCount { get; set; }
         private Dictionary<int, int> _levelDic = new Dictionary<int, int>()
         {
             {600, 2},
@@ -44,12 +45,13 @@ namespace CookCo_opGame
             ItemDataList = _itemDataManager.GetAllItems();
             RecipeDataList = _recipeDataManager.GetAllRecipes();
             StartCoroutine(OrderNewMenuCo());
+            LifeCount = _startLife;
 
         }
         public void ChangeScore(int mount)
         {
             Score += mount;
-            _scoreAndTimerUIController.UpdateScoreText();
+            _scoreUIController.UpdateScoreText();
             if (_levelDic.ContainsKey(Score))
             {
                 _orderLimit = _levelDic[Score];
@@ -83,6 +85,19 @@ namespace CookCo_opGame
             GameObject ds = OrdersUI[index];
             OrdersUI.RemoveAt(index);
             Destroy(ds);
+        }
+
+        public void ChangeLife(int amount)
+        {
+            LifeCount += amount;
+            if (LifeCount < 0)
+            {
+                //GameOver
+            }
+            else
+            {
+                _scoreUIController.ChangeLifeUI();
+            }
         }
     }
 }
