@@ -95,7 +95,7 @@ namespace CookCo_opGame
         {
             _elapsed = Math.Clamp(_elapsed - mount, 0, Duration);
         }
-        public void PickedUp(GameObject parent)
+        public  virtual void PickedUp(GameObject parent)
         {
             if (parent.tag == "Hand")
             {

@@ -11,7 +11,7 @@ namespace CookCo_opGame
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();
             ToolManager tm = itemInHand.GetComponent<ToolManager>();
-            if (fm != null && Ingredients.Count < _ingredientsMaxCount  && CurrentState != ItemState.Burn)//&& (fm.CurrentState == ItemState.Sliced || fm.ItemID == 1)
+            if (fm != null && Ingredients.Count < _ingredientsMaxCount && CurrentState != ItemState.Burn)//&& (fm.CurrentState == ItemState.Sliced || fm.ItemID == 1)
             {
                 return true;
             }
@@ -41,6 +41,14 @@ namespace CookCo_opGame
                     Duration = _boilDuration;
                 }
                 IsCooking = true;
+            }
+        }
+        public override void PickedUp(GameObject parent)
+        {
+            base.PickedUp(parent);
+            if (parent.tag == "Hand")
+            {
+                WarningUI.SetActive(false);
             }
         }
 

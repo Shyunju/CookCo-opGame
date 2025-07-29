@@ -5,7 +5,7 @@ namespace CookCo_opGame
     public class GrillTool : ToolManager
     {
         [SerializeField] GameObject _grillingFood;
-        public GameObject GrillFood { get { return _grillingFood; }  set { _grillingFood = value;}}
+        public GameObject GrillFood { get { return _grillingFood; } set { _grillingFood = value; } }
         private float _grillDuration = 7f;
         public override bool CheckToolState(GameObject itemInHand)
         {
@@ -14,7 +14,9 @@ namespace CookCo_opGame
             if (fm != null && Ingredients.Count < _ingredientsMaxCount && (fm.ItemID == 106 || fm.ItemID == 5))
             {
                 return true;
-            } else if(tm != null && tm.ThisToolPurpose == ToolPurpose.Dish){
+            }
+            else if (tm != null && tm.ThisToolPurpose == ToolPurpose.Dish)
+            {
                 PlateTool pt = tm.GetComponent<PlateTool>();
                 pt.InputFromTool(this.GetComponent<ToolManager>());
                 _grillingFood.SetActive(false);
@@ -34,6 +36,14 @@ namespace CookCo_opGame
                 _grillingFood.SetActive(true);
                 Duration = _grillDuration;
                 IsCooking = true;
+            }
+        }
+        public override void PickedUp(GameObject parent)
+        {
+            base.PickedUp(parent);
+            if (parent.tag == "Hand")
+            {
+                WarningUI.SetActive(false);
             }
         }
     }
