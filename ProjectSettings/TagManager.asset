@@ -8,6 +8,7 @@ TagManager:
   - Hand
   - Table
   - Tool
+  - Mouse
   layers:
   - Default
   - TransparentFX

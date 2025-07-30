@@ -97,19 +97,19 @@ namespace CookCo_opGame
         }
         public  virtual void PickedUp(GameObject parent)
         {
-            if (parent.tag == "Hand")
-            {
-                IsGrabed = true;
-                if (_currentTable != null)
+            if (parent.tag == "Hand" || parent.tag == "Mouse")
                 {
-                    _currentTable.CurrentItem = null;
-                    _currentTable.IsFull = false;
-                    _currentTable = null;
-                    OnTable = false;
-                    _itemRigidbody.useGravity = false;
-                    _itemCollider.isTrigger = true;
+                    IsGrabed = true;
+                    if (_currentTable != null)
+                    {
+                        _currentTable.CurrentItem = null;
+                        _currentTable.IsFull = false;
+                        _currentTable = null;
+                        OnTable = false;
+                        _itemRigidbody.useGravity = false;
+                        _itemCollider.isTrigger = true;
+                    }
                 }
-            }
             IsCooking = false;
             if (parent.tag == "Table")
             {
