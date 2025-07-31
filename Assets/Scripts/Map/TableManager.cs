@@ -45,7 +45,7 @@ namespace CookCo_opGame
             return true;
         }
         public abstract void ChangeState(GameObject item);
-        
+
         public void SetHighlight()
         {
             _renderer.GetPropertyBlock(_propBlock);
@@ -63,6 +63,11 @@ namespace CookCo_opGame
             _renderer.GetPropertyBlock(_propBlock);
             _propBlock.SetColor("_BaseColor", _originalColor);
             _renderer.SetPropertyBlock(_propBlock);
+        }
+
+        public void CheckPlate()
+        {
+            
         }
         
     }

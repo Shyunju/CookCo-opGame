@@ -144,6 +144,7 @@ namespace CookCo_opGame
                         Destroy(gameObject);
                     }
                 }
+                
             }
             this.transform.SetParent(parent.transform, true);
             this.transform.localRotation = Quaternion.identity;
