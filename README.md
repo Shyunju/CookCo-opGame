@@ -14,4 +14,4 @@
 7/16 ~ 17 fix bug <br>
 7/18 ~ 23 make image, sound resources  & order UI <br>
 7/23 ~ 24 map, level design & add sound system <br> 
-7/25 ~ make mouse , add warning UI
+7/25 ~ make mouse , add warning UI <br>
