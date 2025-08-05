@@ -6547,7 +6547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _house: {fileID: 0}
   _plateOfMouse: {fileID: 973411231}
-  target: {fileID: 874923292}
+  TestTransform: {fileID: 874923292}
 --- !u!195 &8312954378557983839
 NavMeshAgent:
   m_ObjectHideFlags: 0

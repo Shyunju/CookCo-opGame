@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,12 +12,15 @@ namespace CookCo_opGame
         public Transform House { get { return _house; } }
         public Transform Target { get; private set; }  // 이동할 목표 위치(음식 위치 등)
         public GameObject ItemOnHead { get; set;}
+        public Transform TestTransform;
 
         private NavMeshAgent agent;
 
         void Start()
         {
             agent = GetComponent<NavMeshAgent>(); // NavMeshAgent 컴포넌트 가져오기
+            Target = TestTransform;
+            SetTarget(Target);
         }
         public void SetTarget(Transform target)
         {
