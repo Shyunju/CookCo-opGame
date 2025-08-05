@@ -79,7 +79,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3133844473165479813}
-  - component: {fileID: 2367822591259897905}
   m_Layer: 0
   m_Name: CutTable(Orange)
   m_TagString: Untagged
@@ -103,22 +102,6 @@ Transform:
   - {fileID: 5758727741018859899}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &2367822591259897905
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4446954084052537131}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.645, y: 0.69, z: 0.615}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1.13, z: -0.09}
-  m_TimeToStationary: 0.5
 --- !u!1001 &1528391874675362170
 PrefabInstance:
   m_ObjectHideFlags: 0

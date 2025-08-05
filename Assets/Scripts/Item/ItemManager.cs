@@ -98,18 +98,19 @@ namespace CookCo_opGame
         public  virtual void PickedUp(GameObject parent)
         {
             if (parent.tag == "Hand" || parent.tag == "Mouse")
+            {
+                IsGrabed = true;
+                if (_currentTable != null)
                 {
-                    IsGrabed = true;
-                    if (_currentTable != null)
-                    {
-                        _currentTable.CurrentItem = null;
-                        _currentTable.IsFull = false;
-                        _currentTable = null;
-                        OnTable = false;
-                        _itemRigidbody.useGravity = false;
-                        _itemCollider.isTrigger = true;
-                    }
+                    _currentTable.CurrentItem = null;
+                    _currentTable.IsFull = false;
+                    _currentTable = null;
+                    OnTable = false;
+                    _itemRigidbody.useGravity = false;
+                    _itemCollider.isTrigger = true;
+
                 }
+            }
             IsCooking = false;
             if (parent.tag == "Table")
             {
@@ -144,7 +145,7 @@ namespace CookCo_opGame
                         Destroy(gameObject);
                     }
                 }
-                
+
             }
             this.transform.SetParent(parent.transform, true);
             this.transform.localRotation = Quaternion.identity;

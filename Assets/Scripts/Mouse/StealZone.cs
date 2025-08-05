@@ -25,8 +25,13 @@ namespace CookCo_opGame
             if (other.tag == "Mouse")
             {
                 MouseMove mouseMove = other.GetComponent<MouseMove>();
-                ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
-                itemManager.PickedUp(mouseMove.PlateOfMouse);
+                if (_tableManager.CurrentItem != null)
+                {
+                    ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
+                    itemManager.PickedUp(mouseMove.PlateOfMouse);                    
+                }
+
+                mouseMove.SetTarget(GameManager.Instance.MouseHouse);
             }
         }
     }

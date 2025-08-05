@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2335060726660664042}
-  - component: {fileID: 6106315402015998693}
   m_Layer: 0
   m_Name: BoxTable(None)
   m_TagString: Untagged
@@ -33,22 +32,6 @@ Transform:
   - {fileID: 7809598607864586372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!208 &6106315402015998693
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4551851037236494081}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.665, y: 0.665, z: 0.59}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1.13, z: -0.12}
-  m_TimeToStationary: 0.5
 --- !u!1 &8412585003681985600
 GameObject:
   m_ObjectHideFlags: 0
