@@ -5,9 +5,10 @@ namespace CookCo_opGame
     public class StealZone : MonoBehaviour
     {
         [SerializeField] TableManager _tableManager;
-
+        private Transform _transform;
         void Start()
         {
+            _transform = GetComponent<Transform>();
             Transform parent = transform.parent;
             foreach (Transform sibling in parent)
             {
@@ -27,6 +28,8 @@ namespace CookCo_opGame
                 MouseMove mouseMove = other.GetComponent<MouseMove>();
                 if (_tableManager.CurrentItem != null)
                 {
+                    if (mouseMove.Target != _transform || mouseMove.ItemOnHead != null)
+                        return;
                     ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
                     itemManager.PickedUp(mouseMove.PlateOfMouse);                    
                 }
