@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace CookCo_opGame
 {
@@ -11,12 +12,14 @@ namespace CookCo_opGame
         [SerializeField] ScoreUIController _scoreUIController;
         [SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
-        
+        [SerializeField] MouseHouse _mouseHouse;
+
         List<List<int>> _orders = new List<List<int>>(); //주문 레시피가 담겨있는 리스트
         private float _addOrderTime = 25f;
         private int _orderLimit = 1;
         private int _startLife = 3;
         public int LifeCount { get; set; }
+        //public MouseHouse MouseHouse { get { return _mouseHouse;}}
         private Dictionary<int, int> _levelDic = new Dictionary<int, int>()
         {
             {600, 2},
@@ -27,7 +30,7 @@ namespace CookCo_opGame
             {3600, 9},
             {4400, 10}
         };
-        
+
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<List<int>> Orders { get { return _orders; } }
@@ -97,6 +100,13 @@ namespace CookCo_opGame
             {
                 _scoreUIController.ChangeLifeUI();
             }
+        }
+
+        public void GiveTargetToMouse(Transform transform)
+        {
+            //마우스하우스에 접근
+            //마우스 하우스에서 현재 활동가능한 쥐를 확인
+            //쥐가 있다면 타겟 포지션으로 매개변수를 할당
         }
     }
 }
