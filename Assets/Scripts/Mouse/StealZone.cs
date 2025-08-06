@@ -5,9 +5,7 @@ namespace CookCo_opGame
     public class StealZone : MonoBehaviour
     {
         [SerializeField] TableManager _tableManager;
-        [SerializeField] ItemManager _currentItem;
         private Transform _transform;
-        private bool _hasItem = false;
         void Start()
         {
             _transform = GetComponent<Transform>();
@@ -25,10 +23,6 @@ namespace CookCo_opGame
         }
         void Update()
         {
-            if (_hasItem)
-            {
-                _currentItem.gameObject.transform.localRotation = Quaternion.identity;
-            }
         }
         void OnTriggerEnter(Collider other)
         {
@@ -41,8 +35,8 @@ namespace CookCo_opGame
                         return;
                     ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
                     itemManager.PickedUp(mouseMove.PlateOfMouse);
-                    _currentItem = itemManager;
-                    _hasItem = true;
+                    mouseMove.CurrentItem = itemManager;
+                    mouseMove.hasitem = true;
                 }
                 else
                 {

@@ -8,11 +8,14 @@ namespace CookCo_opGame
     {
         [SerializeField] GameObject _plateOfMouse;
         [SerializeField] Transform _mouseHouse;
+        [SerializeField] ItemManager _currentItem;
         public GameObject PlateOfMouse { get { return _plateOfMouse; } }
         public Transform Target { get; private set; }  // 이동할 목표 위치(음식 위치 등)
-        public GameObject ItemOnHead { get; set;}
+        public GameObject ItemOnHead { get; set; }
         public Transform TestTransform;
-        public Transform MouseHouse {get { return _mouseHouse; }}
+        public Transform MouseHouse { get { return _mouseHouse; } }
+        public ItemManager CurrentItem { get { return _currentItem; } set { _currentItem = value; } }
+        public bool hasitem { get; set; }
 
         private NavMeshAgent agent;
 
@@ -21,13 +24,25 @@ namespace CookCo_opGame
             agent = GetComponent<NavMeshAgent>(); // NavMeshAgent 컴포넌트 가져오기
             Target = TestTransform;
             SetTarget(Target);
+            hasitem = false;
         }
+        // void Update()
+        // {
+        //     if (hasitem)
+        //     {
+        //         CurrentItem.transform.localRotation = Quaternion.identity;
+        //     }
+        // }
         public void SetTarget(Transform target)
         {
             Target = target;
             agent.SetDestination(target.position); //테이블 앞으로 설정해주기
                                                    //도중에 플레이어에게 뺏겨도 목적지 집으로 설정
 
+        }
+        public void SetOff()
+        {
+            this.gameObject.SetActive(false);
         }
         
     }

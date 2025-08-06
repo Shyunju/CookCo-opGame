@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 2474892217820343353}
   m_Layer: 0
   m_Name: PlateOfMouse
-  m_TagString: Mouse
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -575,7 +575,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6813700242819024435}
-  - component: {fileID: 7292622784606641757}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -602,29 +601,6 @@ Transform:
   - {fileID: 9169720703765925918}
   m_Father: {fileID: 8818095094771813309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7292622784606641757
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6269075961034367426}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.36
-  m_Height: 0.2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.13, z: 0}
 --- !u!1 &6304691053332748619
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9216780932059724037}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1, y: 0.62, z: 6.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -930,6 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _plateOfMouse: {fileID: 4886686513609065658}
   _mouseHouse: {fileID: 0}
+  _currentItem: {fileID: 0}
   TestTransform: {fileID: 0}
 --- !u!195 &5100876576678131110
 NavMeshAgent:
