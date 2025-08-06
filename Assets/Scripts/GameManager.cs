@@ -11,7 +11,7 @@ namespace CookCo_opGame
         [SerializeField] ScoreUIController _scoreUIController;
         [SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
-        [SerializeField] Transform _mouseHouse;
+        
         List<List<int>> _orders = new List<List<int>>(); //주문 레시피가 담겨있는 리스트
         private float _addOrderTime = 25f;
         private int _orderLimit = 1;
@@ -27,7 +27,7 @@ namespace CookCo_opGame
             {3600, 9},
             {4400, 10}
         };
-        public Transform MouseHouse {get { return _mouseHouse; }}
+        
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<List<int>> Orders { get { return _orders; } }
@@ -38,10 +38,10 @@ namespace CookCo_opGame
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             OrdersUI = new List<GameObject>();
+            ItemDataList = _itemDataManager.GetAllItems();
         }
         private void Start()
         {
-            ItemDataList = _itemDataManager.GetAllItems();
             RecipeDataList = _recipeDataManager.GetAllRecipes();
             StartCoroutine(OrderNewMenuCo());
             LifeCount = _startLife;

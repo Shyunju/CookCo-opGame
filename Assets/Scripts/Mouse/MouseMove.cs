@@ -6,13 +6,13 @@ namespace CookCo_opGame
 {
     public class MouseMove : MonoBehaviour
     {
-        [SerializeField] Transform _house;
         [SerializeField] GameObject _plateOfMouse;
+        [SerializeField] Transform _mouseHouse;
         public GameObject PlateOfMouse { get { return _plateOfMouse; } }
-        public Transform House { get { return _house; } }
         public Transform Target { get; private set; }  // 이동할 목표 위치(음식 위치 등)
         public GameObject ItemOnHead { get; set;}
         public Transform TestTransform;
+        public Transform MouseHouse {get { return _mouseHouse; }}
 
         private NavMeshAgent agent;
 

@@ -148,10 +148,10 @@ namespace CookCo_opGame
 
             }
             this.transform.SetParent(parent.transform, true);
+            _itemRigidbody.constraints = RigidbodyConstraints.FreezeAll;
             this.transform.localRotation = Quaternion.identity;
             this.transform.localPosition = Vector3.zero;
-            
-            _itemRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+            _itemRigidbody.inertiaTensorRotation = Quaternion.identity;
             if (OnTable)
             {
                 _itemRigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
