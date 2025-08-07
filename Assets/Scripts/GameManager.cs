@@ -19,7 +19,7 @@ namespace CookCo_opGame
         private int _orderLimit = 1;
         private int _startLife = 3;
         public int LifeCount { get; set; }
-        //public MouseHouse MouseHouse { get { return _mouseHouse;}}
+        public MouseHouse MouseHouse { get { return _mouseHouse;}}
         private Dictionary<int, int> _levelDic = new Dictionary<int, int>()
         {
             {600, 2},
@@ -104,9 +104,7 @@ namespace CookCo_opGame
 
         public void GiveTargetToMouse(Transform transform)
         {
-            //마우스하우스에 접근
-            //마우스 하우스에서 현재 활동가능한 쥐를 확인
-            //쥐가 있다면 타겟 포지션으로 매개변수를 할당
+            _mouseHouse.ExportMouse(transform);
         }
     }
 }

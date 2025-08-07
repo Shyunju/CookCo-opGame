@@ -35,9 +35,20 @@ namespace CookCo_opGame
         }
         void OnTriggerEnter(Collider other)
         {
+            //Debug.Log(other.name);
             if ((other.tag == "Food" || other.tag == "Tool") && IsHandFree)
             {
                 _itemManager = other.gameObject.GetComponent<ItemManager>();
+            }
+            if (other.tag == "Mouse")
+            {
+                MouseMove mm = other.gameObject.GetComponent<MouseMove>();
+                if (mm.CurrentItem != null)
+                {
+                    _itemManager = mm.CurrentItem;
+                    mm.HasItem = false;
+                    mm.CurrentItem = null;
+                }
             }
 
         }

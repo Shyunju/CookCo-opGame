@@ -8,6 +8,7 @@ namespace CookCo_opGame
         [SerializeField] GameObject _plate;
         void Start()
         {
+            //base.Start();
             _purpose = TablePurpose.Box;
         }
         public override bool PerformPurpose()

@@ -97,9 +97,10 @@ namespace CookCo_opGame
         }
         public  virtual void PickedUp(GameObject parent)
         {
-            if (parent.tag == "Hand" || parent.tag == "Mouse")
+            if (parent.tag == "Hand" || parent.tag == "MouseHead")
             {
-                IsGrabed = true;
+                if(parent.tag == "Hand")
+                    IsGrabed = true;
                 if (_currentTable != null)
                 {
                     _currentTable.CurrentItem = null;
@@ -125,6 +126,12 @@ namespace CookCo_opGame
                 {
                     //요리가 가능한지 확인하는 함수 호출 // 그 함수에서 가능하다면 이즈쿠킹으로 바꾸고 듀레이션 주기
                     tm.StartCooking();
+                }
+                else //쥐 호출
+                {
+                    int percentage = UnityEngine.Random.Range(1, 100);
+                    GameManager.Instance.GiveTargetToMouse(_currentTable.StealZone.gameObject.transform);
+                    //if(percentage % 2 == 0)
                 }
                 if (_currentTable.Purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
                 {

@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 2474892217820343353}
   m_Layer: 0
   m_Name: PlateOfMouse
-  m_TagString: Untagged
+  m_TagString: MouseHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -907,7 +907,6 @@ MonoBehaviour:
   _plateOfMouse: {fileID: 4886686513609065658}
   _mouseHouse: {fileID: 0}
   _currentItem: {fileID: 0}
-  TestTransform: {fileID: 0}
 --- !u!195 &5100876576678131110
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -918,7 +917,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -945,7 +944,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2

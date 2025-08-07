@@ -21,13 +21,11 @@ namespace CookCo_opGame
                 }
             }
         }
-        void Update()
-        {
-        }
         void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Mouse")
             {
+                 
                 MouseMove mouseMove = other.GetComponent<MouseMove>();
                 if (_tableManager.CurrentItem != null && mouseMove != null)
                 {
@@ -36,14 +34,14 @@ namespace CookCo_opGame
                     ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
                     itemManager.PickedUp(mouseMove.PlateOfMouse);
                     mouseMove.CurrentItem = itemManager;
-                    mouseMove.hasitem = true;
+                    mouseMove.HasItem = true;
+                    mouseMove.SetTarget(mouseMove.MouseHouse);
                 }
                 else
                 {
                     return;
                 }
 
-                mouseMove.SetTarget(mouseMove.MouseHouse);
             }
         }
     }
