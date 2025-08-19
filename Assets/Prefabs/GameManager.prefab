@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7426918984476216177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3038096396157369578}
+  - component: {fileID: 872032951791113064}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3038096396157369578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426918984476216177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.05949682, y: 1.1697936, z: 2.2376158}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &872032951791113064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7426918984476216177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4269119b206411e8afe58f345fb9b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDontDestroy: 0
+  _scoreUIController: {fileID: 0}
+  RecipeUI:
+  - {fileID: 0}
+  - {fileID: 2124497143153064125, guid: dec4b6044af0042fcb77cc7a97c69cd9, type: 3}
+  - {fileID: 2481188451795351876, guid: 31ba5be172383414da7937e069c9188c, type: 3}
+  - {fileID: 9201946779305992733, guid: d95faf8dfb33c40caac6fd1d5c702072, type: 3}
+  - {fileID: 3212312707888050683, guid: 48308f2b81e7a4971a47a32f7c7f14f6, type: 3}
+  - {fileID: 4208767978103822051, guid: ac7f6ea19f88440978be705020988fec, type: 3}
+  - {fileID: 3174483355830155750, guid: 4ab82a2600fbf484484f74170bd10817, type: 3}
+  - {fileID: 6202970492398606627, guid: 0805b5a6e2f2448f0b8fb098faa2d849, type: 3}
+  - {fileID: 366349210488919832, guid: 864c274ab131645a6880b02bddda42be, type: 3}
+  - {fileID: 5384954877831785694, guid: fd20ea272faab485fa8fc92acff6d5c9, type: 3}
+  - {fileID: 4926257022795076328, guid: 70581c5c396e54cc69ec26b7adc87904, type: 3}
+  _orderUICanvas: {fileID: 0}
+  _mouseHouse: {fileID: 0}
+  _tables:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
