@@ -13,13 +13,16 @@ namespace CookCo_opGame
         [SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
         [SerializeField] MouseHouse _mouseHouse;
+        [SerializeField] GameObject[] _tables;
+        private bool[] _hasTable = new bool[12];  //길이 확인 필요
 
         List<List<int>> _orders = new List<List<int>>(); //주문 레시피가 담겨있는 리스트
         private float _addOrderTime = 25f;
         private int _orderLimit = 1;
         private int _startLife = 3;
         public int LifeCount { get; set; }
-        public MouseHouse MouseHouse { get { return _mouseHouse;}}
+        public MouseHouse MouseHouse { get { return _mouseHouse; } }
+        public bool[] HasTable { get { return _hasTable;} set { _hasTable = value; } }
         private Dictionary<int, int> _levelDic = new Dictionary<int, int>()
         {
             {600, 2},
@@ -105,6 +108,17 @@ namespace CookCo_opGame
         public void GiveTargetToMouse(Transform transform)
         {
             _mouseHouse.ExportMouse(transform);
+        }
+
+        public void LoadTables()
+        {
+            for (int i = 0; i < _hasTable.Length; i++)
+            {
+                if (_hasTable[i])
+                {
+                    _tables[i].SetActive(true);
+                }
+            }
         }
     }
 }
