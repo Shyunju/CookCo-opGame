@@ -7,7 +7,7 @@ namespace CookCo_opGame
         [SerializeField] GameObject[] _tables;
         void Start()
         {
-            //LoadTables();
+            LoadTables();
         }
         public void LoadTables()
         {

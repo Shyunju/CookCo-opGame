@@ -17,7 +17,7 @@ namespace CookCo_opGame
         ItemDataManager _itemDataManager;
         RecipeDataManager _recipeDataManager;
         [SerializeField] ScoreUIController _scoreUIController;
-        [SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
+        //[SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
         [SerializeField] SellingTable[] _shopTables;
 
@@ -43,8 +43,13 @@ namespace CookCo_opGame
         public List<List<int>> Orders { get { return _orders; } }
         public List<GameObject> OrdersUI { get; set; } //주문 이미지 프리팹 리스트
         public int Score { get; private set; }
-        void Awake()
+        // void Awake()
+        // {
+        //     base.Awake();
+        // }
+        private void Start()
         {
+            
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             //OrdersUI = new List<GameObject>();
@@ -52,10 +57,6 @@ namespace CookCo_opGame
             ItemDataList = _itemDataManager.GetAllItems();
             RecipeDataList = new List<RecipeData>();
             RecipeDataList = _recipeDataManager.GetAllRecipes();
-        }
-        private void Start()
-        {
-            
             //StartCoroutine(OrderNewMenuCo());
             //LifeCount = _startLife;
 
