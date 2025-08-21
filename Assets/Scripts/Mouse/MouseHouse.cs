@@ -22,7 +22,7 @@ namespace CookCo_opGame
                     mouseMove.CurrentItem = null;  // 참조 먼저 null로 끊기
                     Destroy(temp);
 
-                    GameManager.Instance.ChangeLife(-1);
+                    CookingPlayManager.Instance.ChangeLife(-1);
                     mouseMove.IsMoving = false;
                 }
             }

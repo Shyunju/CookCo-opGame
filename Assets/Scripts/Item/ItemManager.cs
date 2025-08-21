@@ -131,7 +131,7 @@ namespace CookCo_opGame
                 {
                     int percentage = UnityEngine.Random.Range(1, 100);
                     if(percentage % 2 == 0)
-                        GameManager.Instance.GiveTargetToMouse(_currentTable.StealZone.gameObject.transform);
+                        CookingPlayManager.Instance.GiveTargetToMouse(_currentTable.StealZone.gameObject.transform);
                 }
                 if (_currentTable.Purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
                 {

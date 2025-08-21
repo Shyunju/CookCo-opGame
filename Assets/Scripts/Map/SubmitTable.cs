@@ -26,14 +26,13 @@ namespace CookCo_opGame
                 _recipe.Add(i.ItemID);
             }
             _recipe.Sort();
-            for (int i = 0; i < GameManager.Instance.Orders.Count; i++)
+            for (int i = 0; i < CookingPlayManager.Instance.Orders.Count; i++)
             {
                 if (_recipe.SequenceEqual(GameManager.Instance.Orders[i]))
                 {
-                    Debug.Log(GameManager.Instance.OrdersUI.Count);
-                    GameManager.Instance.Orders.RemoveAt(i);
-                    GameManager.Instance.CompleteMenu(i);
-                    GameManager.Instance.ChangeScore(_successScore);
+                    CookingPlayManager.Instance.Orders.RemoveAt(i);
+                    CookingPlayManager.Instance.CompleteMenu(i);
+                    CookingPlayManager.Instance.ChangeScore(_successScore);
                     SoundManager.Instance.PlaySuccessSound();
                     _hasRecipe = true;
                     break;
@@ -41,7 +40,7 @@ namespace CookCo_opGame
             }
             if (!_hasRecipe)
             {
-                GameManager.Instance.ChangeScore(_failScore);
+                CookingPlayManager.Instance.ChangeScore(_failScore);
                 SoundManager.Instance.PlayFailSound();
             }
 
