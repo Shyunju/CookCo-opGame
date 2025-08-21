@@ -28,7 +28,7 @@ namespace CookCo_opGame
             _recipe.Sort();
             for (int i = 0; i < CookingPlayManager.Instance.Orders.Count; i++)
             {
-                if (_recipe.SequenceEqual(GameManager.Instance.Orders[i]))
+                if (_recipe.SequenceEqual(CookingPlayManager.Instance.Orders[i]))
                 {
                     CookingPlayManager.Instance.Orders.RemoveAt(i);
                     CookingPlayManager.Instance.CompleteMenu(i);

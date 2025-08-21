@@ -1425,7 +1425,18 @@ MonoBehaviour:
   _isDontDestroy: 0
   _mouseHouse: {fileID: 1303823452}
   _scoreUIController: {fileID: 1455725394}
-  RecipeUI: []
+  RecipeUI:
+  - {fileID: 0}
+  - {fileID: 2124497143153064125, guid: dec4b6044af0042fcb77cc7a97c69cd9, type: 3}
+  - {fileID: 2481188451795351876, guid: 31ba5be172383414da7937e069c9188c, type: 3}
+  - {fileID: 9201946779305992733, guid: d95faf8dfb33c40caac6fd1d5c702072, type: 3}
+  - {fileID: 3212312707888050683, guid: 48308f2b81e7a4971a47a32f7c7f14f6, type: 3}
+  - {fileID: 4208767978103822051, guid: ac7f6ea19f88440978be705020988fec, type: 3}
+  - {fileID: 3174483355830155750, guid: 4ab82a2600fbf484484f74170bd10817, type: 3}
+  - {fileID: 6202970492398606627, guid: 0805b5a6e2f2448f0b8fb098faa2d849, type: 3}
+  - {fileID: 366349210488919832, guid: 864c274ab131645a6880b02bddda42be, type: 3}
+  - {fileID: 5384954877831785694, guid: fd20ea272faab485fa8fc92acff6d5c9, type: 3}
+  - {fileID: 4926257022795076328, guid: 70581c5c396e54cc69ec26b7adc87904, type: 3}
   _orderUICanvas: {fileID: 1007612119}
 --- !u!4 &552674166
 Transform:

@@ -10,12 +10,12 @@ namespace CookCo_opGame
 
         public void UpdateScoreText()
         {
-            _scoreTxt.text = GameManager.Instance.Score.ToString();
+            _scoreTxt.text = CookingPlayManager.Instance.Score.ToString();
         }
 
         public void ChangeLifeUI()
         {
-            int cnt = GameManager.Instance.LifeCount;
+            int cnt = CookingPlayManager.Instance.LifeCount;
             for (int i = 0; i < LifeUI.Length; i++)
             {
                 if (i < cnt)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CookCo_opGame
 {
@@ -46,68 +47,74 @@ namespace CookCo_opGame
         {
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
-            OrdersUI = new List<GameObject>();
+            //OrdersUI = new List<GameObject>();
+            ItemDataList = new List<ItemData>();    
             ItemDataList = _itemDataManager.GetAllItems();
+            RecipeDataList = new List<RecipeData>();
+            RecipeDataList = _recipeDataManager.GetAllRecipes();
         }
         private void Start()
         {
-            RecipeDataList = _recipeDataManager.GetAllRecipes();
-            StartCoroutine(OrderNewMenuCo());
-            LifeCount = _startLife;
+            
+            //StartCoroutine(OrderNewMenuCo());
+            //LifeCount = _startLife;
 
         }
-        public void ChangeScore(int mount)
+        // public void ChangeScore(int mount)
+        // {
+        //     Score += mount;
+        //     _scoreUIController.UpdateScoreText();
+        //     if (_levelDic.ContainsKey(Score))
+        //     {
+        //         _orderLimit = _levelDic[Score];
+        //     }
+        // }
+        // IEnumerator OrderNewMenuCo()
+        // {
+        //     if (Orders.Count < 5)
+        //     {
+        //         //레벨별 범위 안에 레시피 아이디 번호를 랜덤으로 가져와 오더에 추가
+        //         //제출시 비교는 해당 아이디를 가진 레시피의 리스트와 현재재료들 값을 리스트한것을 비교
+        //         int orderNumber = UnityEngine.Random.Range(1, _orderLimit);
+        //         //int orderNumber = 1;
+        //         List<int> test = RecipeDataList.Find(x => x.RecipeID == orderNumber).RecipeList;
+
+
+        //         //레시피 아이디의 레시피를 이미지로 하는 유아이 오브젝트 생성
+        //         //유아이 리스트에 추가
+        //         _orders.Add(test);
+        //         GameObject a = Instantiate(RecipeUI[orderNumber]) as GameObject;
+        //         a.transform.SetParent(_orderUICanvas.transform, true);
+        //         a.transform.SetAsFirstSibling();
+        //         OrdersUI.Add(a);
+        //     }
+        //     yield return new WaitForSeconds(_addOrderTime);
+        //     StartCoroutine(OrderNewMenuCo());
+        // }
+
+        // public void CompleteMenu(int index)
+        // {
+        //     GameObject ds = OrdersUI[index];
+        //     OrdersUI.RemoveAt(index);
+        //     Destroy(ds);
+        // }
+
+        // public void ChangeLife(int amount)
+        // {
+        //     LifeCount += amount;
+        //     if (LifeCount < 0)
+        //     {
+        //         //GameOver
+        //     }
+        //     else
+        //     {
+        //         _scoreUIController.ChangeLifeUI();
+        //     }
+        // }
+        public void StartCooking()
         {
-            Score += mount;
-            _scoreUIController.UpdateScoreText();
-            if (_levelDic.ContainsKey(Score))
-            {
-                _orderLimit = _levelDic[Score];
-            }
+             SceneManager.LoadScene("MainScene");
         }
-        IEnumerator OrderNewMenuCo()
-        {
-            if (Orders.Count < 5)
-            {
-                //레벨별 범위 안에 레시피 아이디 번호를 랜덤으로 가져와 오더에 추가
-                //제출시 비교는 해당 아이디를 가진 레시피의 리스트와 현재재료들 값을 리스트한것을 비교
-                int orderNumber = UnityEngine.Random.Range(1, _orderLimit);
-                //int orderNumber = 1;
-                List<int> test = RecipeDataList.Find(x => x.RecipeID == orderNumber).RecipeList;
-
-
-                //레시피 아이디의 레시피를 이미지로 하는 유아이 오브젝트 생성
-                //유아이 리스트에 추가
-                _orders.Add(test);
-                GameObject a = Instantiate(RecipeUI[orderNumber]) as GameObject;
-                a.transform.SetParent(_orderUICanvas.transform, true);
-                a.transform.SetAsFirstSibling();
-                OrdersUI.Add(a);
-            }
-            yield return new WaitForSeconds(_addOrderTime);
-            StartCoroutine(OrderNewMenuCo());
-        }
-
-        public void CompleteMenu(int index)
-        {
-            GameObject ds = OrdersUI[index];
-            OrdersUI.RemoveAt(index);
-            Destroy(ds);
-        }
-
-        public void ChangeLife(int amount)
-        {
-            LifeCount += amount;
-            if (LifeCount < 0)
-            {
-                //GameOver
-            }
-            else
-            {
-                _scoreUIController.ChangeLifeUI();
-            }
-        }
-
 
 
     }
