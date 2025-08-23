@@ -14,6 +14,6 @@
 7/16 ~ 17 fix bug <br>
 7/18 ~ 23 make image, sound resources  & order UI <br>
 7/23 ~ 24 map, level design & add sound system <br> 
-7/25 ~ make mouse , add warning UI <br>
-쥐 아이탬 픽업 엔드 뺏기 <br>저번주
-로비씬, 메인씬 데코 <br> //// 이번주
+7/25 ~  29 make mouse , add UI <br>
+7/30 ~ 8/7 쥐 아이템 픽업 엔드 뺏기 <br>
+8/8 ~ 로비씬, 메인씬 데코, 로비 샵 UI & 구매 시스템 구성 <br>
