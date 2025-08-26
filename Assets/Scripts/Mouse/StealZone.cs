@@ -27,20 +27,22 @@ namespace CookCo_opGame
             {
                  
                 MouseMove mouseMove = other.GetComponent<MouseMove>();
-                if (_tableManager.CurrentItem != null && mouseMove != null)
+                if ( mouseMove.Target == _transform && mouseMove != null) //목표위치가 맞으면서 쥐가 맞음
                 {
-                    if (mouseMove.Target != _transform || mouseMove.ItemOnHead != null)
-                        return;
-                    ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
-                    itemManager.PickedUp(mouseMove.PlateOfMouse);
-                    mouseMove.CurrentItem = itemManager;
-                    mouseMove.HasItem = true;
+                    if (_tableManager.CurrentItem != null)  //테이블에 아이템이 있
+                    {
+                        ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
+                        itemManager.PickedUp(mouseMove.PlateOfMouse);
+                        mouseMove.CurrentItem = itemManager;
+                        mouseMove.HasItem = true;
+                    }
+                    else
+                    {
+                        mouseMove.IsMoving = false;
+                    }
                     mouseMove.SetTarget(mouseMove.MouseHouse);
                 }
-                else
-                {
-                    return;
-                }
+                return;
 
             }
         }

@@ -46,7 +46,6 @@ namespace CookCo_opGame
         {
             Wallet += CookingPlayManager.Instance.Score;
             SceneManager.LoadScene("LobbyScene");
-            //LobbyUIController.Instance.LoadWallet();
         }
 
     }

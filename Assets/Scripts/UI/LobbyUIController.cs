@@ -13,9 +13,7 @@ namespace CookCo_opGame
 
         public void LoadWallet()
         {
-            Debug.Log(GameManager.Instance.Wallet);
             _walletTxt.text = GameManager.Instance.Wallet.ToString();
-            //_walletTxt.text = "asdf";
         }
     }
 }

@@ -74,6 +74,7 @@ namespace CookCo_opGame
             if (LifeCount < 0)
             {
                 //GameOver
+                GameManager.Instance.GoToLobby();
             }
             else
             {

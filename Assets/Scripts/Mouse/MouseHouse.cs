@@ -10,7 +10,6 @@ namespace CookCo_opGame
             if (other.CompareTag("Mouse"))
             {
                 MouseMove mouseMove = other.gameObject.GetComponent<MouseMove>();
-                //mouseMove.MouseCollider.isTrigger = true;
 
                 var currentItem = mouseMove.CurrentItem;  // 변수에 복사
 

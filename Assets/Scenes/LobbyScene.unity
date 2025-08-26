@@ -1114,6 +1114,7 @@ GameObject:
   - component: {fileID: 605032239}
   - component: {fileID: 605032238}
   - component: {fileID: 605032237}
+  - component: {fileID: 605032240}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1184,19 +1185,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 605032238}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 872032950278649911}
-        m_TargetAssemblyTypeName: CookCo_opGame.GameManager, Assembly-CSharp
-        m_MethodName: StartCooking
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &605032238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,6 +1224,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605032235}
   m_CullTransparentMesh: 1
+--- !u!114 &605032240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605032235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81158b378970241edb072732b28e61f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetButton: {fileID: 605032237}
 --- !u!4 &665989652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f3ff895ef82a5154da206a1c4e33c042, type: 3}
