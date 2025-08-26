@@ -8,7 +8,7 @@ namespace CookCo_opGame
         [SerializeField] int _shopTableIndex;
         [SerializeField] int _price;
         LobbyUIController _lobbyUIController;
-        public LobbyUIController LobbyUIController { get { return _lobbyUIController;} set { _lobbyUIController = value;}}
+        //public LobbyUIController LobbyUIController { get { return _lobbyUIController;} set { _lobbyUIController = value;}}
 
         void Start()
         {
@@ -20,6 +20,7 @@ namespace CookCo_opGame
             GameManager.Instance.ShopTables[_shopTableIndex].isBought = true;
             GameManager.Instance.ChangeWalletGold(_price * -1);
             _lobbyUIController.LoadWallet();
+            _lobbyUIController.UpgradeRecipeSet();
             Button tempButton = this.GetComponentInChildren<Button>();
             tempButton.interactable = false;
         }
