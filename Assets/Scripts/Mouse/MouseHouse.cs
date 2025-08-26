@@ -27,14 +27,6 @@ namespace CookCo_opGame
                 }
             }
         }
-        void OiggerExit(Collider other)
-        {
-            if (other.CompareTag("Mouse"))
-            {
-                MouseMove mouseMove = other.gameObject.GetComponent<MouseMove>();
-                //mouseMove.MouseCollider.isTrigger = false;
-            }
-        }
         public void ExportMouse(Transform transform)
         {
             foreach (var mouse in mouses)
@@ -43,7 +35,6 @@ namespace CookCo_opGame
                 {
                     mouse.SetTarget(transform);
                     mouse.IsMoving = true;
-                    //mouse.MouseCollider.isTrigger = false;
                     return;
                 }
             }

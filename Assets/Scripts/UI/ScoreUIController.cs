@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace CookCo_opGame
 {
@@ -7,6 +9,8 @@ namespace CookCo_opGame
     {
         [SerializeField] TMP_Text _scoreTxt;
         [SerializeField] GameObject[] LifeUI;
+        [SerializeField] float totalTime = 30f; // 3분 = 180초
+        [SerializeField] TMP_Text timerText;         // Unity 에디터에서 할당
 
         public void UpdateScoreText()
         {
@@ -26,6 +30,23 @@ namespace CookCo_opGame
                 {
                     LifeUI[i].SetActive(false);
                 }
+            }
+        }
+        void Update()
+        {
+            if (totalTime > 0)
+            {
+                totalTime -= Time.deltaTime;
+                int minutes = Mathf.FloorToInt(totalTime / 60);
+                int seconds = Mathf.FloorToInt(totalTime % 60);
+                timerText.text = string.Format("{0:0} : {1:00}", minutes, seconds);
+            }
+            else
+            {
+                //시간 오버
+                timerText.text = "0m 00s";
+                totalTime = 0;
+                GameManager.Instance.GoToLobby();
             }
         }
     }

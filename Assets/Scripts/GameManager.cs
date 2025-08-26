@@ -24,7 +24,8 @@ namespace CookCo_opGame
         public int Wallet { get; private set; }
         private void Start()
         {
-            Wallet = 5000;
+            Wallet = 0;
+            //LobbyUIController.Instance.LoadWallet();
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             ItemDataList = new List<ItemData>();
@@ -41,7 +42,12 @@ namespace CookCo_opGame
         {
             Wallet += amount;
         }
-
+        public void GoToLobby()
+        {
+            Wallet += CookingPlayManager.Instance.Score;
+            SceneManager.LoadScene("LobbyScene");
+            //LobbyUIController.Instance.LoadWallet();
+        }
 
     }
 }
