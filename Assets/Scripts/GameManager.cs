@@ -21,6 +21,7 @@ namespace CookCo_opGame
 
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get; private set; }
+        public List<int> HasRecipes { get; set; }
         public int Wallet { get; private set; }
         private void Start()
         {
@@ -32,6 +33,10 @@ namespace CookCo_opGame
             ItemDataList = _itemDataManager.GetAllItems();
             RecipeDataList = new List<RecipeData>();
             RecipeDataList = _recipeDataManager.GetAllRecipes();
+            HasRecipes = new List<int>
+            {
+                1 //SunnySideUp
+            };
         }
         public void StartCooking()
         {
