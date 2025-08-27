@@ -7,6 +7,8 @@ namespace CookCo_opGame
     {
         [SerializeField] TMP_Text _walletTxt;
         [SerializeField] BuyRecipe[] _recipeUIArray;
+        [SerializeField] GameObject TableShop;
+        [SerializeField] GameObject RecipeShop;
         void Start()
         {
             LoadWallet();
@@ -23,6 +25,17 @@ namespace CookCo_opGame
             {
                 item.SetCanBuy();
             }
+        }
+
+        public void ShowTableShop()
+        {
+            TableShop.SetActive(true);
+            RecipeShop.SetActive(false);
+        }
+        public void ShowRecipeShop()
+        {
+            RecipeShop.SetActive(true);
+            TableShop.SetActive(false);
         }
     }
 }

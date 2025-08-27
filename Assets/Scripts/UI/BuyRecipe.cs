@@ -35,6 +35,7 @@ namespace CookCo_opGame
                         _button.interactable = false;
                         break;
                     }
+                    _button.interactable = true;
                 }
             }
         }

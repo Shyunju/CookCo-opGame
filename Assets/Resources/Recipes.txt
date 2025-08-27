@@ -2,60 +2,70 @@
   "Recipes": [
     {
       "RecipeID": 1,
+      "Price": 200,
       "RecipeName": "SunnySideUp",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [10005]
     },
     {
       "RecipeID": 2,
+      "Price": 500,
       "RecipeName": "RiceBall",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [1009, 1009]
     },
     {
       "RecipeID": 3,
+      "Price": 1000,
       "RecipeName": "Salad",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [102, 103, 104]
     },
     {
       "RecipeID": 4,
+      "Price": 500,
       "RecipeName": "PeaSoup",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [1001, 1001, 1001]
     },
     {
       "RecipeID": 5,
+      "Price": 1500,
       "RecipeName": "MeatBall",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [1106, 1106]
     },
     {
       "RecipeID": 6,
+      "Price": 800,
       "RecipeName": "CarrotSoup",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [1102, 1102, 1102]
     },
     {
       "RecipeID": 7,
+      "Price": 800,
       "RecipeName": "TomatoSoup",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [1103, 1103, 1103]
     },
     {
       "RecipeID": 8,
+      "Price": 1000,
       "RecipeName": "Taco",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [8, 103, 104]
     },
     {
       "RecipeID": 9,
+      "Price": 1500,
       "RecipeName": "MeatBurger",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [7, 10106]
     },
     {
       "RecipeID": 10,
+      "Price": 2000,
       "RecipeName": "Burger",
       "UIPath": "Sprites/FoodIcon/Carrot",
       "RecipeList": [7, 103, 104, 10106]

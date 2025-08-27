@@ -6,6 +6,7 @@ namespace CookCo_opGame
     public class RecipeData
     {
         public int RecipeID;
+        public int Price;
         public string RecipeName;
         public List<int> RecipeList;
         public string UIPath;
