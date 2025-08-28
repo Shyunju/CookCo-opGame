@@ -9,8 +9,10 @@ namespace CookCo_opGame
     {
         [SerializeField] TMP_Text _scoreTxt;
         [SerializeField] GameObject[] LifeUI;
+        [SerializeField] GameObject _readyUI;
         [SerializeField] float totalTime = 30f; // 3분 = 180초
         [SerializeField] TMP_Text timerText;         // Unity 에디터에서 할당
+        bool _isCooking = false;
 
         public void UpdateScoreText()
         {
@@ -34,7 +36,7 @@ namespace CookCo_opGame
         }
         void Update()
         {
-            if (totalTime > 0)
+            if (totalTime > 0 && _isCooking)
             {
                 totalTime -= Time.deltaTime;
                 int minutes = Mathf.FloorToInt(totalTime / 60);

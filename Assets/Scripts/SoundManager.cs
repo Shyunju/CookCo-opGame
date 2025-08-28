@@ -13,6 +13,8 @@ namespace CookCo_opGame
 
         AudioSource _audioSource;
 
+        //필요한거 (브금(로비, 쿠깅), 구매, 클릭(?), 도마(확인필요), 라이프 감소, 게임 오버)
+
         void Start()
         {
             _audioSource = GetComponent<AudioSource>();
@@ -24,11 +26,6 @@ namespace CookCo_opGame
         public void PlayFailSound()
         {
             _audioSource.PlayOneShot(_failSound);
-        }
-
-        public void PlayKnifeSound()
-        {
-            
         }
 
     }
