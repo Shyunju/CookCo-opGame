@@ -23,6 +23,7 @@ namespace CookCo_opGame
 
         void Awake()
         {
+            base.Awake();
             OrdersUI = new List<GameObject>();
         }
         void Start()
@@ -37,7 +38,7 @@ namespace CookCo_opGame
                 //레벨별 범위 안에 레시피 아이디 번호를 랜덤으로 가져와 오더에 추가
                 //제출시 비교는 해당 아이디를 가진 레시피의 리스트와 현재재료들 값을 리스트한것을 비교
                 int randomIndex = UnityEngine.Random.Range(1, GameManager.Instance.HasRecipes.Count);  //인덱스 랜덤 추출
-                int recipeID = GameManager.Instance.HasRecipes[randomIndex -1]; //해당 인덱스의 레시피 아이디
+                int recipeID = GameManager.Instance.HasRecipes[randomIndex]; //해당 인덱스의 레시피 아이디
                 List<int> test = GameManager.Instance.RecipeDataList.Find(x => x.RecipeID == recipeID).RecipeList;
 
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,8 +24,9 @@ namespace CookCo_opGame
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<int> HasRecipes { get; set; }
         public int Wallet { get; private set; }
-        private void Start()
+        override protected void Awake()
         {
+            base.Awake();
             Wallet = 0;
             //LobbyUIController.Instance.LoadWallet();
             _itemDataManager = new ItemDataManager();

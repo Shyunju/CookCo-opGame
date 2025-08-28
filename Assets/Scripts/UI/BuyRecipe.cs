@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,9 @@ namespace CookCo_opGame
         [SerializeField] int _recipeID;
         [SerializeField] int _price;
         [SerializeField] int[] _ingredientsTableIndex;
+        [SerializeField] TMP_Text _buttonText;
         LobbyUIController _lobbyUIController;
         Button _button;
-        bool _isBought = false;
 
         void Start()
         {
@@ -22,16 +23,18 @@ namespace CookCo_opGame
         {
             GameManager.Instance.ChangeWalletGold(_price * -1);
             GameManager.Instance.HasRecipes.Add(_recipeID);
-            Debug.Log(GameManager.Instance.HasRecipes.Count);
             _lobbyUIController.LoadWallet();
-            _button.interactable = false;
-            _isBought = true;
+            SetCanBuy();
         }
         public void SetCanBuy()
         {
-
-            if (_isBought) return;
-
+            if (GameManager.Instance.HasRecipes.Contains(_recipeID))
+            {
+                _buttonText.text = "SOLD OUT";
+                _button.interactable = false;
+                return;
+            }
+            
             bool canBuy = true;
             foreach (var i in _ingredientsTableIndex)
             {
@@ -41,6 +44,8 @@ namespace CookCo_opGame
                     break;
                 }
             }
+
+            _buttonText.text = "-" + _price.ToString();
             _button.interactable = canBuy;
         }
     }
