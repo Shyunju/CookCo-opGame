@@ -25,11 +25,17 @@ namespace CookCo_opGame
 
         public void BuyThisTable()
         {
-            GameManager.Instance.ShopTables[_shopTableIndex].isBought = true;
-            GameManager.Instance.ChangeWalletGold(_price * -1);
-            _lobbyUIController.LoadWallet();
-            _lobbyUIController.UpgradeRecipeSet();
-            SoldOut();
+            if (GameManager.Instance.ChangeWalletGold(_price * -1))
+            {
+                GameManager.Instance.ShopTables[_shopTableIndex].isBought = true;
+                _lobbyUIController.LoadWallet();
+                _lobbyUIController.UpgradeRecipeSet();
+                SoldOut();
+            }
+            else
+            {
+                _lobbyUIController.ShowWarningUI();
+            }
         }
         void SoldOut()
         {

@@ -21,10 +21,16 @@ namespace CookCo_opGame
         }
         public void BuyThisRecipe()
         {
-            GameManager.Instance.ChangeWalletGold(_price * -1);
-            GameManager.Instance.HasRecipes.Add(_recipeID);
-            _lobbyUIController.LoadWallet();
-            SetCanBuy();
+            if (GameManager.Instance.ChangeWalletGold(_price * -1))
+            {
+                GameManager.Instance.HasRecipes.Add(_recipeID);
+                _lobbyUIController.LoadWallet();
+                SetCanBuy();
+            }
+            else
+            {
+                _lobbyUIController.ShowWarningUI();
+            }
         }
         public void SetCanBuy()
         {

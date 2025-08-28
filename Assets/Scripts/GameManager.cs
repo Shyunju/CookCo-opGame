@@ -27,8 +27,7 @@ namespace CookCo_opGame
         override protected void Awake()
         {
             base.Awake();
-            Wallet = 0;
-            //LobbyUIController.Instance.LoadWallet();
+            Wallet = 2000000;
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             ItemDataList = new List<ItemData>();
@@ -45,9 +44,14 @@ namespace CookCo_opGame
             SceneManager.LoadScene("MainScene");
         }
 
-        public void ChangeWalletGold(int amount)
+        public bool ChangeWalletGold(int amount)
         {
+            if (Wallet + amount < 0)
+            {
+                return false;
+            }
             Wallet += amount;
+            return true;
         }
         public void GoToLobby()
         {

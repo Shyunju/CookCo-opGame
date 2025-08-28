@@ -28,11 +28,11 @@ namespace CookCo_opGame
             _recipe.Sort();
             for (int i = 0; i < CookingPlayManager.Instance.Orders.Count; i++)
             {
-                if (_recipe.SequenceEqual(CookingPlayManager.Instance.Orders[i]))
+                if (_recipe.SequenceEqual(CookingPlayManager.Instance.Orders[i].Item1))
                 {
                     CookingPlayManager.Instance.Orders.RemoveAt(i);
                     CookingPlayManager.Instance.CompleteMenu(i);
-                    CookingPlayManager.Instance.ChangeScore(_successScore);
+                    CookingPlayManager.Instance.ChangeScore(CookingPlayManager.Instance.Orders[i].Item2);
                     SoundManager.Instance.PlaySuccessSound();
                     _hasRecipe = true;
                     break;

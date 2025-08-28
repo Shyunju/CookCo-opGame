@@ -4720,7 +4720,7 @@ MonoBehaviour:
   - {fileID: 1948813685}
   - {fileID: 540406618}
   - {fileID: 1249936356}
-  totalTime: 6
+  totalTime: 30
   timerText: {fileID: 107487967}
 --- !u!1 &1462415131
 GameObject:
