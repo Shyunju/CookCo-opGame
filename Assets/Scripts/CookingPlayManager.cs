@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -10,9 +11,12 @@ namespace CookCo_opGame
     {
         [SerializeField] MouseHouse _mouseHouse;
         [SerializeField] ScoreUIController _scoreUIController;
+        [SerializeField] GameObject _readyText;
+        [SerializeField] GameObject _startText;
+        [SerializeField] GameObject _finishText;
         [SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
-        List<(List<int>, int)> _orders = new List<(List<int>,int)>(); //주문 레시피가 담겨있는 리스트
+        List<(List<int>, int)> _orders = new List<(List<int>, int)>(); //주문 레시피가 담겨있는 리스트
         public List<(List<int>, int)> Orders { get { return _orders; } }
         public List<GameObject> OrdersUI { get; set; } //주문 이미지 프리팹 리스트
         private float _addOrderTime = 25f;
@@ -28,8 +32,19 @@ namespace CookCo_opGame
         }
         void Start()
         {
-            StartCoroutine(OrderNewMenuCo());
+            GameManager.OnInputStopRequest += CookingFinish;
             LifeCount = _startLife;
+            StartCoroutine(ReadyForCookingCo());
+        }
+        IEnumerator ReadyForCookingCo()
+        {
+            yield return new WaitForSecondsRealtime(3f);
+            _readyText.SetActive(false);
+            _startText.SetActive(true);
+            yield return new WaitForSecondsRealtime(1f);
+            _scoreUIController.IsCooking = true;
+            StartCoroutine(OrderNewMenuCo());
+            _startText.SetActive(false);
         }
         IEnumerator OrderNewMenuCo()
         {
@@ -37,7 +52,7 @@ namespace CookCo_opGame
             {
                 //레벨별 범위 안에 레시피 아이디 번호를 랜덤으로 가져와 오더에 추가
                 //제출시 비교는 해당 아이디를 가진 레시피의 리스트와 현재재료들 값을 리스트한것을 비교
-                int randomIndex = UnityEngine.Random.Range(0, GameManager.Instance.HasRecipes.Count-1);  //인덱스 랜덤 추출
+                int randomIndex = UnityEngine.Random.Range(0, GameManager.Instance.HasRecipes.Count - 1);  //인덱스 랜덤 추출
                 int recipeID = GameManager.Instance.HasRecipes[randomIndex]; //해당 인덱스의 레시피 아이디
                 List<int> test = GameManager.Instance.RecipeDataList.Find(x => x.RecipeID == recipeID).RecipeList;
                 int price = GameManager.Instance.RecipeDataList.Find(x => x.RecipeID == recipeID).Price;
@@ -68,7 +83,7 @@ namespace CookCo_opGame
             }
             else
             {
-                Score += mount;                
+                Score += mount;
             }
             _scoreUIController.UpdateScoreText();
         }
@@ -90,6 +105,16 @@ namespace CookCo_opGame
             {
                 _scoreUIController.ChangeLifeUI();
             }
+        }
+        void CookingFinish()
+        {
+            _finishText.SetActive(true);
+            StartCoroutine(GameOverCo());
+        }
+        IEnumerator GameOverCo()
+        {
+            yield return new WaitForSeconds(2f);
+            GameManager.Instance.GoToLobby();
         }
         
     }

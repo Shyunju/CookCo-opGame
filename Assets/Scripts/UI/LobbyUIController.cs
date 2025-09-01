@@ -45,9 +45,11 @@ namespace CookCo_opGame
                 if (index == i)
                 {
                     _pannelUIArray[i].SetActive(true);
-                    break;                    
                 }
-                _pannelUIArray[i].SetActive(false);                
+                else
+                {
+                    _pannelUIArray[i].SetActive(false);                                    
+                }
             }
         }
         public void ShowWarningUI()

@@ -1,7 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 namespace CookCo_opGame
 {
@@ -9,11 +7,14 @@ namespace CookCo_opGame
     {
         [SerializeField] TMP_Text _scoreTxt;
         [SerializeField] GameObject[] LifeUI;
-        [SerializeField] GameObject _readyUI;
         [SerializeField] float totalTime = 30f; // 3분 = 180초
         [SerializeField] TMP_Text timerText;         // Unity 에디터에서 할당
-        bool _isCooking = false;
+        public bool IsCooking { get; set; }
 
+        void Start()
+        {
+            IsCooking = false;
+        }
         public void UpdateScoreText()
         {
             _scoreTxt.text = CookingPlayManager.Instance.Score.ToString();
@@ -33,23 +34,38 @@ namespace CookCo_opGame
                     LifeUI[i].SetActive(false);
                 }
             }
+            if (cnt == 0)
+            {
+                GameOver();
+            }                
         }
         void Update()
         {
-            if (totalTime > 0 && _isCooking)
+            if (IsCooking)
             {
-                totalTime -= Time.deltaTime;
-                int minutes = Mathf.FloorToInt(totalTime / 60);
-                int seconds = Mathf.FloorToInt(totalTime % 60);
-                timerText.text = string.Format("{0:0} : {1:00}", minutes, seconds);
+                if (totalTime > 0)
+                {
+                    totalTime -= Time.deltaTime;
+                    int minutes = Mathf.FloorToInt(totalTime / 60);
+                    int seconds = Mathf.FloorToInt(totalTime % 60);
+                    timerText.text = string.Format("{0:0} : {1:00}", minutes, seconds);
+                }
+                else
+                {
+                    GameOver();
+                }
             }
-            else
-            {
-                //시간 오버
-                timerText.text = "0m 00s";
-                totalTime = 0;
-                GameManager.Instance.GoToLobby();
-            }
+            
+        }
+
+        void GameOver()
+        {
+            //시간 오버
+            IsCooking = false;
+            timerText.text = "00 : 00";
+            totalTime = 0;
+            GameManager.Instance.TriggerInputStop();
+            this.enabled = false;
         }
     }
 }

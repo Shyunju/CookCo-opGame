@@ -24,10 +24,11 @@ namespace CookCo_opGame
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<int> HasRecipes { get; set; }
         public int Wallet { get; private set; }
+        public static event Action OnInputStopRequest;
         override protected void Awake()
         {
             base.Awake();
-            Wallet = 2000000;
+            Wallet = 0;
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             ItemDataList = new List<ItemData>();
@@ -57,6 +58,11 @@ namespace CookCo_opGame
         {
             Wallet += CookingPlayManager.Instance.Score;
             SceneManager.LoadScene("LobbyScene");
+        }
+
+        public void TriggerInputStop()
+        {
+            OnInputStopRequest?.Invoke();
         }
 
     }
