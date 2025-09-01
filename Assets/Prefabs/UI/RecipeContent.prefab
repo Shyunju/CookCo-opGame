@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pea Soup
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8fd578b70d6bb4ca99eff32936fd0419, type: 2}
+  m_sharedMaterial: {fileID: 8375962834713081638, guid: 8fd578b70d6bb4ca99eff32936fd0419, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
@@ -280,8 +280,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Buy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8fd578b70d6bb4ca99eff32936fd0419, type: 2}
+  m_sharedMaterial: {fileID: 8375962834713081638, guid: 8fd578b70d6bb4ca99eff32936fd0419, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -515,8 +515,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8ce9ffe022946cb9d7410af216c997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _recipeID: 0
   _price: 0
   _ingredientsTableIndex: 00000000
+  _buttonText: {fileID: 0}
 --- !u!1 &4214204873243398369
 GameObject:
   m_ObjectHideFlags: 0
