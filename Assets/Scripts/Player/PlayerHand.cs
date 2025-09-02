@@ -11,10 +11,12 @@ namespace CookCo_opGame
         [SerializeField] private ItemManager _itemManager;
         [SerializeField] GameObject _frontTable;
         [SerializeField] TableManager _curTableManager;
+        [SerializeField] AudioClip _handEffectSound;
 
         private PlayerManager _playerManager;
         private Collider _pickUpCollider;
         private Rigidbody _itemRigidbody;
+        private AudioSource _audioSource;
         private bool _isHandFree = true;
         private float _throwForce = 15f;
 
@@ -31,6 +33,7 @@ namespace CookCo_opGame
         {
             _pickUpCollider = GetComponent<Collider>();
             _playerManager = GetComponentInParent<PlayerManager>();
+            _audioSource = GetComponent<AudioSource>();
 
         }
         void OnTriggerEnter(Collider other)
@@ -68,6 +71,7 @@ namespace CookCo_opGame
             {
                 if (!_itemManager.IsGrabed)
                 {
+                    _audioSource.PlayOneShot(_handEffectSound);
                     _pickUpCollider.enabled = false;
                     _itemInHand = _itemManager.gameObject;
                     _itemRigidbody = _itemInHand.GetComponent<Rigidbody>();
@@ -118,6 +122,7 @@ namespace CookCo_opGame
                             if (toolManager.CheckToolState(_itemInHand))
                             {
                                 toolManager.AddIngredient(_itemInHand);
+                                _audioSource.PlayOneShot(_handEffectSound);
                             }
                             else
                                 return;
@@ -127,6 +132,7 @@ namespace CookCo_opGame
                     }
                     else
                     {
+                        _audioSource.PlayOneShot(_handEffectSound);
                         _itemManager.PutDown();
                         _itemManager.PickedUp(FrontTable);
                     }

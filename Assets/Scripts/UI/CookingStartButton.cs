@@ -15,6 +15,7 @@ namespace CookCo_opGame
         void OnButtonClick()
         {
             GameManager.Instance.StartCooking(); // 싱글톤 메소드 호출
+            SoundManager.Instance.StopBGM();
         }
     }
 }

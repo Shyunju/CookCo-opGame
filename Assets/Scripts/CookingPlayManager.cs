@@ -41,9 +41,10 @@ namespace CookCo_opGame
             yield return new WaitForSecondsRealtime(3f);
             _readyText.SetActive(false);
             _startText.SetActive(true);
-            yield return new WaitForSecondsRealtime(1f);
             _scoreUIController.IsCooking = true;
             StartCoroutine(OrderNewMenuCo());
+            SoundManager.Instance.PlayWhistleSound();
+            yield return new WaitForSecondsRealtime(1f);
             _startText.SetActive(false);
         }
         IEnumerator OrderNewMenuCo()
@@ -109,6 +110,7 @@ namespace CookCo_opGame
         void CookingFinish()
         {
             _finishText.SetActive(true);
+            SoundManager.Instance.PlayWhistleSound();
             StartCoroutine(GameOverCo());
         }
         IEnumerator GameOverCo()
