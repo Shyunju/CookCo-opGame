@@ -12480,7 +12480,7 @@ MonoBehaviour:
   _isDontDestroy: 1
   _successSound: {fileID: 8300000, guid: fd08b678d702e437f97710fe9236a2f0, type: 3}
   _failSound: {fileID: 8300000, guid: 9b230d21c21b84c0e9038255fc02a0da, type: 3}
-  _whistleSound: {fileID: 0}
+  _whistleSound: {fileID: 8300000, guid: 87cf77e5d722d4b218e88a3bce2a046d, type: 3}
   _backGroundMusicAudioSourcce: {fileID: 358577266}
   _lobbyMusic: {fileID: 8300000, guid: 214b09bc048064d68bcb3fc82ac2ac5c, type: 3}
   _mainMusic: {fileID: 8300000, guid: a6d276a2969504d48b2c72288e8fded4, type: 3}

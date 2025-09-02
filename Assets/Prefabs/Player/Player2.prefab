@@ -380,7 +380,7 @@ MonoBehaviour:
   _itemManager: {fileID: 0}
   _frontTable: {fileID: 0}
   _curTableManager: {fileID: 0}
-  _handEffectSound: {fileID: 8300000, guid: 2a17151f9f8434abf9d5ca6b06a11b3d, type: 3}
+  _handEffectSound: {fileID: 8300000, guid: dc74907d8ee3e480f8f15a4815f11179, type: 3}
 --- !u!82 &990420650219609687
 AudioSource:
   m_ObjectHideFlags: 0
@@ -391,8 +391,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2a17151f9f8434abf9d5ca6b06a11b3d, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2a17151f9f8434abf9d5ca6b06a11b3d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dc74907d8ee3e480f8f15a4815f11179, type: 3}
+  m_Resource: {fileID: 8300000, guid: dc74907d8ee3e480f8f15a4815f11179, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

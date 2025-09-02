@@ -20,7 +20,6 @@ namespace CookCo_opGame
         public List<(List<int>, int)> Orders { get { return _orders; } }
         public List<GameObject> OrdersUI { get; set; } //주문 이미지 프리팹 리스트
         private float _addOrderTime = 25f;
-        private int _orderLimit = 1;
         private int _startLife = 3;
         public int LifeCount { get; set; }
         public int Score { get; private set; }
@@ -44,6 +43,7 @@ namespace CookCo_opGame
             _scoreUIController.IsCooking = true;
             StartCoroutine(OrderNewMenuCo());
             SoundManager.Instance.PlayWhistleSound();
+            SoundManager.Instance.PlayMainBGM();
             yield return new WaitForSecondsRealtime(1f);
             _startText.SetActive(false);
         }
@@ -110,6 +110,7 @@ namespace CookCo_opGame
         void CookingFinish()
         {
             _finishText.SetActive(true);
+            SoundManager.Instance.StopBGM();
             SoundManager.Instance.PlayWhistleSound();
             StartCoroutine(GameOverCo());
         }

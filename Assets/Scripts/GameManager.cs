@@ -58,6 +58,7 @@ namespace CookCo_opGame
         {
             Wallet += CookingPlayManager.Instance.Score;
             SceneManager.LoadScene("LobbyScene");
+            SoundManager.Instance.PlayLobbyBGM();
         }
 
         public void TriggerInputStop()
