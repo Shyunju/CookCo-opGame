@@ -67,7 +67,7 @@ namespace CookCo_opGame
         }
         private void ShootRay()
         {
-            if (Physics.Raycast(transform.position, transform.forward, out _hit, rayDistance, LayerMask.GetMask("Table")))  //TODO 레이에 부딪히는 테이블의 아이템 정보 추출하기
+            if (Physics.Raycast(transform.position, transform.forward, out _hit, rayDistance, LayerMask.GetMask("Table"))) 
             {
                 if (_playerHand.FrontTable != null) //앞에 테이블이있다
                 {

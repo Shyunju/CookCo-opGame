@@ -50,13 +50,13 @@ namespace CookCo_opGame
             _toolManager = item.GetComponent<ToolManager>();
             if (_toolManager != null && _toolManager.Ingredients.Count > 0)
             {
-                if (_toolManager.ThisToolPurpose == ToolManager.ToolPurpose.Boil)
+                if (_toolManager.ThisToolPurpose == ToolPurpose.Boil)
                 {
                     _toolManager.CurrentState = ItemState.Boiled;
                     ChangeFoodItemState(_toolManager, 1000,1);
 
                 }
-                else if (_toolManager.ThisToolPurpose == ToolManager.ToolPurpose.Grill)
+                else if (_toolManager.ThisToolPurpose == ToolPurpose.Grill)
                 {
                     _toolManager.CurrentState = ItemState.Grilled;
                     ChangeFoodItemState(_toolManager, 10000,2);

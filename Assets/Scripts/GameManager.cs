@@ -28,7 +28,7 @@ namespace CookCo_opGame
         override protected void Awake()
         {
             base.Awake();
-            Wallet = 0;
+            Wallet = 200000;
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             ItemDataList = new List<ItemData>();

@@ -7,24 +7,18 @@ namespace CookCo_opGame
     public class ItemDataManager
     {
         private ItemDataList _itemList = new ItemDataList();
-        private string _jsonPath;
-        TextAsset jsonAsset;
+        TextAsset _jsonAsset;
 
         public ItemDataManager()
         {
-            jsonAsset = Resources.Load<TextAsset>("Items");
-
+            _jsonAsset = Resources.Load<TextAsset>("Items");
             LoadItems();
-        }
-
-
-        //아이템 리스트 로드
-        public void LoadItems()
+        }        
+        public void LoadItems() //아이템 리스트 로드
         {
-
-            if (jsonAsset != null)
+            if (_jsonAsset != null)
             {
-                string json = jsonAsset.text;
+                string json = _jsonAsset.text;
                 _itemList = JsonUtility.FromJson<ItemDataList>(json);
                 foreach (var item in _itemList.Items)
                 {
@@ -37,14 +31,11 @@ namespace CookCo_opGame
                 _itemList = new ItemDataList();
             }
         }
-
         public ItemData GetItemByID(int id)
-        {
-            
+        {            
             ItemData it = _itemList.Items.Find((item) => item.ItemID == id);
             return it;
         }
-
         public List<ItemData> GetAllItems()
         {
             return _itemList.Items;

@@ -4,18 +4,18 @@ using UnityEngine.UI;
 
 namespace CookCo_opGame
 {
-    public enum ItemState
-    {
-        None,
-        Sliced,
-        Boiled,
-        Grilled,
-        Mixed,
-        Plate,
-        Used,
-        Complete,
-        Burn
-    }
+    // public enum ItemState
+    // {
+    //     None,
+    //     Sliced,
+    //     Boiled,
+    //     Grilled,
+    //     Mixed,
+    //     Plate,
+    //     Used,
+    //     Complete,
+    //     Burn
+    // }
     public abstract class ItemManager : MonoBehaviour
     {
         [SerializeField] GameObject _stateUI;
@@ -133,7 +133,7 @@ namespace CookCo_opGame
                     if(percentage % 2 == 0)
                         CookingPlayManager.Instance.GiveTargetToMouse(_currentTable.StealZone.gameObject.transform);
                 }
-                if (_currentTable.Purpose == TableManager.TablePurpose.Trash) //버리기(리셋)
+                if (_currentTable.Purpose == TablePurpose.Trash) //버리기(리셋)
                 {
                     TrashTable trashTable = _currentTable.gameObject.GetComponent<TrashTable>();
                     if (trashTable != null && _currentTable.CurrentItem != null)
@@ -142,7 +142,7 @@ namespace CookCo_opGame
                             trashTable.ChangeState(_currentTable.CurrentItem);
                     }
                 }
-                if (_currentTable.Purpose == TableManager.TablePurpose.Wash && CurrentState == ItemState.Used)
+                if (_currentTable.Purpose == TablePurpose.Wash && CurrentState == ItemState.Used)
                 {
                     WaterTable waterTable = _currentTable.gameObject.GetComponentInParent<WaterTable>();
                     if (waterTable != null)

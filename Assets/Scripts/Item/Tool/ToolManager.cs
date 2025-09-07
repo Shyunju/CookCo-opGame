@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public abstract class ToolManager : ItemManager        //TODO 애니메이션이 없는 조리 시 유아이 진행 방식 설정 툴이 시작해줄거냐, 테이블이 시작해줄거냐
+    public abstract class ToolManager : ItemManager        
     {
 
         [SerializeField] GameObject _ingredientsTemp;
@@ -17,13 +17,12 @@ namespace CookCo_opGame
         public IngredientUIController IngredientUIController { get { return _ingredientsUIController; } set { _ingredientsUIController = value; } }
         public List<FoodManager> Ingredients { get { return _ingredients; } set { _ingredients = value; } }
         public int IngredientsMaxCount { get { return _ingredientsMaxCount; } }
-        public enum ToolPurpose
-        {
-            Grill,
-            Boil,
-            Dish
-            //,steam
-        }
+        // public enum ToolPurpose
+        // {
+        //     Grill,
+        //     Boil,
+        //     Dish
+        // }
         [SerializeField] ToolPurpose _thisToolPurpose;
         public ToolPurpose ThisToolPurpose { get { return _thisToolPurpose; } }
 

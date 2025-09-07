@@ -11,7 +11,7 @@ namespace CookCo_opGame
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();
             ToolManager tm = itemInHand.GetComponent<ToolManager>();
-            if (fm != null && Ingredients.Count < _ingredientsMaxCount && CurrentState != ItemState.Burn)//&& (fm.CurrentState == ItemState.Sliced || fm.ItemID == 1)
+            if (fm != null && Ingredients.Count < _ingredientsMaxCount && CurrentState != ItemState.Burn)
             {
                 return true;
             }
@@ -26,7 +26,7 @@ namespace CookCo_opGame
 
         public override void StartCooking()
         {
-            if (Ingredients.Count > 0 && CurrentTable.Purpose == TableManager.TablePurpose.Fire)
+            if (Ingredients.Count > 0 && CurrentTable.Purpose == TablePurpose.Fire)
             {
                 if (Ingredients.Count >= 2)
                 {

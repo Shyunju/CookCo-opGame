@@ -14,15 +14,11 @@ namespace CookCo_opGame
         public MeshFilter MeshFilter {get {return _meshFilter;}}
         public Sprite Icon { get { return _icon; } set { _icon = value; } }
         public int CurrentIndex { get; set; }
-
-
         void Start()
         {
             _meshFilter = GetComponent<MeshFilter>();
             _icon = GameManager.Instance.ItemDataList.Find((item) => item.ItemID == ItemID).IconSprite;
-            //string path = GameManager.Instance.ItemDataList.Find((item) => item.ItemID == ItemID).IconPath;
         }
-
         public void ChangeMesh(int index)
         {
             _meshFilter.mesh = _foodMeshArr[index];
