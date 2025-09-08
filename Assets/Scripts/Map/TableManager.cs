@@ -17,19 +17,6 @@ namespace CookCo_opGame
         private MaterialPropertyBlock _propBlock;
         private Color _originalColor;
         public StealZone StealZone{ get; private set; }
-
-        // public enum TablePurpose
-        // {
-        //     None,
-        //     Box,
-        //     Cut,
-        //     Mix,
-        //     Fire,
-        //     Trash,
-        //     Wash,
-        //     Submit,
-        //     Spawn
-        // }
         void Awake()
         {
             _propBlock = new MaterialPropertyBlock();
@@ -50,7 +37,6 @@ namespace CookCo_opGame
                 if (comp != null)
                 {
                     StealZone = comp;
-                    //Debug.Log(StealZone);
                 }
             }
         }
