@@ -40,6 +40,7 @@ namespace CookCo_opGame
         // }
         public void ChangePannel(int index)
         {
+            SoundManager.Instance.PlayPaperSound();
             for (int i = 0; i < _pannelUIArray.Length; i++)
             {
                 if (index == i)
@@ -48,7 +49,7 @@ namespace CookCo_opGame
                 }
                 else
                 {
-                    _pannelUIArray[i].SetActive(false);                                    
+                    _pannelUIArray[i].SetActive(false);
                 }
             }
         }

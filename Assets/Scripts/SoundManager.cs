@@ -10,6 +10,8 @@ namespace CookCo_opGame
         AudioClip _failSound;
         [SerializeField]
         AudioClip _whistleSound;
+        [SerializeField]
+        AudioClip _paperSound;
         [SerializeField] AudioSource _backGroundMusicAudioSourcce;
         [SerializeField] AudioClip _lobbyMusic;
         [SerializeField] AudioClip _mainMusic;
@@ -47,6 +49,10 @@ namespace CookCo_opGame
         public void StopBGM()
         {
             _backGroundMusicAudioSourcce.Stop();
+        }
+        public void PlayPaperSound()
+        {
+            _audioSource.PlayOneShot(_paperSound);
         }
 
     }

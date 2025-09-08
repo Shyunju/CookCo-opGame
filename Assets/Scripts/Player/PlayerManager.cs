@@ -13,11 +13,11 @@ namespace CookCo_opGame
 
 
         public Animator Animator { get; private set; }
-        [SerializeField] float rayDistance;
+        [SerializeField] float _rayDistance;
         PlayerHand _playerHand;
         RaycastHit _hit;
         AudioSource _audioSource;
-        string targetAnimState = "Chef_WorkStation_WokStirFry_Loop";
+        string _targetAnimState = "Chef_WorkStation_WokStirFry_Loop";
 
         public PlayerStateMachine StateMachine { get; set; }
         public PlayerController PlayerController { get; private set; }
@@ -44,14 +44,14 @@ namespace CookCo_opGame
         }
         void Update()
         {
-            Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
+            Debug.DrawRay(transform.position, transform.forward * _rayDistance, Color.red);
             ShootRay();
 
             StateMachine.HandleInput();
             StateMachine.Update();
 
             var stateInfo = Animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName(targetAnimState)) {
+            if (stateInfo.IsName(_targetAnimState)) {
                 if (!_audioSource.isPlaying) {
                     _audioSource.Play();
                 }
@@ -67,11 +67,10 @@ namespace CookCo_opGame
         }
         private void ShootRay()
         {
-            if (Physics.Raycast(transform.position, transform.forward, out _hit, rayDistance, LayerMask.GetMask("Table"))) 
+            if (Physics.Raycast(transform.position, transform.forward, out _hit, _rayDistance, LayerMask.GetMask("Table"))) 
             {
                 if (_playerHand.FrontTable != null) //앞에 테이블이있다
                 {
-                    //_playerHand.CheckItemOnFrontTable();
                     if (_playerHand.FrontTable != _hit.collider.gameObject)
                     {
                         TableManager tb = _playerHand.FrontTable.GetComponent<TableManager>();
