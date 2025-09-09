@@ -116,6 +116,13 @@ namespace CookCo_opGame
         }
         IEnumerator GameOverCo()
         {
+            if (Score > 0)
+                GameManager.Instance.Aggregate += Score;
+            if (GameManager.Instance.Wallet + Score > 0)
+                    GameManager.Instance.ChangeWalletGold(Score);
+                else
+                    GameManager.Instance.ChangeWalletGold(-1 * GameManager.Instance.Wallet);
+
             yield return new WaitForSeconds(2f);
             GameManager.Instance.GoToLobby();
         }

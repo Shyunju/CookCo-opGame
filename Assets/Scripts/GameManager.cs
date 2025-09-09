@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +17,7 @@ namespace CookCo_opGame
         RecipeDataManager _recipeDataManager;
         [SerializeField] SellingTable[] _shopTables;
         public SellingTable[] ShopTables { get { return _shopTables; } set { _shopTables = value; } }
-
+        public int Aggregate { get; set; }
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<int> HasRecipes { get; set; }
@@ -28,7 +26,8 @@ namespace CookCo_opGame
         override protected void Awake()
         {
             base.Awake();
-            Wallet = 200000;
+            Wallet = 0;
+            Aggregate = 0;
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             ItemDataList = new List<ItemData>();
