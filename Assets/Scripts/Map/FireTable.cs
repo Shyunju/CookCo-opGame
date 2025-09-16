@@ -35,8 +35,7 @@ namespace CookCo_opGame
                             OverTime = 0f;
                             //change fire icon
                             _toolManager.IngredientUIController.ResetIngredientIcon();
-                            _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); //불 아이템 추가해서 수정 필요
-                                                                                                                                                               //change color
+                            _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); 
                             _toolManager.BurnState();
                         }
                     if (OverTime > _warningTime)
@@ -84,7 +83,6 @@ namespace CookCo_opGame
 
         public IEnumerator BurnOutCo()
         {
-            //UI showing
             yield return new WaitForSeconds(_burnOutTime);
             if (_toolManager != null)
             {

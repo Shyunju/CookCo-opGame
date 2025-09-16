@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Gradle.Manifest;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -99,8 +100,7 @@ namespace CookCo_opGame
             LifeCount += amount;
             if (LifeCount < 0)
             {
-                //GameOver
-                GameManager.Instance.GoToLobby();
+                CookingFinish();   
             }
             else
             {
@@ -120,8 +120,11 @@ namespace CookCo_opGame
                 GameManager.Instance.Aggregate += Score;
             if (GameManager.Instance.Wallet + Score > 0)
                     GameManager.Instance.ChangeWalletGold(Score);
-                else
-                    GameManager.Instance.ChangeWalletGold(-1 * GameManager.Instance.Wallet);
+            else
+                GameManager.Instance.ChangeWalletGold(-1 * GameManager.Instance.Wallet);
+
+            GameManager.Instance.UpdateDataForSaving();
+            DataManager.Instance.SaveData();
 
             yield return new WaitForSeconds(2f);
             GameManager.Instance.GoToLobby();
