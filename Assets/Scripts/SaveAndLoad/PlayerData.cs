@@ -8,12 +8,13 @@ namespace CookCo_opGame
         public string Name;
         public int Wallet;
         public int Aggregate;
-        public SellingTable[] SellingTable;
+        public bool[] IsTablesBought = new bool[12];  
+        public List<int> HasRecipes = new List<int>();
 
     }
     [System.Serializable]
     public class PlayerDataList
     {
-        public List<PlayerData> Items = new List<PlayerData>();
+        public List<PlayerData> PlayerDatas = new List<PlayerData>();
     }
 }

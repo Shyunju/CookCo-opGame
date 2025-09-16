@@ -40,5 +40,25 @@ namespace CookCo_opGame
         {
             _playerInputActions.Disable();
         }
+
+        public void OnDisable()
+        {
+            // GameManager 이벤트 구독 해제
+            GameManager.OnInputStopRequest -= StopAllInput;
+
+            // Input Action 이벤트 구독 해제
+            _playerMoveAction.performed -= OnPlayerMove;
+            _playerMoveAction.canceled -= OnPlayerMove;
+
+            _playerPickAction.performed -= OnPlayerPick;
+            _playerThrowAction.performed -= OnPlayerThrow;
+            _playerDashAction.performed -= OnPlayerDash;
+
+            // 사용했던 액션맵 비활성화
+            if(_playerMap != null)
+            {
+                _playerMap.Disable();
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Action = System.Action;
 
 namespace CookCo_opGame
 {
@@ -26,18 +27,19 @@ namespace CookCo_opGame
         override protected void Awake()
         {
             base.Awake();
-            Wallet = 0;
-            Aggregate = 0;
             _itemDataManager = new ItemDataManager();
             _recipeDataManager = new RecipeDataManager();
             ItemDataList = new List<ItemData>();
             ItemDataList = _itemDataManager.GetAllItems();
             RecipeDataList = new List<RecipeData>();
             RecipeDataList = _recipeDataManager.GetAllRecipes();
-            HasRecipes = new List<int>
-            {
-                1 //SunnySideUp
-            };
+            // Wallet = 10000;
+            // Aggregate = 0;
+            // HasRecipes = new List<int>
+            // {
+            //     1 //SunnySideUp
+            // };
+            SetPlayerData();
         }
         public void StartCooking()
         {
@@ -55,7 +57,6 @@ namespace CookCo_opGame
         }
         public void GoToLobby()
         {
-            Wallet += CookingPlayManager.Instance.Score;
             SceneManager.LoadScene("LobbyScene");
             SoundManager.Instance.PlayLobbyBGM();
         }
@@ -63,6 +64,49 @@ namespace CookCo_opGame
         public void TriggerInputStop()
         {
             OnInputStopRequest?.Invoke();
+        }
+
+        public void SetPlayerData()
+        {
+            if (DataManager.Instance.NowPlayer != null)
+            {
+                Wallet = DataManager.Instance.NowPlayer.Wallet;
+                Aggregate = DataManager.Instance.NowPlayer.Aggregate;
+                HasRecipes = DataManager.Instance.NowPlayer.HasRecipes;
+                if (HasRecipes.Count == 0)
+                {
+                    HasRecipes.Add(1);
+                }
+
+                if (DataManager.Instance.NowPlayer.IsTablesBought != null)
+                {
+                    for (int i = 0; i < 12; i++)
+                    {
+                        if (i < _shopTables.Length && i < DataManager.Instance.NowPlayer.IsTablesBought.Length)
+                        {
+                            _shopTables[i].isBought = DataManager.Instance.NowPlayer.IsTablesBought[i];
+                        }
+                    }
+                }
+            }
+        }
+
+        public void UpdateDataForSaving()
+        {
+            if (DataManager.Instance.NowPlayer != null)
+            {
+                DataManager.Instance.NowPlayer.Wallet = Wallet;
+                DataManager.Instance.NowPlayer.Aggregate = Aggregate;
+                DataManager.Instance.NowPlayer.HasRecipes = HasRecipes;
+
+                for (int i = 0; i < 12; i++)
+                {
+                    if (i < _shopTables.Length && i < DataManager.Instance.NowPlayer.IsTablesBought.Length)
+                    {
+                        DataManager.Instance.NowPlayer.IsTablesBought[i] = _shopTables[i].isBought;
+                    }
+                }
+            }
         }
 
     }

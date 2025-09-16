@@ -62,6 +62,7 @@ namespace CookCo_opGame
                 DataManager.Instance.SaveData(); // 현재 정보를 저장함.
             }
             SceneManager.LoadScene("LobbyScene"); // 게임씬으로 이동
+            
         }
     }
 }

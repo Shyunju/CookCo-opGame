@@ -23,17 +23,22 @@ namespace CookCo_opGame
                 if (im != null && (im.CurrentState == ItemState.Boiled || im.CurrentState == ItemState.Grilled))
                 {
                     _toolManager = CurrentItem.GetComponent<ToolManager>();
-                    if (OverTime > _burnOutTime)
+                    if (_toolManager.Ingredients.Count == 0)
                     {
                         _toolManager.WarningUI.SetActive(false);
-                        _toolManager.CurrentState = ItemState.Burn;
-                        OverTime = 0f;
-                        //change fire icon
-                        _toolManager.IngredientUIController.ResetIngredientIcon();
-                        _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); //불 아이템 추가해서 수정 필요
-                        //change color
-                        _toolManager.BurnState();
+                        return;
                     }
+                    if (OverTime > _burnOutTime)
+                        {
+                            _toolManager.WarningUI.SetActive(false);
+                            _toolManager.CurrentState = ItemState.Burn;
+                            OverTime = 0f;
+                            //change fire icon
+                            _toolManager.IngredientUIController.ResetIngredientIcon();
+                            _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); //불 아이템 추가해서 수정 필요
+                                                                                                                                                               //change color
+                            _toolManager.BurnState();
+                        }
                     if (OverTime > _warningTime)
                     {
                         //warning UI show
