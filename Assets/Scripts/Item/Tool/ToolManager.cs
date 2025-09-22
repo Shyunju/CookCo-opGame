@@ -43,6 +43,7 @@ namespace CookCo_opGame
 
             FoodManager fm = food.GetComponent<FoodManager>();
             Ingredients.Add(fm);
+            CurrentState = ItemState.None;
             food.transform.SetParent(_ingredientsTemp.transform, true);
             if (fm != null)
             {

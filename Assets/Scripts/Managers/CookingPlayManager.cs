@@ -116,6 +116,7 @@ namespace CookCo_opGame
         }
         IEnumerator GameOverCo()
         {
+            GameManager.OnInputStopRequest -= CookingFinish;
             if (Score > 0)
                 GameManager.Instance.Aggregate += Score;
                 

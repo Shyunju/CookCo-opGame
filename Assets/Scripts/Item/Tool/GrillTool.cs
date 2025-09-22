@@ -28,6 +28,7 @@ namespace CookCo_opGame
 
         public override void StartCooking()
         {
+            print("cooking");
             if (Ingredients.Count > 0 && CurrentTable.Purpose == TablePurpose.Fire && CurrentState != ItemState.Burn)
             {
                 CurrentState = ItemState.None;

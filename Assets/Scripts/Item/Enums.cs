@@ -17,7 +17,8 @@ namespace CookCo_opGame
         Plate,
         Used,
         Complete,
-        Burn
+        Burn,
+        Warning
     }
 
     public enum TablePurpose

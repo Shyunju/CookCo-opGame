@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using NUnit.Framework.Internal;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
 
 namespace CookCo_opGame
@@ -41,7 +44,7 @@ namespace CookCo_opGame
         public bool OnTable { get { return _onTable; } set { _onTable = value; } }
         public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
         public float Duration { get { return _duration; } set { _duration = value; } }
-        public float Elapsed { get { return _elapsed;} set { _elapsed = value; } }
+        public float Elapsed { get { return _elapsed; } set { _elapsed = value; } }
         public TableManager CurrentTable { get { return _currentTable; } set { _currentTable = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
         public int ItemID { get { return _itemID; } set { _itemID = value; } }
@@ -88,6 +91,7 @@ namespace CookCo_opGame
         }
         public void ResetCookingState()
         {
+            StartCoroutine(WarningCo());
             _stateUI.SetActive(false);
             IsCooking = false;
         }
@@ -95,11 +99,11 @@ namespace CookCo_opGame
         {
             _elapsed = Math.Clamp(_elapsed - mount, 0, Duration);
         }
-        public  virtual void PickedUp(GameObject parent)
+        public virtual void PickedUp(GameObject parent)
         {
             if (parent.tag == "Hand" || parent.tag == "MouseHead")
             {
-                if(parent.tag == "Hand")
+                if (parent.tag == "Hand")
                     IsGrabed = true;
                 if (_currentTable != null)
                 {
@@ -130,7 +134,7 @@ namespace CookCo_opGame
                 else //쥐 호출
                 {
                     int percentage = UnityEngine.Random.Range(1, 100);
-                    if(percentage % 2 == 0)
+                    if (percentage % 2 == 0)
                         CookingPlayManager.Instance.GiveTargetToMouse(_currentTable.StealZone.gameObject.transform);
                 }
                 if (_currentTable.Purpose == TablePurpose.Trash) //버리기(리셋)
@@ -174,7 +178,7 @@ namespace CookCo_opGame
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
             _itemCollider.isTrigger = false;
         }
-        
+
         public void BurnState()
         {
             foreach (var item in _renderers)
@@ -195,6 +199,12 @@ namespace CookCo_opGame
                 CurrentState = ItemState.None;
             }
         }
+
+        public virtual IEnumerator WarningCo()
+        {
+            yield return new WaitForSeconds(5f);
+        }
+        
 
 
 
