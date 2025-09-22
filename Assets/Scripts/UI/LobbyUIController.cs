@@ -10,6 +10,7 @@ namespace CookCo_opGame
         [SerializeField] BuyRecipe[] _recipeUIArray;
         [SerializeField] GameObject[] _pannelUIArray;
         [SerializeField] GameObject _buyWarningUI;
+        [SerializeField] GameObject _saveAlertUI;
         void Start()
         {
             LoadWallet();
@@ -56,6 +57,12 @@ namespace CookCo_opGame
         public void ShowWarningUI()
         {
             _buyWarningUI.SetActive(true);
+        }
+        public void OnSaveButton()
+        {
+            GameManager.Instance.UpdateDataForSaving();
+            DataManager.Instance.SaveData();
+            _saveAlertUI.SetActive(true);
         }
     }
 }
