@@ -15,40 +15,6 @@ namespace CookCo_opGame
         {
             _purpose = TablePurpose.Fire;
         }
-        // void Update()
-        // {
-        //     if (IsFull)
-        //     {
-        //         ItemManager im = CurrentItem.GetComponent<ItemManager>();
-        //         if (im != null && (im.CurrentState == ItemState.Boiled || im.CurrentState == ItemState.Grilled))
-        //         {
-        //             _toolManager = CurrentItem.GetComponent<ToolManager>();
-        //             _toolManager.StartCooking();
-        //             // if (_toolManager.Ingredients.Count == 0)
-        //             // {
-        //             //     _toolManager.WarningUI.SetActive(false);
-        //             //     return;
-        //             // }
-        //             // if (OverTime > _burnOutTime)
-        //             //     {
-        //             //         _toolManager.WarningUI.SetActive(false);
-        //             //         _toolManager.CurrentState = ItemState.Burn;
-        //             //         OverTime = 0f;
-        //             //         //change fire icon
-        //             //         _toolManager.IngredientUIController.ResetIngredientIcon();
-        //             //         _toolManager.IngredientUIController.AddIngredientIcon(GameManager.Instance.ItemDataList.Find((x) => x.ItemID == 0).IconSprite, 0); 
-        //             //         _toolManager.BurnState();
-        //             //     }
-        //             // if (OverTime > _warningTime)
-        //             // {
-        //             //     //warning UI show
-        //             //     _toolManager.WarningUI.SetActive(true);
-        //             // }
-        //             // OverTime += Time.deltaTime;
-        //         }
-        //     }
-        // }
-
         //끓이기 와 굽기 분기 고민 필요
         public override void ChangeState(GameObject item)
         {

@@ -63,7 +63,6 @@ namespace CookCo_opGame
         }
         public override IEnumerator WarningCo()
         {
-            print("boil warning co");
             yield return new WaitForSeconds(5f);
             CurrentState = ItemState.Warning;
 
@@ -71,7 +70,6 @@ namespace CookCo_opGame
         }
         IEnumerator BurnCo()
         {
-            print("boil burn co");
             WarningUI.SetActive(true);
             yield return new WaitForSeconds(5f);
             WarningUI.SetActive(false);

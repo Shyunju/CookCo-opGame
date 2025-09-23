@@ -20,7 +20,6 @@ namespace CookCo_opGame
                 PlateTool pt = tm.GetComponent<PlateTool>();
                 pt.InputFromTool(this.GetComponent<ToolManager>());
                 _grillingFood.SetActive(false);
-                //EmptyTool();
                 return false;
             }
             return false;
@@ -52,7 +51,6 @@ namespace CookCo_opGame
         }
         public override IEnumerator WarningCo()
         {
-            print("grill warning co");
             yield return new WaitForSeconds(5f);
             CurrentState = ItemState.Warning;
             
@@ -60,7 +58,6 @@ namespace CookCo_opGame
         }
         IEnumerator BurnCo()
         {
-            print("grill burn co");
             WarningUI.SetActive(true);
             yield return new WaitForSeconds(5f);
             WarningUI.SetActive(false);
