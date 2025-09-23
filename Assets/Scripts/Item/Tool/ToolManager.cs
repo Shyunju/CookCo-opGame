@@ -11,6 +11,8 @@ namespace CookCo_opGame
         [SerializeField] protected List<FoodManager> _ingredients;
         [SerializeField] protected int _ingredientsMaxCount;
         [SerializeField] GameObject _warningUI;
+        [SerializeField] float _basicDuration = 10f;
+        [SerializeField] float _plusDuration = 2f;
         private IngredientUIController _ingredientsUIController;
         public GameObject WarningUI { get { return _warningUI; } set { _warningUI = value; } }
         public GameObject IngredientsTemp { get { return _ingredientsTemp; } set { _ingredientsTemp = value; } }
@@ -38,12 +40,24 @@ namespace CookCo_opGame
         }
         public void AddIngredient(GameObject food)
         {
+            if (CurrentState == ItemState.Warning)
+            {
+                CurrentState = ItemState.None;
+                WarningUI.SetActive(false);
+            }
             if (_ingredientsUIController == null)
-                _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
+                    _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
 
             FoodManager fm = food.GetComponent<FoodManager>();
             Ingredients.Add(fm);
-            CurrentState = ItemState.None;
+            if (Ingredients.Count == 1)
+            {
+                Duration = _basicDuration;
+            }
+            else
+            {
+                ChangeElapsed(_plusDuration);                
+            }
             food.transform.SetParent(_ingredientsTemp.transform, true);
             if (fm != null)
             {

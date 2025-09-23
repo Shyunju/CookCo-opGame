@@ -15,6 +15,8 @@ namespace CookCo_opGame
             ToolManager tm = itemInHand.GetComponent<ToolManager>();
             if (fm != null && Ingredients.Count < _ingredientsMaxCount && CurrentState != ItemState.Burn)
             {
+                WarningUI.SetActive(false);
+                StopAllCoroutines();
                 return true;
             }
             else if (tm != null && tm.ThisToolPurpose == ToolPurpose.Dish && !IsCooking)
@@ -35,19 +37,19 @@ namespace CookCo_opGame
                 {
                     StartCoroutine(BurnCo());
                 }
-                if (Ingredients.Count >= 2) // ?
-                {
-                    //FireTable ft = CurrentTable.GetComponent<FireTable>();
-                    CurrentState = ItemState.None;
-                    //ft.OverTime = 0f;
-
-                    ChangeElapsed(_plusDuration);
-                }
                 else
                 {
-                    Duration = _boilDuration;
+                    IsCooking = true;                    
                 }
-                IsCooking = true;
+                // if (Ingredients.Count >= 2) // ?
+                // {
+                //     CurrentState = ItemState.None;
+                //     ChangeElapsed(_plusDuration);
+                // }
+                // else
+                // {
+                //     Duration = _boilDuration;
+                // }
             }
         }
         public override void PickedUp(GameObject parent)
@@ -55,18 +57,21 @@ namespace CookCo_opGame
             base.PickedUp(parent);
             if (parent.tag == "Hand")
             {
+                StopAllCoroutines();
                 WarningUI.SetActive(false);
             }
         }
         public override IEnumerator WarningCo()
         {
+            print("boil warning co");
             yield return new WaitForSeconds(5f);
             CurrentState = ItemState.Warning;
-            
+
             StartCoroutine(BurnCo());
         }
         IEnumerator BurnCo()
         {
+            print("boil burn co");
             WarningUI.SetActive(true);
             yield return new WaitForSeconds(5f);
             WarningUI.SetActive(false);

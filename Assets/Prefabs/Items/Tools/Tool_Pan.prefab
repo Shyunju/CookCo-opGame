@@ -228,6 +228,8 @@ MonoBehaviour:
   _ingredients: []
   _ingredientsMaxCount: 1
   _warningUI: {fileID: 7623470153694889959}
+  _basicDuration: 7
+  _plusDuration: 2
   _thisToolPurpose: 0
   _grillingFood: {fileID: 7628946685385399729}
 --- !u!1 &4746468694664078284

@@ -7,7 +7,7 @@ namespace CookCo_opGame
     {
         [SerializeField] TMP_Text _scoreTxt;
         [SerializeField] GameObject[] LifeUI;
-        float totalTime = 60f; // 3분 = 180초
+        float totalTime = 120f; // 3분 = 180초
         [SerializeField] TMP_Text timerText;         // Unity 에디터에서 할당
         public bool IsCooking { get; set; }
 

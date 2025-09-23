@@ -14,11 +14,22 @@ namespace CookCo_opGame
             {
                 pt.ObjectOnPlate.mesh = null;
             }
-            if (tm != null)
+            else if (tm != null)
             {
                 GrillTool gt = tm.GetComponent<GrillTool>();
-                if(gt != null)
-                    gt.GrillFood.SetActive(false);
+                BoilTool bt = tm.GetComponent<BoilTool>();
+                if (gt != null || bt != null)
+                {
+                    if (gt != null)
+                    {
+                        gt.GrillFood.SetActive(false);
+                        gt.StopAllCoroutines();
+                    }
+                    else
+                    {
+                        bt.StopAllCoroutines();
+                    }
+                }
                 if (tm.Ingredients.Count > 0)
                     {
                         tm.EmptyTool();

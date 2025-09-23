@@ -73,9 +73,11 @@ namespace CookCo_opGame
             {
                 if (_elapsed >= _duration)
                 {
-                    _currentTable.ChangeState(gameObject);
+                    _currentTable.ChangeState(gameObject);  //재료 아이디 값 바꿔줌
                     if (!StopNextStep)
                         ResetCookingState();
+                    StartCoroutine(WarningCo());
+                    IsCooking = false;
                 }
                 else
                 {
@@ -91,7 +93,7 @@ namespace CookCo_opGame
         }
         public void ResetCookingState()
         {
-            StartCoroutine(WarningCo());
+            CurrentState = ItemState.None;
             _stateUI.SetActive(false);
             IsCooking = false;
         }
