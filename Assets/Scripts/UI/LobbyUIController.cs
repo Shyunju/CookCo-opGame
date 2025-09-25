@@ -64,5 +64,9 @@ namespace CookCo_opGame
             DataManager.Instance.SaveData();
             _saveAlertUI.SetActive(true);
         }
+        public void ExitGame()
+        {
+            DataManager.Instance.ExitGame();
+        }
     }
 }
