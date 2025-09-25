@@ -9,7 +9,7 @@ namespace CookCo_opGame
         public string Path { get; set; } // 경로
         public int NowSlot { get; set; } // 현재 슬롯번호
 
-        public PlayerData NowPlayer {get{return _nowPlayer;} set { _nowPlayer = value; }}
+        public PlayerData NowPlayer { get { return _nowPlayer; } set { _nowPlayer = value; } }
 
         private void Awake()
         {
@@ -20,7 +20,7 @@ namespace CookCo_opGame
         public void SaveData()
         {
             string data = JsonUtility.ToJson(_nowPlayer);
-            File.WriteAllText(Path+ NowSlot.ToString(), data);
+            File.WriteAllText(Path + NowSlot.ToString(), data);
         }
 
         public void LoadData()
@@ -33,6 +33,15 @@ namespace CookCo_opGame
         {
             NowSlot = -1;
             _nowPlayer = new PlayerData();
+        }
+        
+        public void ExitGame()
+        {
+    #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+    #else
+            Application.Quit(); // 어플리케이션 종료
+    #endif
         }
     }
 }

@@ -31,7 +31,7 @@ namespace CookCo_opGame
                 }
             }
             // 불러온 데이터를 초기화시킴.(버튼에 닉네임을 표현하기위함이었기 때문)
-            DataManager.Instance.DataClear();	
+            DataManager.Instance.DataClear();
         }
 
         public void Slot(int number)	// 슬롯의 기능 구현
@@ -62,7 +62,11 @@ namespace CookCo_opGame
                 DataManager.Instance.SaveData(); // 현재 정보를 저장함.
             }
             SceneManager.LoadScene("LobbyScene"); // 게임씬으로 이동
-            
+
+        }
+        public void ExitGame()
+        {
+            DataManager.Instance.ExitGame();
         }
     }
 }
