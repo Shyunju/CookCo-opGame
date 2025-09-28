@@ -7,18 +7,6 @@ using UnityEngine.UI;
 
 namespace CookCo_opGame
 {
-    // public enum ItemState
-    // {
-    //     None,
-    //     Sliced,
-    //     Boiled,
-    //     Grilled,
-    //     Mixed,
-    //     Plate,
-    //     Used,
-    //     Complete,
-    //     Burn
-    // }
     public abstract class ItemManager : MonoBehaviour
     {
         [SerializeField] GameObject _stateUI;
