@@ -33,5 +33,6 @@ namespace CookCo_opGame
         Submit,
         Spawn
     }
+    public enum EAudioMixerType{Master,BGM,SFX}
 }
 
