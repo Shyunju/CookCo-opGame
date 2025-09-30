@@ -19,6 +19,9 @@ namespace CookCo_opGame
 
         public void SaveData()
         {
+            _nowPlayer.year = System.DateTime.Now.Year;
+            _nowPlayer.month = System.DateTime.Now.Month;
+            _nowPlayer.day = System.DateTime.Now.Day;
             string data = JsonUtility.ToJson(_nowPlayer);
             File.WriteAllText(Path + NowSlot.ToString(), data);
         }

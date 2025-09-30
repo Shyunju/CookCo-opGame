@@ -10,6 +10,9 @@ namespace CookCo_opGame
         public int Aggregate;
         public bool[] IsTablesBought = new bool[12];  
         public List<int> HasRecipes = new List<int>();
+        public int year;
+        public int month;
+        public int day;
 
     }
     [System.Serializable]
