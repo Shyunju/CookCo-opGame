@@ -108,6 +108,9 @@ namespace CookCo_opGame
                         DataManager.Instance.NowPlayer.IsTablesBought[i] = _shopTables[i].isBought;
                     }
                 }
+                DataManager.Instance.NowPlayer.year = DateTime.Now.Year;
+                DataManager.Instance.NowPlayer.month = DateTime.Now.Month;
+                DataManager.Instance.NowPlayer.day = DateTime.Now.Day;
             }
         }
         
