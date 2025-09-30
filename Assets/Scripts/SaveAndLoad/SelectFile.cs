@@ -36,6 +36,7 @@ namespace CookCo_opGame
 
         public void Slot(int number)	// 슬롯의 기능 구현
         {
+            PlayButtonSound();
             DataManager.Instance.NowSlot = number;	// 슬롯의 번호를 슬롯번호로 입력함.
 
             if (_savefile[number])	// bool 배열에서 현재 슬롯번호가 true라면 = 데이터 존재한다는 뜻
@@ -67,6 +68,10 @@ namespace CookCo_opGame
         public void ExitGame()
         {
             DataManager.Instance.ExitGame();
+        }
+        public void PlayButtonSound()
+        {
+            SoundManager.Instance.PlayPressedButtonSound();
         }
     }
 }

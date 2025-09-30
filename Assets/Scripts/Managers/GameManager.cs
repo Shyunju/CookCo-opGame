@@ -41,6 +41,7 @@ namespace CookCo_opGame
             //     1 //SunnySideUp
             // };
             SetPlayerData();
+            SoundManager.Instance.PlayLobbyBGM();
         }
         public void StartCooking()
         {

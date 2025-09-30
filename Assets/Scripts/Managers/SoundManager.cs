@@ -5,14 +5,12 @@ namespace CookCo_opGame
 {
     public class SoundManager : Singleton<SoundManager>
     {
-        [SerializeField]
-        AudioClip _successSound;
-        [SerializeField]
-        AudioClip _failSound;
-        [SerializeField]
-        AudioClip _whistleSound;
-        [SerializeField]
-        AudioClip _paperSound;
+        [SerializeField] AudioClip _successSound;
+        [SerializeField] AudioClip _failSound;
+        [SerializeField] AudioClip _whistleSound;
+        [SerializeField] AudioClip _paperSound;
+        [SerializeField] AudioClip _pressedButtonSound;
+        [SerializeField] AudioClip _selectMusic;
         [SerializeField] AudioClip _lobbyMusic;
         [SerializeField] AudioClip _mainMusic;
         [SerializeField] AudioMixer _audioMixer;
@@ -32,7 +30,7 @@ namespace CookCo_opGame
         }
         void Start()
         {
-            PlayLobbyBGM();
+            PlaySelectBGM();
         }
         public void PlaySuccessSound()
         {
@@ -56,6 +54,11 @@ namespace CookCo_opGame
             BGM.resource = _mainMusic;
             BGM.Play();
         }
+        public void PlaySelectBGM()
+        {
+            BGM.resource = _selectMusic;
+            BGM.Play();
+        }
         public void StopBGM()
         {
             BGM.Stop();
@@ -63,6 +66,10 @@ namespace CookCo_opGame
         public void PlayPaperSound()
         {
             SFX.PlayOneShot(_paperSound);
+        }
+        public void PlayPressedButtonSound()
+        {
+            SFX.PlayOneShot(_pressedButtonSound);
         }
 
 

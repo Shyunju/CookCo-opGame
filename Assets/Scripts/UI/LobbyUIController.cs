@@ -68,5 +68,9 @@ namespace CookCo_opGame
         {
             DataManager.Instance.ExitGame();
         }
+        public void PlayButtonSound()
+        {
+            SoundManager.Instance.PlayPressedButtonSound();
+        }
     }
 }
