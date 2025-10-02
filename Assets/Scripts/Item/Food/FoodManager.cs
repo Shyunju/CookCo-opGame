@@ -1,7 +1,4 @@
 using UnityEngine;
-using System;
-using Microsoft.Unity.VisualStudio.Editor;
-using System.Linq;
 
 namespace CookCo_opGame
 {

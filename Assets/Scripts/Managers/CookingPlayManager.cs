@@ -17,6 +17,7 @@ namespace CookCo_opGame
         [SerializeField] GameObject _finishText;
         [SerializeField] GameObject[] RecipeUI;  //레시피 별 이미지 프리팹 배열, 아이디와 인덱스 맞출것
         [SerializeField] GameObject _orderUICanvas;  // 주문 캔버스
+        [SerializeField] GameObject _instatiateAlertUI;
         List<(List<int>, int)> _orders = new List<(List<int>, int)>(); //주문 레시피가 담겨있는 리스트
         public List<(List<int>, int)> Orders { get { return _orders; } }
         public List<GameObject> OrdersUI { get; set; } //주문 이미지 프리팹 리스트
@@ -100,7 +101,7 @@ namespace CookCo_opGame
             LifeCount += amount;
             if (LifeCount < 0)
             {
-                CookingFinish();   
+                CookingFinish();
             }
             else
             {
@@ -119,7 +120,7 @@ namespace CookCo_opGame
             GameManager.OnInputStopRequest -= CookingFinish;
             if (Score > 0)
                 GameManager.Instance.Aggregate += Score;
-                
+
             if (!GameManager.Instance.ChangeWalletGold(Score))
                 GameManager.Instance.ChangeWalletGold(-1 * GameManager.Instance.Wallet);
 
@@ -128,6 +129,10 @@ namespace CookCo_opGame
 
             yield return new WaitForSeconds(2f);
             GameManager.Instance.GoToLobby();
+        }
+        public void AlertInstantiateUI(bool set)
+        {
+            _instatiateAlertUI.SetActive(set);
         }
         
     }

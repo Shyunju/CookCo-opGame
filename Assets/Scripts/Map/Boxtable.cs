@@ -31,8 +31,15 @@ namespace CookCo_opGame
 
         public void SpawnPlate()
         {
-            CurrentItem = Instantiate(_plate, transform.position, Quaternion.identity) as GameObject;
-            CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
+            if (GameManager.Instance.CurrnetObjectCount < GameManager.Instance.MaxObjectCount)
+            {
+                CurrentItem = Instantiate(_plate, transform.position, Quaternion.identity) as GameObject;
+                CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
+                GameManager.Instance.CurrnetObjectCount++;
+                if (GameManager.Instance.CurrnetObjectCount == GameManager.Instance.MaxObjectCount)
+                    CookingPlayManager.Instance.AlertInstantiateUI(true);
+            }
+        
         }
     }
 }

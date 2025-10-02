@@ -25,6 +25,8 @@ namespace CookCo_opGame
         public List<int> HasRecipes { get; set; }
         public int Wallet { get; private set; }
         public bool Player2 { get; set; }
+        public int MaxObjectCount { get;  private set; }
+        public int CurrnetObjectCount { get; set; }
         public static event Action OnInputStopRequest;
         override protected void Awake()
         {
@@ -44,6 +46,8 @@ namespace CookCo_opGame
             // };
             SetPlayerData();
             SoundManager.Instance.PlayLobbyBGM();
+            MaxObjectCount = 30;
+            CurrnetObjectCount = 0;
         }
         public void StartCooking()
         {
@@ -63,6 +67,7 @@ namespace CookCo_opGame
         {
             SceneManager.LoadScene("LobbyScene");
             SoundManager.Instance.PlayLobbyBGM();
+            CurrnetObjectCount = 0;
         }
 
         public void TriggerInputStop()

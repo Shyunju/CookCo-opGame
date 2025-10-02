@@ -31,17 +31,19 @@ namespace CookCo_opGame
                     }
                 }
                 if (tm.Ingredients.Count > 0)
-                    {
-                        tm.EmptyTool();
-                        tm.ResetColor();
-                    }
+                {
+                    tm.EmptyTool();
+                    tm.ResetColor();
+                }
                 im.ResetCookingState();
-                im.Elapsed = 0f;    
+                im.Elapsed = 0f;
             }
             else
             {
                 Destroy(item);
                 IsFull = false;
+                GameManager.Instance.CurrnetObjectCount--;
+                CookingPlayManager.Instance.AlertInstantiateUI(false);
             }
             
         }

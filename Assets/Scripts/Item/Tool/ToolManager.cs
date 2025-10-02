@@ -16,7 +16,7 @@ namespace CookCo_opGame
         [SerializeField] ToolPurpose _thisToolPurpose;
 
         private IngredientUIController _ingredientsUIController;
-        
+
         public GameObject WarningUI { get { return _warningUI; } set { _warningUI = value; } }
         public GameObject IngredientsTemp { get { return _ingredientsTemp; } set { _ingredientsTemp = value; } }
         public IngredientUIController IngredientUIController { get { return _ingredientsUIController; } set { _ingredientsUIController = value; } }
@@ -58,6 +58,8 @@ namespace CookCo_opGame
             if (fm != null)
             {
                 _ingredientsUIController.AddIngredientIcon(fm.Icon, _ingredients.Count - 1);
+                GameManager.Instance.CurrnetObjectCount--;
+                CookingPlayManager.Instance.AlertInstantiateUI(false);
             }
             StartCooking();
         }
