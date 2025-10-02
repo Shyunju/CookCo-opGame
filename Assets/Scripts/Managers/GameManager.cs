@@ -24,6 +24,7 @@ namespace CookCo_opGame
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<int> HasRecipes { get; set; }
         public int Wallet { get; private set; }
+        public bool Player2 { get; set; }
         public static event Action OnInputStopRequest;
         override protected void Awake()
         {
@@ -34,6 +35,7 @@ namespace CookCo_opGame
             ItemDataList = _itemDataManager.GetAllItems();
             RecipeDataList = new List<RecipeData>();
             RecipeDataList = _recipeDataManager.GetAllRecipes();
+            Player2 = false;
             // Wallet = 10000;
             // Aggregate = 0;
             // HasRecipes = new List<int>

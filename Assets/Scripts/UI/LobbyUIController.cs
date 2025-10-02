@@ -11,9 +11,13 @@ namespace CookCo_opGame
         [SerializeField] GameObject[] _pannelUIArray;
         [SerializeField] GameObject _buyWarningUI;
         [SerializeField] GameObject _saveAlertUI;
+        [SerializeField] GameObject _pressedButton;
+        [SerializeField] GameObject _originButton;
+        [SerializeField] GameObject _player2Objcet;
         void Start()
         {
             LoadWallet();
+            SetPlayers();
         }
 
         public void LoadWallet()
@@ -29,16 +33,6 @@ namespace CookCo_opGame
             }
         }
 
-        // public void ShowTableShop()
-        // {
-        //     _tableShop.SetActive(true);
-        //     _recipeShop.SetActive(false);
-        // }
-        // public void ShowRecipeShop()
-        // {
-        //     _recipeShop.SetActive(true);
-        //     _tableShop.SetActive(false);
-        // }
         public void ChangePannel(int index)
         {
             SoundManager.Instance.PlayPaperSound();
@@ -71,6 +65,21 @@ namespace CookCo_opGame
         public void PlayButtonSound()
         {
             SoundManager.Instance.PlayPressedButtonSound();
+        }
+        public void SetPlayer2(bool set)
+        {
+            GameManager.Instance.Player2 = set;
+        }
+        void SetPlayers()
+        {
+            if (GameManager.Instance.Player2)
+            {
+                //button
+                _pressedButton.SetActive(true);
+                _originButton.SetActive(false);
+                //playerprefab
+                _player2Objcet.SetActive(true);
+            }
         }
     }
 }

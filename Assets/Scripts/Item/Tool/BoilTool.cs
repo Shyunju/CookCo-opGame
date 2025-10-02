@@ -7,8 +7,6 @@ namespace CookCo_opGame
 {
     public class BoilTool : ToolManager
     {
-        private float _boilDuration = 10f;
-        private float _plusDuration = 2f;
         public override bool CheckToolState(GameObject itemInHand)
         {
             FoodManager fm = itemInHand.GetComponent<FoodManager>();

@@ -10,7 +10,6 @@ namespace CookCo_opGame
     {
         [SerializeField] GameObject _usedPlate;
         [SerializeField] Boxtable _respawnTable;
-        [SerializeField] int _successScore = 100;
         [SerializeField] int _failScore = -20;
         List<int> _recipe = new List<int>();
         private float _respawnCoolTime = 3f;

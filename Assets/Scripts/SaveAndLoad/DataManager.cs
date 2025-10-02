@@ -11,7 +11,7 @@ namespace CookCo_opGame
 
         public PlayerData NowPlayer { get { return _nowPlayer; } set { _nowPlayer = value; } }
 
-        private void Awake()
+        protected override void Awake()
         {
             base.Awake();
             Path = Application.persistentDataPath + "/save";	// 경로 지정

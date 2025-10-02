@@ -25,7 +25,7 @@ namespace CookCo_opGame
         public int LifeCount { get; set; }
         public int Score { get; private set; }
 
-        void Awake()
+        protected override void Awake()
         {
             base.Awake();
             OrdersUI = new List<GameObject>();

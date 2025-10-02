@@ -8,8 +8,6 @@ namespace CookCo_opGame
     public class FireTable : TableManager
     {
         float _burnOutTime = 10f; //요리가 타는 데드라인
-        public float OverTime { get; set; } // 요리가 완성되고 지난 시간
-        float _warningTime = 5f; // 아직 타기전
         ToolManager _toolManager;
         void Start()
         {

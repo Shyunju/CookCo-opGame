@@ -22,7 +22,7 @@ namespace CookCo_opGame
         public float BGMVolume { get;  private set; }
         public float SFXVolume { get; private set;}
 
-        void Awake()
+        protected override void Awake()
         {
             base.Awake();
             BGMVolume = 1f;

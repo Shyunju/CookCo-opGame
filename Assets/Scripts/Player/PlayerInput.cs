@@ -13,12 +13,14 @@ namespace CookCo_opGame
         InputAction _playerDashAction;
         InputAction _playerThrowAction;
 
+
         public override void OnEnable()
         {
             if (_playerNumber == 1)
                 _playerMap = _playerInputActions.FindActionMap("Player1Actions");
             else
                 _playerMap = _playerInputActions.FindActionMap("Player2Actions");
+            
             _playerMap.Enable();
 
             _playerMoveAction = _playerMap.FindAction("Move");
@@ -35,6 +37,13 @@ namespace CookCo_opGame
 
             _playerMoveAction.Enable();
             GameManager.OnInputStopRequest += StopAllInput;
+            
+            if (!GameManager.Instance.Player2 && _playerNumber == 2)
+                {
+                    OnDisable();
+                    this.gameObject.SetActive(false);
+                    return;
+                }
         }
         public void StopAllInput()
         {
