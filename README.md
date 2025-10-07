@@ -18,7 +18,8 @@
 7/30 ~ 8/7 쥐 아이템 픽업 엔드 뺏기 <br>
 8/8 ~ 26로비씬, 메인씬 데코, 로비 샵 UI & 구매 시스템 구성 <br>
 9/8 ~ 9/23 how to ui, save <br>
-25 ~ exit game, setting ui
+25 ~ 30exit game, setting ui <br>
+sound mixer
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=19&height=300&section=header&text=OrderUp&fontSize=90&fontColor=fff76b)
 ## 🎮 게임 소개
 
