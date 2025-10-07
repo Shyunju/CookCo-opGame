@@ -15,9 +15,14 @@ namespace CookCo_opGame
         {
             if (!IsFull && Purpose == TablePurpose.Box)
             {
-                CurrentItem = Instantiate(_itemInBox, transform.position, Quaternion.identity) as GameObject;
-                CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
-
+                if (GameManager.Instance.CurrnetObjectCount < GameManager.Instance.MaxObjectCount)
+                {
+                    CurrentItem = Instantiate(_itemInBox, transform.position, Quaternion.identity);
+                    GameManager.Instance.CurrnetObjectCount++;
+                    CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
+                }
+                if (GameManager.Instance.CurrnetObjectCount == GameManager.Instance.MaxObjectCount)
+                    CookingPlayManager.Instance.AlertInstantiateUI(true);
                 return true;
             }
             return false;
@@ -30,16 +35,9 @@ namespace CookCo_opGame
         }
 
         public void SpawnPlate()
-        {
-            if (GameManager.Instance.CurrnetObjectCount < GameManager.Instance.MaxObjectCount)
-            {
-                CurrentItem = Instantiate(_plate, transform.position, Quaternion.identity) as GameObject;
-                CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
-                GameManager.Instance.CurrnetObjectCount++;
-                if (GameManager.Instance.CurrnetObjectCount == GameManager.Instance.MaxObjectCount)
-                    CookingPlayManager.Instance.AlertInstantiateUI(true);
-            }
-        
+        {            
+            CurrentItem = Instantiate(_plate, transform.position, Quaternion.identity) as GameObject;
+            CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
         }
     }
 }

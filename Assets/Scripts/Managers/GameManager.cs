@@ -46,7 +46,7 @@ namespace CookCo_opGame
             // };
             SetPlayerData();
             SoundManager.Instance.PlayLobbyBGM();
-            MaxObjectCount = 30;
+            MaxObjectCount = 3;
             CurrnetObjectCount = 0;
         }
         public void StartCooking()
