@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class Boxtable : TableManager
+    public class Boxtable : TableBase
     {
         [SerializeField] GameObject _itemInBox;
         [SerializeField] GameObject _plate;
@@ -19,7 +19,7 @@ namespace CookCo_opGame
                 {
                     CurrentItem = Instantiate(_itemInBox, transform.position, Quaternion.identity);
                     GameManager.Instance.CurrnetObjectCount++;
-                    CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
+                    CurrentItem.GetComponent<ItemBase>().PickedUp(this.gameObject);
                 }
                 if (GameManager.Instance.CurrnetObjectCount == GameManager.Instance.MaxObjectCount)
                     CookingPlayManager.Instance.AlertInstantiateUI(true);
@@ -30,14 +30,14 @@ namespace CookCo_opGame
 
         public override void ChangeState(GameObject item)
         {
-            ItemManager itemManager = item.GetComponent<ItemManager>();
+            ItemBase itemManager = item.GetComponent<ItemBase>();
             itemManager.CurrentState = ItemState.None;
         }
 
         public void SpawnPlate()
         {            
             CurrentItem = Instantiate(_plate, transform.position, Quaternion.identity) as GameObject;
-            CurrentItem.GetComponent<ItemManager>().PickedUp(this.gameObject);
+            CurrentItem.GetComponent<ItemBase>().PickedUp(this.gameObject);
         }
     }
 }

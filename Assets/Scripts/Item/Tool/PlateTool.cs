@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class PlateTool : ToolManager
+    public class PlateTool : ToolBase
     {
         [SerializeField] MeshFilter _objectOnPlate;
         public MeshFilter ObjectOnPlate { get { return _objectOnPlate; } set { _objectOnPlate = value; } }
@@ -13,8 +13,8 @@ namespace CookCo_opGame
 
         public override bool CheckToolState(GameObject itemInHand)
         {
-            FoodManager fm = itemInHand.GetComponent<FoodManager>();
-            ToolManager tm = itemInHand.GetComponent<ToolManager>();
+            FoodBase fm = itemInHand.GetComponent<FoodBase>();
+            ToolBase tm = itemInHand.GetComponent<ToolBase>();
             if (Ingredients.Count < _ingredientsMaxCount)
             {
                 if (fm != null)
@@ -43,7 +43,7 @@ namespace CookCo_opGame
             if(Ingredients.Count > 0)
                 SettingMeshOnPlate();
         }
-        public void InputFromTool(ToolManager tm)
+        public void InputFromTool(ToolBase tm)
         {
             GrillTool gt = tm.GetComponent<GrillTool>();
             if (gt != null)
@@ -52,7 +52,7 @@ namespace CookCo_opGame
                 {
                     Ingredients.Add(item);
                 }
-            FoodManager fm = Ingredients[0];
+            FoodBase fm = Ingredients[0];
             SettingMeshOnPlate();
             _objectOnPlate.mesh = Ingredients.First().MeshFilter.mesh;
             Transform[] children = tm.IngredientsTemp.GetComponentsInChildren<Transform>(true);
@@ -62,7 +62,7 @@ namespace CookCo_opGame
             }
             for (int i = 0; i < tm.Ingredients.Count; i++)
             {
-                FoodManager foodIcon = tm.Ingredients[i];
+                FoodBase foodIcon = tm.Ingredients[i];
                 IngredientUIController.AddIngredientIcon(foodIcon.Icon, i);
             }
             tm.EmptyTool();

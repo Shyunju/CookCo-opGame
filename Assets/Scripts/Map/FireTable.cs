@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class FireTable : TableManager
+    public class FireTable : TableBase
     {
         float _burnOutTime = 10f; //요리가 타는 데드라인
-        ToolManager _toolManager;
+        ToolBase _toolManager;
         void Start()
         {
             _purpose = TablePurpose.Fire;
@@ -16,7 +16,7 @@ namespace CookCo_opGame
         //끓이기 와 굽기 분기 고민 필요
         public override void ChangeState(GameObject item)
         {
-            _toolManager = item.GetComponent<ToolManager>();
+            _toolManager = item.GetComponent<ToolBase>();
             if (_toolManager != null && _toolManager.Ingredients.Count > 0)
             {
                 if (_toolManager.ThisToolPurpose == ToolPurpose.Boil)
@@ -37,7 +37,7 @@ namespace CookCo_opGame
         {
             if (CurrentItem != null)
             {
-                ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
+                ItemBase itemManager = CurrentItem.GetComponent<ItemBase>();
                 if (itemManager != null && itemManager.CurrentState == ItemState.None)
                 {
                     return true;
@@ -56,9 +56,9 @@ namespace CookCo_opGame
             }
         }
 
-        public void ChangeFoodItemState(ToolManager tm, int mount, int meshIndex)
+        public void ChangeFoodItemState(ToolBase tm, int mount, int meshIndex)
         {
-            foreach (FoodManager food in tm.Ingredients)
+            foreach (FoodBase food in tm.Ingredients)
             {
                 food.ItemID += mount;
                 food.ChangeMesh(meshIndex);

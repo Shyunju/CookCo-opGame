@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class SubmitTable : TableManager
+    public class SubmitTable : TableBase
     {
         [SerializeField] GameObject _usedPlate;
         [SerializeField] Boxtable _respawnTable;
@@ -16,8 +16,8 @@ namespace CookCo_opGame
         private bool _hasRecipe = false;
         public override void ChangeState(GameObject item)
         {
-            ToolManager toolManager = item.GetComponent<ToolManager>();
-            List<FoodManager> ingredients = toolManager.Ingredients.ToList();
+            ToolBase toolManager = item.GetComponent<ToolBase>();
+            List<FoodBase> ingredients = toolManager.Ingredients.ToList();
             _recipe.Clear();
             //submit
             foreach (var i in ingredients)

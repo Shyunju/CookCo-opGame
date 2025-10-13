@@ -73,7 +73,7 @@ namespace CookCo_opGame
                 {
                     if (_playerHand.FrontTable != _hit.collider.gameObject)
                     {
-                        TableManager tb = _playerHand.FrontTable.GetComponent<TableManager>();
+                        TableBase tb = _playerHand.FrontTable.GetComponent<TableBase>();
                         tb.ResetColor();
                     }
                         SetTable(_hit.collider.gameObject);
@@ -88,7 +88,7 @@ namespace CookCo_opGame
             {
                 if (_playerHand.FrontTable != null)
                 {
-                    TableManager tb = _playerHand.FrontTable.GetComponent<TableManager>();
+                    TableBase tb = _playerHand.FrontTable.GetComponent<TableBase>();
                     tb.ResetColor();
                 }
                 _playerHand.FrontTable = null;
@@ -97,12 +97,12 @@ namespace CookCo_opGame
         }
         private void SetTable(GameObject hit)
         {
-            TableManager tm = hit.GetComponent<TableManager>();
+            TableBase tm = hit.GetComponent<TableBase>();
             _playerHand.FrontTable = hit;
             _playerHand.CurTableManager = tm;
             if (_playerHand.IsHandFree && tm.CurrentItem != null)
             {
-                _playerHand.ItemManager = tm.CurrentItem.GetComponent<ItemManager>();
+                _playerHand.ItemManager = tm.CurrentItem.GetComponent<ItemBase>();
             }
             _playerHand.CurTableManager.SetHighlight();
 

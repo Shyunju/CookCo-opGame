@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class CutTable : TableManager
+    public class CutTable : TableBase
     {
         [SerializeField] GameObject _knife;
         private float _cuttingDuration = 3f;
@@ -19,7 +19,7 @@ namespace CookCo_opGame
         {
             if (CurrentItem != null)
             {
-                FoodManager foodManager = CurrentItem.GetComponent<FoodManager>();
+                FoodBase foodManager = CurrentItem.GetComponent<FoodBase>();
                 if (foodManager != null && foodManager.CurrentState == ItemState.None)
                 {
                     StartCoroutine(CutFoodCo());
@@ -32,13 +32,13 @@ namespace CookCo_opGame
         {
             yield return new WaitForSeconds(.1f);
             _knife.SetActive(false);
-            ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
+            ItemBase itemManager = CurrentItem.GetComponent<ItemBase>();
             itemManager.Duration = _cuttingDuration;
             itemManager.IsCooking = true;
         }
         public override void ChangeState(GameObject item)
         {
-            FoodManager foodManager = item.GetComponent<FoodManager>();
+            FoodBase foodManager = item.GetComponent<FoodBase>();
             if (foodManager != null)
             {
                 foodManager.CurrentState = ItemState.Sliced;

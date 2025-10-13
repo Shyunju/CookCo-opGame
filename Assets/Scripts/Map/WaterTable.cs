@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class WaterTable : TableManager
+    public class WaterTable : TableBase
     {
         [SerializeField] Transform _spawnTablePosition;
         [SerializeField] GameObject _waterInSink;
@@ -11,7 +11,7 @@ namespace CookCo_opGame
         [SerializeField] GameObject _tempItem;
         [SerializeField] bool _hasPlate = false;
 
-        private TableManager _spawnTable;
+        private TableBase _spawnTable;
         private float _washingDuration = 4f;
         public PlayerManager PlayerManager { get; set; }
         public bool HasPlate {get { return _hasPlate; } set { _hasPlate = value;}}
@@ -19,11 +19,11 @@ namespace CookCo_opGame
         void Start()
         {
             _purpose = TablePurpose.Wash;
-            _spawnTable = _spawnTablePosition.gameObject.GetComponent<TableManager>();
+            _spawnTable = _spawnTablePosition.gameObject.GetComponent<TableBase>();
         }
         public override void ChangeState(GameObject item)
         {
-            ItemManager im = CurrentItem.GetComponent<ItemManager>();
+            ItemBase im = CurrentItem.GetComponent<ItemBase>();
             PlayerManager.StateMachine.ChangeState(PlayerManager.StateMachine.IdleState);
             if (!_spawnTable.IsFull)
             {
@@ -55,13 +55,13 @@ namespace CookCo_opGame
         public void SpawnPlate()
         {
             CurrentItem = Instantiate(_plate, _spawnTablePosition.position, Quaternion.identity) as GameObject;
-            CurrentItem.GetComponent<ItemManager>().PickedUp(_spawnTablePosition.gameObject);
+            CurrentItem.GetComponent<ItemBase>().PickedUp(_spawnTablePosition.gameObject);
         }
         
         IEnumerator WashPlateCo()
         {
             yield return new WaitForSeconds(.2f);
-            ItemManager itemManager = CurrentItem.GetComponent<ItemManager>();
+            ItemBase itemManager = CurrentItem.GetComponent<ItemBase>();
             itemManager.Duration = _washingDuration;
             itemManager.IsCooking = true;
         }

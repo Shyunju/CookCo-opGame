@@ -4,7 +4,7 @@ namespace CookCo_opGame
 {
     public class StealZone : MonoBehaviour
     {
-        [SerializeField] TableManager _tableManager;
+        [SerializeField] TableBase _tableManager;
         private Transform _transform;
         void Start()
         {
@@ -14,7 +14,7 @@ namespace CookCo_opGame
             {
                 if (sibling == transform) continue; // 자기 자신 제외
 
-                TableManager comp = sibling.GetComponent<TableManager>();
+                TableBase comp = sibling.GetComponent<TableBase>();
                 if (comp != null)
                 {
                     _tableManager = comp;
@@ -31,7 +31,7 @@ namespace CookCo_opGame
                 {
                     if (_tableManager.CurrentItem != null)  //테이블에 아이템이 있
                     {
-                        ItemManager itemManager = _tableManager.CurrentItem.GetComponent<ItemManager>();
+                        ItemBase itemManager = _tableManager.CurrentItem.GetComponent<ItemBase>();
                         itemManager.PickedUp(mouseMove.PlateOfMouse);
                         mouseMove.CurrentItem = itemManager;
                         mouseMove.HasItem = true;

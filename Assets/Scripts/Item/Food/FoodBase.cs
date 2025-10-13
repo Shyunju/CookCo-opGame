@@ -3,7 +3,7 @@ using UnityEngine;
 namespace CookCo_opGame
 {
 
-    public class FoodManager : ItemManager
+    public class FoodBase : ItemBase
     {
         [SerializeField] Mesh[] _foodMeshArr;
         [SerializeField] Sprite _icon;

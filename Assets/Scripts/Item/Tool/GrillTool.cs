@@ -3,14 +3,14 @@ using System.Linq;
 using System.Collections;
 namespace CookCo_opGame
 {
-    public class GrillTool : ToolManager
+    public class GrillTool : ToolBase
     {
         [SerializeField] GameObject _grillingFood;
         public GameObject GrillFood { get { return _grillingFood; } set { _grillingFood = value; } }
         public override bool CheckToolState(GameObject itemInHand)
         {
-            FoodManager fm = itemInHand.GetComponent<FoodManager>();
-            ToolManager tm = itemInHand.GetComponent<ToolManager>();
+            FoodBase fm = itemInHand.GetComponent<FoodBase>();
+            ToolBase tm = itemInHand.GetComponent<ToolBase>();
             if (fm != null && Ingredients.Count < _ingredientsMaxCount && (fm.ItemID == 106 || fm.ItemID == 5))
             {
                 return true;
@@ -18,7 +18,7 @@ namespace CookCo_opGame
             else if (tm != null && tm.ThisToolPurpose == ToolPurpose.Dish)
             {
                 PlateTool pt = tm.GetComponent<PlateTool>();
-                pt.InputFromTool(this.GetComponent<ToolManager>());
+                pt.InputFromTool(this.GetComponent<ToolBase>());
                 _grillingFood.SetActive(false);
                 return false;
             }

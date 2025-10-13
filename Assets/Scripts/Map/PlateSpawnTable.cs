@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class PlateSpawnTable : TableManager
+    public class PlateSpawnTable : TableBase
     {
         public override void ChangeState(GameObject item)
         {

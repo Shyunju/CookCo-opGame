@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class BoilTool : ToolManager
+    public class BoilTool : ToolBase
     {
         public override bool CheckToolState(GameObject itemInHand)
         {
-            FoodManager fm = itemInHand.GetComponent<FoodManager>();
-            ToolManager tm = itemInHand.GetComponent<ToolManager>();
+            FoodBase fm = itemInHand.GetComponent<FoodBase>();
+            ToolBase tm = itemInHand.GetComponent<ToolBase>();
             if (fm != null && Ingredients.Count < _ingredientsMaxCount && CurrentState != ItemState.Burn)
             {
                 WarningUI.SetActive(false);
@@ -20,7 +20,7 @@ namespace CookCo_opGame
             else if (tm != null && tm.ThisToolPurpose == ToolPurpose.Dish && !IsCooking)
             {
                 PlateTool pt = tm.GetComponent<PlateTool>();
-                pt.InputFromTool(this.GetComponent<ToolManager>());
+                pt.InputFromTool(this.GetComponent<ToolBase>());
                 return false;
             }
             return false;

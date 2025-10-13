@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public abstract class TableManager : MonoBehaviour
+    public abstract class TableBase : MonoBehaviour
     {
         [SerializeField] protected TablePurpose _purpose = TablePurpose.None;
         public TablePurpose Purpose { get { return _purpose; } }
@@ -57,7 +57,7 @@ namespace CookCo_opGame
         {
             if (CurrentItem != null && (_purpose == TablePurpose.Cut || _purpose == TablePurpose.Wash))
             {
-                ItemManager im = CurrentItem.GetComponent<ItemManager>();
+                ItemBase im = CurrentItem.GetComponent<ItemBase>();
                 im.IsCooking = false;
             }
             _renderer.GetPropertyBlock(_propBlock);

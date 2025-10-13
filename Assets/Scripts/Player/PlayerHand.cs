@@ -8,9 +8,9 @@ namespace CookCo_opGame
         [SerializeField] private GameObject _hand;
         [SerializeField] private bool _canPickUp = false;
         [SerializeField] private GameObject _itemInHand;
-        [SerializeField] private ItemManager _itemManager;
+        [SerializeField] private ItemBase _itemManager;
         [SerializeField] GameObject _frontTable;
-        [SerializeField] TableManager _curTableManager;
+        [SerializeField] TableBase _curTableManager;
         [SerializeField] AudioClip _handEffectSound;
 
         private PlayerManager _playerManager;
@@ -23,10 +23,10 @@ namespace CookCo_opGame
         public bool CanPickUp { get { return _canPickUp; } }
         public bool IsHandFree { get { return _isHandFree; } set { _isHandFree = value; } }
 
-        public ItemManager ItemManager { get { return _itemManager; } set { _itemManager = value; } }
+        public ItemBase ItemManager { get { return _itemManager; } set { _itemManager = value; } }
 
         public GameObject FrontTable { get { return _frontTable; } set { _frontTable = value; } }
-        public TableManager CurTableManager { get { return _curTableManager; } set { _curTableManager = value; } }
+        public TableBase CurTableManager { get { return _curTableManager; } set { _curTableManager = value; } }
 
 
         void Start()
@@ -41,7 +41,7 @@ namespace CookCo_opGame
             //Debug.Log(other.name);
             if ((other.tag == "Food" || other.tag == "Tool") && IsHandFree)
             {
-                _itemManager = other.gameObject.GetComponent<ItemManager>();
+                _itemManager = other.gameObject.GetComponent<ItemBase>();
             }
             if (other.tag == "Mouse")
             {
@@ -100,7 +100,7 @@ namespace CookCo_opGame
                         {
                             if (_itemManager.CurrentState == ItemState.Plate)
                             {
-                                ToolManager plateToolManager = _itemManager.gameObject.GetComponent<ToolManager>();
+                                ToolBase plateToolManager = _itemManager.gameObject.GetComponent<ToolBase>();
                                 if (plateToolManager.Ingredients.Count > 0)
                                 {
                                     _itemManager.PutDown();
@@ -116,7 +116,7 @@ namespace CookCo_opGame
                             return;
                             
                         }
-                        ToolManager toolManager = CurTableManager.CurrentItem.GetComponent<ToolManager>();
+                        ToolBase toolManager = CurTableManager.CurrentItem.GetComponent<ToolBase>();
                         if (toolManager != null)
                         {
                             if (toolManager.CheckToolState(_itemInHand))

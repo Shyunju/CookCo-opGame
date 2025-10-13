@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 namespace CookCo_opGame
 {
-    public abstract class ItemManager : MonoBehaviour
+    public abstract class ItemBase : MonoBehaviour
     {
         [SerializeField] GameObject _stateUI;
         [SerializeField] Image _stateBar;
         [SerializeField] ItemState _currentState = ItemState.None;
-        [SerializeField] TableManager _currentTable;
+        [SerializeField] TableBase _currentTable;
         [SerializeField] bool _isGrabed;
         [SerializeField] bool _onTable = false;
         [SerializeField] bool _isCooking = false;
@@ -33,7 +33,7 @@ namespace CookCo_opGame
         public bool IsCooking { get { return _isCooking; } set { _isCooking = value; } }
         public float Duration { get { return _duration; } set { _duration = value; } }
         public float Elapsed { get { return _elapsed; } set { _elapsed = value; } }
-        public TableManager CurrentTable { get { return _currentTable; } set { _currentTable = value; } }
+        public TableBase CurrentTable { get { return _currentTable; } set { _currentTable = value; } }
         public ItemState CurrentState { get { return _currentState; } set { _currentState = value; } }
         public int ItemID { get { return _itemID; } set { _itemID = value; } }
         public bool StopNextStep { get; set; } //설거지 새그릇 리스폰 가능여부 true == 다음단계를 멈춰야함
@@ -110,12 +110,12 @@ namespace CookCo_opGame
             if (parent.tag == "Table")
             {
                 IsGrabed = false;
-                _currentTable = parent.GetComponent<TableManager>();
+                _currentTable = parent.GetComponent<TableBase>();
                 _currentTable.IsFull = true;
                 _currentTable.CurrentItem = this.gameObject;
                 OnTable = true;
 
-                ToolManager tm = this.gameObject.GetComponent<ToolManager>();
+                ToolBase tm = this.gameObject.GetComponent<ToolBase>();
                 if (tm != null)
                 {
                     //요리가 가능한지 확인하는 함수 호출 // 그 함수에서 가능하다면 이즈쿠킹으로 바꾸고 듀레이션 주기

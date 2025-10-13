@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class TrashTable : TableManager
+    public class TrashTable : TableBase
     {
         public override void ChangeState(GameObject item)
         {
-            ItemManager im = item.GetComponent<ItemManager>();
-            ToolManager tm = item.GetComponent<ToolManager>();
+            ItemBase im = item.GetComponent<ItemBase>();
+            ToolBase tm = item.GetComponent<ToolBase>();
             PlateTool pt = item.GetComponent<PlateTool>();
             if (pt != null)
             {

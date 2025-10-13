@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public abstract class ToolManager : ItemManager        
+    public abstract class ToolBase : ItemBase        
     {
 
         [SerializeField] GameObject _ingredientsTemp;
         //재료에 대한 정보(오브젝트)
-        [SerializeField] protected List<FoodManager> _ingredients;
+        [SerializeField] protected List<FoodBase> _ingredients;
         [SerializeField] protected int _ingredientsMaxCount;
         [SerializeField] GameObject _warningUI;
         [SerializeField] float _basicDuration = 10f;
@@ -20,13 +20,13 @@ namespace CookCo_opGame
         public GameObject WarningUI { get { return _warningUI; } set { _warningUI = value; } }
         public GameObject IngredientsTemp { get { return _ingredientsTemp; } set { _ingredientsTemp = value; } }
         public IngredientUIController IngredientUIController { get { return _ingredientsUIController; } set { _ingredientsUIController = value; } }
-        public List<FoodManager> Ingredients { get { return _ingredients; } set { _ingredients = value; } }
+        public List<FoodBase> Ingredients { get { return _ingredients; } set { _ingredients = value; } }
         public int IngredientsMaxCount { get { return _ingredientsMaxCount; } }
         public ToolPurpose ThisToolPurpose { get { return _thisToolPurpose; } }
 
         void Start()
         {
-            _ingredients = new List<FoodManager>();
+            _ingredients = new List<FoodBase>();
             _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
             SetIngredintsLength();
         }
@@ -44,7 +44,7 @@ namespace CookCo_opGame
             if (_ingredientsUIController == null)
                     _ingredientsUIController = GetComponentInChildren<IngredientUIController>();
 
-            FoodManager fm = food.GetComponent<FoodManager>();
+            FoodBase fm = food.GetComponent<FoodBase>();
             Ingredients.Add(fm);
             if (Ingredients.Count == 1)
             {

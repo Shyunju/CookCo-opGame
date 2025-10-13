@@ -9,12 +9,12 @@ namespace CookCo_opGame
         [SerializeField] GameObject _plateOfMouse;
         [SerializeField] Transform _mouseHouse;
         //Transform _mouseHouse;
-        [SerializeField] ItemManager _currentItem;
+        [SerializeField] ItemBase _currentItem;
         public GameObject PlateOfMouse { get { return _plateOfMouse; } }
         public Transform Target { get; private set; }  // 이동할 목표 위치(음식 위치 등)
         public GameObject ItemOnHead { get; set; }
         public Transform MouseHouse { get { return _mouseHouse; } set { _mouseHouse = value; } }
-        public ItemManager CurrentItem { get { return _currentItem; } set { _currentItem = value; } }
+        public ItemBase CurrentItem { get { return _currentItem; } set { _currentItem = value; } }
         public bool HasItem { get; set; }
         public bool IsMoving { get; set; }
         public Collider MouseCollider { get; set; }
