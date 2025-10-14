@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CookCo_opGame
@@ -15,6 +16,8 @@ namespace CookCo_opGame
 
                 if (currentItem != null)
                 {
+                    GameManager.Instance.CurrnetObjectCount--;
+                    CookingPlayManager.Instance.AlertInstantiateUI(false);
                     mouseMove.HasItem = false;
                     GameObject temp = currentItem.gameObject;
 

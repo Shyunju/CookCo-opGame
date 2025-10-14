@@ -45,6 +45,7 @@ namespace CookCo_opGame
         }
         public void InputFromTool(ToolBase tm)
         {
+            tm.StopAllCoroutines();
             GrillTool gt = tm.GetComponent<GrillTool>();
             if (gt != null)
                 gt.GrillFood.SetActive(false);
