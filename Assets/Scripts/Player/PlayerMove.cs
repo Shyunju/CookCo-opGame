@@ -12,7 +12,7 @@ namespace CookCo_opGame
         public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value;}}
         private float _defaultSpeed = 6f;
         public float DefaultSpeed { get { return _defaultSpeed; }}
-        private float _dashSpeed = 16f;
+        private float _dashSpeed = 12f;
         public float DashSpeed { get { return _dashSpeed; }}
         private Rigidbody _playerRigidBody;
         private float _rotationSpeed = 15f;

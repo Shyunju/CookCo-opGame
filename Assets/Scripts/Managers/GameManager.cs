@@ -38,13 +38,13 @@ namespace CookCo_opGame
             RecipeDataList = new List<RecipeData>();
             RecipeDataList = _recipeDataManager.GetAllRecipes();
             Player2 = false;
-            // Wallet = 10000;
             // Aggregate = 0;
             // HasRecipes = new List<int>
             // {
             //     1 //SunnySideUp
             // };
             SetPlayerData();
+            //Wallet = 1000000;
             SoundManager.Instance.PlayLobbyBGM();
             MaxObjectCount = 3;
             CurrnetObjectCount = 0;

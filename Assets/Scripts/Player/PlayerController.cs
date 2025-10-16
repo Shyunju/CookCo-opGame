@@ -82,7 +82,7 @@ namespace CookCo_opGame
             _isRunning = true;
             _playerMove.MoveSpeed = _playerMove.DashSpeed;
 
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.3f);
             _isRunning = false;
             _playerMove.MoveSpeed = _playerMove.DefaultSpeed;
         }
