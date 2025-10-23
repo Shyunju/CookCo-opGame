@@ -15,6 +15,7 @@ namespace CookCo_opGame
         {
             base.Awake();
             Path = Application.persistentDataPath + "/save";	// 경로 지정
+            Debug.Log($"Save file directory: {Application.persistentDataPath}");
         }
 
         public void SaveData()
@@ -23,13 +24,23 @@ namespace CookCo_opGame
             _nowPlayer.month = System.DateTime.Now.Month;
             _nowPlayer.day = System.DateTime.Now.Day;
             string data = JsonUtility.ToJson(_nowPlayer);
-            File.WriteAllText(Path + NowSlot.ToString(), data);
+            string encryptedData = EncryptionUtility.Encrypt(data);
+            File.WriteAllText(Path + NowSlot.ToString(), encryptedData);
         }
 
         public void LoadData()
         {
-            string data = File.ReadAllText(Path + NowSlot.ToString());
-            _nowPlayer = JsonUtility.FromJson<PlayerData>(data);
+            string encryptedData = File.ReadAllText(Path + NowSlot.ToString());
+            string plainJson = EncryptionUtility.Decrypt(encryptedData);
+            if (plainJson == encryptedData)
+            {
+                _nowPlayer = JsonUtility.FromJson<PlayerData>(plainJson);
+                SaveData();
+            }
+            else
+            {
+                _nowPlayer = JsonUtility.FromJson<PlayerData>(plainJson);
+            }
         }
 
         public void DataClear()
