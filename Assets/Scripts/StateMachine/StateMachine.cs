@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 namespace CookCo_opGame
 {
     public interface IState

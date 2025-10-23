@@ -1,7 +1,5 @@
-using System.Runtime.InteropServices;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 namespace CookCo_opGame
 {
@@ -107,7 +105,5 @@ namespace CookCo_opGame
             _playerHand.CurTableManager.SetHighlight();
 
         }
-
-        
     }
 }

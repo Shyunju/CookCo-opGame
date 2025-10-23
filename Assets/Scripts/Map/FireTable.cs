@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace CookCo_opGame
@@ -46,15 +43,15 @@ namespace CookCo_opGame
             return false;
         }
 
-        public IEnumerator BurnOutCo()
-        {
-            yield return new WaitForSeconds(_burnOutTime);
-            if (_toolManager != null)
-            {
+        // public IEnumerator BurnOutCo()
+        // {
+        //     yield return new WaitForSeconds(_burnOutTime);
+        //     if (_toolManager != null)
+        //     {
 
-                _toolManager.CurrentState = ItemState.Burn;
-            }
-        }
+        //         _toolManager.CurrentState = ItemState.Burn;
+        //     }
+        // }
 
         public void ChangeFoodItemState(ToolBase tm, int mount, int meshIndex)
         {

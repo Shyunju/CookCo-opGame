@@ -1,13 +1,9 @@
-using UnityEngine;
-
 namespace CookCo_opGame
 {
     public class WalkState : PlayerDefaultState
     {
         public WalkState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
-        {
-
-        }
+        {}
 
         public override void Enter()
         {

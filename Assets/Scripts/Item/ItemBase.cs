@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using NUnit.Framework.Internal;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 using UnityEngine.UI;
 
 namespace CookCo_opGame

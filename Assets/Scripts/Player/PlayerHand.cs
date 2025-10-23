@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 
 namespace CookCo_opGame
@@ -20,7 +19,6 @@ namespace CookCo_opGame
         private bool _isHandFree = true;
         private float _throwForce = 15f;
 
-        public bool CanPickUp { get { return _canPickUp; } }
         public bool IsHandFree { get { return _isHandFree; } set { _isHandFree = value; } }
 
         public ItemBase ItemManager { get { return _itemManager; } set { _itemManager = value; } }
@@ -38,7 +36,6 @@ namespace CookCo_opGame
         }
         void OnTriggerEnter(Collider other)
         {
-            //Debug.Log(other.name);
             if ((other.tag == "Food" || other.tag == "Tool") && IsHandFree)
             {
                 _itemManager = other.gameObject.GetComponent<ItemBase>();
@@ -85,70 +82,78 @@ namespace CookCo_opGame
             return;
         }
 
-
-        //놓기
+        //놓기 (리팩토링된 버전)
         public void PutDownItem()
         {
-            if (_itemInHand != null)
+            // [가드] 손에 든 아이템이 없으면 즉시 종료
+            if (_itemInHand == null) return;
+
+            // [가드] 앞에 테이블이 없으면, 아이템을 바닥에 내려놓고 종료
+            if (FrontTable == null)
             {
-                if (FrontTable != null)
-                {
-                    if (CurTableManager != null && CurTableManager.IsFull)
-                    {
-                        SubmitTable submitTable = CurTableManager.gameObject.GetComponent<SubmitTable>();
-                        if (submitTable != null) //제출테이블
-                        {
-                            if (_itemManager.CurrentState == ItemState.Plate)
-                            {
-                                ToolBase plateToolManager = _itemManager.gameObject.GetComponent<ToolBase>();
-                                if (plateToolManager.Ingredients.Count > 0)
-                                {
-                                    _itemManager.PutDown();
-                                    _itemManager.PickedUp(FrontTable);
-                                    submitTable.ChangeState(_itemManager.gameObject);
-
-                                    _itemInHand = null;
-                                    _isHandFree = true;
-
-                                    _pickUpCollider.enabled = true;
-                                }
-                            }
-                            return;
-                            
-                        }
-                        ToolBase toolManager = CurTableManager.CurrentItem.GetComponent<ToolBase>();
-                        if (toolManager != null)
-                        {
-                            if (toolManager.CheckToolState(_itemInHand))
-                            {
-                                toolManager.AddIngredient(_itemInHand);
-                                _audioSource.PlayOneShot(_handEffectSound);
-                            }
-                            else
-                                return;
-                        }
-                        else
-                            return;
-                    }
-                    else
-                    {
-                        _audioSource.PlayOneShot(_handEffectSound);
-                        _itemManager.PutDown();
-                        _itemManager.PickedUp(FrontTable);
-                    }
-                }
-                else
-                {
-                    _itemManager.PutDown();
-                }
-
-                _itemInHand = null;
-                _isHandFree = true;
-
-                _pickUpCollider.enabled = true;
+                _itemManager.PutDown();
+                ClearHand();
+                return;
             }
-            return;
 
+            // [가드] 테이블이 비어있으면, 아이템을 테이블에 올려놓고 종료
+            if (CurTableManager != null && !CurTableManager.IsFull)
+            {
+                _audioSource.PlayOneShot(_handEffectSound);
+                _itemManager.PutDown();
+                _itemManager.PickedUp(FrontTable);
+                ClearHand();
+                return;
+            }
+
+            // --- 테이블이 꽉 차 있는 경우의 로직 ---
+            if (CurTableManager != null)
+            {
+                // 제출 테이블과 상호작용 시도
+                if (TryInteractWithSubmitTable()) return;
+
+                // 도구와 상호작용 시도
+                if (TryInteractWithTool()) return;
+            }
+        }
+
+        private void ClearHand()
+        {
+            _itemInHand = null;
+            _itemManager = null; // 아이템 매니저도 초기화
+            _isHandFree = true;
+            _pickUpCollider.enabled = true;
+        }
+
+        private bool TryInteractWithSubmitTable()
+        {
+            if (!CurTableManager.TryGetComponent(out SubmitTable submitTable)) return false;
+
+            if (_itemManager.CurrentState == ItemState.Plate && _itemManager.TryGetComponent(out ToolBase plateToolManager) && plateToolManager.Ingredients.Count > 0)
+            {
+                _itemManager.PutDown();
+                _itemManager.PickedUp(FrontTable);
+                submitTable.ChangeState(_itemManager.gameObject);
+                ClearHand();
+                return true;
+            }
+            return false;
+        }
+
+        private bool TryInteractWithTool()
+        {
+            if (CurTableManager.CurrentItem == null) return false;
+
+            if (!CurTableManager.CurrentItem.TryGetComponent(out ToolBase toolOnTable)) return false;
+
+            if (toolOnTable.CheckToolState(_itemInHand))
+            {
+                toolOnTable.AddIngredient(_itemInHand);
+                _audioSource.PlayOneShot(_handEffectSound);
+                ClearHand();
+                return true;
+            }
+            return false;
         }
 
 

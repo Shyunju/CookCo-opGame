@@ -1,4 +1,3 @@
-using UnityEngine;
 
 namespace CookCo_opGame
 {
@@ -17,27 +16,18 @@ namespace CookCo_opGame
             _cookData = stateMachine.PlayerManager.PlayerOS.CookData;
             _waterData = stateMachine.PlayerManager.PlayerOS.WaterData;
         }
-        public virtual void Enter()
-        {
+        public virtual void Enter(){}
 
-        }
-
-        public virtual void Exit()
-        {
-        }
+        public virtual void Exit(){}
 
         public virtual void HandleInput()
         {
             ReadMovementInput();
         }
 
-        public virtual void PhysicsUpdate()
-        {
-        }
+        public virtual void PhysicsUpdate(){}
 
-        public virtual void Update()
-        {
-        }
+        public virtual void Update(){}
         protected void StartAnimation(int animatorHash)
         {
             _stateMachine.PlayerManager.Animator.SetBool(animatorHash, true);

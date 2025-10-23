@@ -1,12 +1,9 @@
-using UnityEngine;
-
 namespace CookCo_opGame
 {
     public class WashState : PlayerWashState
     {
         public WashState(PlayerStateMachine stateMachine) : base(stateMachine)
-        {
-        }
+        {}
         public override void Enter()
         {
             base.Enter();

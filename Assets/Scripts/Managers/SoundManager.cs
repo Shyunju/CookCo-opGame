@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 namespace CookCo_opGame
 {
     public class SoundManager : Singleton<SoundManager>

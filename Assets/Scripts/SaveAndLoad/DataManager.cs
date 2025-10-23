@@ -15,7 +15,6 @@ namespace CookCo_opGame
         {
             base.Awake();
             Path = Application.persistentDataPath + "/save";	// 경로 지정
-            Debug.Log($"Save file directory: {Application.persistentDataPath}");
         }
 
         public void SaveData()

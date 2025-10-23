@@ -18,14 +18,14 @@ namespace CookCo_opGame
             // 슬롯별로 저장된 데이터가 존재하는지 판단.
             for (int i = 0; i < 3; i++)
             {
-                if (File.Exists(DataManager.Instance.Path + $"{i}"))	// 데이터가 있는 경우
+                if (File.Exists(DataManager.Instance.Path + $"{i}"))
                 {
                     _savefile[i] = true;			// 해당 슬롯 번호의 bool배열 true로 변환
                     DataManager.Instance.NowSlot = i;	// 선택한 슬롯 번호 저장
                     DataManager.Instance.LoadData();	// 해당 슬롯 데이터 불러옴
                     _slotText[i].text = $"{DataManager.Instance.NowPlayer.Name} \n{DataManager.Instance.NowPlayer.Wallet} Gold \n저장 시각 : {DataManager.Instance.NowPlayer.year} / {DataManager.Instance.NowPlayer.month} / {DataManager.Instance.NowPlayer.day}";	// 버튼에 닉네임 표시
                 }
-                else	// 데이터가 없는 경우
+                else
                 {
                     _slotText[i].text = "비어있음";
                 }

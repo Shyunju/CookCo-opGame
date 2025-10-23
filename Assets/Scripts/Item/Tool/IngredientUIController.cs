@@ -1,9 +1,4 @@
-using System;
-using System.Linq;
-using Microsoft.Unity.VisualStudio.Editor;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 namespace CookCo_opGame

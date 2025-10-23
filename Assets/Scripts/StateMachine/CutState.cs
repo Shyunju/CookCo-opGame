@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace CookCo_opGame
 {
     public class CutState : PlayerCookState

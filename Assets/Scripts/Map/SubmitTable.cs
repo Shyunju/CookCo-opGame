@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Collections;
 using UnityEngine;
 
 namespace CookCo_opGame
 {
     public class SubmitTable : TableBase
     {
-        [SerializeField] GameObject _usedPlate;
         [SerializeField] Boxtable _respawnTable;
         [SerializeField] int _failScore = -20;
         List<int> _recipe = new List<int>();

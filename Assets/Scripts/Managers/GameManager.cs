@@ -46,7 +46,7 @@ namespace CookCo_opGame
             SetPlayerData();
             //Wallet = 1000000;
             SoundManager.Instance.PlayLobbyBGM();
-            MaxObjectCount = 3;
+            MaxObjectCount = 20;
             CurrnetObjectCount = 0;
         }
         public void StartCooking()

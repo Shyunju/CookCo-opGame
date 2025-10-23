@@ -1,15 +1,13 @@
 using UnityEngine;
-using UnityEngine.Video;
-
 namespace CookCo_opGame
 {
     public class ItemUIController : MonoBehaviour
     {
         [SerializeField] GameObject _UIObject;
+        [SerializeField] float _cookingUIOffsetY;
         Transform _itemTransform;
         RectTransform _stateBar;
         
-        [SerializeField] float _cookingUIOffsetY;
         
         void Start()
         {

@@ -11,7 +11,6 @@ namespace CookCo_opGame
         [SerializeField] TMP_Text _buttonText;
         LobbyUIController _lobbyUIController;
         Button _button;
-        //public LobbyUIController LobbyUIController { get { return _lobbyUIController;} set { _lobbyUIController = value;}}
 
         void Start()
         {

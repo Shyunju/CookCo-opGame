@@ -1,5 +1,3 @@
-using TMPro;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 namespace CookCo_opGame
