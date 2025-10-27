@@ -20,7 +20,8 @@
 9/8 ~ 9/23 how to ui, save <br>
 25 ~ 30exit game, setting ui <br>
 sound mixer<br>
-object pool?
+object pool?<br>
+json암호화
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=19&height=300&section=header&text=OrderUp&fontSize=90&fontColor=fff76b)
 ## 🎮 게임 소개
 
