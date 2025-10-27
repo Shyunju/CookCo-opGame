@@ -14,11 +14,12 @@ namespace CookCo_opGame
         [SerializeField] float _rayDistance;
         PlayerHand _playerHand;
         RaycastHit _hit;
-        AudioSource _audioSource;
+        //AudioSource _audioSource;
         string _targetAnimState = "Chef_WorkStation_WokStirFry_Loop";
 
         public PlayerStateMachine StateMachine { get; set; }
         public PlayerController PlayerController { get; private set; }
+        public PlayerInput PlayerInput { get; private set; }
         [SerializeField] private GameObject _playerKnife;
         public GameObject PlayerKnife { get{ return _playerKnife; } set { _playerKnife = value;}}
 
@@ -28,7 +29,7 @@ namespace CookCo_opGame
         {
             PlayerAnimationData.Initialize();
             Animator = GetComponentInChildren<Animator>();
-            _audioSource = GetComponent<AudioSource>();
+            //_audioSource = GetComponent<AudioSource>();
 
             StateMachine = new PlayerStateMachine(this);
         }
@@ -37,6 +38,7 @@ namespace CookCo_opGame
             _playerHand = GetComponentInChildren<PlayerHand>();
             Animator = GetComponentInChildren<Animator>();
             PlayerController = GetComponent<PlayerController>();
+            PlayerInput = GetComponent<PlayerInput>();
             StateMachine.ChangeState(StateMachine.IdleState);
 
         }
@@ -49,15 +51,15 @@ namespace CookCo_opGame
             StateMachine.Update();
 
             var stateInfo = Animator.GetCurrentAnimatorStateInfo(0);
-            if (stateInfo.IsName(_targetAnimState)) {
-                if (!_audioSource.isPlaying) {
-                    _audioSource.Play();
-                }
-            } else {
-                if (_audioSource.isPlaying) {
-                    _audioSource.Stop();
-                }
-            }
+            // if (stateInfo.IsName(_targetAnimState)) {
+            //     if (!_audioSource.isPlaying) {
+            //         _audioSource.Play();
+            //     }
+            // } else {
+            //     if (_audioSource.isPlaying) {
+            //         _audioSource.Stop();
+            //     }
+            // }
         }
         void FixedUpdate()
         {

@@ -32,9 +32,12 @@ namespace CookCo_opGame
                     if (_tableManager.CurrentItem != null)  //테이블에 아이템이 있
                     {
                         ItemBase itemManager = _tableManager.CurrentItem.GetComponent<ItemBase>();
-                        itemManager.PickedUp(mouseMove.PlateOfMouse);
-                        mouseMove.CurrentItem = itemManager;
-                        mouseMove.HasItem = true;
+                        if (!itemManager.IsCooking)
+                        {
+                            itemManager.PickedUp(mouseMove.PlateOfMouse);
+                            mouseMove.CurrentItem = itemManager;
+                            mouseMove.HasItem = true;
+                        }
                     }
                     else
                     {

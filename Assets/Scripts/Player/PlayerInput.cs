@@ -12,6 +12,7 @@ namespace CookCo_opGame
         InputAction _playerPickAction;
         InputAction _playerDashAction;
         InputAction _playerThrowAction;
+        public int PlayerNumber { get{ return _playerNumber; }}
 
 
         public override void OnEnable()

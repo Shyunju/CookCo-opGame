@@ -83,7 +83,8 @@ namespace CookCo_opGame
             List<int> idList = Ingredients.Select(x => x.ItemID).ToList();
             bool allSame = idList.All(x => x == idList[0]);
             bool contains1106 = idList.Contains(1106);
-            bool contains8 = idList.Contains(8);
+            bool containsBread = idList.Contains(7);
+            bool containsTaco = idList.Contains(8);
 
 
             // 값들이 모두 같다면 첫번째 요소의 값을 할당
@@ -96,7 +97,12 @@ namespace CookCo_opGame
             // 값들이 다르고 합이 1000보다 작으면 salad
             if (sum < 1000)
             {
-                if (contains8)
+                if(containsBread)
+                {
+                    ChangeMeshInIngredients(5);
+                    return;
+                }
+                if (containsTaco)  //하지만 타코가 있다면 taco
                 {
                     ChangeMeshInIngredients(6);
                     return;
@@ -106,7 +112,7 @@ namespace CookCo_opGame
             }
 
             // 합이 1000 이상이고, 값 중 1106이 포함되어 있으면 meat ball
-            if (sum >= 1000 && contains1106 && !contains8)
+            if (sum >= 1000 && contains1106 && !containsTaco)
             {
                 ChangeMeshInIngredients(4);
                 return;

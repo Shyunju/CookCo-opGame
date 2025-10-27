@@ -119,10 +119,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495392121989897476}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: -6698853105785773161, guid: d8959aa2d41930648bb3be1df57159b1, type: 3}
   - {fileID: 8171053456958028753, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   - {fileID: 3446993379371083523, guid: 20fcafbd3d8f58344b702d6bcf9321f1, type: 3}
-  - {fileID: -5964453614070988344, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
+  - {fileID: -6698853105785773161, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   - {fileID: 8944836183056611700, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   - {fileID: 8671434129105461426, guid: e28308bcdd7692b4d9a7fdccc3ac83ee, type: 3}
   _icon: {fileID: 0}

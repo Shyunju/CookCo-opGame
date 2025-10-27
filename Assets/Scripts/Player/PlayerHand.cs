@@ -68,7 +68,7 @@ namespace CookCo_opGame
             {
                 if (!_itemManager.IsGrabed)
                 {
-                    _audioSource.PlayOneShot(_handEffectSound);
+                    SoundManager.Instance.PlayCuteSound(_playerManager.PlayerInput.PlayerNumber);
                     _pickUpCollider.enabled = false;
                     _itemInHand = _itemManager.gameObject;
                     _itemRigidbody = _itemInHand.GetComponent<Rigidbody>();
@@ -194,8 +194,7 @@ namespace CookCo_opGame
                         _playerManager.PlayerController.IsCooking = true;
                         _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.WashState);
 
-                    }
-                    
+                    }                  
 
                 }
             }

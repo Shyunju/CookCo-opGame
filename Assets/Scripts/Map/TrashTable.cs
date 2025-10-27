@@ -12,6 +12,7 @@ namespace CookCo_opGame
             if (pt != null)
             {
                 pt.ObjectOnPlate.mesh = null;
+                pt.EmptyTool();
             }
             else if (tm != null)
             {

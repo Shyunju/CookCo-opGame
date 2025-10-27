@@ -9,23 +9,32 @@ namespace CookCo_opGame
         [SerializeField] AudioClip _whistleSound;
         [SerializeField] AudioClip _paperSound;
         [SerializeField] AudioClip _pressedButtonSound;
+        [SerializeField] AudioClip _cuttingSound;
+        [SerializeField] AudioClip _cuteSound;
         [SerializeField] AudioClip _selectMusic;
         [SerializeField] AudioClip _lobbyMusic;
         [SerializeField] AudioClip _mainMusic;
         [SerializeField] AudioMixer _audioMixer;
         [SerializeField] AudioSource BGM;
         [SerializeField] AudioSource SFX;
+        [SerializeField] AudioSource PFX1;
+        [SerializeField] AudioSource PFX2;
+
         
         private bool[] _isMute = new bool[3];
         private float[] _audioVolumes = new float[3];
         public float BGMVolume { get;  private set; }
-        public float SFXVolume { get; private set;}
+        public float SFXVolume { get; private set; }
+        public float PFX1Volume { get; private set; }
+        public float PFX2Volume { get; private set;}
 
         protected override void Awake()
         {
             base.Awake();
             BGMVolume = 1f;
             SFXVolume = 1f;
+            PFX1Volume = 1f;
+            PFX2Volume = 1f;
         }
         void Start()
         {
@@ -42,6 +51,37 @@ namespace CookCo_opGame
         public void PlayWhistleSound()
         {
             SFX.PlayOneShot(_whistleSound);
+        }
+        public void PlayCuttingSound(int playerNumber)
+        {
+            if (playerNumber == 1)
+            {
+                PFX1.resource = _cuttingSound;
+                PFX1.Play();
+            }
+            else
+            {
+                PFX2.resource = _cuttingSound;
+                PFX2.Play();                
+            }
+        }
+        public void StopCuttingSound(int playerNumber)
+        {
+            if (playerNumber == 1)
+            {
+                PFX1.Stop();
+            }
+            else
+            {
+                PFX2.Stop();
+            }
+        }
+        public void PlayCuteSound(int playerNumber)
+        {
+            if (playerNumber == 1)
+                PFX1.PlayOneShot(_cuteSound);
+            else
+                PFX2.PlayOneShot(_cuteSound);
         }
         public void PlayLobbyBGM()
         {
@@ -107,7 +147,11 @@ namespace CookCo_opGame
         public void SFXChangeVolume(float volume)
         {
             SetAudioVolume(EAudioMixerType.SFX, volume);
+            SetAudioVolume(EAudioMixerType.PFX1, volume);
+            SetAudioVolume(EAudioMixerType.PFX2, volume);
             SFXVolume = volume;
+            PFX1Volume = volume;
+            PFX2Volume = volume;
         }
     }
 }

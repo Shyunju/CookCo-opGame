@@ -31,20 +31,23 @@ namespace CookCo_opGame
         IEnumerator CutFoodCo()
         {
             yield return new WaitForSeconds(.1f);
+            SoundManager.Instance.PlayCuttingSound(PlayerManager.PlayerInput.PlayerNumber);
             _knife.SetActive(false);
-            ItemBase itemManager = CurrentItem.GetComponent<ItemBase>();
-            itemManager.Duration = _cuttingDuration;
-            itemManager.IsCooking = true;
+            ItemBase itemBase = CurrentItem.GetComponent<ItemBase>();
+            itemBase.Duration = _cuttingDuration;
+            itemBase.IsCooking = true;
         }
         public override void ChangeState(GameObject item)
         {
             FoodBase foodManager = item.GetComponent<FoodBase>();
             if (foodManager != null)
             {
+                SoundManager.Instance.StopCuttingSound(PlayerManager.PlayerInput.PlayerNumber);
                 foodManager.CurrentState = ItemState.Sliced;
                 foodManager.ItemID += 100;
                 foodManager.ChangeMesh(0);
-                _knife.SetActive(true); 
+                _knife.SetActive(true);
+                foodManager.IsCooking = false;
             }
             PlayerManager.StateMachine.ChangeState(PlayerManager.StateMachine.IdleState);
             PlayerManager = null;
