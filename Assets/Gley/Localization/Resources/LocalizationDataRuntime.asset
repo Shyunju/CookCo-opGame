@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18308ee2766a5254eb877d924822e595, type: 3}
   m_Name: LocalizationDataRuntime
   m_EditorClassIdentifier: 
-  defaultLanguage: 0
+  defaultLanguage: 10
   currentLanguage: 0
   enableTMProSupport: 0
   enableNGUISupport: 0
