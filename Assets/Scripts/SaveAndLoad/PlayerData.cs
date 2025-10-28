@@ -13,6 +13,7 @@ namespace CookCo_opGame
         public int year;
         public int month;
         public int day;
+        public int CurLanguage;
 
     }
     [System.Serializable]

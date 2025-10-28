@@ -24,6 +24,7 @@ namespace CookCo_opGame
         public List<RecipeData> RecipeDataList { get; private set; }
         public List<int> HasRecipes { get; set; }
         public int Wallet { get; private set; }
+        public int CurLanguage { get; set; }
         public bool Player2 { get; set; }
         public int MaxObjectCount { get;  private set; }
         public int CurrnetObjectCount { get; set; }
@@ -82,6 +83,7 @@ namespace CookCo_opGame
                 Wallet = DataManager.Instance.NowPlayer.Wallet;
                 Aggregate = DataManager.Instance.NowPlayer.Aggregate;
                 HasRecipes = DataManager.Instance.NowPlayer.HasRecipes;
+                CurLanguage = DataManager.Instance.NowPlayer.CurLanguage;
                 if (HasRecipes.Count == 0)
                 {
                     HasRecipes.Add(1);
@@ -107,6 +109,7 @@ namespace CookCo_opGame
                 DataManager.Instance.NowPlayer.Wallet = Wallet;
                 DataManager.Instance.NowPlayer.Aggregate = Aggregate;
                 DataManager.Instance.NowPlayer.HasRecipes = HasRecipes;
+                DataManager.Instance.NowPlayer.CurLanguage = CurLanguage;
 
                 for (int i = 0; i < 12; i++)
                 {

@@ -129,11 +129,11 @@ namespace Gley.Localization.Internal
             {
                 Debug.LogError("Gley Localization is not configured properly. Go to Tools->Gley->Localization for setup");
             }
-            supportedLanguages = Enum.GetValues(typeof(SupportedLanguages)).Cast<SupportedLanguages>().ToList();
+                        supportedLanguages = Enum.GetValues(typeof(SupportedLanguages)).Cast<SupportedLanguages>().ToList();
             int language = LoadLanguage();
-            if (language == -1)
+            if (language == -1 || !Enum.IsDefined(typeof(SupportedLanguages), language) || language == 0)
             {
-                language = (int)GetDeviceLanguage(localizationSettings.defaultLanguage);
+                language = (int)localizationSettings.defaultLanguage;
             }
             SetCurrentLanguage((SupportedLanguages)language);
         }

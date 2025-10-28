@@ -10,5 +10,7 @@ namespace Gley.Localization
 		MoveID = 4,
 		RecipeID = 1,
 		TableID = 2,
+		SaveCheckID = 8,
+		SaveAlertID = 9,
 	}
 }
