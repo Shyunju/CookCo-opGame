@@ -15,7 +15,7 @@ namespace CookCo_opGame
         private PlayerManager _playerManager;
         private Collider _pickUpCollider;
         private Rigidbody _itemRigidbody;
-        private AudioSource _audioSource;
+        //private AudioSource _audioSource;
         private bool _isHandFree = true;
         private float _throwForce = 15f;
 
@@ -31,7 +31,7 @@ namespace CookCo_opGame
         {
             _pickUpCollider = GetComponent<Collider>();
             _playerManager = GetComponentInParent<PlayerManager>();
-            _audioSource = GetComponent<AudioSource>();
+            //_audioSource = GetComponent<AudioSource>();
 
         }
         void OnTriggerEnter(Collider other)
@@ -99,7 +99,7 @@ namespace CookCo_opGame
             // [가드] 테이블이 비어있으면, 아이템을 테이블에 올려놓고 종료
             if (CurTableManager != null && !CurTableManager.IsFull)
             {
-                _audioSource.PlayOneShot(_handEffectSound);
+                //_audioSource.PlayOneShot(_handEffectSound);
                 _itemManager.PutDown();
                 _itemManager.PickedUp(FrontTable);
                 ClearHand();
@@ -149,7 +149,7 @@ namespace CookCo_opGame
             if (toolOnTable.CheckToolState(_itemInHand))
             {
                 toolOnTable.AddIngredient(_itemInHand);
-                _audioSource.PlayOneShot(_handEffectSound);
+                //_audioSource.PlayOneShot(_handEffectSound);
                 ClearHand();
                 return true;
             }
