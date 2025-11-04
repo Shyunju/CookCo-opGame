@@ -17,7 +17,7 @@ namespace CookCo_opGame
         [SerializeField] int _itemID;
         private Collider _itemCollider;
         private Rigidbody _itemRigidbody;
-        float _targetStateBarScale;
+        private float _targetStateBarScale;
         private float _duration;
         private float _elapsed = 0f;
 
@@ -192,9 +192,5 @@ namespace CookCo_opGame
         {
             yield return new WaitForSeconds(5f);
         }
-        
-
-
-
     }
 }

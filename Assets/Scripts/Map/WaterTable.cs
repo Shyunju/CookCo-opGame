@@ -13,6 +13,7 @@ namespace CookCo_opGame
 
         private TableBase _spawnTable;
         private float _washingDuration = 4f;
+        
         public PlayerManager PlayerManager { get; set; }
         public bool HasPlate {get { return _hasPlate; } set { _hasPlate = value;}}
         public GameObject WaterInSink { get { return _waterInSink; } set { _waterInSink = value; } }

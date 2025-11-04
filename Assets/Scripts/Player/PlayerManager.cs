@@ -10,17 +10,15 @@ namespace CookCo_opGame
         [field: SerializeField] public PlayerAnimationData PlayerAnimationData { get; private set; }
 
 
-        public Animator Animator { get; private set; }
+        [SerializeField] private GameObject _playerKnife;
         [SerializeField] float _rayDistance;
-        PlayerHand _playerHand;
-        RaycastHit _hit;
-        //AudioSource _audioSource;
-        string _targetAnimState = "Chef_WorkStation_WokStirFry_Loop";
+        private PlayerHand _playerHand;
+        private RaycastHit _hit;
+        public Animator Animator { get; private set; }
 
         public PlayerStateMachine StateMachine { get; set; }
         public PlayerController PlayerController { get; private set; }
         public PlayerInput PlayerInput { get; private set; }
-        [SerializeField] private GameObject _playerKnife;
         public GameObject PlayerKnife { get{ return _playerKnife; } set { _playerKnife = value;}}
 
 
@@ -29,8 +27,6 @@ namespace CookCo_opGame
         {
             PlayerAnimationData.Initialize();
             Animator = GetComponentInChildren<Animator>();
-            //_audioSource = GetComponent<AudioSource>();
-
             StateMachine = new PlayerStateMachine(this);
         }
         void Start()
@@ -51,15 +47,6 @@ namespace CookCo_opGame
             StateMachine.Update();
 
             var stateInfo = Animator.GetCurrentAnimatorStateInfo(0);
-            // if (stateInfo.IsName(_targetAnimState)) {
-            //     if (!_audioSource.isPlaying) {
-            //         _audioSource.Play();
-            //     }
-            // } else {
-            //     if (_audioSource.isPlaying) {
-            //         _audioSource.Stop();
-            //     }
-            // }
         }
         void FixedUpdate()
         {

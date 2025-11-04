@@ -12,28 +12,22 @@ namespace CookCo_opGame
 
         public override bool CheckToolState(GameObject itemInHand)
         {
-            FoodBase fm = itemInHand.GetComponent<FoodBase>();
-            ToolBase tm = itemInHand.GetComponent<ToolBase>();
-            if (Ingredients.Count < _ingredientsMaxCount)
+            if (Ingredients.Count >= _ingredientsMaxCount)
             {
-                if (fm != null)
-                {
-                    // if (Ingredients.Count == 0)
-                    // {
-                    //     _objectOnPlate.mesh = fm.MeshFilter.mesh;
-
-                    // }
-                    //Ingredients.Add(fm);
-                    
-                    return true;
-                }
-                else if (tm != null && tm.Ingredients.Count > 0)
-                {
-                    InputFromTool(tm);
-                    return false;
-                }
-
+                return false;
             }
+
+            if (itemInHand.TryGetComponent(out FoodBase food))
+            {
+                return true;
+            }
+
+            if (itemInHand.TryGetComponent(out ToolBase tool) && tool.Ingredients.Count > 0)
+            {
+                InputFromTool(tool);
+            }
+
+
             return false;
         }
 

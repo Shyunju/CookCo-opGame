@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 468794580416231711}
-  _canPickUp: 0
   _itemInHand: {fileID: 0}
   _itemManager: {fileID: 0}
   _frontTable: {fileID: 0}
@@ -264,8 +263,8 @@ MonoBehaviour:
     cutParameterName: Cut
     waterParameterName: '@Water'
     washParameterName: Wash
-  _rayDistance: 0
   _playerKnife: {fileID: 4889443309276896758}
+  _rayDistance: 0
 --- !u!208 &1138972092390877959
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -324,31 +323,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.85946566
+      value: 0.8450216
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000000230968
+      value: -0.16999792
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5111936
+      value: 0.4945792
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000039115548
+      value: 0.11149217
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -23.427
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 61.487
+      value: 60.417
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 1.266
       objectReference: {fileID: 0}
     - target: {fileID: 7649275578467174921, guid: 7faf413ddded778418c6fe63a2586002, type: 3}
       propertyPath: m_ConstrainProportionsScale

@@ -9,10 +9,10 @@ namespace CookCo_opGame
         private PlayerMove _playerMove;
         private PlayerHand _playerHand;
         private PlayerManager _playerManager;
-        public abstract void OnEnable();
-        public Vector2 Input { get; private set; } 
         private bool _isRunning = false;
+        public abstract void OnEnable();
         public bool IsCooking{ get; set; }
+        public Vector2 Input { get; private set; } 
 
         void Start()
         {

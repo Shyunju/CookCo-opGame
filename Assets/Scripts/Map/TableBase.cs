@@ -5,15 +5,16 @@ namespace CookCo_opGame
     public abstract class TableBase : MonoBehaviour
     {
         [SerializeField] protected TablePurpose _purpose = TablePurpose.None;
-        public TablePurpose Purpose { get { return _purpose; } }
         [SerializeField] private bool _isFull = false;
-        public bool IsFull { get { return _isFull; } set { _isFull = value; } }
         [SerializeField] private GameObject _currnetItem;
-        public GameObject CurrentItem { get { return _currnetItem; } set { _currnetItem = value; } }
 
         private MeshRenderer _renderer;
         private MaterialPropertyBlock _propBlock;
         private Color _originalColor;
+        
+        public TablePurpose Purpose { get { return _purpose; } }
+        public bool IsFull { get { return _isFull; } set { _isFull = value; } }
+        public GameObject CurrentItem { get { return _currnetItem; } set { _currnetItem = value; } }
         public StealZone StealZone{ get; private set; }
         void Awake()
         {

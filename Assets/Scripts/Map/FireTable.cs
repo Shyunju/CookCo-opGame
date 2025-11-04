@@ -4,8 +4,7 @@ namespace CookCo_opGame
 {
     public class FireTable : TableBase
     {
-        float _burnOutTime = 10f; //요리가 타는 데드라인
-        ToolBase _toolManager;
+        private ToolBase _toolManager;
         void Start()
         {
             _purpose = TablePurpose.Fire;

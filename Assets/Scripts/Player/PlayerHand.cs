@@ -5,7 +5,6 @@ namespace CookCo_opGame
     public class PlayerHand : MonoBehaviour
     {
         [SerializeField] private GameObject _hand;
-        [SerializeField] private bool _canPickUp = false;
         [SerializeField] private GameObject _itemInHand;
         [SerializeField] private ItemBase _itemManager;
         [SerializeField] GameObject _frontTable;
@@ -15,14 +14,11 @@ namespace CookCo_opGame
         private PlayerManager _playerManager;
         private Collider _pickUpCollider;
         private Rigidbody _itemRigidbody;
-        //private AudioSource _audioSource;
         private bool _isHandFree = true;
         private float _throwForce = 15f;
 
         public bool IsHandFree { get { return _isHandFree; } set { _isHandFree = value; } }
-
         public ItemBase ItemManager { get { return _itemManager; } set { _itemManager = value; } }
-
         public GameObject FrontTable { get { return _frontTable; } set { _frontTable = value; } }
         public TableBase CurTableManager { get { return _curTableManager; } set { _curTableManager = value; } }
 
@@ -82,13 +78,11 @@ namespace CookCo_opGame
             return;
         }
 
-        //놓기 (리팩토링된 버전)
+        //놓기
         public void PutDownItem()
         {
-            // [가드] 손에 든 아이템이 없으면 즉시 종료
             if (_itemInHand == null) return;
 
-            // [가드] 앞에 테이블이 없으면, 아이템을 바닥에 내려놓고 종료
             if (FrontTable == null)
             {
                 _itemManager.PutDown();
@@ -96,10 +90,9 @@ namespace CookCo_opGame
                 return;
             }
 
-            // [가드] 테이블이 비어있으면, 아이템을 테이블에 올려놓고 종료
+            //테이블이 비어있으면, 아이템을 테이블에 올려놓고 종료
             if (CurTableManager != null && !CurTableManager.IsFull)
             {
-                //_audioSource.PlayOneShot(_handEffectSound);
                 _itemManager.PutDown();
                 _itemManager.PickedUp(FrontTable);
                 ClearHand();
@@ -149,7 +142,6 @@ namespace CookCo_opGame
             if (toolOnTable.CheckToolState(_itemInHand))
             {
                 toolOnTable.AddIngredient(_itemInHand);
-                //_audioSource.PlayOneShot(_handEffectSound);
                 ClearHand();
                 return true;
             }
@@ -184,7 +176,6 @@ namespace CookCo_opGame
                             cutTable.PlayerManager = _playerManager;
                         _playerManager.PlayerController.IsCooking = true;
                         _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.CutState);
-
                     }
                     if (CurTableManager.Purpose == TablePurpose.Wash) //설거지
                     {
@@ -193,7 +184,6 @@ namespace CookCo_opGame
                             waterTable.PlayerManager = _playerManager;
                         _playerManager.PlayerController.IsCooking = true;
                         _playerManager.StateMachine.ChangeState(_playerManager.StateMachine.WashState);
-
                     }                  
 
                 }

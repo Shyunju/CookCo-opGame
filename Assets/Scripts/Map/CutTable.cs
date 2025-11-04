@@ -7,13 +7,11 @@ namespace CookCo_opGame
     {
         [SerializeField] GameObject _knife;
         private float _cuttingDuration = 3f;
-        AudioSource _audioSource;
 
         public PlayerManager PlayerManager { get; set; }
         void Start()
         {
             _purpose = TablePurpose.Cut;
-            _audioSource = GetComponent<AudioSource>();
         }
         public override bool PerformPurpose()
         {

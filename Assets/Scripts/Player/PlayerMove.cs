@@ -6,15 +6,15 @@ namespace CookCo_opGame
     {
         private PlayerManager _playerManager;
         private Vector3 _moveDirection;
-        public Vector3 MoveDirection { get { return _moveDirection; } set { _moveDirection = value; } }
-        private float _moveSpeed;
-        public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value;}}
-        private float _defaultSpeed = 6f;
-        public float DefaultSpeed { get { return _defaultSpeed; }}
-        private float _dashSpeed = 12f;
-        public float DashSpeed { get { return _dashSpeed; }}
         private Rigidbody _playerRigidBody;
+        private float _moveSpeed;
+        private float _defaultSpeed = 6f;
+        private float _dashSpeed = 12f;
         private float _rotationSpeed = 15f;
+        public Vector3 MoveDirection { get { return _moveDirection; } set { _moveDirection = value; } }
+        public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value;}}
+        public float DefaultSpeed { get { return _defaultSpeed; }}
+        public float DashSpeed { get { return _dashSpeed; }}
         void Start()
         {
             _playerRigidBody = GetComponent<Rigidbody>();

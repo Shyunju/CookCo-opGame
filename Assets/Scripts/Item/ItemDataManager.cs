@@ -6,7 +6,7 @@ namespace CookCo_opGame
     public class ItemDataManager
     {
         private ItemDataList _itemList = new ItemDataList();
-        TextAsset _jsonAsset;
+        private TextAsset _jsonAsset;
 
         public ItemDataManager()
         {
@@ -21,7 +21,7 @@ namespace CookCo_opGame
                 _itemList = JsonUtility.FromJson<ItemDataList>(json);
                 foreach (var item in _itemList.Items)
                 {
-                    //Resources/                  
+                    //Resources 
                     item.IconSprite = Resources.Load<Sprite>(item.IconPath); //경로로 이미지 찾아 로드
                 }
             }
