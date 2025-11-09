@@ -1,6 +1,6 @@
 개발 기간 2025/05/15 ~
 <br>
-7/4  ~ 8 재료 UI표시, 재료 food prefabs 제작, recipe json파일 화 후 연동 <br>  
+7/4  ~ 8 재료 UI표시, 재료 food prefabs 제작 <br>  
 7/ 9 ~ 10 재료 조힙별 food mesh change system <br>
 7/11 ~ 15 도구 burn system 제작<br>
 7/18 ~ 23 make image, sound resources  & order UI <br>
