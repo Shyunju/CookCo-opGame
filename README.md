@@ -20,7 +20,7 @@ json암호화
 - **게임 명: `CookCo-opGame`**
 - **장르**: 코옵, 시뮬레이션
 - **개발 도구**: mac, Unity6, uGUI, Visual Studio Code, git hub, Perplexity(AI), Gemini CLI(AI)
-- **개발 기간**: 2025/05/15 ~ 2025/09/ (이후 버그수정
+- **개발 기간**: 2025/05/15 ~ 2025/10/ (이후 버그수정
 - **출시 플렛폼**: PC
 - **제작**: 기획 - 신현주, programing - 신현주, UI design - 신현주
 <br><br>
