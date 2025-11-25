@@ -112,19 +112,6 @@ namespace CookCo_opGame
                 return;
             }
 
-            // 합이 1000 이상이고, 값 중 8이 포함되어 있으면 taco
-            // if (sum >= 1000 && contains8)
-            // {
-                
-            //     return;
-            // }
-
-            // // 합이 10006 이상이면 burger
-            // if (sum >= 10006)
-            // {
-            //     ChangeMeshInIngredients(5);
-            //     return;
-            // }
             ChangeMeshInIngredients(5);
         }
         public void ChangeMeshInIngredients(int index)

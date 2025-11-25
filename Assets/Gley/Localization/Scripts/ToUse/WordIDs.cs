@@ -6,11 +6,12 @@ namespace Gley.Localization
 		HoldID = 5,
 		HowToDescriptionID = 3,
 		HowToID = 0,
+		InstantiateAlertID = 10,
 		InteractionID = 6,
 		MoveID = 4,
 		RecipeID = 1,
-		TableID = 2,
-		SaveCheckID = 8,
 		SaveAlertID = 9,
+		SaveCheckID = 8,
+		TableID = 2,
 	}
 }

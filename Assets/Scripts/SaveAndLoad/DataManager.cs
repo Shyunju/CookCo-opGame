@@ -25,6 +25,7 @@ namespace CookCo_opGame
             string data = JsonUtility.ToJson(_nowPlayer);
             string encryptedData = EncryptionUtility.Encrypt(data);
             File.WriteAllText(Path + NowSlot.ToString(), encryptedData);
+            //Debug.Log(Path);
         }
 
         public void LoadData()

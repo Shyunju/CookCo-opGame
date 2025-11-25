@@ -113,11 +113,11 @@ namespace CookCo_opGame
                 _currentTable.CurrentItem = this.gameObject;
                 OnTable = true;
 
-                ToolBase tb = this.gameObject.GetComponent<ToolBase>();
-                if (tb != null)
+                ToolBase toolBase = this.gameObject.GetComponent<ToolBase>();
+                if (toolBase != null)
                 {
                     //요리가 가능한지 확인하는 함수 호출 // 그 함수에서 가능하다면 이즈쿠킹으로 바꾸고 듀레이션 주기
-                    tb.StartCooking();
+                    toolBase.StartCooking();
                 }
                 if (_currentTable.Purpose == TablePurpose.Trash) //버리기(리셋)
                 {
@@ -128,7 +128,7 @@ namespace CookCo_opGame
                             trashTable.ChangeState(_currentTable.CurrentItem);
                     }
                 }
-                if(tb == null && _currentTable.Purpose != TablePurpose.Trash) //쥐 호출
+                if(toolBase == null && _currentTable.Purpose != TablePurpose.Trash) //쥐 호출
                 {
                     int percentage = UnityEngine.Random.Range(1, 100);
                     if (percentage % 2 == 0)

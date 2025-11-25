@@ -23,11 +23,11 @@ namespace CookCo_opGame
                     _savefile[i] = true;			// 해당 슬롯 번호의 bool배열 true로 변환
                     DataManager.Instance.NowSlot = i;	// 선택한 슬롯 번호 저장
                     DataManager.Instance.LoadData();	// 해당 슬롯 데이터 불러옴
-                    _slotText[i].text = $"{DataManager.Instance.NowPlayer.Name} \n{DataManager.Instance.NowPlayer.Wallet} Gold \n저장 시각 : {DataManager.Instance.NowPlayer.year} / {DataManager.Instance.NowPlayer.month} / {DataManager.Instance.NowPlayer.day}";	// 버튼에 닉네임 표시
+                    _slotText[i].text = $"{DataManager.Instance.NowPlayer.Name} \n{DataManager.Instance.NowPlayer.Wallet} Gold \nLog : {DataManager.Instance.NowPlayer.year} / {DataManager.Instance.NowPlayer.month} / {DataManager.Instance.NowPlayer.day}";	// 버튼에 닉네임 표시
                 }
                 else
                 {
-                    _slotText[i].text = "비어있음";
+                    _slotText[i].text = "empty";
                 }
             }
             // 불러온 데이터를 초기화시킴.(버튼에 닉네임을 표현하기위함이었기 때문)
