@@ -1,18 +1,6 @@
-개발 기간 2025/05/15 ~
+개발 기간 2025/05/15 ~ 2025/10/28
 <br>
-7/4  ~ 8 재료 UI표시, 재료 food prefabs 제작 <br>
-7/ 9 ~ 10 재료 조힙별 food mesh change system <br>
-7/11 ~ 15 도구 burn system 제작<br>
-7/18 ~ 23 make image, sound resources  & order UI <br>
-7/23 ~ 24 map, level design & add sound system <br> 
-7/25 ~  29 make mouse , add UI <br>
-7/30 ~ 8/7 쥐 아이템 픽업 엔드 뺏기 <br>
-8/8 ~ 26로비씬, 메인씬 데코, 로비 샵 UI & 구매 시스템 구성 <br>
-9/8 ~ 9/23 how to ui, save <br>
-25 ~ 30exit game, setting ui <br>
-sound mixer<br>
-object pool?<br>
-json암호화
+
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=19&height=300&section=header&text=OrderUp&fontSize=90&fontColor=fff76b)
 ## 🎮 게임 소개
 
