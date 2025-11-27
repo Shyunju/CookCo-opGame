@@ -1,4 +1,4 @@
-개발 기간 2025/05/15 ~ 2025/10/28
+
 <br>
 
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=19&height=300&section=header&text=OrderUp&fontSize=90&fontColor=fff76b)
@@ -8,7 +8,7 @@
 - **게임 명: `CookCo-opGame`**
 - **장르**: 코옵, 시뮬레이션
 - **개발 도구**: mac, Unity6, uGUI, Visual Studio Code, git hub, Perplexity(AI), Gemini CLI(AI)
-- **개발 기간**: 2025/05/15 ~ 2025/10/ (이후 버그수정
+- **개발 기간**: 2025/05/15 ~ 2025/10/28 (이후 버그수정, 리팩토링)
 - **출시 플렛폼**: PC
 - **제작**: 기획 - 신현주, programing - 신현주, UI design - 신현주
 <br><br>
@@ -30,3 +30,9 @@
     | V / Left Alt | 잡기, 놓기 |
     | B / Left Ctrl | 상호작용 |
     | N / Left Shift | 대쉬, 던지기 |
+
+- **시연영상:**
+  https://youtu.be/7-zIO4b8m6s
+
+- **스크린샷:**
+
