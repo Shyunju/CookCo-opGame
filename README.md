@@ -33,7 +33,7 @@
     | N / Left Shift | 대쉬, 던지기 |
 
 <br><br>
-## 🎮 Preview
+## ✨ Preview
 - **시연영상 :**
   https://youtu.be/7-zIO4b8m6s
 
