@@ -1,18 +1,18 @@
-개발 기간 2025/05/15 ~ 2025/10/28
+
 <br>
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=19&height=300&section=header&text=OrderUp&fontSize=90&fontColor=fff76b)
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=3&height=300&section=header&text=OrderUp&fontSize=90&fontColor=fff76b)
 ## 🎮 게임 소개
 
 
 - **게임 명: `CookCo-opGame`**
 - **장르**: 코옵, 시뮬레이션
 - **개발 도구**: mac, Unity6, uGUI, Visual Studio Code, git hub, Perplexity(AI), Gemini CLI(AI)
-- **개발 기간**: 2025/05/15 ~ 2025/10/ (이후 버그수정
-- **출시 플렛폼**: PC
+- **개발 기간**: 2025/05/15 ~ 2025/10/28 (이후 버그수정, 리팩토링)
+- **출시 플렛폼**: PC(itch.io)
 - **제작**: 기획 - 신현주, programing - 신현주, UI design - 신현주
 <br><br>
-- **게임 개요:**
+- **게임 개요**
     - one PC two Player 방식의 2인 협동 게임입니다.
     - 정해진 시간동안 요리를 하면서 골드를 벌 수 있습니다.
     - 획득한 골드로 재료와 레시피를 구매하여 한 번의 플레이 동안 더 많은 골드를 벌 수 있습니다.
@@ -21,8 +21,9 @@
     - 쥐가 집으로 돌아갈때까지 음식을 되찾지 못하면 라이프가 감소합니다.
     - 3개의 라이프가 모두 감소되면 그 차례의 요리시간이 남아있어도 종료됩니다.
     - 목표 금액을 획득하는 것이 최종 목표입니다.
+    - 영어, 한국어로 플레이가 가능합니다.
 
- - **조작법:**    
+ - **조작법**    
     | 키 | 수행 기능 |
     | --- | --- |
     | 마우스 | UI 조작 |
@@ -30,3 +31,17 @@
     | V / Left Alt | 잡기, 놓기 |
     | B / Left Ctrl | 상호작용 |
     | N / Left Shift | 대쉬, 던지기 |
+
+<br><br>
+## ✨ Preview
+- **시연영상 :**
+  https://youtu.be/7-zIO4b8m6s
+
+- **스크린샷**
+<img width="490" height="277" alt="Image" src="https://github.com/user-attachments/assets/8b540f29-c659-406f-b8dc-9f98d5449110" />
+<img width="485" height="270" alt="Image" src="https://github.com/user-attachments/assets/3877ae23-5ee3-476f-ad2b-fa1799ee5636" />
+<img width="476" height="267" alt="Image" src="https://github.com/user-attachments/assets/fbf6bb5c-0cd0-43af-a2fb-cae6cbfff87a" />
+<br><br>
+
+- **다운로드 :**
+  https://shyunju.itch.io/orderup
