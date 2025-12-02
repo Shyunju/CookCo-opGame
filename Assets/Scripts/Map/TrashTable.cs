@@ -7,17 +7,17 @@ namespace CookCo_opGame
         public override void ChangeState(GameObject item)
         {
             ItemBase im = item.GetComponent<ItemBase>();
-            ToolBase tm = item.GetComponent<ToolBase>();
+            FireToolBase ftb = item.GetComponent<FireToolBase>();
             PlateTool pt = item.GetComponent<PlateTool>();
             if (pt != null)
             {
                 pt.ObjectOnPlate.mesh = null;
                 pt.EmptyTool();
             }
-            else if (tm != null)
+            else if (ftb != null)
             {
-                GrillTool gt = tm.GetComponent<GrillTool>();
-                BoilTool bt = tm.GetComponent<BoilTool>();
+                GrillTool gt = ftb.GetComponent<GrillTool>();
+                BoilTool bt = ftb.GetComponent<BoilTool>();
                 if (gt != null || bt != null)
                 {
                     if (gt != null)
@@ -30,10 +30,10 @@ namespace CookCo_opGame
                         bt.StopAllCoroutines();
                     }
                 }
-                if (tm.Ingredients.Count > 0)
+                if (ftb.Ingredients.Count > 0)
                 {
-                    tm.EmptyTool();
-                    tm.ResetColor();
+                    ftb.EmptyTool();
+                    ftb.ResetColor();
                 }
                 im.ResetCookingState();
                 im.Elapsed = 0f;

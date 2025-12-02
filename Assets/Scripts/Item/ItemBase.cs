@@ -21,10 +21,6 @@ namespace CookCo_opGame
         private float _duration;
         private float _elapsed = 0f;
 
-        private MeshRenderer[] _renderers;
-        private MaterialPropertyBlock _propBlock;
-        private Color _originalColor;
-
         public GameObject StateUI { get { return _stateUI; } set { _stateUI = value; } }
         public bool IsGrabed { get { return _isGrabed; } set { _isGrabed = value; } }
         public bool OnTable { get { return _onTable; } set { _onTable = value; } }
@@ -38,20 +34,11 @@ namespace CookCo_opGame
 
 
 
-        void Awake()
+        protected void Awake()
         {
             _itemCollider = GetComponent<Collider>();
             _itemRigidbody = GetComponent<Rigidbody>();
             _targetStateBarScale = _stateBar.rectTransform.rect.width;
-
-            _propBlock = new MaterialPropertyBlock();
-
-            _renderers = GetComponentsInChildren<MeshRenderer>();
-
-            // 원래 색상 저장
-            _renderers[0].GetPropertyBlock(_propBlock);
-            // _Color가 없을 수도 있으므로, material의 color 사용
-            _originalColor = _renderers[0].material.color;
         }
         void FixedUpdate()
         {
@@ -165,27 +152,6 @@ namespace CookCo_opGame
             _itemRigidbody.constraints = RigidbodyConstraints.None;
             _itemRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
             _itemCollider.isTrigger = false;
-        }
-
-        public void BurnState()
-        {
-            foreach (var item in _renderers)
-            {
-                item.GetPropertyBlock(_propBlock);
-                _propBlock.SetColor("_BaseColor", Color.black);
-                item.SetPropertyBlock(_propBlock);
-            }
-        }
-
-        public void ResetColor()
-        {
-            foreach (var item in _renderers)
-            {
-                item.GetPropertyBlock(_propBlock);
-                _propBlock.SetColor("_BaseColor", _originalColor);
-                item.SetPropertyBlock(_propBlock);
-                CurrentState = ItemState.None;
-            }
         }
 
         public virtual IEnumerator WarningCo()

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 namespace CookCo_opGame
 {
-    public class GrillTool : ToolBase
+    public class GrillTool : FireToolBase
     {
         [SerializeField] GameObject _grillingFood;
         public GameObject GrillFood { get { return _grillingFood; } set { _grillingFood = value; } }

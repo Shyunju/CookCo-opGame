@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CookCo_opGame
 {
-    public class BoilTool : ToolBase
+    public class BoilTool : FireToolBase
     {
         public override bool CheckToolState(GameObject itemInHand)
         {
