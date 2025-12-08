@@ -38,10 +38,17 @@ namespace CookCo_opGame
         }
         public void InputFromTool(ToolBase tm)
         {
+            if(tm.CurrentState == ItemState.Burn)
+            {
+                return;
+            }
             tm.StopAllCoroutines();
+            tm.WarningUI.SetActive(false);
             GrillTool gt = tm.GetComponent<GrillTool>();
             if (gt != null)
+            {
                 gt.GrillFood.SetActive(false);
+            }
             foreach (var item in tm.Ingredients)
                 {
                     Ingredients.Add(item);

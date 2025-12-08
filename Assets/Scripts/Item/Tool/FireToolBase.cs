@@ -29,6 +29,7 @@ namespace CookCo_opGame
         }
         public void BurnState()
         {
+            CurrentState = ItemState.Burn;
             foreach (var item in _renderers)
             {
                 item.GetPropertyBlock(_propBlock);

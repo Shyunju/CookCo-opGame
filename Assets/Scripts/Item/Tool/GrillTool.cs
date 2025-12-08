@@ -18,7 +18,7 @@ namespace CookCo_opGame
             {
                 PlateTool pt = tm.GetComponent<PlateTool>();
                 pt.InputFromTool(this.GetComponent<ToolBase>());
-                _grillingFood.SetActive(false);
+                //_grillingFood.SetActive(false);
                 return false;
             }
             return false;

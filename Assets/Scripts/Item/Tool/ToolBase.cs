@@ -77,8 +77,5 @@ namespace CookCo_opGame
             CurrentState = ItemState.None;
             Elapsed = 0f;
         }
-        
-        
-
     }
 }
