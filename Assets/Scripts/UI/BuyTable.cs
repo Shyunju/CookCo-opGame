@@ -16,9 +16,12 @@ namespace CookCo_opGame
         {
             _lobbyUIController = GetComponentInParent<LobbyUIController>();
             _button = this.GetComponentInChildren<Button>();
-            if (GameManager.Instance.ShopTables[_shopTableIndex].isBought)
+            if(_shopTableIndex != 100)
             {
-                SoldOut();
+                if (GameManager.Instance.ShopTables[_shopTableIndex].isBought)
+                {
+                    SoldOut();
+                }                
             }
         }
 
@@ -26,10 +29,13 @@ namespace CookCo_opGame
         {
             if (GameManager.Instance.ChangeWalletGold(_price * -1))
             {
-                GameManager.Instance.ShopTables[_shopTableIndex].isBought = true;
                 _lobbyUIController.LoadWallet();
                 _lobbyUIController.UpgradeRecipeSet();
                 SoldOut();
+                if(_shopTableIndex != 100)
+                    GameManager.Instance.ShopTables[_shopTableIndex].isBought = true;
+                else
+                    _lobbyUIController.ChangePannel(3);
             }
             else
             {

@@ -16,9 +16,11 @@ namespace CookCo_opGame
     {
         ItemDataManager _itemDataManager;
         RecipeDataManager _recipeDataManager;
+        [SerializeField] GameObject _finishPanel;
         [SerializeField] SellingTable[] _shopTables;
         
         public SellingTable[] ShopTables { get { return _shopTables; } set { _shopTables = value; } }
+        public GameObject FinishPanel { get { return _finishPanel;} set { _finishPanel = value;}}
         public int Aggregate { get; set; }
         public List<ItemData> ItemDataList { get; private set; }
         public List<RecipeData> RecipeDataList { get; private set; }
