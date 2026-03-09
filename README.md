@@ -36,12 +36,12 @@
 ## ✨ Preview
 - **시연영상 :**
   https://youtu.be/7-zIO4b8m6s
-
+- **다운로드 :**
+  https://shyunju.itch.io/orderup
 - **스크린샷**
 <img width="490" height="277" alt="Image" src="https://github.com/user-attachments/assets/8b540f29-c659-406f-b8dc-9f98d5449110" />
 <img width="485" height="270" alt="Image" src="https://github.com/user-attachments/assets/3877ae23-5ee3-476f-ad2b-fa1799ee5636" />
 <img width="476" height="267" alt="Image" src="https://github.com/user-attachments/assets/fbf6bb5c-0cd0-43af-a2fb-cae6cbfff87a" />
 <br><br>
 
-- **다운로드 :**
-  https://shyunju.itch.io/orderup
+
